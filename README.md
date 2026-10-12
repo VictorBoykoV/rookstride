@@ -60,9 +60,11 @@ Screenshots show the explicitly labeled, offline demo with fictional data. Meet 
 1. Install the APK from a release whose checksum and signing certificate you have verified. Android may ask you to allow installation from your download app.
 2. Choose **Add gateway**. Enter the VPS address, SSH port, administrator name and password or private key. Root or passwordless sudo is required.
 3. Inspect the gateway. Compare the presented SSH fingerprint with your provider console before trusting it. A changed fingerprint stops the connection.
-4. On a fresh Ubuntu 24.04 VPS, choose **Install gateway**, create the first VPN login, and decide whether to enable usage history.
+4. On a fresh Ubuntu 24.04 VPS, choose **Install gateway on fresh VPS**, create the first VPN login, and decide whether to enable usage history.
 5. Keep the VPS reachable while installation completes. The job continues on the VPS if the app disconnects; reconnect to check its status.
-6. Choose **VPN on this phone**, or share a user's profile and provide their VPN password separately.
+6. In **People**, select a login and choose **Use on this phone**, then connect from the gateway screen. Or share a user's profile and provide their VPN password separately.
+
+After connecting, verify website access, the exit IPv4, DNS filtering and absence of an unexpected public IPv6 from the actual device over both Wi-Fi and mobile data. See [app operations](docs/OPERATIONS.md).
 
 Use a disposable VPS to try the alpha. An interrupted installation can leave partial configuration; inspect its root-only log before deciding to rebuild. The fresh-install guard deliberately refuses to overwrite an existing VPN or DNS setup.
 
