@@ -23,7 +23,7 @@ PATHS=tuple(Path(p) for p in (
  '/etc/systemd/system/single-vps-vpn-firewall.service','/etc/systemd/system/adguardhome.service',
  '/etc/systemd/system/rookstride-stats.service','/usr/local/sbin/single-vps-vpn-firewall',
  '/usr/local/sbin/rookstride-admin','/var/lib/AdGuardHome','/opt/AdGuardHome',
- '/opt/rookstride','/var/lib/rookstride'))
+ '/opt/rookstride','/var/lib/rookstride','/run/charon.vici'))
 SERVICES=('rookstride-stats','strongswan-starter','adguardhome','unbound',
           'single-vps-vpn-firewall','single-vps-vpn-dns-address')
 CHAINS=(('iptables','filter','INPUT','SINGLEVPN_INPUT'),

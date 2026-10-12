@@ -1,5 +1,6 @@
 import importlib.util
 import json
+import socket
 import tempfile
 import time
 import unittest
@@ -69,5 +70,17 @@ class ResetTests(unittest.TestCase):
         self.config.unlink();self.config.symlink_to(self.unrelated)
         with self.assertRaises(ValueError):reset.plan()
         self.assertTrue(self.unrelated.exists())
+    def test_closed_unix_socket_is_removed_after_services_stop(self):
+        stale=self.root/'charon.vici'
+        with socket.socket(socket.AF_UNIX,socket.SOCK_STREAM) as listener:
+            listener.bind(str(stale))
+        self.assertTrue(stale.is_socket())
+        with patch.object(reset,'PATHS',(self.marker,self.config,self.state,stale)):
+            p=reset.plan()
+            def run(args,check=True):
+                if 'is-active' in args or '-C' in args:return 1
+                return 0
+            with patch.object(reset,'execute',side_effect=run):reset.apply(self.request(p))
+        self.assertFalse(stale.exists())
 
 if __name__=='__main__':unittest.main()

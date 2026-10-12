@@ -20,10 +20,20 @@ EOF
 chmod 700 /usr/local/sbin/rookstride-admin
 install -m 644 "$package/server/rookstride-stats.service" /etc/systemd/system/
 systemctl daemon-reload
-if [[ ! -S /var/run/charon.vici ]]; then
-  # Installing the VICI plugin requires one daemon restart. This is surfaced by the app.
+management_ready() {
+  # A stale Unix socket file is not evidence of a running VICI listener.
+  (cd /opt/rookstride/server && python3 -c 'from rookstride.vici import Vici; v=Vici(timeout=1); v.request("version"); v.sock.close()') >/dev/null 2>&1
+}
+if ! management_ready; then
+  # A newly installed VICI plugin needs a daemon restart. Enrollment surfaces this.
   systemctl restart strongswan-starter
 fi
+ready=false
+for _ in {1..30}; do
+  if management_ready; then ready=true; break; fi
+  sleep 1
+done
+[[ $ready == true ]] || { echo 'VPN management interface did not become ready.' >&2; exit 1; }
 if [[ ${ROOKSTRIDE_STATS:-false} == true ]]; then
   systemctl enable --now rookstride-stats
 fi

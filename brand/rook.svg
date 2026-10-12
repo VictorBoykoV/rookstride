@@ -1,6 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" role="img" aria-label="Rookstride red rook mascot">
-  <path fill="#ee3038" d="M42 194 68 151 40 103 71 41 121 59 145 28 159 75 211 105 171 123 188 165 153 192 129 158 111 204 91 174 74 204Z"/>
-  <path fill="#141418" d="m76 76 46 20-27 36-34-28zm64 46 26 13-13 28-23-23Z"/>
-  <path fill="#fff" d="m91 84 25 8-13 9-16-7Z"/>
-  <path fill="#ff6b5e" d="m129 66 13-20 10 34Z"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" role="img" aria-label="Rook, the Rookstride bird mark">
+  <path fill="#EE3038" d="M74 70 C57 72 45 88 44 112 C42 145 63 172 96 175 L111 191 L124 171 C145 167 158 152 166 134 L203 118 L173 102 C169 87 158 76 143 71 L156 39 C128 39 114 48 108 65 L89 43 C78 45 71 56 74 70 Z"/>
+  <path fill="#FFFFFF" d="M100 84 C83 84 76 97 78 112 C80 128 96 133 110 124 C117 118 122 115 135 113 C127 93 116 84 100 84 Z"/>
+  <path fill="#141418" d="M117 105 A11 11 0 1 1 95 105 A11 11 0 1 1 117 105 Z"/>
 </svg>

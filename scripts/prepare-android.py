@@ -3,6 +3,7 @@
 import json
 import os
 import html
+import re
 import shutil
 import zipfile
 from pathlib import Path
@@ -34,7 +35,9 @@ gradle=APP/'build.gradle'
 text=gradle.read_text()
 text=text.replace('applicationId "org.strongswan.android"','applicationId "io.rookstride.android"')
 text=text.replace('minSdkVersion 21','minSdkVersion 26')
-text=text.replace('versionCode 96','versionCode 1').replace('versionName "2.6.2"','versionName "0.1.0-alpha1"')
+release=json.loads((ROOT/'release.json').read_text())
+text=re.sub(r'versionCode\s+\d+', 'versionCode '+str(release['code']),text,count=1)
+text=re.sub(r'versionName\s+"[^"]+"', 'versionName "'+release['name']+'"',text,count=1)
 if 'rookstride-overlay' not in text:
     text+='''
 // rookstride-overlay
@@ -73,7 +76,11 @@ if '-DHAVE_SIGWAITINFO' not in native:
     native=native.replace('-DHAVE_PRCTL', '-DHAVE_SIGWAITINFO \\\n\t-DHAVE_PRCTL')
 write_text(nativemk,native)
 appmk=main/'jni/Application.mk'
-write_text(appmk,appmk.read_text().replace('android-21','android-26'))
+application=appmk.read_text().replace('android-21','android-26')
+if '-Wl,-z,common-page-size=16384' not in application:
+    # NDK r27's flexible-page flag sets max-page-size but not RELRO's common-page-size.
+    application+='\n# rookstride: align LOAD and RELRO segments for 16-KiB Android devices.\nAPP_LDFLAGS += -Wl,-z,max-page-size=16384 -Wl,-z,common-page-size=16384\n'
+write_text(appmk,application)
 
 manifest=main/'AndroidManifest.xml'
 text=manifest.read_text().replace('@mipmap/ic_launcher','@drawable/rook_icon')

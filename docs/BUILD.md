@@ -38,6 +38,19 @@ bash scripts/build-android.sh assembleRelease
 
 Verify with Android SDK `apksigner verify --verbose --print-certs`. Publish the APK's SHA-256, signing certificate fingerprint and exact source revision. Updates must use the same signing key. Losing the key prevents seamless updates. The alpha build includes arm64-v8a, armeabi-v7a and x86_64; publishing architecture-specific APKs can reduce download size.
 
+`release.json` is the version-name/version-code source for both APK preparation and source packaging. Increment the code for updates. Alpha2 retains alpha1's signing certificate.
+
+With JDK 17 available, audit the actual release:
+
+```sh
+python3 scripts/verify-apk.py \
+  .tools/strongswan-source/src/frontends/android/app/build/outputs/apk/release/app-release.apk
+```
+
+The checker verifies the signature, version, non-debuggable manifest, ZIP alignment, native LOAD/RELRO alignment across three ABIs, and exact embedded installer/guide contents. `--sdk`, `--ndk` and `--build-tools` accept alternate installed tool locations. Compare its signer fingerprint with your trusted release fingerprint; a valid signature alone does not establish the publisher's identity.
+
+For NDK r27, preparation adds both `max-page-size=16384` and `common-page-size=16384` to the native linker flags, following [Android's 16-KiB guidance](https://developer.android.com/guide/practices/page-sizes). Static alignment checks do not replace testing on a 16-KiB runtime/device.
+
 ## Tests
 
 ```sh
@@ -47,6 +60,8 @@ bash scripts/build-android.sh testDebugUnitTest connectedDebugAndroidTest
 ```
 
 The connected test command needs an Android emulator or authorized test phone. Do not put real VPS credentials into tests or screenshots. Keep integration configuration in ignored private files.
+
+The release-cycle procedure and independent server/client checks are described in [TESTING.md](TESTING.md). Connected debug tests exercise a debug app; testing a non-debuggable signed release requires an instrumentation APK signed with the same key. The recorded alpha2 cycles used that release configuration.
 
 ## Corresponding source
 

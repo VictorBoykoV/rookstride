@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="340" viewBox="0 0 1200 340" role="img" aria-labelledby="title desc">
+<title id="title">Rookstride — Your gateway. Keep moving.</title><desc id="desc">An original red bird mascot beside the Rookstride wordmark, with Deploy, Connect and Manage labels.</desc>
+<rect width="1200" height="340" rx="28" fill="#141418"/>
+<path d="M960 0V85Q960 140 1015 140H1200M1080 340V240Q1080 210 1110 210H1200" fill="none" stroke="#29292f" stroke-width="2"/>
+<circle cx="960" cy="84" r="7" fill="#ee3038"/>
+<rect x="42" y="42" width="258" height="256" rx="48" fill="#1e1e25"/>
+<g transform="translate(42 42)"><path fill="#EE3038" d="M74 70 C57 72 45 88 44 112 C42 145 63 172 96 175 L111 191 L124 171 C145 167 158 152 166 134 L203 118 L173 102 C169 87 158 76 143 71 L156 39 C128 39 114 48 108 65 L89 43 C78 45 71 56 74 70 Z"/>
+<path fill="#FFFFFF" d="M100 84 C83 84 76 97 78 112 C80 128 96 133 110 124 C117 118 122 115 135 113 C127 93 116 84 100 84 Z"/>
+<path fill="#141418" d="M117 105 A11 11 0 1 1 95 105 A11 11 0 1 1 117 105 Z"/></g>
+<g font-family="Arial, Helvetica, sans-serif">
+<text x="345" y="71" fill="#f27077" font-size="13" font-weight="700" letter-spacing="3">YOUR VPS. YOUR WAY.</text>
+<text x="339" y="161" fill="#fff" font-size="84" font-weight="700" letter-spacing="-4">rookstride</text>
+<text x="345" y="211" fill="#c5c5cf" font-size="27">Your gateway. Keep moving.</text>
+<g fill="#22222a" stroke="#41414c"><rect x="345" y="247" width="136" height="42" rx="21"/><rect x="495" y="247" width="149" height="42" rx="21"/><rect x="658" y="247" width="149" height="42" rx="21"/></g>
+<g fill="#fff" font-size="12" font-weight="700" letter-spacing="2" text-anchor="middle"><text x="413" y="273">DEPLOY</text><text x="570" y="273">CONNECT</text><text x="733" y="273">MANAGE</text></g>
+</g></svg>
