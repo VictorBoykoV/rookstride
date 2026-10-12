@@ -1,0 +1,50 @@
+# Pinned to AdGuard Home v0.107.79; change only while the service is stopped.
+http:
+  address: __DNS_IP__:3000
+  session_ttl: 30d
+users:
+  - name: admin
+    password: '__ADMIN_HASH__'
+auth_attempts: 5
+block_auth_min: 15
+language: en
+dns:
+  bind_hosts:
+    - __DNS_IP__
+  port: 53
+  upstream_dns:
+    - 127.0.0.1:5353
+  bootstrap_dns: []
+  fallback_dns: []
+  allowed_clients:
+    - __CLIENT_POOL__
+    - __DNS_IP__/32
+  use_private_ptr_resolvers: false
+  edns_client_subnet:
+    enabled: false
+    use_custom: false
+  serve_plain_dns: true
+  enable_dnssec: true
+  aaaa_disabled: true
+querylog:
+  enabled: false
+  file_enabled: false
+statistics:
+  enabled: true
+  interval: 1d
+filters:
+  - enabled: true
+    url: https://adguardteam.github.io/HostlistsRegistry/assets/filter_1.txt
+    name: AdGuard DNS filter
+    id: 1
+filtering:
+  protection_enabled: true
+  filtering_enabled: true
+  blocking_mode: null_ip
+  filters_update_interval: 24
+  blocked_response_ttl: 10
+dhcp:
+  enabled: false
+tls:
+  enabled: false
+schema_version: 34

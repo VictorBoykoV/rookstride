@@ -1,0 +1,24 @@
+[Unit]
+Description=AdGuard Home DNS filtering for VPN clients
+After=network-online.target unbound.service single-vps-vpn-dns-address.service
+Requires=unbound.service single-vps-vpn-dns-address.service
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=adguard
+Group=adguard
+WorkingDirectory=/var/lib/AdGuardHome
+ExecStart=/opt/AdGuardHome/AdGuardHome -c /var/lib/AdGuardHome/AdGuardHome.yaml -w /var/lib/AdGuardHome/work --no-check-update
+AmbientCapabilities=CAP_NET_BIND_SERVICE
+CapabilityBoundingSet=CAP_NET_BIND_SERVICE
+NoNewPrivileges=true
+ProtectSystem=strict
+ReadWritePaths=/var/lib/AdGuardHome
+ProtectHome=true
+PrivateTmp=true
+Restart=on-failure
+RestartSec=2
+
+[Install]
+WantedBy=multi-user.target

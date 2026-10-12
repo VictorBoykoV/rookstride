@@ -1,0 +1,29 @@
+[Unit]
+Description=Rookstride VPN traffic accounting
+After=strongswan-starter.service
+Wants=strongswan-starter.service
+
+[Service]
+ExecStart=/usr/bin/python3 -m rookstride.collector
+WorkingDirectory=/opt/rookstride/server
+Environment=PYTHONDONTWRITEBYTECODE=1
+Restart=on-failure
+RestartSec=5
+UMask=0077
+StateDirectory=rookstride
+StateDirectoryMode=0700
+MemoryMax=64M
+CPUQuota=5%
+Nice=10
+NoNewPrivileges=true
+ProtectSystem=strict
+ProtectHome=true
+PrivateTmp=true
+RestrictAddressFamilies=AF_UNIX
+ProtectKernelTunables=true
+ProtectKernelModules=true
+ProtectControlGroups=true
+CapabilityBoundingSet=
+
+[Install]
+WantedBy=multi-user.target

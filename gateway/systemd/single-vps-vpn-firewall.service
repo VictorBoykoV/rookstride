@@ -1,0 +1,12 @@
+[Unit]
+Description=Single VPS VPN client forwarding and IPv6 sink
+After=network-online.target strongswan-starter.service
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/usr/local/sbin/single-vps-vpn-firewall
+
+[Install]
+WantedBy=multi-user.target

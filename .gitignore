@@ -1,0 +1,15 @@
+.tools/
+.build/
+local.properties
+*.keystore
+*.jks
+*.sswan
+*.mobileconfig
+*.pem
+*.key
+*.db*
+*.log
+__pycache__/
+*.pyc
+.DS_Store
+

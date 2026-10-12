@@ -1,0 +1,48 @@
+#!/usr/bin/env bash
+set -Eeuo pipefail
+source /etc/single-vps-vpn/network.env
+: "${UPLINK:?}" "${CLIENT_POOL:?}" "${IPV6_SINK_POOL:?}"
+: "${DNS_IP:?}"
+
+ensure_jump() {
+  local tool="$1" table="$2" parent="$3" target="$4"
+  "$tool" -t "$table" -C "$parent" -j "$target" 2>/dev/null ||
+    "$tool" -t "$table" -I "$parent" 1 -j "$target"
+}
+
+iptables -N SINGLEVPN_INPUT 2>/dev/null || true
+iptables -F SINGLEVPN_INPUT
+iptables -A SINGLEVPN_INPUT -p udp -m multiport --dports 500,4500 -j ACCEPT
+iptables -A SINGLEVPN_INPUT -p esp -j ACCEPT
+for protocol in tcp udp; do
+  iptables -A SINGLEVPN_INPUT -s "$CLIENT_POOL" -d "$DNS_IP" -p "$protocol" --dport 53 \
+    -m policy --dir in --pol ipsec --proto esp -j ACCEPT
+done
+iptables -A SINGLEVPN_INPUT -s "$CLIENT_POOL" -d "$DNS_IP" -p tcp --dport 3000 \
+  -m policy --dir in --pol ipsec --proto esp -j ACCEPT
+ensure_jump iptables filter INPUT SINGLEVPN_INPUT
+
+iptables -N SINGLEVPN_FWD 2>/dev/null || true
+iptables -F SINGLEVPN_FWD
+iptables -A SINGLEVPN_FWD -s "$CLIENT_POOL" -o "$UPLINK" \
+  -m policy --dir in --pol ipsec --proto esp -j ACCEPT
+iptables -A SINGLEVPN_FWD -d "$CLIENT_POOL" \
+  -m policy --dir out --pol ipsec --proto esp \
+  -m conntrack --ctstate RELATED,ESTABLISHED -j ACCEPT
+iptables -A SINGLEVPN_FWD -s "$CLIENT_POOL" -j REJECT
+iptables -A SINGLEVPN_FWD -d "$CLIENT_POOL" -j REJECT
+ensure_jump iptables filter FORWARD SINGLEVPN_FWD
+
+iptables -t nat -N SINGLEVPN_NAT 2>/dev/null || true
+iptables -t nat -F SINGLEVPN_NAT
+iptables -t nat -A SINGLEVPN_NAT -s "$CLIENT_POOL" -o "$UPLINK" \
+  -m policy --dir out --pol none -j MASQUERADE
+ensure_jump iptables nat POSTROUTING SINGLEVPN_NAT
+
+ip6tables -N SINGLEVPN_V6_SINK 2>/dev/null || true
+ip6tables -F SINGLEVPN_V6_SINK
+ip6tables -A SINGLEVPN_V6_SINK -s "$IPV6_SINK_POOL" \
+  -m policy --dir in --pol ipsec --proto esp \
+  -j REJECT --reject-with icmp6-adm-prohibited
+ip6tables -A SINGLEVPN_V6_SINK -s "$IPV6_SINK_POOL" -j REJECT --reject-with icmp6-adm-prohibited
+ensure_jump ip6tables filter FORWARD SINGLEVPN_V6_SINK

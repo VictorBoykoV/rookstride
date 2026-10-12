@@ -1,0 +1,7 @@
+Source: https://github.com/VictorBoykoV/single-vps-vpn-gateway
+Commit: d2755cf919c9a03020eefd24ea7c70939dfffd09
+Original components retain the MIT license in LICENSE.
+
+Local patch: verified AdGuard archive extraction tolerates ./ member prefixes.
+Local patch: readiness checks consume complete output under pipefail and wait for loaded connections and DNS.
+Upstream fixes: https://github.com/VictorBoykoV/single-vps-vpn-gateway/pull/1
