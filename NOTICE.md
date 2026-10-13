@@ -16,3 +16,5 @@ Additional Java dependencies:
 The bundled gateway scripts derive from `VictorBoykoV/single-vps-vpn-gateway`, revision recorded in `gateway/UPSTREAM`, and retain the MIT license in `gateway/LICENSE`. AdGuard Home is installed separately on the VPS from its official release, licensed GPL-3.0; Unbound and Ubuntu packages retain their own licenses. The APK does not bundle those server binaries.
 
 StrongSwan, AdGuard, Android, OnePlus and Amnezia are names belonging to their respective projects/owners. Rookstride is an independent project. No vendor logo, slogan or proprietary UI artwork is included.
+
+The two-hop server adapter bundles MIT-licensed Two-Hop VPN Gateway scripts. Origin, reviewed base commit and file digests are in twohop/SOURCE.json; its license is retained in twohop/LICENSE. The original Rookstride coordinator/server job code remains GPL-3.0-or-later.

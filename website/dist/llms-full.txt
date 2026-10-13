@@ -1,0 +1,40 @@
+# Rookstride project reference
+Updated: 2026-10-13. Release: 0.1.0-alpha2 (early alpha).
+Source: https://github.com/VictorBoykoV/rookstride
+Gateway: https://github.com/VictorBoykoV/single-vps-vpn-gateway
+Release: https://github.com/VictorBoykoV/rookstride/releases/tag/v0.1.0-alpha2
+
+Rookstride is an independent Android administration and VPN app. It installs a self-hosted single-VPS IKEv2 gateway over pinned SSH, manages users and sessions, optionally collects usage estimates, selects DNS filter presets and embeds strongSwan for the administrator’s connection. Invited users can use the official strongSwan Android app.
+
+Requirements: Android 8 / API 26 or later. Fresh Ubuntu 24.04, public IPv4, reachable administrator SSH, root or passwordless sudo. x86_64 and aarch64 server installation supported; live cycles used x86_64. Inbound UDP 500/4500 and SSH required. The phone must be online and the VPS downloads packages. No hosted control plane, telemetry service or cloud account is added.
+
+Installation: Download and verify the signed APK. Add gateway. Independently compare the SSH fingerprint, then pin it. Choose Install gateway on fresh VPS. Create the first VPN login and choose optional history. The detached server job continues if the phone disconnects; VPS reboot can interrupt it. Inspect partial failures instead of forcing a rerun. The installer rejects an existing VPN/DNS setup.
+
+Connection: In People choose a login, then Use on this phone, enter the VPN password and approve Android VPN/background prompts. Connect from the gateway screen. For another user choose Share StrongSwan profile, send the password separately and have them import the .sswan file into official strongSwan. Profiles contain server certificate and login, not VPN password or root access. A reset creates new certificates; export new profiles.
+
+Infrastructure: strongSwan IKEv2/EAP-MSCHAPv2 forwards IPv4. Private AdGuard Home applies DNS lists; Unbound recursively resolves allowed names. Helper is root-only over SSH. VICI is a local Unix socket; there is no public management API. The dashboard defaults to http://10.254.0.1:3000 inside the VPN. Its separate login is stored at /root/single-vps-vpn/adguard-login.txt on the administrator’s VPS.
+
+Routing boundaries: MTU 1280, full IPv4/IPv6 traffic selectors and active outside-tunnel blocking. IPv6 Internet egress is unavailable; the server sinks IPv6 and suppresses AAAA answers. Rookstride’s own administration/certificate-fetch traffic is exempt, other apps use the tunnel. Always-on / Block connections without VPN is a separate Android setting; test it on physical hardware. VPNs do not hide GPS, account, cookie or fingerprint signals and cannot guarantee access to sites that reject datacenter IPs.
+
+DNS filtering: Standard = AdGuard DNS filter. Strong = HaGeZi Pro. Strict = HaGeZi Pro++. More aggressive filters can break needed domains; return to Standard or allow them privately in AdGuard. DNS cannot reliably remove YouTube in-video ads or ads from content domains. Apps with their own encrypted DNS may bypass filtering.
+
+Accounts: Shared logins may connect on several devices and aggregate totals. Separate EAP device logins support individual revocation and totals but are not bound to physical hardware. Endpoint IPs and labels do not identify a router or device. Disconnect permits automatic reconnection. Revoke removes credentials and attempts to close sessions.
+
+History: Optional local Python+SQLite collector, 30-second samples plus disconnect/rekey events. 64 MiB MemoryMax and 5% CPUQuota are service guards, not a capacity guarantee. UTC-month payload estimates begin at enrollment, exclude transport overhead, expose gaps and are not billing. A short single-client sample is not sustained-load evidence. Inactive detail expires at 30 days, capped 10,000 rows; daily totals retain 400 days.
+
+Reset: Review recognized data/services, then type DELETE VPN. The token lasts five minutes. Gateway accounts/certificates, managed DNS data, firewall rules and history are permanently removed. Ubuntu, SSH, unrelated files and package binaries remain. Unknown configs, extra VPNs, symlinks, changed plans and active jobs reject reset. Full OS rebuild is a provider operation.
+
+Tests: On 13 October 2026 the same signed non-debuggable alpha2 APK passed three consecutive reset/reinstall/real-IKEv2 cycles in Android 16/API36, Android9/API28 and Android8/API26 emulators. Independent server audits verified private DNS/dashboard, services, filtering, certificates, firewall and temporary secret removal. A separate application UID checked HTTPS exit IPv4, ad DNS and a failed literal IPv6 probe. Emulator underlay did not prove real IPv6-mobile behavior. Cycle1 purged packages and injected stale VICI socket. Cycle2 upgraded signed alpha1. Cycle3 upgraded and rebooted VPS. 25 Python and86 AndroidJVM tests passed. Physical Rookstride devices, permissions/OEM behavior, network handoff, sustained load/1GB capacity and native16KiB runtime remain gates. Official strongSwan profile phone success is not a Rookstride physical-APK pass.
+
+APK: https://github.com/VictorBoykoV/rookstride/releases/download/v0.1.0-alpha2/rookstride-0.1.0-alpha2.apk
+APK SHA256: 87b06a1e2fbd54d4bd6cdd9c99ea8abf65f72732c7cc8406b1768e80066e028d
+Signing certificate SHA256: 751386cf7143ba92c88084a0b26dfeac86128b2fe0d5277821ee4c67a92ae7ba
+Source: https://github.com/VictorBoykoV/rookstride/releases/download/v0.1.0-alpha2/rookstride-0.1.0-alpha2-source.tar.gz
+Source SHA256: d76b5c86ebb8f65c218d20aaeb2fa6078274b661f44f74f7bd12b90259831e3a
+Exact source commit: 4522a2211a898ae9544b8846a55c18be41787daf
+
+Licenses: Original administration, website and brand GPL-3.0-or-later. Embedded strongSwan retains GPL-2.0-or-later notices; combined app under GPL3+. Gateway scripts MIT. No affiliation with strongSwan, AdGuard, OnePlus or Amnezia.
+
+Routes: Local experimental 0.2.0-alpha1 implements IKEv2 entry to AmneziaWG 3.1 exit, coordinated over independently pinned SSH. Not available in alpha2. Other client engines (AWG/WireGuard/OpenVPN/Xray) require separate implementation and testing. Deployment, export and integrated connection are separate capabilities. The adapter has independent SSH ports/users, durable jobs and a persistent failure guard. See /docs/pair-mode.md and /docs/pair-testing.md for implemented capabilities and exact local test limits. The same signed build completed three fresh local pair cycles, with the third requiring documented retries. Android 16 pair testing is incomplete. No independent-provider or physical-device pair is certified. Research at /routes/ and /docs/universal-gateway-research.md.
+
+Rook: Original red bird mascot. Fictional Lantern Harbor, brass lantern, folded map, dark scarf, cream satchel. Motto: A good route leaves the next traveler a choice. Five complete illustrated stories: The borrowed light, The noisy market, The bridge that waited, The two bridges, The right material. Reader views: panel, page (default), whole chapter. Fiction is not a product guarantee; original AI-generated illustrations. Full accessible story at /journal/text/.

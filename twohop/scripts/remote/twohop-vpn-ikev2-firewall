@@ -1,0 +1,76 @@
+#!/usr/bin/env bash
+set -Eeuo pipefail
+
+ENV_FILE=/etc/twohop-vpn/ikev2.env
+[[ -r "$ENV_FILE" ]] || { echo "Missing $ENV_FILE" >&2; exit 1; }
+# shellcheck disable=SC1090
+source "$ENV_FILE"
+
+: "${UPLINK_INTERFACE:?}"
+: "${CLIENT_POOL:?}"
+: "${IPV6_SINK_POOL:?}"
+ALT_IKE_PORT="${ALT_IKE_PORT:-}"
+if [[ -n "$ALT_IKE_PORT" ]]; then
+  [[ "$ALT_IKE_PORT" =~ ^[1-9][0-9]{0,4}$ ]] \
+    && (( ALT_IKE_PORT <= 65535 )) \
+    && [[ "$ALT_IKE_PORT" != 500 && "$ALT_IKE_PORT" != 4500 ]] \
+    || { echo "Invalid ALT_IKE_PORT." >&2; exit 1; }
+fi
+
+ensure_insert() {
+  local command="$1" table="$2" chain="$3"
+  shift 3
+  "$command" -t "$table" -C "$chain" "$@" >/dev/null 2>&1 \
+    || "$command" -t "$table" -I "$chain" 1 "$@"
+}
+
+delete_all() {
+  local command="$1" table="$2" chain="$3"
+  shift 3
+  while "$command" -t "$table" -C "$chain" "$@" >/dev/null 2>&1; do
+    "$command" -t "$table" -D "$chain" "$@"
+  done
+}
+
+apply_rules() {
+  iptables -N TWOHOP_IKEV2_INPUT 2>/dev/null || true
+  iptables -F TWOHOP_IKEV2_INPUT
+  iptables -A TWOHOP_IKEV2_INPUT -p udp -m multiport --dports 500,4500 -j ACCEPT
+  iptables -A TWOHOP_IKEV2_INPUT -p esp -j ACCEPT
+  delete_all iptables filter INPUT -j TWOHOP_IKEV2_INPUT
+  ensure_insert iptables filter INPUT -j TWOHOP_IKEV2_INPUT
+
+  # Custom client ports need NAT-T handling and a non-ESP marker. Redirect
+  # the optional port to strongSwan's existing UDP 4500 NAT-T listener.
+  iptables -t nat -N TWOHOP_IKEV2_ALT 2>/dev/null || true
+  iptables -t nat -F TWOHOP_IKEV2_ALT
+  delete_all iptables nat PREROUTING -j TWOHOP_IKEV2_ALT
+  if [[ -n "$ALT_IKE_PORT" ]]; then
+    iptables -t nat -A TWOHOP_IKEV2_ALT -p udp --dport "$ALT_IKE_PORT" -j REDIRECT --to-ports 4500
+    ensure_insert iptables nat PREROUTING -j TWOHOP_IKEV2_ALT
+  fi
+
+  iptables -N TWOHOP_IKEV2_FWD 2>/dev/null || true
+  iptables -F TWOHOP_IKEV2_FWD
+  iptables -A TWOHOP_IKEV2_FWD -s "$CLIENT_POOL" -m policy --dir in --pol ipsec --proto esp -o "$UPLINK_INTERFACE" -j ACCEPT
+  iptables -A TWOHOP_IKEV2_FWD -d "$CLIENT_POOL" -m policy --dir out --pol ipsec --proto esp -m conntrack --ctstate RELATED,ESTABLISHED -j ACCEPT
+  delete_all iptables filter FORWARD -j TWOHOP_IKEV2_FWD
+  ensure_insert iptables filter FORWARD -j TWOHOP_IKEV2_FWD
+
+  iptables -t nat -N TWOHOP_IKEV2_NAT 2>/dev/null || true
+  iptables -t nat -F TWOHOP_IKEV2_NAT
+  iptables -t nat -A TWOHOP_IKEV2_NAT -s "$CLIENT_POOL" -o "$UPLINK_INTERFACE" -m policy --dir out --pol none -j MASQUERADE
+  delete_all iptables nat POSTROUTING -j TWOHOP_IKEV2_NAT
+  ensure_insert iptables nat POSTROUTING -j TWOHOP_IKEV2_NAT
+
+  ip6tables -N TWOHOP_IKEV2_V6_SINK 2>/dev/null || true
+  ip6tables -F TWOHOP_IKEV2_V6_SINK
+  ip6tables -A TWOHOP_IKEV2_V6_SINK -s "$IPV6_SINK_POOL" -m policy --dir in --pol ipsec --proto esp -j REJECT --reject-with icmp6-adm-prohibited
+  delete_all ip6tables filter FORWARD -j TWOHOP_IKEV2_V6_SINK
+  ensure_insert ip6tables filter FORWARD -j TWOHOP_IKEV2_V6_SINK
+}
+
+case "${1:-apply}" in
+  apply) apply_rules ;;
+  *) echo "Usage: $0 apply" >&2; exit 2 ;;
+esac

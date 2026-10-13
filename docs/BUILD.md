@@ -68,3 +68,9 @@ The release-cycle procedure and independent server/client checks are described i
 A binary release must include the exact Rookstride source plus the three verified upstream source archives used by the build, build scripts, instructions and notices. `scripts/source-bundle.py` creates this archive without toolchains, credentials, compiled files or signing material. This package is sufficient to reapply the overlay and rebuild with the documented toolchain. A reproducible recipe is provided; bit-identical output across hosts has not been established.
 
 Use the same pinned sources when reproducing a release. Updating strongSwan or OpenSSL requires rebuilding all crypto ABIs, reviewing the overlay patch points, and rerunning server, emulator and VPN integration gates.
+
+## Two-server experimental build
+
+The `0.2.0-alpha1` bundle includes `server`, the MIT `twohop` snapshot and the single-server `gateway` snapshot. The APK contains a SHA-256 installer identity calculated in canonical POSIX lexical path order within those three folders. The Java coordinator and Python helper must agree before an owned pair can resume. `verify-apk.py` checks the embedded files and identity; JVM tests compare the actual generated bundle as well as fixtures.
+
+The signed instrumentation APK must match the release signing certificate. `PairIntegrationTest` is opt-in and requires two disposable Ubuntu 24.04 nodes with independently verified host keys. See [PAIR-TESTING.md](PAIR-TESTING.md) for the complete test scope and incomplete compatibility gates. Never include deployment fixtures, private logs or signing keys in a source archive.

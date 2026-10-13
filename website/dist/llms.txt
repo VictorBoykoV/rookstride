@@ -1,0 +1,27 @@
+# Rookstride
+
+> An independent, open-source Android app for deploying and managing a single-VPS strongSwan IKEv2 VPN with AdGuard Home and Unbound. Your VPS. Your way.
+
+Early alpha: 0.1.0-alpha2, updated 2026-10-13. Android 8+; fresh Ubuntu 24.04 VPS. Phone network access and administrator SSH are required. No cloud account or public management API.
+
+## Practical documentation
+- [Setup and connection](/start/): Administrator installation and invited strongSwan users; key verification, filtering, troubleshooting and reset.
+- [Routes](/routes/): Implemented experimental IKEv2 → AmneziaWG pair with its own guide/evidence; not in the alpha2 APK. Additional engines remain proposals.
+- [Full research](/docs/universal-gateway-research.md): Source audit, compatibility, recovery and acceptance gates.
+- [Infrastructure](/architecture/): VPN, private DNS, pinned SSH and optional local usage estimates.
+- [Download and exact test status](/download/): Signed APK, source, checksums and remaining gates.
+- [Open source and privacy](/open-source/): Repositories, licenses, contribution and original brand.
+- [Expanded project reference](/llms-full.txt): Plain-text facts and limitations.
+
+## Release evidence
+- [Route research manifest](/data/routes.json): Released single-server capabilities, experimental pair capabilities and proposed additional engines.
+- [Release manifest](/data/release.json): Machine-readable exact artifacts and identity.
+- [Sanitized test results](/data/alpha2-tests.json): Three signed-APK emulator/VPS reset-and-reinstall cycles.
+- [Source repository](https://github.com/VictorBoykoV/rookstride): Authoritative implementation and build documentation.
+- [Gateway repository](https://github.com/VictorBoykoV/single-vps-vpn-gateway): Server template and CLI deployment.
+
+## Original fiction
+- [Rook’s illustrated journal](/journal/): Five original comic chapters with panel, page and whole-chapter modes and animated page turns.
+- [Complete text edition](/journal/text/): Every scene and dialogue line, accessible without scripts.
+
+Important boundaries: IPv4 exit only; IPv6 is intentionally sunk. Rookstride’s own administration traffic is exempt. Android lockdown while disconnected is a separate OS setting. DNS filtering cannot reliably remove YouTube in-video ads. Per-device EAP logins are not hardware-bound. Usage totals are estimates, not billing. Reset deletes recognized gateway data, not Ubuntu or unrelated files. No guaranteed anonymity, website access or location change.

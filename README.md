@@ -22,6 +22,7 @@
   <a href="#quick-start">Quick start</a> ·
   <a href="docs/OPERATIONS.md">App guide</a> ·
   <a href="docs/ARCHITECTURE.md">Architecture</a> ·
+  <a href="docs/UNIVERSAL-GATEWAY-RESEARCH.md">Future routes</a> ·
   <a href="#vpn-and-filtering-behavior">Ad blocking</a> ·
   <a href="docs/TESTING.md">Tests</a> ·
   <a href="docs/BUILD.md">Build</a> ·
@@ -39,6 +40,7 @@ An Android app for deploying and managing a personal IKEv2 VPN on your own VPS. 
 
 | Capability | In the app |
 |---|---|
+| Two servers | Experimental IKEv2 → AWG 3.1 recipe; two fresh Ubuntu nodes, exit-side DNS, staged activation. |
 | Deploy | Install strongSwan IKEv2/EAP-MSCHAPv2, AdGuard Home and Unbound over pinned SSH. |
 | Connect | Use the embedded strongSwan engine on the administrator's phone. |
 | Share | Export password-free `.sswan` profiles for other Android users. |
@@ -124,3 +126,11 @@ The optional collector samples every 30 seconds and consumes disconnect/rekey ev
 - [Third-party licenses](NOTICE.md)
 
 The original Android administration code and branding are GPL-3.0-or-later. The embedded strongSwan code retains its upstream GPL-2.0-or-later notices; the combined app is distributed under GPL version 3 or later. Gateway scripts retain their MIT license. No affiliation with strongSwan, AdGuard, OnePlus or Amnezia is implied.
+
+## Two-server gateway · experimental
+
+The `0.2.0-alpha1` source implements **IKEv2 entry → AmneziaWG 3.1 exit** with independently pinned SSH, detached recoverable jobs, exit-side AdGuard Home and staged activation. Choose **Add a two-server gateway** in the experimental app. See the [pair guide](docs/PAIR-MODE.md) and [exact pair tests](docs/PAIR-TESTING.md).
+
+The published alpha2 binary still supports a single VPS. The experimental pair is tested on isolated local Ubuntu machines; a route between independent VPS providers and physical-device behavior require their own verification. Pair upgrade/reset is not included. Other engines in the [research note](docs/UNIVERSAL-GATEWAY-RESEARCH.md) remain proposals.
+
+The local [website source](website/README.md) includes practical documentation, the research proposal, and five original Rook stories with panel/page/chapter views. Website hosting remains a separate step. [Mark revision notes](brand/DESIGN.md) distinguish the new source icon from the already published APK.

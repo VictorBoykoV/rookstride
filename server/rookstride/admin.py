@@ -157,8 +157,14 @@ def profile(req):
     cert=ssl.PEM_cert_to_DER_cert((Path('/etc/ipsec.d/certs')/certmatch.group(1)).read_text())
     mtu=req.get('mtu',1280)
     if not isinstance(mtu,int) or not 1280<=mtu<=1500: raise ValueError('MTU must be 1280–1500')
+    remote={'addr':identity,'id':identity,'cert':base64.b64encode(cert).decode(),'certreq':False}
+    pair=Path('/etc/rookstride-pair/manifest.json')
+    if pair.exists():
+        pair_plan=json.loads(pair.read_text())['plan']
+        if pair_plan['role']!='entry':raise ValueError('Export profiles from the entry node')
+        if pair_plan.get('vpn_port',500)!=500:remote['port']=pair_plan['vpn_port']
     return {'uuid':str(uuid.uuid4()),'name':label(req.get('name','Rookstride VPN')),'type':'ikev2-eap',
-            'remote':{'addr':identity,'id':identity,'cert':base64.b64encode(cert).decode(),'certreq':False},
+            'remote':remote,
             'local':{'eap_id':login},'mtu':mtu,
             'split-tunneling':{'block-ipv4':True,'block-ipv6':True}}
 
@@ -171,7 +177,7 @@ FILTERS={
 
 def adguard(req):
     # Only the private gateway dashboard is accessed, with credentials never returned to the app.
-    login=Path('/root/single-vps-vpn/adguard-login.txt')
+    login=Path('/root/rookstride-pair/adguard-login.txt') if Path('/etc/rookstride-pair/manifest.json').exists() else Path('/root/single-vps-vpn/adguard-login.txt')
     if not login.exists(): raise ValueError('AdGuard login file is missing; this gateway needs manual enrollment')
     creds=dict(l.split(': ',1) for l in login.read_text().splitlines() if ': ' in l)
     address=creds['Dashboard']

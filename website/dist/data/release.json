@@ -1,0 +1,38 @@
+{
+  "project": "Rookstride",
+  "version": "0.1.0-alpha2",
+  "status": "early alpha",
+  "updated": "2026-10-13",
+  "android_min_api": 26,
+  "android_target_api": 36,
+  "supported_abis": [
+    "arm64-v8a",
+    "armeabi-v7a",
+    "x86_64"
+  ],
+  "fresh_server_os": "Ubuntu 24.04",
+  "source_repository": "https://github.com/VictorBoykoV/rookstride",
+  "gateway_repository": "https://github.com/VictorBoykoV/single-vps-vpn-gateway",
+  "release_page": "https://github.com/VictorBoykoV/rookstride/releases/tag/v0.1.0-alpha2",
+  "apk": {
+    "url": "https://github.com/VictorBoykoV/rookstride/releases/download/v0.1.0-alpha2/rookstride-0.1.0-alpha2.apk",
+    "bytes": 27390378,
+    "sha256": "87b06a1e2fbd54d4bd6cdd9c99ea8abf65f72732c7cc8406b1768e80066e028d",
+    "signing_certificate_sha256": "751386cf7143ba92c88084a0b26dfeac86128b2fe0d5277821ee4c67a92ae7ba"
+  },
+  "corresponding_source": {
+    "url": "https://github.com/VictorBoykoV/rookstride/releases/download/v0.1.0-alpha2/rookstride-0.1.0-alpha2-source.tar.gz",
+    "bytes": 67530636,
+    "sha256": "d76b5c86ebb8f65c218d20aaeb2fa6078274b661f44f74f7bd12b90259831e3a"
+  },
+  "checksums_url": "https://github.com/VictorBoykoV/rookstride/releases/download/v0.1.0-alpha2/rookstride-0.1.0-alpha2-SHA256SUMS.txt",
+  "release_info_url": "https://github.com/VictorBoykoV/rookstride/releases/download/v0.1.0-alpha2/rookstride-0.1.0-alpha2-release-info.txt",
+  "tested_source_commit": "4522a2211a898ae9544b8846a55c18be41787daf",
+  "evidence": "/data/alpha2-tests.json",
+  "remaining_gates": [
+    "Physical Rookstride APK devices and OEM behavior",
+    "Network handoff and IPv6-capable underlays",
+    "Sustained load and 1-GB VPS capacity",
+    "Native 16-KiB runtime"
+  ]
+}

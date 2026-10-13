@@ -1,0 +1,119 @@
+#!/usr/bin/env bash
+set -Eeuo pipefail
+
+ENV_FILE=/etc/twohop-vpn/entry.env
+[[ -r "$ENV_FILE" ]] || { echo "Missing $ENV_FILE" >&2; exit 1; }
+# shellcheck disable=SC1090
+source "$ENV_FILE"
+
+: "${AWG_INTERFACE:?}"
+: "${CLIENT_POOL:?}"
+: "${TEST_SOURCE_IP:?}"
+: "${ROUTE_TABLE:?}"
+
+rule_exists() {
+  local priority="$1:" source="${2%/32}"
+  ip -o rule show | awk -v priority="$priority" -v source="$source" -v table="$ROUTE_TABLE" '
+    $1 == priority && $2 == "from" && $3 == source && ($4 == "lookup" || $4 == "table") && $5 == table { found=1 }
+    END { exit !found }
+  '
+}
+
+ensure_rule() {
+  local priority="$1" source="$2"
+  rule_exists "$priority" "$source" || ip rule add priority "$priority" from "$source" lookup "$ROUTE_TABLE"
+}
+
+delete_rule() {
+  local priority="$1" source="$2"
+  while rule_exists "$priority" "$source"; do
+    ip rule del priority "$priority" from "$source" lookup "$ROUTE_TABLE"
+  done
+}
+
+ensure_insert() {
+  local table="$1" chain="$2"
+  shift 2
+  iptables -t "$table" -C "$chain" "$@" >/dev/null 2>&1 \
+    || iptables -t "$table" -I "$chain" 1 "$@"
+}
+
+delete_all() {
+  local table="$1" chain="$2"
+  shift 2
+  while iptables -t "$table" -C "$chain" "$@" >/dev/null 2>&1; do
+    iptables -t "$table" -D "$chain" "$@"
+  done
+}
+
+ensure_blackhole() {
+  ip route show table "$ROUTE_TABLE" | grep -q '^blackhole default' \
+    || ip route add blackhole default metric 42760 table "$ROUTE_TABLE"
+}
+
+tunnel_up() {
+  ensure_blackhole
+  if ip link show "$AWG_INTERFACE" >/dev/null 2>&1; then
+    ip route replace default dev "$AWG_INTERFACE" metric 10 table "$ROUTE_TABLE"
+  fi
+}
+
+tunnel_down() {
+  ip route del default dev "$AWG_INTERFACE" table "$ROUTE_TABLE" 2>/dev/null || true
+  ensure_blackhole
+}
+
+quiesce() {
+  # Guard is raised before a chain is rebuilt; a failed update cannot expose the uplink.
+  iptables -N TWOHOP_GUARD 2>/dev/null || true
+  iptables -C TWOHOP_GUARD -s "$CLIENT_POOL" -j REJECT --reject-with icmp-admin-prohibited >/dev/null 2>&1 \
+    || iptables -A TWOHOP_GUARD -s "$CLIENT_POOL" -j REJECT --reject-with icmp-admin-prohibited
+  delete_all filter FORWARD -j TWOHOP_GUARD
+  ensure_insert filter FORWARD -j TWOHOP_GUARD
+  ensure_blackhole
+  ensure_rule 100 "$CLIENT_POOL"
+  umask 077
+  printf '%s\n' quiesced > /etc/twohop-vpn/activation.tmp
+  mv /etc/twohop-vpn/activation.tmp /etc/twohop-vpn/activation
+}
+
+attach_kill_switch() {
+  quiesce
+  iptables -N TWOHOP_ENTRY 2>/dev/null || true
+  iptables -F TWOHOP_ENTRY
+  iptables -A TWOHOP_ENTRY -s "$CLIENT_POOL" -m policy --dir in --pol ipsec --proto esp -o "$AWG_INTERFACE" -j ACCEPT
+  iptables -A TWOHOP_ENTRY -s "$CLIENT_POOL" -m policy --dir in --pol ipsec --proto esp -j REJECT --reject-with icmp-admin-prohibited
+  iptables -A TWOHOP_ENTRY -i "$AWG_INTERFACE" -d "$CLIENT_POOL" -m policy --dir out --pol ipsec --proto esp -j ACCEPT
+  delete_all filter FORWARD -j TWOHOP_ENTRY
+  ensure_insert filter FORWARD -j TWOHOP_ENTRY
+
+  iptables -t mangle -N TWOHOP_MSS 2>/dev/null || true
+  iptables -t mangle -F TWOHOP_MSS
+  iptables -t mangle -A TWOHOP_MSS -s "$CLIENT_POOL" -m policy --dir in --pol ipsec --proto esp -o "$AWG_INTERFACE" -p tcp --tcp-flags SYN,RST SYN -j TCPMSS --set-mss 1200
+  iptables -t mangle -A TWOHOP_MSS -i "$AWG_INTERFACE" -d "$CLIENT_POOL" -m policy --dir out --pol ipsec --proto esp -p tcp --tcp-flags SYN,RST SYN -j TCPMSS --set-mss 1200
+  delete_all mangle FORWARD -j TWOHOP_MSS
+  ensure_insert mangle FORWARD -j TWOHOP_MSS
+}
+
+detach_kill_switch() {
+  delete_all filter FORWARD -j TWOHOP_ENTRY
+  iptables -F TWOHOP_ENTRY 2>/dev/null || true
+  iptables -X TWOHOP_ENTRY 2>/dev/null || true
+  delete_all mangle FORWARD -j TWOHOP_MSS
+  iptables -t mangle -F TWOHOP_MSS 2>/dev/null || true
+  iptables -t mangle -X TWOHOP_MSS 2>/dev/null || true
+}
+
+case "${1:-}" in
+  stage) quiesce; tunnel_up ;;
+  quiesce) quiesce ;;
+  boot) if [[ $(cat /etc/twohop-vpn/activation 2>/dev/null || true) == active ]]; then "$0" activate; else quiesce; tunnel_up; fi ;;
+  test-on) tunnel_up; ensure_rule 90 "$TEST_SOURCE_IP/32" ;;
+  test-off) delete_rule 90 "$TEST_SOURCE_IP/32" ;;
+  activate) tunnel_up; attach_kill_switch; ensure_rule 100 "$CLIENT_POOL"; printf '%s\n' active > /etc/twohop-vpn/activation.tmp; mv /etc/twohop-vpn/activation.tmp /etc/twohop-vpn/activation ;;
+  tunnel-up) tunnel_up ;;
+  tunnel-down) tunnel_down ;;
+  rollback) delete_rule 100 "$CLIENT_POOL"; delete_rule 90 "$TEST_SOURCE_IP/32"; detach_kill_switch; delete_all filter FORWARD -j TWOHOP_GUARD; iptables -F TWOHOP_GUARD 2>/dev/null || true; iptables -X TWOHOP_GUARD 2>/dev/null || true; rm -f /etc/twohop-vpn/activation ;;
+  *) echo "Usage: $0 stage|quiesce|boot|test-on|test-off|activate|tunnel-up|tunnel-down|rollback" >&2; exit 2 ;;
+esac
+

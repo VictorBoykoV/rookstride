@@ -1,0 +1,28 @@
+{
+  "origin": "https://github.com/VictorBoykoV/beget-vpn-gateway",
+  "origin_commit": "876039c60f92768c34516b89fa8a2420d88244ae",
+  "local_changes": "staged activation, persistent quiesce/boot guard, safe same-file reuse, pinned AWG 3.1 dependencies, matching headers, optional DNS ownership, partial IKE checkpoint and actual DNS answer verification",
+  "files": {
+    "LICENSE": "2374f6a8b3dc2b059e8088d04cc24db429303b57fafe35133d7afc3d937b0638",
+    "scripts/activate-ingress.sh": "a78f5d879f5a7ef6e54500f7a3be1f4a59f5530dd9043830cc5cd1938b5b1819",
+    "scripts/apply-egress.sh": "4275e18c7474997795fc61a8f39e8bae14b567093ae3034ce9520f7a9a1ce786",
+    "scripts/audit-pair.sh": "25d9c0e60b04a0102db517969b1de8811dd34cba7ead22c4a85062ba8b251173",
+    "scripts/audit-vps.sh": "be1dca633ba82a78f114d9b6bb6973e34f2bed4b958645e8552a2e619fd8e4cd",
+    "scripts/backup-existing-vpn.sh": "4df815339afee76dc70f71153b449f1af194978dc9b6a2cca90cbb53099e790e",
+    "scripts/backup-node.sh": "c0ba5a437aac58eba1930fec29763b1a2f886285b2f5479a42b9244927526dd1",
+    "scripts/deploy-pair.sh": "7c1f1b01e45818c50e480e4c18b2e2c68d3dbb8b0ab4dfefaa601ad7f9feabc0",
+    "scripts/generate-android-profile.sh": "5cabd056f641e959d66b57665cbcf4f800cf70c43e47c98ad04af1daeaf2c78f",
+    "scripts/generate-apple-profile.sh": "fc23b6aa51c0b03439cba20815ce1cb1f1021586711c6fa6fac0735f7ae47827",
+    "scripts/install-amneziawg.sh": "a70b9a3e9a4fb4c211418061604ab7b796e9fcca1ba51993e2bcb414d8517f89",
+    "scripts/install-strongswan-ikev2.sh": "4b88ba3ec8d7592f95cb2669c4180f8f516d891b1203aeed6c9f0ec2ae786eb4",
+    "scripts/manage-eap-user.sh": "7c1664a397e3b05d77fa9e9e96e3eed3f65f5d6c1d60bbe0127ab12b8a4f833b",
+    "scripts/remote/twohop-vpn-entry-routing": "0ddcc2744e4c233d0efcdcd99a1d7b8089c87eb57578b2abfc552d55daa02b70",
+    "scripts/remote/twohop-vpn-exit-firewall": "7a7a4e90cf02c13eee6899c3feba9c122d57a362fdb9ab927304bd79b379161e",
+    "scripts/remote/twohop-vpn-ikev2-firewall": "364865ead89e680788de90de7d26b0bd0ecdd756d211ee58e971306d8dca10f8",
+    "scripts/restore-node.sh": "ac5f01158a2f9d10171706c6568f489d895df7702f409aad10cf72766aa26d17",
+    "scripts/stage-ingress.sh": "faf1880b69e0d5b7c4e9c148485894760c25003443f25ab310fd053247e43620",
+    "scripts/test-repository.sh": "b6006aaf79d481d10d03ccdf13471491bb4b938e69c9034325a4096659887c34",
+    "scripts/verify-pair.sh": "9cba36a028fcb16fa321b21b194a9fc1a3b09de9a073b12d7f453f2da9c36554",
+    "scripts/verify-staged-egress.sh": "271704fa4aa2ff25ea3d2f4f8751fb04a973c9674b151f587eb9235376262178"
+  }
+}

@@ -2,7 +2,7 @@
 set -Eeuo pipefail
 [[ $EUID -eq 0 ]] || { echo 'Run as root.' >&2; exit 1; }
 package="$(cd "$(dirname "$0")/.." && pwd)"
-[[ -f /etc/single-vps-vpn/network.env && -f /etc/ipsec.secrets ]] || {
+[[ ( -f /etc/single-vps-vpn/network.env || ( -f /etc/twohop-vpn/entry.env && -f /etc/rookstride-pair/manifest.json ) ) && -f /etc/ipsec.secrets ]] || {
   echo 'This is not an installation of the supported single VPS gateway.' >&2; exit 2;
 }
 export DEBIAN_FRONTEND=noninteractive

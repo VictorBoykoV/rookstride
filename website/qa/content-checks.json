@@ -1,0 +1,11 @@
+{
+  "result": "PASS",
+  "pages": 9,
+  "link_asset_references": 375,
+  "json_ld_documents": 5,
+  "public_text_files_scanned": 20,
+  "local_release_artifacts_verified": 2,
+  "static_comic_pages": 10,
+  "comic_panels": 30,
+  "errors": []
+}

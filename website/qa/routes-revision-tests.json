@@ -1,0 +1,48 @@
+{
+  "date": "2026-10-13",
+  "scope": "local-research-website-source-only",
+  "python_tests": {
+    "tests": 25,
+    "result": "PASS"
+  },
+  "android_jvm_tests": {
+    "tests": 86,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "fresh_execution": true,
+    "result": "PASS"
+  },
+  "single_backend_repository": "PASS",
+  "twohop_repository_static": "PASS",
+  "new_pair_runtime": "NOT_RUN_NEEDS_TWO_DISPOSABLE_HOSTS",
+  "new_protocol_handshakes": "NOT_RUN_NO_NEW_ENGINE",
+  "reader": {
+    "panels_visited": 30,
+    "pages_visited": 10,
+    "chapters_visited": 5,
+    "bookmark_restore": "PASS",
+    "mode_change_keeps_containing_page": "PASS",
+    "keyboard_boundaries": "PASS",
+    "mouse_drag_3d_turn": "PASS",
+    "no_script_pages": 10,
+    "no_script_panels": 30
+  },
+  "layouts": {
+    "main_pages_320_css_px": 8,
+    "document_overflow_after_fixes": 0,
+    "all_modes_390_css_px": "PASS",
+    "tablet_and_desktop": "INSPECTED"
+  },
+  "published_apk_unchanged": true,
+  "vps_mutations": false,
+  "public_hosting": false,
+  "github_push": false,
+  "remaining_gates": [
+    "New live pair and forced failure routing",
+    "Physical phones and network handoff",
+    "Real IPv6 underlays",
+    "Sustained load and small VPS capacity",
+    "Native 16-KiB runtime"
+  ]
+}

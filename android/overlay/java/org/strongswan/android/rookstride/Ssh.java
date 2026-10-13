@@ -80,11 +80,17 @@ public final class Ssh implements AutoCloseable {
         return response(execute(rootPrefix()+"/usr/local/sbin/rookstride-admin",request.toString()));
     }
     public JSONObject probe() throws Exception {
-        String code="import json,pathlib; d=dict(x.split('=',1) for x in pathlib.Path('/etc/os-release').read_text().splitlines() if '=' in x); j=sorted(pathlib.Path('/var/lib/rookstride/jobs').glob('*/status.json'),key=lambda p:p.stat().st_mtime); print(json.dumps({'os':d.get('ID','').strip(chr(34)), 'version':d.get('VERSION_ID','').strip(chr(34)), 'helper':pathlib.Path('/usr/local/sbin/rookstride-admin').exists(), 'gateway':pathlib.Path('/etc/single-vps-vpn/network.env').exists(), 'existing':pathlib.Path('/etc/ipsec.conf').exists(), 'job':json.loads(j[-1].read_text()) if j else None}))";
+        String code="import json,pathlib; d=dict(x.split('=',1) for x in pathlib.Path('/etc/os-release').read_text().splitlines() if '=' in x); j=sorted(pathlib.Path('/var/lib/rookstride/jobs').glob('*/status.json'),key=lambda p:p.stat().st_mtime); print(json.dumps({'machine':__import__('hashlib').sha256(pathlib.Path('/etc/machine-id').read_bytes()).hexdigest(), 'pair_helper':pathlib.Path('/opt/rookstride-pair/server/pair.py').exists(), 'pair_bundle':json.loads(pathlib.Path('/etc/rookstride-pair/manifest.json').read_text()).get('bundle','') if pathlib.Path('/etc/rookstride-pair/manifest.json').exists() else '', 'os':d.get('ID','').strip(chr(34)), 'version':d.get('VERSION_ID','').strip(chr(34)), 'helper':pathlib.Path('/usr/local/sbin/rookstride-admin').exists(), 'gateway':pathlib.Path('/etc/single-vps-vpn/network.env').exists(), 'existing':pathlib.Path('/etc/ipsec.conf').exists(), 'job':json.loads(j[-1].read_text()) if j else None}))";
         return new JSONObject(execute(rootPrefix()+"python3 -c "+InputRules.quote(code),null));
     }
     public JSONObject deploy(InputStream bundle,JSONObject config) throws Exception {
         return bundledAction(bundle,config,"deploy.py start");
+    }
+    public JSONObject pairStart(InputStream bundle,JSONObject config) throws Exception {
+        return bundledAction(bundle,config,"pair.py");
+    }
+    public JSONObject pair(JSONObject request) throws Exception {
+        return response(execute(rootPrefix()+"python3 /opt/rookstride-pair/server/pair.py",request.toString()));
     }
     public JSONObject reset(InputStream bundle,JSONObject config) throws Exception {
         return bundledAction(bundle,config,"reset.py");
@@ -95,11 +101,13 @@ public final class Ssh implements AutoCloseable {
         try { sftp.connect(10000); sftp.mkdir(stage); sftp.chmod(0700,stage); sftp.put(bundle,stage+"/bundle.zip"); sftp.chmod(0600,stage+"/bundle.zip"); }
         finally { sftp.disconnect(); }
         String unpack="import sys,zipfile,pathlib; p=pathlib.Path(sys.argv[1]); z=zipfile.ZipFile(p/'bundle.zip'); assert all(not pathlib.PurePosixPath(n).is_absolute() and '..' not in pathlib.PurePosixPath(n).parts for n in z.namelist()); z.extractall(p/'package')";
-        execute("python3 -c "+InputRules.quote(unpack)+" "+InputRules.quote(stage),null);
-        String result=execute(rootPrefix()+"python3 "+stage+"/package/server/"+action,config.toString());
-        // Only our generated private staging directory is removed.
-        if(InputRules.stage(stage)) execute("rm -rf -- "+InputRules.quote(stage),null);
-        return response(result);
+        try {
+            execute("python3 -c "+InputRules.quote(unpack)+" "+InputRules.quote(stage),null);
+            return response(execute(rootPrefix()+"python3 "+stage+"/package/server/"+action,config.toString()));
+        } finally {
+            // Generated private stage only; cleanup failure must not overwrite the action result.
+            if(InputRules.stage(stage))try{execute("rm -rf -- "+InputRules.quote(stage),null);}catch(Exception ignored){}
+        }
     }
     public JSONObject job(String id) throws Exception {
         if(!InputRules.job(id)) throw new IOException("Invalid installation identifier");

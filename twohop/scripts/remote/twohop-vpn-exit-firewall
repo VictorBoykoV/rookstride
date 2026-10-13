@@ -1,0 +1,88 @@
+#!/usr/bin/env bash
+set -Eeuo pipefail
+
+ENV_FILE=/etc/twohop-vpn/exit.env
+[[ -r "$ENV_FILE" ]] || { echo "Missing $ENV_FILE" >&2; exit 1; }
+# shellcheck disable=SC1090
+source "$ENV_FILE"
+
+: "${AWG_INTERFACE:?}"
+: "${UPLINK_INTERFACE:?}"
+: "${CLIENT_POOL:?}"
+: "${TEST_SOURCE_IP:?}"
+: "${TUNNEL_EXIT_IP:?}"
+: "${TUNNEL_PORT:?}"
+
+ensure_insert() {
+  local table="$1" chain="$2"
+  shift 2
+  iptables -t "$table" -C "$chain" "$@" >/dev/null 2>&1 \
+    || iptables -t "$table" -I "$chain" 1 "$@"
+}
+
+delete_all() {
+  local table="$1" chain="$2"
+  shift 2
+  while iptables -t "$table" -C "$chain" "$@" >/dev/null 2>&1; do
+    iptables -t "$table" -D "$chain" "$@"
+  done
+}
+
+apply_rules() {
+  iptables -N TWOHOP_EXIT_FWD 2>/dev/null || true
+  iptables -F TWOHOP_EXIT_FWD
+  iptables -A TWOHOP_EXIT_FWD -i "$AWG_INTERFACE" -o "$UPLINK_INTERFACE" -s "$CLIENT_POOL" -j ACCEPT
+  iptables -A TWOHOP_EXIT_FWD -i "$AWG_INTERFACE" -o "$UPLINK_INTERFACE" -s "$TEST_SOURCE_IP/32" -j ACCEPT
+  iptables -A TWOHOP_EXIT_FWD -i "$UPLINK_INTERFACE" -o "$AWG_INTERFACE" -d "$CLIENT_POOL" -m conntrack --ctstate RELATED,ESTABLISHED -j ACCEPT
+  iptables -A TWOHOP_EXIT_FWD -i "$UPLINK_INTERFACE" -o "$AWG_INTERFACE" -d "$TEST_SOURCE_IP/32" -m conntrack --ctstate RELATED,ESTABLISHED -j ACCEPT
+  # Reject spoofed client sources arriving outside the authenticated tunnel.
+  iptables -A TWOHOP_EXIT_FWD -s "$CLIENT_POOL" -j DROP
+  iptables -A TWOHOP_EXIT_FWD -s "$TEST_SOURCE_IP/32" -j DROP
+  iptables -A TWOHOP_EXIT_FWD -d "$CLIENT_POOL" -j DROP
+  iptables -A TWOHOP_EXIT_FWD -d "$TEST_SOURCE_IP/32" -j DROP
+  iptables -A TWOHOP_EXIT_FWD -i "$AWG_INTERFACE" -j DROP
+
+  iptables -N TWOHOP_EXIT_INPUT 2>/dev/null || true
+  iptables -F TWOHOP_EXIT_INPUT
+  iptables -A TWOHOP_EXIT_INPUT -i lo -d "$TUNNEL_EXIT_IP" -j ACCEPT
+  iptables -A TWOHOP_EXIT_INPUT -i "$AWG_INTERFACE" -d "$TUNNEL_EXIT_IP" -j ACCEPT
+  for proto in udp tcp; do
+    iptables -A TWOHOP_EXIT_INPUT -d "$TUNNEL_EXIT_IP" -p "$proto" -m multiport --dports 53,3000 -j DROP
+  done
+  delete_all filter INPUT -j TWOHOP_EXIT_INPUT
+  ensure_insert filter INPUT -j TWOHOP_EXIT_INPUT
+
+  delete_all filter FORWARD -j TWOHOP_EXIT_FWD
+  if iptables -nL DOCKER-USER >/dev/null 2>&1; then
+    delete_all filter DOCKER-USER -j TWOHOP_EXIT_FWD
+    ensure_insert filter DOCKER-USER -j TWOHOP_EXIT_FWD
+  else
+    ensure_insert filter FORWARD -j TWOHOP_EXIT_FWD
+  fi
+
+  iptables -t nat -N TWOHOP_DNS 2>/dev/null || true
+  iptables -t nat -F TWOHOP_DNS
+  for proto in udp tcp; do
+    iptables -t nat -A TWOHOP_DNS -i "$AWG_INTERFACE" -s "$CLIENT_POOL" -p "$proto" --dport 53 -j DNAT --to-destination "$TUNNEL_EXIT_IP"
+    iptables -t nat -A TWOHOP_DNS -i "$AWG_INTERFACE" -s "$TEST_SOURCE_IP/32" -p "$proto" --dport 53 -j DNAT --to-destination "$TUNNEL_EXIT_IP"
+  done
+  delete_all nat PREROUTING -j TWOHOP_DNS
+  ensure_insert nat PREROUTING -j TWOHOP_DNS
+
+  iptables -t nat -N TWOHOP_SNAT 2>/dev/null || true
+  iptables -t nat -F TWOHOP_SNAT
+  iptables -t nat -A TWOHOP_SNAT -s "$CLIENT_POOL" -o "$UPLINK_INTERFACE" -j MASQUERADE
+  iptables -t nat -A TWOHOP_SNAT -s "$TEST_SOURCE_IP/32" -o "$UPLINK_INTERFACE" -j MASQUERADE
+  delete_all nat POSTROUTING -j TWOHOP_SNAT
+  ensure_insert nat POSTROUTING -j TWOHOP_SNAT
+
+  ensure_insert filter INPUT -i "$UPLINK_INTERFACE" -p udp --dport "$TUNNEL_PORT" -j ACCEPT
+  ip route replace "$CLIENT_POOL" dev "$AWG_INTERFACE"
+  ip route replace "$TEST_SOURCE_IP/32" dev "$AWG_INTERFACE"
+}
+
+case "${1:-apply}" in
+  apply) apply_rules ;;
+  *) echo "Usage: $0 apply" >&2; exit 2 ;;
+esac
+

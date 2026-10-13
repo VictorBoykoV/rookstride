@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="Rookstride: Your VPS. Your way. An open-source Android VPN gateway app.">
+<rect width="1200" height="630" fill="#F4F0E7"/>
+<rect x="830" width="370" height="630" fill="#EE3038"/>
+<path d="M920 630V410C920 365 1130 365 1130 320V0" fill="none" stroke="#F4F0E7" stroke-width="2" stroke-dasharray="8 10" opacity=".45"/>
+<g transform="translate(903 199) scale(.95)">
+<path fill="#F4F0E7" d="M68 78 C55 89 46 109 46 130 C46 168 73 193 110 193 C145 193 170 169 175 145 L209 129 L174 114 C168 91 147 72 122 67 C107 47 89 40 65 43 L79 69 C75 72 71 75 68 78 Z"/>
+<path fill="#141418" d="M126 83 C111 83 105 98 109 114 C112 131 123 141 137 135 C150 130 154 115 148 101 C144 89 136 83 126 83 Z"/>
+<path fill="#F4F0E7" d="M144 108 A9 13 0 1 1 126 108 A9 13 0 1 1 144 108 Z"/>
+</g>
+<text x="65" y="94" font-family="Arial Black,Arial,sans-serif" font-weight="900" font-size="35" letter-spacing="-2" fill="#141418">rookstride<tspan fill="#EE3038">.</tspan></text>
+<text x="65" y="248" font-family="Arial Black,Arial,sans-serif" font-weight="900" font-size="88" letter-spacing="-5" fill="#141418">Your VPS.</text>
+<text x="65" y="342" font-family="Arial Black,Arial,sans-serif" font-weight="900" font-size="88" letter-spacing="-5" fill="#141418">Your way.</text>
+<text x="69" y="421" font-family="Arial,sans-serif" font-size="22" fill="#686761">Deploy. Connect. Manage. Keep moving.</text>
+<path d="M69 482H756" stroke="#D8D3C9"/>
+<text x="69" y="533" font-family="Arial,sans-serif" font-size="17" fill="#141418">Android 8+ · strongSwan · AdGuard Home · Open source</text>
+<text x="69" y="562" font-family="Arial,sans-serif" font-size="13" fill="#686761">0.1.0-alpha2 / Early alpha</text>
+</svg>

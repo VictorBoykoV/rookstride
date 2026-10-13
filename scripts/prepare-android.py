@@ -19,17 +19,23 @@ overlay=ROOT/'android/overlay'
 main=APP/'src/main'
 for src,dest in [('java','java'),('res','res'),('assets','assets')]:
     shutil.copytree(overlay/src,main/dest,dirs_exist_ok=True)
-license_files=[ROOT/'NOTICE.md',ROOT/'LICENSE']+sorted((ROOT/'licenses').glob('*'))+[ROOT/'gateway/LICENSE']
+license_files=[ROOT/'NOTICE.md',ROOT/'LICENSE']+sorted((ROOT/'licenses').glob('*'))+[ROOT/'gateway/LICENSE',ROOT/'twohop/LICENSE']
 license_html='<html><meta name="viewport" content="width=device-width, initial-scale=1"><style>body{font:14px sans-serif;padding:18px}pre{white-space:pre-wrap;word-break:break-word}</style><h1>Rookstride licenses</h1><a href="rookstride:guide">Back to guide</a>'
 for p in license_files:
     license_html+='<h2>'+html.escape(p.name)+'</h2><pre>'+html.escape(p.read_text())+'</pre>'
 write_text(main/'assets/licenses.html',license_html+'</html>')
 
 with zipfile.ZipFile(main/'assets/gateway_bundle.zip','w',zipfile.ZIP_DEFLATED) as z:
-    for folder in ('gateway','server'):
+    for folder in ('gateway','server','twohop'):
         for p in sorted((ROOT/folder).rglob('*')):
             if p.is_file() and '__pycache__' not in p.parts and p.suffix not in ('.pyc','.log'):
                 z.write(p,p.relative_to(ROOT))
+
+# Check the exact real installer, including nested file ordering, in the JVM suite.
+import importlib.util
+spec=importlib.util.spec_from_file_location('rook_pair_digest',ROOT/'server/pair.py')
+pair_digest=importlib.util.module_from_spec(spec);spec.loader.exec_module(pair_digest)
+write_text(main/'assets/gateway_bundle.sha256',pair_digest.source_digest(ROOT)+'\n')
 
 gradle=APP/'build.gradle'
 text=gradle.read_text()

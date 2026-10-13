@@ -1,0 +1,112 @@
+{
+  "release": "0.1.0-alpha2",
+  "tested": "2026-10-13",
+  "apk_sha256": "87b06a1e2fbd54d4bd6cdd9c99ea8abf65f72732c7cc8406b1768e80066e028d",
+  "server": "Ubuntu 24.04 amd64",
+  "distinct_certificates_per_cycle": true,
+  "scope": "Recognized gateway data reset; Ubuntu and SSH retained. Managed packages purged in cycle 1. Emulator permissions pregranted for VPN automation.",
+  "cycles": [
+    {
+      "cycle": 1,
+      "android_api": 36,
+      "result": "PASS",
+      "seconds": 225.0,
+      "reset_audit": {
+        "reset_data_absent": true,
+        "services_stopped": true,
+        "managed_chains_absent": true,
+        "ssh_preserved": true
+      },
+      "server_audit": {
+        "services_healthy": true,
+        "dns_resolves": true,
+        "ads_blocked": true,
+        "ipv6_dns_suppressed": true,
+        "dashboard_private": true,
+        "firewall_no_duplicate_jumps": true,
+        "certificate_valid": true,
+        "job_complete": true,
+        "temporary_password_files_removed": true
+      },
+      "client": {
+        "ipv4_exit_matches_vps": true,
+        "ads_blocked": true,
+        "ipv6_probe_blocked": true
+      },
+      "package_clean": {
+        "managed_packages_removed": true,
+        "count": 10
+      },
+      "stale_socket_regression": {
+        "stale_unix_socket_injected": true
+      }
+    },
+    {
+      "cycle": 2,
+      "android_api": 28,
+      "result": "PASS",
+      "seconds": 160.2,
+      "reset_audit": {
+        "reset_data_absent": true,
+        "services_stopped": true,
+        "managed_chains_absent": true,
+        "ssh_preserved": true
+      },
+      "server_audit": {
+        "services_healthy": true,
+        "dns_resolves": true,
+        "ads_blocked": true,
+        "ipv6_dns_suppressed": true,
+        "dashboard_private": true,
+        "firewall_no_duplicate_jumps": true,
+        "certificate_valid": true,
+        "job_complete": true,
+        "temporary_password_files_removed": true
+      },
+      "client": {
+        "ipv4_exit_matches_vps": true,
+        "ads_blocked": true,
+        "ipv6_probe_blocked": true
+      }
+    },
+    {
+      "cycle": 3,
+      "android_api": 26,
+      "result": "PASS",
+      "seconds": 201.4,
+      "reset_audit": {
+        "reset_data_absent": true,
+        "services_stopped": true,
+        "managed_chains_absent": true,
+        "ssh_preserved": true
+      },
+      "server_audit": {
+        "services_healthy": true,
+        "dns_resolves": true,
+        "ads_blocked": true,
+        "ipv6_dns_suppressed": true,
+        "dashboard_private": true,
+        "firewall_no_duplicate_jumps": true,
+        "certificate_valid": true,
+        "job_complete": true,
+        "temporary_password_files_removed": true
+      },
+      "client": {
+        "ipv4_exit_matches_vps": true,
+        "ads_blocked": true,
+        "ipv6_probe_blocked": true
+      },
+      "reboot_audit": {
+        "services_healthy": true,
+        "dns_resolves": true,
+        "ads_blocked": true,
+        "ipv6_dns_suppressed": true,
+        "dashboard_private": true,
+        "firewall_no_duplicate_jumps": true,
+        "certificate_valid": true,
+        "job_complete": true,
+        "temporary_password_files_removed": true
+      }
+    }
+  ]
+}

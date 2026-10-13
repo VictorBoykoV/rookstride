@@ -49,10 +49,13 @@ with tempfile.TemporaryDirectory(prefix='rookstride-apk-') as stage,zipfile.ZipF
         assert loads and all(int(row[-1],16)>=16384 for row in loads),'LOAD alignment: '+name
         assert all((int(row[2],16)+int(row[5],16))%16384==0 for row in relro),'RELRO alignment: '+name
     with zipfile.ZipFile(io.BytesIO(apk.read('assets/gateway_bundle.zip'))) as bundle:
-        for folder in ('gateway','server'):
+        for folder in ('gateway','server','twohop'):
             for path in (ROOT/folder).rglob('*'):
                 if path.is_file() and '__pycache__' not in path.parts and path.suffix not in ('.pyc','.log'):
                     assert bundle.read(path.relative_to(ROOT).as_posix())==path.read_bytes(),'Embedded source differs: '+str(path.relative_to(ROOT))
+    import importlib.util
+    spec=importlib.util.spec_from_file_location('audit_pair',ROOT/'server/pair.py');pair_module=importlib.util.module_from_spec(spec);spec.loader.exec_module(pair_module)
+    assert apk.read('assets/gateway_bundle.sha256').decode().strip()==pair_module.source_digest(ROOT),'Installer identity differs'
     assert apk.read('assets/guide.html')==(ROOT/'android/overlay/assets/guide.html').read_bytes()
 print(json.dumps({'release':release['name'],'sha256':hashlib.sha256(args.apk.read_bytes()).hexdigest(),
                   'signer_sha256':signer.group(1),'native_libraries':len(libraries),

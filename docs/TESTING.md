@@ -1,5 +1,7 @@
 # Testing and release gates
 
+> **Experimental pair build:** `0.2.0-alpha1` adds IKEv2 → AmneziaWG on two fresh nodes. Its separate [pair test report](PAIR-TESTING.md) records the exact binary, fresh lab cycles and remaining provider/device gates. The alpha2 results below describe the earlier single-server release.
+
 Current release: **0.1.0-alpha2**, tested 13 October 2026. Earlier alpha1 checks are identified separately below.
 
 ## Three consecutive final-release cycles

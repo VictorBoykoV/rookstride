@@ -1,0 +1,226 @@
+{
+  "release": "0.2.0-alpha1",
+  "date": "2026-10-13",
+  "apk_sha256": "5f681b9555fe17a01c317847dbe3a431222bfd6cea2e14bfb6da0bd2dc6c0fee",
+  "signer_sha256": "751386cf7143ba92c88084a0b26dfeac86128b2fe0d5277821ee4c67a92ae7ba",
+  "source_scope": "fresh dedicated Ubuntu 24.04 x86_64 VM pairs on one physical host",
+  "python_tests": 39,
+  "android_jvm_tests": 92,
+  "cycles": [
+    {
+      "cycle": 1,
+      "android_api": 28,
+      "result": "PASS",
+      "factory_reset_both_nodes": true,
+      "node_ram_gib": 1,
+      "checks": {
+        "cycle": 1,
+        "apk_sha256": "5f681b9555fe17a01c317847dbe3a431222bfd6cea2e14bfb6da0bd2dc6c0fee",
+        "real_embedded_ikev2": true,
+        "separate_uid_https": true,
+        "exit_ipv4_matches": true,
+        "entry_and_exit_forward_counters": true,
+        "ad_dns_blocked": true,
+        "literal_ipv6_probe_failed": true,
+        "bridge_stop_blocks_client": true,
+        "bridge_restart_restores_client": true,
+        "lab_dns": "test-only DNS-over-TLS forwarding; ordinary authoritative DNS is intercepted by local VM networking",
+        "provider_pair": false,
+        "physical_device": false
+      },
+      "server_audit": {
+        "entry": {
+          "installer_digest_matches": true,
+          "configured": true,
+          "all_jobs_complete": true,
+          "requests_removed": true,
+          "material_root_private": true,
+          "tunnel_config_matches": true,
+          "tunnel_config_private": true,
+          "awg_healthy": true,
+          "module_3_1": true,
+          "mtu_1280": true,
+          "ike_healthy": true,
+          "collector_healthy": true,
+          "routing_service_enabled": true,
+          "blackhole_and_bridge_routes": true,
+          "active_marker": true,
+          "initial_secret_removed": true,
+          "temporary_configs_removed": true,
+          "cert_valid": true
+        },
+        "exit": {
+          "installer_digest_matches": true,
+          "configured": true,
+          "all_jobs_complete": true,
+          "requests_removed": true,
+          "material_root_private": true,
+          "tunnel_config_matches": true,
+          "tunnel_config_private": true,
+          "awg_healthy": true,
+          "module_3_1": true,
+          "mtu_1280": true,
+          "dns_services_healthy": true,
+          "private_dns_dashboard": true,
+          "ad_domain_blocked": true,
+          "aaaa_suppressed": true
+        }
+      },
+      "management_retry_after_filter_timeout": false,
+      "additional": "fresh bootstrap"
+    },
+    {
+      "cycle": 2,
+      "android_api": 26,
+      "result": "PASS",
+      "factory_reset_both_nodes": true,
+      "node_ram_gib": 1,
+      "checks": {
+        "cycle": 2,
+        "apk_sha256": "5f681b9555fe17a01c317847dbe3a431222bfd6cea2e14bfb6da0bd2dc6c0fee",
+        "real_embedded_ikev2": true,
+        "separate_uid_https": true,
+        "exit_ipv4_matches": true,
+        "entry_and_exit_forward_counters": true,
+        "ad_dns_blocked": true,
+        "literal_ipv6_probe_failed": true,
+        "bridge_stop_blocks_client": true,
+        "bridge_restart_restores_client": true,
+        "lab_dns": "test-only DNS-over-TLS forwarding; ordinary authoritative DNS is intercepted by local VM networking",
+        "provider_pair": false,
+        "physical_device": false
+      },
+      "server_audit": {
+        "entry": {
+          "installer_digest_matches": true,
+          "configured": true,
+          "all_jobs_complete": true,
+          "requests_removed": true,
+          "material_root_private": true,
+          "tunnel_config_matches": true,
+          "tunnel_config_private": true,
+          "awg_healthy": true,
+          "module_3_1": true,
+          "mtu_1280": true,
+          "ike_healthy": true,
+          "collector_healthy": true,
+          "routing_service_enabled": true,
+          "blackhole_and_bridge_routes": true,
+          "active_marker": true,
+          "initial_secret_removed": true,
+          "temporary_configs_removed": true,
+          "cert_valid": true
+        },
+        "exit": {
+          "installer_digest_matches": true,
+          "configured": true,
+          "all_jobs_complete": true,
+          "requests_removed": true,
+          "material_root_private": true,
+          "tunnel_config_matches": true,
+          "tunnel_config_private": true,
+          "awg_healthy": true,
+          "module_3_1": true,
+          "mtu_1280": true,
+          "dns_services_healthy": true,
+          "private_dns_dashboard": true,
+          "ad_domain_blocked": true,
+          "aaaa_suppressed": true
+        }
+      },
+      "management_retry_after_filter_timeout": false,
+      "additional": "phone-process interruption and same-job resume"
+    },
+    {
+      "cycle": 3,
+      "android_api": 28,
+      "result": "PASS_AFTER_RETRIES",
+      "factory_reset_both_nodes": true,
+      "node_ram_gib": 1,
+      "checks": {
+        "cycle": 3,
+        "apk_sha256": "5f681b9555fe17a01c317847dbe3a431222bfd6cea2e14bfb6da0bd2dc6c0fee",
+        "real_embedded_ikev2": true,
+        "separate_uid_https": true,
+        "exit_ipv4_matches": true,
+        "entry_and_exit_forward_counters": true,
+        "ad_dns_blocked": true,
+        "literal_ipv6_probe_failed": true,
+        "bridge_stop_blocks_client": true,
+        "bridge_restart_restores_client": true,
+        "lab_dns": "test-only DNS-over-TLS forwarding; ordinary authoritative DNS is intercepted by local VM networking",
+        "provider_pair": false,
+        "physical_device": false
+      },
+      "server_audit": {
+        "entry": {
+          "installer_digest_matches": true,
+          "configured": true,
+          "all_jobs_complete": true,
+          "requests_removed": true,
+          "material_root_private": true,
+          "tunnel_config_matches": true,
+          "tunnel_config_private": true,
+          "awg_healthy": true,
+          "module_3_1": true,
+          "mtu_1280": true,
+          "ike_healthy": true,
+          "collector_healthy": true,
+          "routing_service_enabled": true,
+          "blackhole_and_bridge_routes": true,
+          "active_marker": true,
+          "initial_secret_removed": true,
+          "temporary_configs_removed": true,
+          "cert_valid": true
+        },
+        "exit": {
+          "installer_digest_matches": true,
+          "configured": true,
+          "all_jobs_complete": true,
+          "requests_removed": true,
+          "material_root_private": true,
+          "tunnel_config_matches": true,
+          "tunnel_config_private": true,
+          "awg_healthy": true,
+          "module_3_1": true,
+          "mtu_1280": true,
+          "dns_services_healthy": true,
+          "private_dns_dashboard": true,
+          "ad_domain_blocked": true,
+          "aaaa_suppressed": true
+        }
+      },
+      "management_retry_after_filter_timeout": true,
+      "additional": "both-node reboot, certificate persistence, and management retry after a cold filter-list timeout"
+    }
+  ],
+  "distinct_new_certificates": true,
+  "interrupted_job_continued_and_resumed": true,
+  "reboot": {
+    "certificate_preserved": true,
+    "both_node_services_and_routes_passed": true
+  },
+  "cycle_3_retry_events": [
+    "cold Strong filter-list HTTP request timeout, then same-bundle resume",
+    "cold post-reboot DNS readiness, then repeated audit",
+    "test-only VM UDP exposure lost at reboot, restored before client rerun"
+  ],
+  "linux_lab_constraints": [
+    "shared physical host and public NAT address; authenticated-interface counters corroborate client route",
+    "ordinary authoritative DNS intercepted by local VM network; fixture-only TLS forwarding upstream used",
+    "local UDP forwarder preserves distinct peer addresses for real IPsec routing"
+  ],
+  "android_36_emulator_gate": {
+    "result": "INCOMPLETE",
+    "reason": "Repeated emulator System UI ANR and Espresso focus failures before pair installation; cycle 3 completed on API 28 instead."
+  },
+  "remaining_gates": [
+    "Android 16 pair UI and real-client rerun",
+    "independent provider VPS pair",
+    "physical Android devices and OEM behavior",
+    "IPv6-capable underlays and handoff",
+    "sustained multi-user throughput and one-GB capacity",
+    "native 16-KiB runtime",
+    "ARM64 server runtime and kernel-replacement recovery"
+  ]
+}

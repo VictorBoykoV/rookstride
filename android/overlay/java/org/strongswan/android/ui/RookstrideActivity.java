@@ -170,6 +170,7 @@ public final class RookstrideActivity extends AppCompatActivity implements VpnSt
             hero.addView(text("Meet your next gateway.",24,Color.WHITE,true));space(hero,8);
             hero.addView(text("Bring a fresh VPS. Rook will take care of the setup, then help you share and manage access.",15,Color.rgb(199,199,207),false));
             fullButton(hero,"Add your first gateway",true,()->editGateway(null));
+            fullButton(body,"Add a two-server gateway",true,this::addPair);
             fullButton(body,"Explore a sample gateway",false,this::openDemo);
             fullButton(body,"Read the field guide",false,()->{tab="Guide";render();});return;
         }
@@ -188,6 +189,10 @@ public final class RookstrideActivity extends AppCompatActivity implements VpnSt
         }
         LinearLayout health=card();health.addView(text("Gateway health",19,INK,true));space(health,10);
         JSONObject services=s.optJSONObject("services");
+        if(selected.isPair() && selected.exit.data.optJSONObject("snapshot")!=null) {
+            JSONObject exitServices=selected.exit.data.optJSONObject("snapshot").optJSONObject("services");
+            if(exitServices!=null && services!=null)try{services=new JSONObject(services.toString());services.put("adguardhome",exitServices.optBoolean("adguardhome"));services.put("unbound",exitServices.optBoolean("unbound"));}catch(JSONException ignored){}
+        }
         for(String[] item:new String[][]{{"strongswan-starter","VPN"},{"adguardhome","AdGuard"},{"unbound","DNS"}}) {
             LinearLayout r=row();r.addView(text(item[1],15,INK,false),new LinearLayout.LayoutParams(0,-2,1));
             String value=services==null?"Not checked":services.optBoolean(item[0])?"Running":"Stopped";
@@ -196,13 +201,23 @@ public final class RookstrideActivity extends AppCompatActivity implements VpnSt
         health.addView(text(selected.get("checked").isEmpty()?"Check the server to get its current status.":"Last checked "+selected.get("checked"),11,MUTED,false));
         fullButton(health,"Refresh server",false,()->inspect(selected));
         LinearLayout controls=card();controls.addView(text("Steer this gateway",19,INK,true));
-        fullButton(controls,"Install gateway on fresh VPS",true,()->installation(selected,false));
-        fullButton(controls,"Manage an existing gateway",false,()->installation(selected,true));
+        if(selected.isPair()) {
+            controls.addView(text("IKEv2 → AmneziaWG 3.1 · experimental",14,RED,true));
+            controls.addView(text("Entry: "+selected.get("host")+"\nExit: "+selected.exit.get("host")+"\n"+selected.get("pairPhase"),13,MUTED,false));
+            fullButton(controls,"Install / resume / verify pair",true,()->runPair(selected,true));
+            fullButton(controls,"Pause client forwarding",false,()->confirm("Pause this route?","Connected clients lose Internet access. SSH management stays available. Use Resume pair to verify and activate again.",()->withSsh(selected,"Closing forwarding",ssh->ssh.pair(json("command","pause","pair",selected.get("pairId"))),r->{selected.set("pairPhase","Paused · client forwarding blocked");save();render();})));
+            fullButton(controls,"Exit SSH settings",false,()->editGateway(selected.exit));
+        } else {
+            fullButton(controls,"Install gateway on fresh VPS",true,()->installation(selected,false));
+            fullButton(controls,"Manage an existing gateway",false,()->installation(selected,true));
+        }
         fullButton(controls,"Choose VPN login for this phone",false,()->chooseLogin(selected));
         fullButton(controls,"AdGuard controls",false,()->adguard(selected));
         fullButton(controls,"Gateway settings",false,()->editGateway(selected));
-        fullButton(controls,"Reset gateway data",false,()->resetGateway(selected));
+        if(!selected.isPair())fullButton(controls,"Reset gateway data",false,()->resetGateway(selected));
+        else controls.addView(text("For a completely fresh pair, rebuild both dedicated nodes in their provider consoles. Pair reset is not available in this experimental build.",12,MUTED,false));
         fullButton(body,"Add another gateway",false,()->editGateway(null));
+        fullButton(body,"Add a two-server gateway",false,this::addPair);
         fullButton(body,"VPN profiles & advanced settings",false,()->startActivity(new Intent(this,MainActivity.class)));
         if(demo) fullButton(body,"Leave demo",false,()->{demo=false;selected=gateways.isEmpty()?null:gateways.get(0);render();});
     }
@@ -272,6 +287,7 @@ public final class RookstrideActivity extends AppCompatActivity implements VpnSt
     }
     private void command(Gateway node,JSONObject request,Done done) {withSsh(node,"Updating "+node.get("name"),s->s.admin(request),done);}
     private void inspect(Gateway node) {
+        if(node.isPair()){refreshPair(node);return;}
         withSsh(node,"Checking "+node.get("name"),s->{JSONObject p=s.probe();if(p.optBoolean("helper"))p.put("status",s.admin(json("action","status")));return p;},p->{
             node.set("checked",new java.text.SimpleDateFormat("MMM d, HH:mm",Locale.getDefault()).format(new Date()));
             try {node.data.put("probe",p);if(p.has("status"))node.data.put("snapshot",p.getJSONObject("status"));}catch(JSONException ignored){}
@@ -302,6 +318,7 @@ public final class RookstrideActivity extends AppCompatActivity implements VpnSt
     }
     private void editGateway(Gateway node) {
         if(demo && node!=null){demoNotice();return;}if(vaultFailed){error(new IOException("Saved data is locked; preserve it before clearing app storage."));return;}
+        Gateway parent=null;for(Gateway candidate:gateways)if(candidate.exit==node)parent=candidate;final Gateway pairParent=parent;
         LinearLayout f=form();EditText name=field(f,"Gateway name",node==null?"My gateway":node.get("name"),false);
         EditText host=field(f,"VPS IPv4 address or hostname",node==null?"":node.get("host"),false);
         EditText port=field(f,"SSH port",node==null?"22":String.valueOf(node.port()),false);port.setInputType(InputType.TYPE_CLASS_NUMBER);
@@ -312,7 +329,7 @@ public final class RookstrideActivity extends AppCompatActivity implements VpnSt
         CheckBox remember=new CheckBox(this);remember.setText("Remember credentials securely on this phone");remember.setChecked(node!=null && node.remember());f.addView(remember);
         if(node!=null)fullButton(f,"Reset saved SSH identity",false,()->confirm("Reset SSH identity?","Do this after verifying the server was replaced or its SSH keys intentionally changed. The next connection will ask you to verify the new fingerprint.",()->{node.set("fingerprint","");save();editor.dismiss();}));
         editor=new AlertDialog.Builder(this).setTitle(node==null?"Add a gateway":"Gateway settings").setView(scrolling(f)).setNegativeButton("Cancel",null).setPositiveButton("Save",null).create();
-        if(node!=null)editor.setButton(AlertDialog.BUTTON_NEUTRAL,"Remove saved gateway",(d,w)->confirm("Remove from this phone?","This removes saved access from this app. The VPS and its users continue running.",()->{gateways.remove(node);selected=gateways.isEmpty()?null:gateways.get(0);save();render();}));
+        if(node!=null && pairParent==null)editor.setButton(AlertDialog.BUTTON_NEUTRAL,"Remove saved gateway",(d,w)->confirm("Remove from this phone?","This removes saved access from this app. The VPS and its users continue running.",()->{gateways.remove(node);selected=gateways.isEmpty()?null:gateways.get(0);save();render();}));
         editor.show();secure(editor);
         editor.getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener(v->{
             try {
@@ -321,7 +338,7 @@ public final class RookstrideActivity extends AppCompatActivity implements VpnSt
                 Gateway target=node==null?new Gateway():node;
                 if(!h.equals(target.get("host"))||p!=target.port())target.set("fingerprint","");
                 target.set("name",n);target.set("host",h);target.set("admin",u);target.data.put("port",p);target.data.put("remember",remember.isChecked());target.sshPassword=password.getText().toString();target.privateKey=keyField.getText().toString();
-                if(node==null)gateways.add(target);selected=target;demo=false;save();editor.dismiss();render();
+                if(node==null)gateways.add(target);selected=pairParent==null?target:pairParent;demo=false;save();editor.dismiss();render();
             }catch(Exception e){Toast.makeText(this,e.getMessage(),Toast.LENGTH_LONG).show();}
         });
     }
@@ -346,6 +363,59 @@ public final class RookstrideActivity extends AppCompatActivity implements VpnSt
             d.dismiss();withSsh(node,"Starting installation",ssh->{try(InputStream bundle=getAssets().open("gateway_bundle.zip")){return ssh.deploy(bundle,config);}},r->{node.set("job",r.optString("job"));node.set("jobPhase","Installation started on the VPS");save();handler.postDelayed(()->pollJob(node),3000);});
         });
     }
+    private void addPair() {
+        if(vaultFailed){error(new IOException("Saved gateway data is locked."));return;}
+        LinearLayout f=form();
+        f.addView(text("IKEv2 → AmneziaWG 3.1",20,INK,true));
+        f.addView(text("Use two distinct fresh Ubuntu 24.04 nodes. Rookstride installs the exit first, keeps the entry blocked, then checks the second hop before activation. A matching kernel may require a reboot. This is an experimental installation mode.",14,MUTED,false));
+        EditText name=field(f,"Gateway name","My two-hop gateway",false);
+        EditText entryHost=field(f,"Entry VPS address","",false),entryPort=field(f,"Entry SSH port","22",false),entryUser=field(f,"Entry administrator","root",false),entryPassword=field(f,"Entry SSH password / key passphrase","",true);
+        EditText exitHost=field(f,"Exit VPS address","",false),exitPort=field(f,"Exit SSH port","22",false),exitUser=field(f,"Exit administrator","root",false),exitPassword=field(f,"Exit SSH password / key passphrase","",true);
+        LinearLayout advanced=stack();advanced.setVisibility(View.GONE);
+        fullButton(f,"Advanced: SSH keys, addresses and ports",false,()->advanced.setVisibility(advanced.getVisibility()==View.GONE?View.VISIBLE:View.GONE));f.addView(advanced);
+        EditText entryKey=field(advanced,"Entry private key (optional)","",true),exitKey=field(advanced,"Exit private key (optional)","",true);entryKey.setSingleLine(false);exitKey.setSingleLine(false);
+        EditText server=field(advanced,"VPN hostname (defaults to entry address)","",false),endpoint=field(advanced,"Exit tunnel address (defaults to exit address)","",false),vpnPort=field(advanced,"Phone VPN port","500",false),tunnelPort=field(advanced,"Exit AWG UDP port","443",false);
+        EditText login=field(f,"Initial VPN login","admin-device",false),password=field(f,"VPN password (16+ characters)",generatedPassword(),true);
+        fullButton(f,"Copy VPN password",false,()->copySecret(password.getText().toString()));
+        CheckBox remember=new CheckBox(this);remember.setText("Remember passwords and keys securely on this phone");f.addView(remember);
+        CheckBox history=new CheckBox(this);history.setText("Enable usage history on the entry");history.setChecked(true);f.addView(history);
+        AlertDialog d=new AlertDialog.Builder(this).setTitle("Add a two-server gateway").setView(scrolling(f)).setNegativeButton("Cancel",null).setPositiveButton("Install pair",null).create();d.show();secure(d);
+        d.getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener(v->{try {
+            int ep=Integer.parseInt(entryPort.getText().toString()),xp=Integer.parseInt(exitPort.getText().toString()),vp=Integer.parseInt(vpnPort.getText().toString()),tp=Integer.parseInt(tunnelPort.getText().toString());
+            String eh=entryHost.getText().toString().trim(),xh=exitHost.getText().toString().trim(),eu=entryUser.getText().toString().trim(),xu=exitUser.getText().toString().trim(),u=login.getText().toString().trim(),pw=password.getText().toString();
+            if(!InputRules.host(eh)||!InputRules.host(xh)||!InputRules.port(ep)||!InputRules.port(xp)||!InputRules.port(vp)||!InputRules.port(tp)||!InputRules.username(eu)||!InputRules.username(xu)||!InputRules.username(u)||pw.length()<16)throw new IOException("Check both addresses, ports, logins and the VPN password.");
+            if(eh.equals(xh)&&ep==xp)throw new IOException("Entry and exit must be different nodes.");
+            Gateway a=new Gateway(),b=new Gateway();a.exit=b;
+            a.set("name",name.getText().toString().trim());a.set("host",eh);a.set("admin",eu);a.data.put("port",ep);a.sshPassword=entryPassword.getText().toString();a.privateKey=entryKey.getText().toString();a.data.put("remember",remember.isChecked());
+            b.set("name",a.get("name")+" · exit");b.set("host",xh);b.set("admin",xu);b.data.put("port",xp);b.sshPassword=exitPassword.getText().toString();b.privateKey=exitKey.getText().toString();b.data.put("remember",remember.isChecked());
+            a.set("pairId",PairController.newId());a.set("vpnLogin",u);a.vpnPassword=pw;a.set("vpnServer",server.getText().toString().trim());a.set("exitEndpoint",endpoint.getText().toString().trim());a.data.put("vpnPort",vp);a.data.put("tunnelPort",tp);a.data.put("pairStatistics",history.isChecked());a.set("pairPhase","Not installed");
+            PairController.request(a,"entry");gateways.add(a);selected=a;demo=false;save();d.dismiss();runPair(a,false);
+        }catch(Exception e){Toast.makeText(this,e.getMessage(),Toast.LENGTH_LONG).show();}});
+    }
+    private void runPair(Gateway node,boolean resume) {
+        if(demo){demoNotice();return;}if(busy)return;
+        if(!hasAuth(node)){passwordDialog(node,()->runPair(node,resume));return;}
+        if(!hasAuth(node.exit)){passwordDialog(node.exit,()->runPair(node,resume));return;}
+        busy=true;message="Checking both server identities";node.set("pairPhase",message);save();render();
+        executor.execute(()->{
+            try {
+                JSONObject result=PairController.install(node,()->getAssets().open("gateway_bundle.zip"),phase->handler.post(()->{if(!isFinishing()){message=phase;node.set("pairPhase",phase);save();render();}}),resume);
+                handler.post(()->{try {
+                    busy=false;message="Two-hop pair installed and staged checks passed. Verify the complete route on your phone.";node.set("pairPhase","Ready · IPv4 exit "+result.optString("exit_ip"));node.data.put("snapshot",result.getJSONObject("entry"));node.exit.data.put("snapshot",result.getJSONObject("exit"));node.set("checked","Pair installation checked");save();render();
+                }catch(Exception e){error(e);}});
+            }catch(Exception e){handler.post(()->{busy=false;message="";node.set("pairPhase","Needs attention · resume the recorded step");save();render();
+                if(e instanceof PairController.TrustNeeded){PairController.TrustNeeded t=(PairController.TrustNeeded)e;trust(t.node,t.issue,()->runPair(node,resume));}
+                else if(e instanceof PairController.RebootNeeded){PairController.RebootNeeded r=(PairController.RebootNeeded)e;new AlertDialog.Builder(this).setTitle("Node reboot required").setMessage(r.getMessage()).setNegativeButton("Later",null).setPositiveButton("Reboot this node",(x,w)->withSsh(r.node,"Scheduling the owned reboot",s->s.pair(json("command","reboot","pair",node.get("pairId"))),j->{message="Reboot requested. Wait for SSH, then resume the pair.";render();})).show();}
+                else error(e);
+            });}
+        });
+    }
+    private void refreshPair(Gateway node) {
+        withSsh(node,"Checking the entry",s->s.admin(json("action","status")),a->{try{node.data.put("snapshot",a);}catch(JSONException e){error(e);}
+            withSsh(node.exit,"Checking the exit",s->s.admin(json("action","status")),b->{try{node.exit.data.put("snapshot",b);node.set("checked","Both nodes checked");save();render();}catch(JSONException e){error(e);}});
+        });
+    }
+
     private void resetGateway(Gateway node) {
         if(demo){demoNotice();return;}
         withSsh(node,"Reviewing reset",ssh->{try(InputStream bundle=getAssets().open("gateway_bundle.zip")){return ssh.reset(bundle,json("mode","plan"));}},plan->{
@@ -422,6 +492,7 @@ public final class RookstrideActivity extends AppCompatActivity implements VpnSt
         try {
             VpnProfile p=node.get("profileUuid").isEmpty()?null:source.getVpnProfile(node.get("profileUuid"));boolean exists=p!=null;if(p==null)p=new VpnProfile();
             p.setName(node.get("name"));p.setGateway(data.getJSONObject("remote").getString("addr"));p.setRemoteId(data.getJSONObject("remote").getString("id"));
+            if(data.getJSONObject("remote").has("port"))p.setPort(data.getJSONObject("remote").getInt("port"));
             p.setUsername(data.getJSONObject("local").getString("eap_id"));p.setVpnType(VpnType.IKEV2_EAP);p.setMTU(1280);p.setCertificateAlias(alias);p.setPassword(null);
             p.setSplitTunneling(VpnProfile.SPLIT_TUNNELING_BLOCK_IPV4|VpnProfile.SPLIT_TUNNELING_BLOCK_IPV6);p.setFlags(VpnProfile.FLAGS_SUPPRESS_CERT_REQS);
             if(exists)source.updateVpnProfile(p);else source.insertProfile(p);node.set("profileUuid",p.getUUID().toString());
@@ -447,6 +518,7 @@ public final class RookstrideActivity extends AppCompatActivity implements VpnSt
         } catch(Exception e){error(e);}
     }
     private void adguard(Gateway node) {
+        if(node.isPair()){adguard(node.exit);return;}
         if(demo){demoNotice();return;}
         command(node,json("action","adguard"),r->new AlertDialog.Builder(this).setTitle("AdGuard Home").setMessage(r.optLong("blocked")+" blocked / "+r.optLong("queries")+" DNS requests\n\nStrong and Strict can block domains that a site needs. DNS filtering cannot reliably remove YouTube video ads.")
             .setItems(new String[]{"Standard · AdGuard DNS filter","Strong · HaGeZi Pro","Strict · HaGeZi Pro++"},(d,w)->confirm("Change filtering?","Compare website access afterward. You can return to Standard if a required domain is blocked.",()->command(node,json("action","adguard","level",new String[]{"standard","strong","strict"}[w]),a->Toast.makeText(this,"Filtering level updated",1).show())))

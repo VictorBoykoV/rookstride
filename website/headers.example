@@ -1,0 +1,10 @@
+# Adapt these to your future static host. No public host is configured yet.
+Content-Security-Policy: default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; form-action 'none'
+X-Content-Type-Options: nosniff
+Referrer-Policy: strict-origin-when-cross-origin
+Permissions-Policy: camera=(), microphone=(), geolocation=()
+
+# Add HSTS only after the actual domain is serving HTTPS correctly.
+# Configure compression and proper Content-Type headers with your host.
+# Use short cache lifetimes for HTML and release metadata. Asset filenames in
+# this edition are stable rather than content-hashed; do not cache them forever.

@@ -1,0 +1,43 @@
+{
+  "development": {
+    "version": "0.2.0-alpha1",
+    "status": "local-experimental",
+    "topologies": [
+      "single-vps",
+      "two-vps"
+    ],
+    "phone_to_entry": "ikev2",
+    "entry_to_exit": "amneziawg-3.1",
+    "guide": "/docs/pair-mode.md",
+    "tests": "/docs/pair-testing.md",
+    "provider_pair_verified": false,
+    "local_fresh_pair_cycles": 3,
+    "cycle_3_retried": true,
+    "android_36_gate": "incomplete",
+    "evidence": "/data/pair-alpha1-tests.json"
+  },
+  "status": "implemented-experimental-pair-with-other-engines-proposed",
+  "date": "2026-10-13",
+  "current_apk": "0.1.0-alpha2",
+  "current_topologies": [
+    "single-vps"
+  ],
+  "current_client_engines": [
+    "strongswan-ikev2"
+  ],
+  "first_pair_recipe": {
+    "phone_to_entry": "ikev2",
+    "entry_to_exit": "amneziawg-3.1",
+    "dns_location": "exit",
+    "available_in_current_apk": false,
+    "local_pair_verified": true,
+    "independent_provider_pair_verified": false
+  },
+  "other_engine_candidates": [
+    "amneziawg-3.1",
+    "wireguard",
+    "openvpn",
+    "xray-vless-reality"
+  ],
+  "report": "/docs/universal-gateway-research.md"
+}
