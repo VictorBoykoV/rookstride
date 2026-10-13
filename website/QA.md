@@ -4,7 +4,7 @@
 
 13 October 2026. The local routes page now documents the implemented IKEv2 → AWG pair, its SSH/job recovery flow, guide and sanitized evidence. The same signed `0.2.0-alpha1` APK completed three fresh local Ubuntu pair cycles; cycle 3 required documented retries. Android 16 pair compatibility remains incomplete; independent-provider and physical-device pair tests remain gates. See [PAIR-TESTING.md](../docs/PAIR-TESTING.md). No live VPS was changed.
 
-Static checks: 9 pages, 377 internal references, 5 JSON-LD documents, 23 scanned text files, 10 comic pages and 30 panels. APK/source links for alpha2 remain tied to their original artifacts. The website mirrors pair docs/results and can rebuild outside the app repository. The earlier UI checks below describe the unchanged reader and layouts; this update adds implementation/evidence copy.
+Static checks: 9 pages, 377 internal references, 5 JSON-LD documents, 23 scanned text files, 10 comic pages and 30 panels. APK/source links for alpha2 remain tied to their original artifacts. The website mirrors pair docs/results and can rebuild outside the app repository. Fresh connected-Chrome verification confirmed the updated implementation/evidence copy and release boundaries; [captured route preview](qa/pair-preview.jpg). Standalone extracted rebuild and checker passed. The earlier UI checks below describe the unchanged reader and layouts; this update adds implementation/evidence copy.
 
 ## Earlier route-research snapshot
 
