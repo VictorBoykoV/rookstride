@@ -98,6 +98,12 @@ def main():
         if len(raw)>65536: raise ValueError('Request is too large')
         req=json.loads(raw)
         if not isinstance(req,dict): raise ValueError('Expected an object')
+        if req.get('mode') in ('pair-plan','pair-apply'):
+            import pair_reset
+            with Path('/run/rookstride-pair.lock').open('a') as lock:
+                fcntl.flock(lock,fcntl.LOCK_EX)
+                result=pair_reset.plan(req) if req['mode']=='pair-plan' else pair_reset.apply(req)
+            print(json.dumps({'ok':True,'result':result}));return
         # Separate lock remains outside the directory being removed.
         with Path('/run/rookstride-management.lock').open('a') as lock:
             fcntl.flock(lock,fcntl.LOCK_EX)

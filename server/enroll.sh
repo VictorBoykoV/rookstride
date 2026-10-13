@@ -6,7 +6,7 @@ package="$(cd "$(dirname "$0")/.." && pwd)"
   echo 'This is not an installation of the supported single VPS gateway.' >&2; exit 2;
 }
 export DEBIAN_FRONTEND=noninteractive
-apt-get install -y -qq strongswan-swanctl
+apt-get -o DPkg::Lock::Timeout=1200 install -y -qq strongswan-swanctl
 install -d -m 700 /opt/rookstride /var/lib/rookstride
 cp -a "$package/server" /opt/rookstride/
 cp -a "$package/gateway" /opt/rookstride/

@@ -1,7 +1,7 @@
 {
   "development": {
-    "version": "0.2.0-alpha1",
-    "status": "local-experimental",
+    "version": "0.2.0-alpha2",
+    "status": "experimental-provider-tested",
     "topologies": [
       "single-vps",
       "two-vps"
@@ -9,15 +9,17 @@
     "phone_to_entry": "ikev2",
     "entry_to_exit": "amneziawg-3.1",
     "guide": "/docs/pair-mode.md",
-    "tests": "/docs/pair-testing.md",
-    "provider_pair_verified": false,
-    "local_fresh_pair_cycles": 3,
-    "cycle_3_retried": true,
-    "android_36_gate": "incomplete",
-    "evidence": "/data/pair-alpha1-tests.json"
+    "tests": "/docs/pair-provider-testing.md",
+    "provider_pair_verified": true,
+    "fresh_provider_runs": 4,
+    "android_36_gate": "native-coordinator-and-vpn-passed; screen-navigation-incomplete",
+    "evidence": "/data/pair-provider-alpha2-tests.json",
+    "managed_pair_reset": true,
+    "role_swap_after_reset": true,
+    "native_ssh_management_relay": true
   },
   "status": "implemented-experimental-pair-with-other-engines-proposed",
-  "date": "2026-10-13",
+  "date": "2026-10-14",
   "current_apk": "0.1.0-alpha2",
   "current_topologies": [
     "single-vps"
@@ -31,7 +33,13 @@
     "dns_location": "exit",
     "available_in_current_apk": false,
     "local_pair_verified": true,
-    "independent_provider_pair_verified": false
+    "independent_provider_pair_verified": true,
+    "client_network_limits": {
+      "mac_to_node_a_udp_return": "failed",
+      "node_a_udp_echo_requests_received": 7,
+      "mac_to_node_b_udp_return": "passed",
+      "node_a_ike_from_provider_b": "passed"
+    }
   },
   "other_engine_candidates": [
     "amneziawg-3.1",

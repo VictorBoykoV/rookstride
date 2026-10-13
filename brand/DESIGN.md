@@ -6,6 +6,6 @@ The revision uses one swept crest, a round head/chin, a longer clearly projectin
 
 Rook is a fictional red navigator, not a zoological illustration. A real rook is a corvid; a male chicken is a rooster. The name and existing comic character stay intact.
 
-The website and Android source use the new mark. The already published alpha2 APK and its genuine screenshots retain the original mark until a new tested signed release. No binary has been relabeled or silently replaced.
+The website and Android source use the new mark. Experimental 0.2.0 builds include it in the signed APK. The published 0.1.0-alpha2 APK and its genuine screenshots retain the original mark; no existing binary has been relabeled or silently replaced. The two gateway repositories carry the same revision in their Android integration links, with its separate artwork license.
 
 Signal red #EE3038; white #FFFFFF; charcoal #141418. Warm paper #F4F0E7 is a background/reversed-mark variant. Original brand assets are GPL-3.0-or-later.

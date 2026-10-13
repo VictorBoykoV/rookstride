@@ -20,13 +20,14 @@ public class PairIntegrationTest {
   File f=new File(c.getFilesDir(),"pair-integration.json");assumeTrue("No private pair fixture supplied",f.isFile());
   JSONObject fixture=new JSONObject(new String(Files.readAllBytes(f.toPath()),"UTF-8"));
   Gateway entry=new Gateway(fixture.getJSONObject("gateway"));
-  for(Gateway node:new Gateway[]{entry,entry.exit}) {
+  Gateway direct=entry.sshRelay!=null?entry.exit:entry;
+  for(Gateway node:new Gateway[]{direct,direct==entry?entry.exit:entry}) {
    node.set("fingerprint","");String trusted="";
    try {new Ssh(node).close();fail("Unknown key accepted");}
    catch(Ssh.HostTrust e) {
     assertFalse(e.changed);JSONArray keys=fixture.getJSONArray(node==entry?"entryKeys":"exitKeys");
     for(int i=0;i<keys.length();i++)if(keys.getString(i).equals(e.fingerprint))trusted=e.fingerprint;
-    assertFalse("Presented key was not verified through the VM console",trusted.isEmpty());
+    assertFalse("Presented key did not match the private verified fixture",trusted.isEmpty());assertSame(node,e.node);
    }
    node.set("fingerprint","SHA256:wrong-key");
    try{new Ssh(node).close();fail("Changed key accepted");}catch(Ssh.HostTrust e){assertTrue(e.changed);}
@@ -36,11 +37,15 @@ public class PairIntegrationTest {
    try(Ssh a=new Ssh(entry);Ssh b=new Ssh(entry.exit)) {
     assertFalse(a.probe().getBoolean("existing"));assertFalse(b.probe().getBoolean("pair_helper"));
    }
-   Gateway alias=new Gateway(new JSONObject(entry.data.toString()));alias.exit=new Gateway(new JSONObject(entry.data.toString()));alias.exit.privateKey=entry.privateKey;alias.privateKey=entry.privateKey;alias.vpnPassword=entry.vpnPassword;
+   JSONObject raw=new JSONObject(direct.data.toString());raw.remove("pairExit");raw.put("sshRoute","direct");
+   Gateway alias=new Gateway(new JSONObject(raw.toString()));alias.exit=new Gateway(new JSONObject(raw.toString()));alias.exit.privateKey=direct.privateKey;alias.privateKey=direct.privateKey;alias.vpnPassword=entry.vpnPassword;alias.sshPassword=direct.sshPassword;alias.exit.sshPassword=direct.sshPassword;
    try {PairController.install(alias,()->c.getAssets().open("gateway_bundle.zip"),p->{},false);fail("Same machine accepted twice");}
    catch(java.io.IOException e){assertTrue(e.getMessage().contains("distinct machines"));}
   }
-  JSONObject installed=PairController.install(entry,()->c.getAssets().open("gateway_bundle.zip"),p->{},true);
+  JSONObject installed=null;
+  for(int attempt=0;attempt<3;attempt++)try {installed=PairController.install(entry,()->c.getAssets().open("gateway_bundle.zip"),p->{},true);break;}
+  catch(PairController.RebootNeeded r){try(Ssh ssh=new Ssh(r.node)){ssh.pair(new JSONObject().put("command","reboot").put("pair",entry.get("pairId")));}Thread.sleep(20000);for(int retry=0;retry<45;retry++){try(Ssh ssh=new Ssh(r.node)){ssh.probe();break;}catch(Exception e){Thread.sleep(4000);}}}
+  assertNotNull("Owned reboot/resume did not finish",installed);
   assertTrue(installed.getJSONObject("entry").getBoolean("monitoring_available"));
   try(Ssh a=new Ssh(entry);Ssh b=new Ssh(entry.exit)) {
    assertTrue(a.pair(new JSONObject().put("command","overview").put("pair",entry.get("pairId"))).getBoolean("activated"));

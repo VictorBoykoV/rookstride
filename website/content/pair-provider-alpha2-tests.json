@@ -1,0 +1,447 @@
+{
+  "version": "0.2.0-alpha2",
+  "date_range": "2026-10-13/2026-10-14",
+  "apk": {
+    "release": "0.2.0-alpha2",
+    "sha256": "4ffd25954380da3a557c1eb36c377c628e9c4149a6b05872229c048d31b1f577",
+    "signer_sha256": "751386cf7143ba92c88084a0b26dfeac86128b2fe0d5277821ee4c67a92ae7ba",
+    "native_libraries": 24,
+    "zip_load_relro_16k_aligned": true,
+    "embedded_source_matches": true,
+    "non_debuggable": true
+  },
+  "python_tests": 49,
+  "android_jvm_tests": 93,
+  "fresh_provider_pair_runs": [
+    {
+      "run": 1,
+      "layout": "B entry / A exit",
+      "installer_android_api": 26,
+      "both_nodes_installed_using_native_app_code": true,
+      "both_nodes_phone_reset_before_run": true,
+      "independent_reset_audit": {
+        "one": {
+          "owned_data_removed": true,
+          "iptables_chains_removed": true,
+          "ip6tables_chains_removed": true,
+          "dedicated_policy_rules_removed": true,
+          "dedicated_routes_removed": true,
+          "tunnel_device_removed": true,
+          "xfrm_states_removed": true,
+          "ike_stopped": true,
+          "dns_stopped": true,
+          "ssh_healthy": true,
+          "machine_unchanged": true
+        },
+        "two": {
+          "owned_data_removed": true,
+          "iptables_chains_removed": true,
+          "ip6tables_chains_removed": true,
+          "dedicated_policy_rules_removed": true,
+          "dedicated_routes_removed": true,
+          "tunnel_device_removed": true,
+          "xfrm_states_removed": true,
+          "ike_stopped": true,
+          "dns_stopped": true,
+          "ssh_healthy": true,
+          "machine_unchanged": true
+        }
+      },
+      "independent_server_audit": {
+        "entry": {
+          "installer_digest_matches": true,
+          "configured": true,
+          "all_jobs_complete": true,
+          "requests_removed": true,
+          "material_root_private": true,
+          "tunnel_config_matches": true,
+          "tunnel_config_private": true,
+          "awg_healthy": true,
+          "module_3_1": true,
+          "mtu_1280": true,
+          "ike_healthy": true,
+          "collector_healthy": true,
+          "routing_service_enabled": true,
+          "blackhole_and_bridge_routes": true,
+          "active_marker": true,
+          "initial_secret_removed": true,
+          "temporary_configs_removed": true,
+          "cert_valid": true,
+          "ssh_os_identity_preserved": true
+        },
+        "exit": {
+          "installer_digest_matches": true,
+          "configured": true,
+          "all_jobs_complete": true,
+          "requests_removed": true,
+          "material_root_private": true,
+          "tunnel_config_matches": true,
+          "tunnel_config_private": true,
+          "awg_healthy": true,
+          "module_3_1": true,
+          "mtu_1280": true,
+          "dns_services_healthy": true,
+          "private_dns_dashboard": true,
+          "ad_domain_blocked": true,
+          "aaaa_suppressed": true,
+          "no_lab_dns_override": true,
+          "ssh_os_identity_preserved": true
+        }
+      },
+      "real_client_checks": {
+        "android_embedded_client": {
+          "cycle": 4,
+          "apk_sha256": "4ffd25954380da3a557c1eb36c377c628e9c4149a6b05872229c048d31b1f577",
+          "real_embedded_ikev2": true,
+          "separate_uid_https": true,
+          "distinct_exit_ipv4_matches": true,
+          "entry_and_exit_forward_counters": true,
+          "ad_dns_blocked": true,
+          "literal_ipv6_probe_failed": true,
+          "bridge_stop_blocks_client": true,
+          "bridge_restart_restores_client": true,
+          "provider_pair": true,
+          "physical_device": false
+        },
+        "isolated_provider_linux_client": {
+          "cycle": 4,
+          "client": "isolated Linux namespace on the exit VPS",
+          "checks": {
+            "ike_eap_established": true,
+            "https_exit_matches": true,
+            "ad_dns_blocked": true,
+            "literal_tcp_baseline": true,
+            "ike_remains_during_bridge_outage": true,
+            "bridge_down_blocks_tcp": true,
+            "bridge_restart_https": true,
+            "bridge_restart_dns": true
+          },
+          "network_path": "provider to provider; not the Mac/Android-emulator path",
+          "ok": true
+        }
+      }
+    },
+    {
+      "run": 2,
+      "layout": "A entry / B exit",
+      "installer_android_api": 26,
+      "both_nodes_installed_using_native_app_code": true,
+      "both_nodes_phone_reset_before_run": true,
+      "independent_reset_audit": {
+        "one": {
+          "owned_data_removed": true,
+          "iptables_chains_removed": true,
+          "ip6tables_chains_removed": true,
+          "dedicated_policy_rules_removed": true,
+          "dedicated_routes_removed": true,
+          "tunnel_device_removed": true,
+          "xfrm_states_removed": true,
+          "ike_stopped": true,
+          "dns_stopped": true,
+          "ssh_healthy": true,
+          "machine_unchanged": true
+        },
+        "two": {
+          "owned_data_removed": true,
+          "iptables_chains_removed": true,
+          "ip6tables_chains_removed": true,
+          "dedicated_policy_rules_removed": true,
+          "dedicated_routes_removed": true,
+          "tunnel_device_removed": true,
+          "xfrm_states_removed": true,
+          "ike_stopped": true,
+          "dns_stopped": true,
+          "ssh_healthy": true,
+          "machine_unchanged": true
+        }
+      },
+      "independent_server_audit": {
+        "entry": {
+          "installer_digest_matches": true,
+          "configured": true,
+          "all_jobs_complete": true,
+          "requests_removed": true,
+          "material_root_private": true,
+          "tunnel_config_matches": true,
+          "tunnel_config_private": true,
+          "awg_healthy": true,
+          "module_3_1": true,
+          "mtu_1280": true,
+          "ike_healthy": true,
+          "collector_healthy": true,
+          "routing_service_enabled": true,
+          "blackhole_and_bridge_routes": true,
+          "active_marker": true,
+          "initial_secret_removed": true,
+          "temporary_configs_removed": true,
+          "cert_valid": true,
+          "ssh_os_identity_preserved": true
+        },
+        "exit": {
+          "installer_digest_matches": true,
+          "configured": true,
+          "all_jobs_complete": true,
+          "requests_removed": true,
+          "material_root_private": true,
+          "tunnel_config_matches": true,
+          "tunnel_config_private": true,
+          "awg_healthy": true,
+          "module_3_1": true,
+          "mtu_1280": true,
+          "dns_services_healthy": true,
+          "private_dns_dashboard": true,
+          "ad_domain_blocked": true,
+          "aaaa_suppressed": true,
+          "no_lab_dns_override": true,
+          "ssh_os_identity_preserved": true
+        }
+      },
+      "real_client_checks": {
+        "isolated_provider_linux_client": {
+          "cycle": 5,
+          "client": "isolated Linux namespace on the exit VPS",
+          "checks": {
+            "ike_eap_established": true,
+            "https_exit_matches": true,
+            "ad_dns_blocked": true,
+            "literal_tcp_baseline": true,
+            "ike_remains_during_bridge_outage": true,
+            "bridge_down_blocks_tcp": true,
+            "bridge_restart_https": true,
+            "bridge_restart_dns": true,
+            "host_resolver_unchanged": true,
+            "qa_namespace_removed": true,
+            "qa_chains_removed": true,
+            "temporary_ike_files_removed": true,
+            "pool_forwarding_counters_increased_both_nodes": true
+          },
+          "network_path": "provider to provider; not the Mac/Android-emulator path",
+          "ok": true
+        },
+        "phone_interruption_recovery": {
+          "phone_process_stopped_during_bootstrap": true,
+          "owned_server_job_completed_without_phone": true,
+          "same_pair_and_apk_resumed": true
+        }
+      }
+    },
+    {
+      "run": 3,
+      "layout": "B entry / A exit",
+      "installer_android_api": 36,
+      "both_nodes_installed_using_native_app_code": true,
+      "both_nodes_phone_reset_before_run": true,
+      "independent_reset_audit": {
+        "one": {
+          "owned_data_removed": true,
+          "iptables_chains_removed": true,
+          "ip6tables_chains_removed": true,
+          "dedicated_policy_rules_removed": true,
+          "dedicated_routes_removed": true,
+          "tunnel_device_removed": true,
+          "xfrm_states_removed": true,
+          "ike_stopped": true,
+          "dns_stopped": true,
+          "ssh_healthy": true,
+          "machine_unchanged": true
+        },
+        "two": {
+          "owned_data_removed": true,
+          "iptables_chains_removed": true,
+          "ip6tables_chains_removed": true,
+          "dedicated_policy_rules_removed": true,
+          "dedicated_routes_removed": true,
+          "tunnel_device_removed": true,
+          "xfrm_states_removed": true,
+          "ike_stopped": true,
+          "dns_stopped": true,
+          "ssh_healthy": true,
+          "machine_unchanged": true
+        }
+      },
+      "independent_server_audit": {
+        "entry": {
+          "installer_digest_matches": true,
+          "configured": true,
+          "all_jobs_complete": true,
+          "requests_removed": true,
+          "material_root_private": true,
+          "tunnel_config_matches": true,
+          "tunnel_config_private": true,
+          "awg_healthy": true,
+          "module_3_1": true,
+          "mtu_1280": true,
+          "ike_healthy": true,
+          "collector_healthy": true,
+          "routing_service_enabled": true,
+          "blackhole_and_bridge_routes": true,
+          "active_marker": true,
+          "initial_secret_removed": true,
+          "temporary_configs_removed": true,
+          "cert_valid": true,
+          "ssh_os_identity_preserved": true
+        },
+        "exit": {
+          "installer_digest_matches": true,
+          "configured": true,
+          "all_jobs_complete": true,
+          "requests_removed": true,
+          "material_root_private": true,
+          "tunnel_config_matches": true,
+          "tunnel_config_private": true,
+          "awg_healthy": true,
+          "module_3_1": true,
+          "mtu_1280": true,
+          "dns_services_healthy": true,
+          "private_dns_dashboard": true,
+          "ad_domain_blocked": true,
+          "aaaa_suppressed": true,
+          "no_lab_dns_override": true,
+          "ssh_os_identity_preserved": true
+        }
+      },
+      "real_client_checks": {
+        "android_embedded_client": {
+          "cycle": 6,
+          "apk_sha256": "4ffd25954380da3a557c1eb36c377c628e9c4149a6b05872229c048d31b1f577",
+          "real_embedded_ikev2": true,
+          "separate_uid_https": true,
+          "distinct_exit_ipv4_matches": true,
+          "entry_and_exit_forward_counters": true,
+          "ad_dns_blocked": true,
+          "literal_ipv6_probe_failed": true,
+          "bridge_stop_blocks_client": true,
+          "bridge_restart_restores_client": true,
+          "provider_pair": true,
+          "physical_device": false
+        },
+        "both_node_reboot_recovery": {
+          "both_node_reboots": true,
+          "certificate_preserved": true,
+          "tunnel_material_preserved": true,
+          "services_routes_and_dns_recovered": true
+        }
+      }
+    },
+    {
+      "run": 4,
+      "layout": "A entry / B exit",
+      "installer_android_api": 28,
+      "both_nodes_installed_using_native_app_code": true,
+      "both_nodes_phone_reset_before_run": true,
+      "independent_reset_audit": {
+        "one": {
+          "owned_data_removed": true,
+          "iptables_chains_removed": true,
+          "ip6tables_chains_removed": true,
+          "dedicated_policy_rules_removed": true,
+          "dedicated_routes_removed": true,
+          "tunnel_device_removed": true,
+          "xfrm_states_removed": true,
+          "ike_stopped": true,
+          "dns_stopped": true,
+          "ssh_healthy": true,
+          "machine_unchanged": true
+        },
+        "two": {
+          "owned_data_removed": true,
+          "iptables_chains_removed": true,
+          "ip6tables_chains_removed": true,
+          "dedicated_policy_rules_removed": true,
+          "dedicated_routes_removed": true,
+          "tunnel_device_removed": true,
+          "xfrm_states_removed": true,
+          "ike_stopped": true,
+          "dns_stopped": true,
+          "ssh_healthy": true,
+          "machine_unchanged": true
+        }
+      },
+      "independent_server_audit": {
+        "entry": {
+          "installer_digest_matches": true,
+          "configured": true,
+          "all_jobs_complete": true,
+          "requests_removed": true,
+          "material_root_private": true,
+          "tunnel_config_matches": true,
+          "tunnel_config_private": true,
+          "awg_healthy": true,
+          "module_3_1": true,
+          "mtu_1280": true,
+          "ike_healthy": true,
+          "collector_healthy": true,
+          "routing_service_enabled": true,
+          "blackhole_and_bridge_routes": true,
+          "active_marker": true,
+          "initial_secret_removed": true,
+          "temporary_configs_removed": true,
+          "cert_valid": true,
+          "ssh_os_identity_preserved": true
+        },
+        "exit": {
+          "installer_digest_matches": true,
+          "configured": true,
+          "all_jobs_complete": true,
+          "requests_removed": true,
+          "material_root_private": true,
+          "tunnel_config_matches": true,
+          "tunnel_config_private": true,
+          "awg_healthy": true,
+          "module_3_1": true,
+          "mtu_1280": true,
+          "dns_services_healthy": true,
+          "private_dns_dashboard": true,
+          "ad_domain_blocked": true,
+          "aaaa_suppressed": true,
+          "no_lab_dns_override": true,
+          "ssh_os_identity_preserved": true
+        }
+      },
+      "real_client_checks": {
+        "isolated_provider_linux_client": {
+          "cycle": 7,
+          "client": "isolated Linux namespace on the exit VPS",
+          "checks": {
+            "ike_eap_established": true,
+            "https_exit_matches": true,
+            "ad_dns_blocked": true,
+            "literal_tcp_baseline": true,
+            "ike_remains_during_bridge_outage": true,
+            "bridge_down_blocks_tcp": true,
+            "bridge_restart_https": true,
+            "bridge_restart_dns": true,
+            "host_resolver_unchanged": true,
+            "qa_namespace_removed": true,
+            "qa_chains_removed": true,
+            "temporary_ike_files_removed": true,
+            "pool_forwarding_counters_increased_both_nodes": true
+          },
+          "network_path": "provider to provider; not the Mac/Android-emulator path",
+          "ok": true
+        }
+      }
+    }
+  ],
+  "unique_entry_certificates_each_run": true,
+  "unique_tunnel_material_each_run": true,
+  "android_36": {
+    "native_ssh_coordinator": "passed",
+    "embedded_ikev2_and_separate_uid_probe": "passed",
+    "screen_navigation": "incomplete: emulator System UI startup ANRs",
+    "test_only_google_apps_disabled": true
+  },
+  "network_control": {
+    "mac_to_node_a_udp_return": "failed",
+    "node_a_udp_echo_requests_received": 7,
+    "mac_to_node_b_udp_return": "passed",
+    "node_a_ike_from_provider_b": "passed"
+  },
+  "remaining_gates": [
+    "Physical/OEM Android devices and normal permission prompts",
+    "Real IPv6 mobile networks, handoff and lockdown",
+    "Android 16 screen navigation on a healthy device",
+    "Sustained multi-user load and long-run resource measurements",
+    "Native 16-KiB runtime and ARM64 server deployments"
+  ]
+}

@@ -52,6 +52,7 @@ def plan(req):
     for k in ('tunnel_port','vpn_port','route_table'):
         n=result[k]
         if type(n) is not int or not 1<=n<=(2147483647 if k=='route_table' else 65535): raise ValueError('Invalid port or routing table')
+        if k=='route_table' and n in (253,254,255):raise ValueError('Use a dedicated routing table')
     pool=ipaddress.ip_network(result['client_pool'],strict=True)
     test=ipaddress.ip_address(result['test_ip'])
     entry=ipaddress.ip_interface(result['entry_address']); exit=ipaddress.ip_interface(result['exit_address'])
@@ -122,6 +123,7 @@ def start(req):
     m=load_manifest()
     if m:
         m=require_owner(p)
+        if m.get('resetting'):raise ValueError('Pair reset is in progress; finish reset before installation')
         if m['bundle']!=digest: raise ValueError('Bundle changed; review an explicit upgrade instead of resuming')
     else:
         if action!='bootstrap': raise ValueError('Bootstrap this node first')
@@ -210,7 +212,7 @@ def prepare_guard(p):
     helper=Path('/usr/local/sbin/twohop-vpn-entry-routing')
     shutil.copyfile(RELEASE/'twohop/scripts/remote/twohop-vpn-entry-routing',helper);helper.chmod(0o700)
     # Tools are needed before the guard; no VPN credentials/profile exist yet.
-    run(['apt-get','update','-qq']);run(['apt-get','install','-y','-qq','iproute2','iptables'])
+    run(['apt-get','update','-qq']);run(['apt-get','-o','DPkg::Lock::Timeout=1200','install','-y','-qq','iproute2','iptables'])
     run([str(helper),'quiesce'])
     atomic('/etc/systemd/system/twohop-vpn-entry-routing.service','''[Unit]\nAfter=network-online.target\nWants=network-online.target\nBefore=strongswan-starter.service\n[Service]\nType=oneshot\nRemainAfterExit=yes\nExecStart=/usr/local/sbin/twohop-vpn-entry-routing boot\n[Install]\nWantedBy=multi-user.target\n''')
     Path('/etc/systemd/system/twohop-vpn-entry-routing.service').chmod(0o644)

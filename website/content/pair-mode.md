@@ -1,6 +1,6 @@
 # Two-server gateway · experimental
 
-The `0.2.0-alpha1` source adds one complete recipe to the Android app:
+The `0.2.0-alpha2` source includes one complete recipe in the Android app:
 
 ```mermaid
 flowchart LR
@@ -13,7 +13,7 @@ flowchart LR
     Admin -->|Independently pinned SSH| Exit
 ```
 
-The public alpha2 APK remains the single-server release. The new pair is an experimental build; its exact tests and remaining gates are in [PAIR-TESTING.md](PAIR-TESTING.md). WireGuard, OpenVPN and Xray client engines remain proposals.
+The public `0.1.0-alpha2` APK is the earlier single-server release. The `0.2.0` pair builds are experimental. Read the [real-provider test report](PAIR-PROVIDER-TESTING.md); [PAIR-TESTING.md](PAIR-TESTING.md) records the historical alpha1 local-machine tests. WireGuard, OpenVPN and Xray client engines remain proposals.
 
 ## Requirements
 
@@ -21,7 +21,7 @@ The public alpha2 APK remains the single-server release. The new pair is an expe
 - Independent SSH addresses, ports and root credentials or private keys. Passwordless sudo is also supported.
 - Provider firewall access for entry UDP 500/4500 and exit UDP 443 by default. A custom client or bridge port can be selected before installation.
 - A matching kernel and headers able to build/load the pinned AmneziaWG module. When a kernel change is required, the app offers an owned reboot and then resume.
-- Reachable Ubuntu repositories, the signed AWG package repository and the checksum-pinned AdGuard Home release. The phone needs an Internet connection to both SSH endpoints.
+- Reachable Ubuntu repositories, the signed AWG package repository and the checksum-pinned AdGuard Home release. The phone needs an Internet connection. If one SSH endpoint is unreachable directly, **Advanced → Manage entry through exit** or **Manage exit through entry** can use the other node as a management relay. Both host keys are independently checked before authenticating to their respective nodes. The relay must permit SSH TCP forwarding and reach the target's SSH port; it is not a VPN transport workaround.
 
 One physical VPS cannot serve as both roles. The app checks machine IDs before changing either node, refusing aliases of the same machine. Two isolated local VMs can test the coordinator and real tunnel, but a production two-hop route needs two VPSs. Shared-host tests do not certify routing between independent providers.
 
@@ -46,11 +46,21 @@ Root-only job state/logs live under `/var/lib/rookstride-pair/JOB/`; ownership a
 
 ## Current boundaries
 
-- Fresh pair installation and recovery of its owned jobs are supported. Pair upgrades, importing an arbitrary existing pair and an in-app pair data reset are not supported yet. Use provider rebuilds for disposable pair nodes. Single-server reset remains available for its recognized installations.
+- Fresh pair installation, recovery of its owned jobs, reviewed pair data reset and role swapping after reset are supported. Pair upgrades and importing an arbitrary existing pair are not supported. Use a provider rebuild for a whole operating-system wipe.
 - Only one pair per dedicated node. No nested chains, selectable phone engines or mixed protocol recipes.
 - IPv4 Internet routing; IPv6 client Internet traffic is rejected. Always-on Android lockdown is a separate phone setting. The admin app’s management traffic is exempt from its embedded VPN.
 - DNS filtering cannot reliably remove YouTube in-video ads; apps with their own encrypted DNS may bypass domain filtering.
 - Usage is an estimate at the entry, not provider billing. Both VPS providers and the exit’s address reputation still matter.
+
+## Reset and reverse the route from Android
+
+1. Select the saved pair and choose **Reset both VPN nodes**. The app reviews both nodes' ownership and lists the managed files and services.
+2. Type **DELETE PAIR**. The entry VPN stops before its forwarding protection is removed; the exit's tunnel and DNS data are removed afterward. Ubuntu, SSH, installed package binaries and unrelated files are retained. A separately saved root-only recovery archive is outside this reset scope.
+3. The app removes its saved VPN profile and marks the nodes fresh. Choose **Swap entry and exit**, check the VPN address and tunnel endpoint, and install again. Physical-node credentials and SSH pins stay attached to their original servers; the new route gets a new pair identity and new VPN certificates/tunnel keys.
+
+Both nodes must be reachable for review. Reset is coordinated across two machines, not an atomic transaction. If interrupted after one node is cleaned, choose Reset again: the already-fresh node is a reviewed no-op, and the remaining owned node is cleaned. Changed ownership/configuration, extra tunnels, unexpected links or an active installation stop the reset. A running installation should finish or be resumed first.
+
+If the client never receives an IKE response, inspect both client and server logs before changing credentials. An SSH management relay cannot repair this path. The optional entry UDP 443 port redirects to strongSwan's NAT-T listener; the exported profile must use that same selected port. Availability depends on the actual client's network and provider firewall. See [strongSwan's custom-port/NAT-T requirements](https://docs.strongswan.org/docs/latest/features/natTraversal.html). Custom-port evidence here covers strongSwan Android/Linux clients; standard-port native clients need their own compatibility checks.
 
 ## Source and dependencies
 

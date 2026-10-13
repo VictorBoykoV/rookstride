@@ -2,11 +2,11 @@
 
 > An independent, open-source Android app for deploying and managing a single-VPS strongSwan IKEv2 VPN with AdGuard Home and Unbound. Your VPS. Your way.
 
-Early alpha: 0.1.0-alpha2, updated 2026-10-13. Android 8+; fresh Ubuntu 24.04 VPS. Phone network access and administrator SSH are required. No cloud account or public management API.
+Early alpha: 0.1.0-alpha2, updated 2026-10-14. Android 8+; fresh Ubuntu 24.04 VPS. Phone network access and administrator SSH are required. No cloud account or public management API.
 
 ## Practical documentation
 - [Setup and connection](/start/): Administrator installation and invited strongSwan users; key verification, filtering, troubleshooting and reset.
-- [Routes](/routes/): Implemented experimental IKEv2 → AmneziaWG pair with its own guide/evidence; not in the alpha2 APK. Additional engines remain proposals.
+- [Routes](/routes/): Implemented experimental IKEv2 → AmneziaWG pair with its own guide/evidence; not in the earlier 0.1.0-alpha2 APK. Additional engines remain proposals.
 - [Full research](/docs/universal-gateway-research.md): Source audit, compatibility, recovery and acceptance gates.
 - [Infrastructure](/architecture/): VPN, private DNS, pinned SSH and optional local usage estimates.
 - [Download and exact test status](/download/): Signed APK, source, checksums and remaining gates.
@@ -17,6 +17,7 @@ Early alpha: 0.1.0-alpha2, updated 2026-10-13. Android 8+; fresh Ubuntu 24.04 VP
 - [Route research manifest](/data/routes.json): Released single-server capabilities, experimental pair capabilities and proposed additional engines.
 - [Release manifest](/data/release.json): Machine-readable exact artifacts and identity.
 - [Sanitized test results](/data/alpha2-tests.json): Three signed-APK emulator/VPS reset-and-reinstall cycles.
+- [Provider pair evidence](/data/pair-provider-alpha2-tests.json): Repeated app-configured two-provider pairs; exact Android/Linux client networks, reset/reboot checks and remaining gates.
 - [Source repository](https://github.com/VictorBoykoV/rookstride): Authoritative implementation and build documentation.
 - [Gateway repository](https://github.com/VictorBoykoV/single-vps-vpn-gateway): Server template and CLI deployment.
 

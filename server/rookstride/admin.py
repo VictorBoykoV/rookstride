@@ -191,7 +191,7 @@ def adguard(req):
         body=json.dumps(data).encode() if data is not None else None
         r=urllib.request.Request(address+'/control/'+endpoint,data=body,
             headers={'Authorization':'Basic '+auth,'Content-Type':'application/json'})
-        with urllib.request.urlopen(r,timeout=15) as response:
+        with urllib.request.urlopen(r,timeout=60 if endpoint=='filtering/add_url' else 15) as response:
             value=response.read()
             return json.loads(value) if value.startswith(b'{') else {}
     if req.get('level'):
@@ -202,6 +202,12 @@ def adguard(req):
             name,url=FILTERS[level]; call('filtering/add_url',{'name':name,'url':url,'whitelist':False})
         name,url=FILTERS[level]
         call('filtering/set_url',{'url':url,'data':{'url':url,'name':name,'enabled':True}})
+        # Keep the previous preset enabled until the new list is actually loaded.
+        for attempt in range(10):
+            loaded=call('filtering/status')
+            if any(f['url']==url and f.get('enabled') and f.get('rules_count',0)>0 for f in loaded.get('filters',[])):break
+            time.sleep(1)
+        else:raise ValueError('The selected filter has no loaded rules yet. Previous filters remain enabled; retry after checking its download.')
         for f in status.get('filters',[]):
             if f['url'] in [v[1] for v in FILTERS.values()] and f['url']!=url:
                 call('filtering/set_url',{'url':f['url'],'data':{'url':f['url'],'name':f['name'],'enabled':False}})

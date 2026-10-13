@@ -13,12 +13,15 @@ public final class Ssh implements AutoCloseable {
     public static final class HostTrust extends Exception {
         public final String fingerprint;
         public final boolean changed;
-        public HostTrust(String fingerprint, boolean changed) { super(changed?"Server SSH identity changed":"Verify this server's SSH identity"); this.fingerprint=fingerprint; this.changed=changed; }
+        public final Gateway node;
+        public HostTrust(String fingerprint, boolean changed) {this(fingerprint,changed,null);}
+        public HostTrust(String fingerprint, boolean changed,Gateway node) { super(changed?"Server SSH identity changed":"Verify this server's SSH identity"); this.fingerprint=fingerprint; this.changed=changed;this.node=node; }
     }
     public static String fingerprint(byte[] key) throws Exception {
         return "SHA256:"+Base64.getEncoder().withoutPadding().encodeToString(MessageDigest.getInstance("SHA-256").digest(key));
     }
     private final Session session;
+    private final Ssh relay;
     public Ssh(Gateway node) throws Exception {
         JSch client=new JSch();
         if (!node.privateKey.isEmpty()) client.addIdentity("rookstride",node.privateKey.getBytes(StandardCharsets.UTF_8),null,node.sshPassword.getBytes(StandardCharsets.UTF_8));
@@ -36,7 +39,11 @@ public final class Ssh implements AutoCloseable {
             public HostKey[] getHostKey() { return new HostKey[0]; }
             public HostKey[] getHostKey(String h,String t) { return new HostKey[0]; }
         });
-        session=client.getSession(node.get("admin"),node.get("host"),node.port());
+        if(node.sshRelay!=null && node.sshRelay.sshRelay!=null)throw new IOException("Only one SSH relay is supported");
+        relay=node.sshRelay==null?null:new Ssh(node.sshRelay);
+        int port=node.port();String address=node.get("host");
+        if(relay!=null)try {port=relay.session.setPortForwardingL("127.0.0.1",0,address,port);address="127.0.0.1";}catch(Exception e){relay.close();throw e;}
+        session=client.getSession(node.get("admin"),address,port);
         if (node.privateKey.isEmpty()) session.setPassword(node.sshPassword);
         session.setConfig("StrictHostKeyChecking","yes");
         session.setConfig("PreferredAuthentications",node.privateKey.isEmpty()?"password":"publickey");
@@ -44,7 +51,8 @@ public final class Ssh implements AutoCloseable {
         try { session.connect(12000); }
         catch(JSchException e) {
             session.disconnect();
-            if (presented[0]!=null && !presented[0].equals(expected)) throw new HostTrust(presented[0],!expected.isEmpty());
+            if(relay!=null)relay.close();
+            if (presented[0]!=null && !presented[0].equals(expected)) throw new HostTrust(presented[0],!expected.isEmpty(),node);
             throw new IOException("SSH connection failed. Check the administrator login, SSH port and network access.",e);
         }
     }
@@ -118,5 +126,5 @@ public final class Ssh implements AutoCloseable {
         if(!data.optBoolean("ok")) throw new IOException(data.optString("error","Server action failed"));
         return data.getJSONObject("result");
     }
-    @Override public void close() { session.disconnect(); }
+    @Override public void close() { session.disconnect();if(relay!=null)relay.close(); }
 }

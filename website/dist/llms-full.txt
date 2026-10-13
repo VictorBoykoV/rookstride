@@ -1,5 +1,5 @@
 # Rookstride project reference
-Updated: 2026-10-13. Release: 0.1.0-alpha2 (early alpha).
+Updated: 2026-10-14. Release: 0.1.0-alpha2 (early alpha).
 Source: https://github.com/VictorBoykoV/rookstride
 Gateway: https://github.com/VictorBoykoV/single-vps-vpn-gateway
 Release: https://github.com/VictorBoykoV/rookstride/releases/tag/v0.1.0-alpha2
@@ -35,6 +35,6 @@ Exact source commit: 4522a2211a898ae9544b8846a55c18be41787daf
 
 Licenses: Original administration, website and brand GPL-3.0-or-later. Embedded strongSwan retains GPL-2.0-or-later notices; combined app under GPL3+. Gateway scripts MIT. No affiliation with strongSwan, AdGuard, OnePlus or Amnezia.
 
-Routes: Local experimental 0.2.0-alpha1 implements IKEv2 entry to AmneziaWG 3.1 exit, coordinated over independently pinned SSH. Not available in alpha2. Other client engines (AWG/WireGuard/OpenVPN/Xray) require separate implementation and testing. Deployment, export and integrated connection are separate capabilities. The adapter has independent SSH ports/users, durable jobs and a persistent failure guard. See /docs/pair-mode.md and /docs/pair-testing.md for implemented capabilities and exact local test limits. The same signed build completed three fresh local pair cycles, with the third requiring documented retries. Android 16 pair testing is incomplete. No independent-provider or physical-device pair is certified. Research at /routes/ and /docs/universal-gateway-research.md.
+Routes: Experimental 0.2.0-alpha2 implements IKEv2 entry to AmneziaWG 3.1 exit with independently pinned SSH, an optional native management relay, detached jobs, reviewed phone reset and role swapping. Both nodes were repeatedly configured through the same signed app on independent providers, with fresh data resets and reversed roles. Real IKE/EAP, HTTPS exit IPv4, ad DNS, authenticated forwarding counters, outage recovery, interruption and reboot checks passed using embedded Android and isolated provider-side Linux clients. See /docs/pair-provider-testing.md and /data/pair-provider-alpha2-tests.json for each client path: the test computer lost UDP replies from node A, while its provider-side client passed. Android 16 coordinator/VPN passed; screen navigation remains incomplete due to emulator System UI ANRs. Physical/OEM devices and real IPv6 mobile behavior remain gates. Other phone engines remain proposals. The earlier 0.1.0-alpha2 binary is single-server. Pair upgrades and arbitrary imports are future work.
 
 Rook: Original red bird mascot. Fictional Lantern Harbor, brass lantern, folded map, dark scarf, cream satchel. Motto: A good route leaves the next traveler a choice. Five complete illustrated stories: The borrowed light, The noisy market, The bridge that waited, The two bridges, The right material. Reader views: panel, page (default), whole chapter. Fiction is not a product guarantee; original AI-generated illustrations. Full accessible story at /journal/text/.

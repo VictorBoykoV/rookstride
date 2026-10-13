@@ -116,7 +116,10 @@ def check(dist):
     for title in [c['title'] for c in CHAPTERS]:
         require(title in journal and title in text,'Missing complete chapter: '+title)
     routes=(dist/'routes/index.html').read_text()
-    require('neither is included in alpha2' in routes and 'local 0.2.0-alpha1 build' in routes,'Published and experimental APK boundaries must be explicit')
+    require('earlier 0.1.0-alpha2' in routes and 'experimental 0.2.0-alpha2' in routes,'Published and experimental APK boundaries must be explicit')
+    provider=json.loads((dist/'data/pair-provider-alpha2-tests.json').read_text())
+    require(len(provider['fresh_provider_pair_runs'])>=3,'Provider evidence must include repeated full app-configured pairs')
+    require(provider['android_36']['screen_navigation'].startswith('incomplete'),'Android 16 UI limit must remain explicit')
     require((dist/'docs/universal-gateway-research.md').is_file(),'Missing full research note')
     for mode in ('panel','page','chapter'):
         require(f'data-reader-mode="{mode}"' in journal,'Missing reader mode: '+mode)

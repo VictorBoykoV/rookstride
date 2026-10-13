@@ -4,6 +4,13 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class PairModelTest {
+    @Test public void relayPinsAndCredentialsRemainOnTheirOwnNodeAfterSwap() throws Exception {
+        Gateway a=pair();a.set("name","My pair");a.set("sshRoute","entry-via-exit");a.configureRelay();
+        a.set("fingerprint","SHA256:entry");a.exit.set("fingerprint","SHA256:exit");a.data.put("remember",true);a.exit.data.put("remember",true);a.sshPassword="entry-password";a.exit.sshPassword="exit-password";
+        Gateway b=new Gateway(a.persisted());assertSame(b.exit,b.sshRelay);assertNull(b.exit.sshRelay);
+        Gateway swapped=b.swapped();assertEquals("exit.example.net",swapped.get("host"));assertEquals("SHA256:exit",swapped.get("fingerprint"));assertSame(swapped,swapped.exit.sshRelay);assertNull(swapped.sshRelay);
+        Gateway loaded=new Gateway(swapped.persisted());assertNull(loaded.exit.exit);assertEquals("exit-password",loaded.sshPassword);assertEquals("entry-password",loaded.exit.sshPassword);
+    }
     private Gateway pair() throws Exception {
         Gateway a=new Gateway();a.exit=new Gateway();a.set("pairId",PairController.newId());a.set("host","entry.example.net");a.exit.set("host","exit.example.net");return a;
     }

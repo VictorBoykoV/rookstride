@@ -215,7 +215,11 @@ public final class RookstrideActivity extends AppCompatActivity implements VpnSt
         fullButton(controls,"AdGuard controls",false,()->adguard(selected));
         fullButton(controls,"Gateway settings",false,()->editGateway(selected));
         if(!selected.isPair())fullButton(controls,"Reset gateway data",false,()->resetGateway(selected));
-        else controls.addView(text("For a completely fresh pair, rebuild both dedicated nodes in their provider consoles. Pair reset is not available in this experimental build.",12,MUTED,false));
+        else fullButton(controls,"Reset both VPN nodes",false,()->resetPair(selected));
+        if(selected.isPair())fullButton(controls,"Swap entry and exit",false,()->{
+            if(!selected.get("pairPhase").startsWith("Fresh nodes")){message="Reset both VPN nodes before swapping their roles.";render();return;}
+            try{Gateway old=selected,next=old.swapped();gateways.set(gateways.indexOf(old),next);selected=next;save();message="Roles swapped. Install the fresh pair; custom VPN addresses now default to the new nodes.";render();}catch(Exception e){error(e);}
+        });
         fullButton(body,"Add another gateway",false,()->editGateway(null));
         fullButton(body,"Add a two-server gateway",false,this::addPair);
         fullButton(body,"VPN profiles & advanced settings",false,()->startActivity(new Intent(this,MainActivity.class)));
@@ -279,6 +283,7 @@ public final class RookstrideActivity extends AppCompatActivity implements VpnSt
     private void withSsh(Gateway node,String work,Task task,Done done) {
         if(demo){demoNotice();return;}if(busy)return;
         if(!hasAuth(node)) {passwordDialog(node,()->withSsh(node,work,task,done));return;}
+        if(node.sshRelay!=null && !hasAuth(node.sshRelay)){passwordDialog(node.sshRelay,()->withSsh(node,work,task,done));return;}
         busy=true;message=work;render();
         executor.execute(()->{
             try(Ssh ssh=new Ssh(node)) {JSONObject result=task.run(ssh);handler.post(()->{busy=false;message="";done.finish(result);render();});}
@@ -298,7 +303,8 @@ public final class RookstrideActivity extends AppCompatActivity implements VpnSt
             save();if(!p.optBoolean("helper"))message=node.get("job").isEmpty()?"SSH works · "+p.optString("os")+" "+p.optString("version")+" · choose install or enrollment.":"Installation found on the VPS; reconnecting to its status.";
         });
     }
-    private void trust(Gateway node,Ssh.HostTrust t,Runnable retry) {
+    private void trust(Gateway requested,Ssh.HostTrust t,Runnable retry) {
+        Gateway node=t.node==null?requested:t.node;
         if(t.changed) {new AlertDialog.Builder(this).setTitle("SSH identity changed").setMessage("Rookstride stopped before sending credentials. Verify a VPS replacement or key change with your provider.\n\nSaved: "+node.get("fingerprint")+"\n\nPresented: "+t.fingerprint).setPositiveButton("Close",null).show();return;}
         new AlertDialog.Builder(this).setTitle("Verify your server").setMessage(node.get("host")+":"+node.port()+"\n\n"+t.fingerprint+"\n\nCompare this SSH fingerprint with your provider's console if available. Trust it only when it belongs to your server.")
             .setNegativeButton("Cancel",null).setPositiveButton("Trust this server",(d,w)->{node.set("fingerprint",t.fingerprint);save();retry.run();}).show();
@@ -374,6 +380,10 @@ public final class RookstrideActivity extends AppCompatActivity implements VpnSt
         LinearLayout advanced=stack();advanced.setVisibility(View.GONE);
         fullButton(f,"Advanced: SSH keys, addresses and ports",false,()->advanced.setVisibility(advanced.getVisibility()==View.GONE?View.VISIBLE:View.GONE));f.addView(advanced);
         EditText entryKey=field(advanced,"Entry private key (optional)","",true),exitKey=field(advanced,"Exit private key (optional)","",true);entryKey.setSingleLine(false);exitKey.setSingleLine(false);
+        CheckBox entryRelay=new CheckBox(this);entryRelay.setText("Manage entry SSH through exit");advanced.addView(entryRelay);
+        CheckBox exitRelay=new CheckBox(this);exitRelay.setText("Manage exit SSH through entry");advanced.addView(exitRelay);
+        entryRelay.setOnCheckedChangeListener((b,on)->{if(on)exitRelay.setChecked(false);});exitRelay.setOnCheckedChangeListener((b,on)->{if(on)entryRelay.setChecked(false);});
+        advanced.addView(text("Optional when your phone cannot reach one SSH endpoint. Both SSH identities stay pinned. This changes administration only; the VPN route stays the same.",12,MUTED,false));
         EditText server=field(advanced,"VPN hostname (defaults to entry address)","",false),endpoint=field(advanced,"Exit tunnel address (defaults to exit address)","",false),vpnPort=field(advanced,"Phone VPN port","500",false),tunnelPort=field(advanced,"Exit AWG UDP port","443",false);
         EditText login=field(f,"Initial VPN login","admin-device",false),password=field(f,"VPN password (16+ characters)",generatedPassword(),true);
         fullButton(f,"Copy VPN password",false,()->copySecret(password.getText().toString()));
@@ -389,6 +399,7 @@ public final class RookstrideActivity extends AppCompatActivity implements VpnSt
             a.set("name",name.getText().toString().trim());a.set("host",eh);a.set("admin",eu);a.data.put("port",ep);a.sshPassword=entryPassword.getText().toString();a.privateKey=entryKey.getText().toString();a.data.put("remember",remember.isChecked());
             b.set("name",a.get("name")+" · exit");b.set("host",xh);b.set("admin",xu);b.data.put("port",xp);b.sshPassword=exitPassword.getText().toString();b.privateKey=exitKey.getText().toString();b.data.put("remember",remember.isChecked());
             a.set("pairId",PairController.newId());a.set("vpnLogin",u);a.vpnPassword=pw;a.set("vpnServer",server.getText().toString().trim());a.set("exitEndpoint",endpoint.getText().toString().trim());a.data.put("vpnPort",vp);a.data.put("tunnelPort",tp);a.data.put("pairStatistics",history.isChecked());a.set("pairPhase","Not installed");
+            a.set("sshRoute",entryRelay.isChecked()?"entry-via-exit":exitRelay.isChecked()?"exit-via-entry":"direct");a.configureRelay();
             PairController.request(a,"entry");gateways.add(a);selected=a;demo=false;save();d.dismiss();runPair(a,false);
         }catch(Exception e){Toast.makeText(this,e.getMessage(),Toast.LENGTH_LONG).show();}});
     }
@@ -414,6 +425,31 @@ public final class RookstrideActivity extends AppCompatActivity implements VpnSt
         withSsh(node,"Checking the entry",s->s.admin(json("action","status")),a->{try{node.data.put("snapshot",a);}catch(JSONException e){error(e);}
             withSsh(node.exit,"Checking the exit",s->s.admin(json("action","status")),b->{try{node.exit.data.put("snapshot",b);node.set("checked","Both nodes checked");save();render();}catch(JSONException e){error(e);}});
         });
+    }
+
+    private void resetPair(Gateway node) {
+        if(demo){demoNotice();return;}if(busy)return;
+        if(!hasAuth(node)){passwordDialog(node,()->resetPair(node));return;}
+        if(!hasAuth(node.exit)){passwordDialog(node.exit,()->resetPair(node));return;}
+        busy=true;message="Reviewing both VPN nodes";render();
+        executor.execute(()->{try {
+            JSONObject review=PairResetController.review(node,()->getAssets().open("gateway_bundle.zip"));
+            handler.post(()->{
+                busy=false;message="";render();LinearLayout f=form();
+                f.addView(text("This removes VPN accounts, certificates, tunnel keys, DNS data and usage history from both nodes. Connected clients lose access. Ubuntu, SSH and unrelated files stay installed. You can then install either role on either node.",14,RED,true));
+                f.addView(text("Entry "+node.get("host")+"\n"+review.optJSONObject("entry").optJSONArray("files")+"\n\nExit "+node.exit.get("host")+"\n"+review.optJSONObject("exit").optJSONArray("files"),12,MUTED,false));
+                EditText typed=field(f,"Type DELETE PAIR to continue","",false);
+                AlertDialog d=new AlertDialog.Builder(this).setTitle("Reset both VPN nodes?").setView(scrolling(f)).setNegativeButton("Cancel",null).setPositiveButton("Delete pair data",null).create();d.show();
+                d.getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener(v->{
+                    if(!typed.getText().toString().equals("DELETE PAIR")){typed.setError("Type DELETE PAIR");return;}d.dismiss();
+                    if(vpn!=null && vpn.getProfile()!=null && vpn.getProfile().getUUID().toString().equals(node.get("profileUuid")))vpn.disconnect();
+                    busy=true;message="Removing pair data";render();executor.execute(()->{try {
+                        PairResetController.apply(node,review,"DELETE PAIR",()->getAssets().open("gateway_bundle.zip"),p->handler.post(()->{message=p;render();}));
+                        handler.post(()->{try{busy=false;VpnProfileDataSource source=new VpnProfileSource(this);source.open();try{VpnProfile p=source.getVpnProfile(node.get("profileUuid"));if(p!=null)source.deleteVpnProfile(p);}finally{source.close();}node.data.remove("snapshot");node.exit.data.remove("snapshot");node.set("pairId",PairController.newId());node.set("pairPhase","Fresh nodes · ready to install");node.set("profileUuid","");save();message="Both nodes reset. Ubuntu and SSH retained.";render();}catch(Exception e){error(e);}});
+                    }catch(Exception e){handler.post(()->{busy=false;message="Reset stopped. Review again to finish the remaining owned node.";render();error(e);});}});
+                });
+            });
+        }catch(Exception e){handler.post(()->{busy=false;message="";render();if(e instanceof PairController.TrustNeeded){PairController.TrustNeeded t=(PairController.TrustNeeded)e;trust(t.node,t.issue,()->resetPair(node));}else error(e);});}});
     }
 
     private void resetGateway(Gateway node) {

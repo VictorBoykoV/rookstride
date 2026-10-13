@@ -25,7 +25,7 @@ public final class PairController {
         RebootNeeded(Gateway node) {super(node.get("name")+" needs a reboot to load its matching kernel. Then resume this pair.");this.node=node;}
     }
     private static Ssh open(Gateway node) throws Exception {
-        try { return new Ssh(node); } catch(Ssh.HostTrust e) { throw new TrustNeeded(node,e); }
+        try { return new Ssh(node); } catch(Ssh.HostTrust e) { throw new TrustNeeded(e.node==null?node:e.node,e); }
     }
     public static String bundleDigest(Bundle bundle) throws Exception {
         TreeMap<String,byte[]> files=new TreeMap<>();
@@ -77,6 +77,7 @@ public final class PairController {
     }
     public static JSONObject install(Gateway entry,Bundle bundle,Progress progress,boolean resume) throws Exception {
         if(!entry.isPair())throw new IOException("Add both servers first");
+        entry.configureRelay();
         String expectedBundle=bundleDigest(bundle);
         // Verify both SSH identities and machine IDs before mutating either node.
         try(Ssh first=open(entry); Ssh second=open(entry.exit)) {

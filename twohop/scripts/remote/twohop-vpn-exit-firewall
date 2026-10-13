@@ -44,6 +44,7 @@ apply_rules() {
 
   iptables -N TWOHOP_EXIT_INPUT 2>/dev/null || true
   iptables -F TWOHOP_EXIT_INPUT
+  iptables -A TWOHOP_EXIT_INPUT -i "$UPLINK_INTERFACE" -p udp --dport "$TUNNEL_PORT" -j ACCEPT
   iptables -A TWOHOP_EXIT_INPUT -i lo -d "$TUNNEL_EXIT_IP" -j ACCEPT
   iptables -A TWOHOP_EXIT_INPUT -i "$AWG_INTERFACE" -d "$TUNNEL_EXIT_IP" -j ACCEPT
   for proto in udp tcp; do
@@ -76,7 +77,6 @@ apply_rules() {
   delete_all nat POSTROUTING -j TWOHOP_SNAT
   ensure_insert nat POSTROUTING -j TWOHOP_SNAT
 
-  ensure_insert filter INPUT -i "$UPLINK_INTERFACE" -p udp --dport "$TUNNEL_PORT" -j ACCEPT
   ip route replace "$CLIENT_POOL" dev "$AWG_INTERFACE"
   ip route replace "$TEST_SOURCE_IP/32" dev "$AWG_INTERFACE"
 }

@@ -5,7 +5,7 @@ export DEBIAN_FRONTEND=noninteractive
 ROOT_DIR="$(cd "$(dirname "$0")/../gateway" && pwd)"
 DNS_IP="${TUNNEL_EXIT_IP:?}"
 : "${CLIENT_POOL:?}" "${TEST_SOURCE_IP:?}"
-apt-get install -y -qq curl ca-certificates openssl python3-bcrypt
+apt-get -o DPkg::Lock::Timeout=1200 install -y -qq curl ca-certificates openssl python3-bcrypt
 install -d -m 700 /root/rookstride-pair
 install -d -m 755 /opt/AdGuardHome
 cat > /etc/unbound/unbound.conf.d/twohop-vpn.conf <<'EOF'
@@ -70,3 +70,11 @@ systemctl restart unbound
 systemctl enable --now adguardhome
 systemctl is-active --quiet unbound
 systemctl is-active --quiet adguardhome
+# A running process is not proof that the initial blocking list is loaded.
+filter_ready=false
+for attempt in {1..25}; do
+  answer="$(dig +time=2 +tries=1 +short -b "$DNS_IP" @"$DNS_IP" doubleclick.net A 2>/dev/null || true)"
+  if [[ "$answer" == 0.0.0.0 ]]; then filter_ready=true; break; fi
+  sleep 2
+done
+[[ "$filter_ready" == true ]] || { echo 'Initial DNS blocking list is not ready; inspect its download and resume.' >&2; exit 1; }
