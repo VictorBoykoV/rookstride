@@ -1,13 +1,14 @@
 {
   "development": {
     "version": "0.2.0-alpha2",
-    "status": "experimental-provider-tested",
+    "status": "published-experimental-provider-tested",
     "topologies": [
       "single-vps",
       "two-vps"
     ],
     "phone_to_entry": "ikev2",
     "entry_to_exit": "amneziawg-3.1",
+    "release": "/data/pair-release.json",
     "guide": "/docs/pair-mode.md",
     "tests": "/docs/pair-provider-testing.md",
     "provider_pair_verified": true,

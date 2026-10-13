@@ -1,0 +1,40 @@
+{
+  "version": "0.2.0-alpha2",
+  "status": "experimental prerelease",
+  "source_revision": "65fc7f2f512e943b8d18532513257274f371b81e",
+  "release_url": "https://github.com/VictorBoykoV/rookstride/releases/tag/v0.2.0-alpha2",
+  "android_min_api": 26,
+  "android_target_api": 36,
+  "artifacts": [
+    {
+      "name": "rookstride-0.2.0-alpha2-release-info.txt",
+      "size": 556,
+      "digest": "sha256:9e57ba29417864d5b564329c9c2d6c7f9aad496574534009dee991e97d8283ff",
+      "url": "https://github.com/VictorBoykoV/rookstride/releases/download/v0.2.0-alpha2/rookstride-0.2.0-alpha2-release-info.txt"
+    },
+    {
+      "name": "rookstride-0.2.0-alpha2-SHA256SUMS.txt",
+      "size": 198,
+      "digest": "sha256:741e4b45b4e9dba3dfbbec9d1880a59bd28f172efabd2913a44626c4344c361c",
+      "url": "https://github.com/VictorBoykoV/rookstride/releases/download/v0.2.0-alpha2/rookstride-0.2.0-alpha2-SHA256SUMS.txt"
+    },
+    {
+      "name": "rookstride-0.2.0-alpha2-source.tar.gz",
+      "size": 67600232,
+      "digest": "sha256:10f3e26324c9071635eafc5d3b21b0d5a271e23ad4bcbf2667261e593539b7b4",
+      "url": "https://github.com/VictorBoykoV/rookstride/releases/download/v0.2.0-alpha2/rookstride-0.2.0-alpha2-source.tar.gz"
+    },
+    {
+      "name": "rookstride-0.2.0-alpha2.apk",
+      "size": 27434128,
+      "digest": "sha256:4ffd25954380da3a557c1eb36c377c628e9c4149a6b05872229c048d31b1f577",
+      "url": "https://github.com/VictorBoykoV/rookstride/releases/download/v0.2.0-alpha2/rookstride-0.2.0-alpha2.apk"
+    }
+  ],
+  "test_report": "/docs/pair-provider-testing.md",
+  "evidence": "/data/pair-provider-alpha2-tests.json",
+  "same_signed_apk_fresh_provider_runs": 4,
+  "managed_phone_reset_and_role_swap": true,
+  "android_16_ui": "incomplete: emulator System UI ANRs",
+  "physical_phone_pair": "not certified"
+}

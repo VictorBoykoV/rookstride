@@ -120,6 +120,12 @@ def check(dist):
     provider=json.loads((dist/'data/pair-provider-alpha2-tests.json').read_text())
     require(len(provider['fresh_provider_pair_runs'])>=3,'Provider evidence must include repeated full app-configured pairs')
     require(provider['android_36']['screen_navigation'].startswith('incomplete'),'Android 16 UI limit must remain explicit')
+    pair_release=json.loads((dist/'data/pair-release.json').read_text())
+    require(pair_release['version']=='0.2.0-alpha2' and pair_release['same_signed_apk_fresh_provider_runs']==4,'Wrong pair release identity')
+    require(len(pair_release['artifacts'])==4,'Missing corresponding-source or verification files')
+    for item in pair_release['artifacts']:
+        require(item['url'].startswith('https://github.com/VictorBoykoV/rookstride/releases/download/v0.2.0-alpha2/'),'Wrong pair artifact URL')
+        require(re.fullmatch('sha256:[a-f0-9]{64}',item['digest']) is not None,'Wrong pair artifact digest')
     require((dist/'docs/universal-gateway-research.md').is_file(),'Missing full research note')
     for mode in ('panel','page','chapter'):
         require(f'data-reader-mode="{mode}"' in journal,'Missing reader mode: '+mode)

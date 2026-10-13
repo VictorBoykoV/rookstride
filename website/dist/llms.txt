@@ -6,7 +6,7 @@ Early alpha: 0.1.0-alpha2, updated 2026-10-14. Android 8+; fresh Ubuntu 24.04 VP
 
 ## Practical documentation
 - [Setup and connection](/start/): Administrator installation and invited strongSwan users; key verification, filtering, troubleshooting and reset.
-- [Routes](/routes/): Implemented experimental IKEv2 → AmneziaWG pair with its own guide/evidence; not in the earlier 0.1.0-alpha2 APK. Additional engines remain proposals.
+- [Routes](/routes/): Implemented experimental IKEv2 → AmneziaWG pair with its own guide/evidence; in the published 0.2.0-alpha2 prerelease; the earlier 0.1.0-alpha2 APK is single-server. Additional engines remain proposals.
 - [Full research](/docs/universal-gateway-research.md): Source audit, compatibility, recovery and acceptance gates.
 - [Infrastructure](/architecture/): VPN, private DNS, pinned SSH and optional local usage estimates.
 - [Download and exact test status](/download/): Signed APK, source, checksums and remaining gates.
@@ -17,6 +17,7 @@ Early alpha: 0.1.0-alpha2, updated 2026-10-14. Android 8+; fresh Ubuntu 24.04 VP
 - [Route research manifest](/data/routes.json): Released single-server capabilities, experimental pair capabilities and proposed additional engines.
 - [Release manifest](/data/release.json): Machine-readable exact artifacts and identity.
 - [Sanitized test results](/data/alpha2-tests.json): Three signed-APK emulator/VPS reset-and-reinstall cycles.
+- [Published pair artifacts](/data/pair-release.json): Verified 0.2.0-alpha2 APK, corresponding source, sizes and hashes.
 - [Provider pair evidence](/data/pair-provider-alpha2-tests.json): Repeated app-configured two-provider pairs; exact Android/Linux client networks, reset/reboot checks and remaining gates.
 - [Source repository](https://github.com/VictorBoykoV/rookstride): Authoritative implementation and build documentation.
 - [Gateway repository](https://github.com/VictorBoykoV/single-vps-vpn-gateway): Server template and CLI deployment.

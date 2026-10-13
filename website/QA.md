@@ -52,3 +52,6 @@ Real connected Chrome browser on this Mac; measured CSS widths account for exist
 ## Local delivery
 
 The preview binds to loopback and serves only `dist`. It sends CSP, nosniff, referrer and permission headers. Hosting, DNS, repository pushes, a remote rename and VPS changes were not performed. A real public origin, HTTPS static hosting and host-specific headers remain publication steps. The recommended future neutral backend slug is `two-hop-vpn-gateway`; its current URL stays usable during review.
+# Provider prerelease update · 14 October 2026
+
+The local routes and download pages were refreshed and inspected in Chrome. The published 0.2.0-alpha2 APK/source links and exact checksum match the verified GitHub assets. The site checker passed 9 pages, 386 local link/asset references, 5 JSON-LD documents, 10 static comic pages and 30 panels. Provider evidence records four app-driven fresh runs and separate Android/Linux networks; Android 16 screen navigation and the computer-to-node-A UDP return failure remain explicit. Hosting remains local.
