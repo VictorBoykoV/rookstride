@@ -10,6 +10,13 @@ OUTPUT=ROOT/('.build/rookstride-'+release['name']+'-source.tar.gz')
 OUTPUT.parent.mkdir(exist_ok=True)
 archives=[ROOT/'.tools'/n for n in ('strongswan-git.tar.gz','strongswan.tar.gz','openssl.tar.gz')]
 if not all(p.is_file() for p in archives): raise SystemExit('Run bootstrap.py first')
+dependencies=ROOT/'.tools/dependency-sources'
+if not (dependencies/'manifest.json').is_file():raise SystemExit('Run scripts/collect-java-sources.py after the Android build')
+for module in json.loads((dependencies/'manifest.json').read_text())['modules']:
+    for file in module['files']:
+        path=dependencies/file['path']
+        if hashlib.sha256(path.read_bytes()).hexdigest()!=file['sha256']:raise SystemExit('Dependency source hash differs: '+file['path'])
+archives.extend(sorted(p for p in dependencies.rglob('*') if p.is_file() and p.suffix!='.part'))
 files=[ROOT/n for n in ('README.md','LICENSE','NOTICE.md','SECURITY.md','AGENTS.md','.gitignore','release.json')]
 for name in ('android','brand','docs','gateway','licenses','scripts','server','tests','twohop','website'):
     files.extend(p for p in (ROOT/name).rglob('*') if p.is_file() and '__pycache__' not in p.parts and p.suffix not in ('.pyc','.log') and not (name=='website' and 'qa' in p.parts))

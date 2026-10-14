@@ -39,6 +39,8 @@ assert "versionCode='"+str(release['code'])+"'" in manifest
 assert "minSdkVersion:'26'" in manifest and "targetSdkVersion:'36'" in manifest
 assert 'application-debuggable' not in manifest,'Release must not be debuggable'
 with tempfile.TemporaryDirectory(prefix='rookstride-apk-') as stage,zipfile.ZipFile(args.apk) as apk:
+    expected_assets={'assets/guide.html','assets/licenses.html','assets/gateway_bundle.zip','assets/gateway_bundle.sha256','assets/dexopt/baseline.prof','assets/dexopt/baseline.profm'}
+    assert all(not name.startswith('assets/') or name.startswith('assets/stories/') or name in expected_assets for name in apk.namelist()),'Unexpected packaged asset; review before publication'
     libraries=[n for n in apk.namelist() if n.startswith('lib/') and n.endswith('.so')]
     assert {n.split('/')[1] for n in libraries}=={'arm64-v8a','armeabi-v7a','x86_64'}
     for name in libraries:

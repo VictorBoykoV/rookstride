@@ -65,7 +65,7 @@ The release-cycle procedure and independent server/client checks are described i
 
 ## Corresponding source
 
-A binary release must include the exact Rookstride source plus the three verified upstream source archives used by the build, build scripts, instructions and notices. `scripts/source-bundle.py` creates this archive without toolchains, credentials, compiled files or signing material. This package is sufficient to reapply the overlay and rebuild with the documented toolchain. A reproducible recipe is provided; bit-identical output across hosts has not been established.
+A binary release includes the exact Rookstride source, three verified native upstream archives, and source JARs with published Maven metadata for the exact resolved release-runtime libraries. After building, run `python3 scripts/collect-java-sources.py`, then `python3 scripts/source-bundle.py`. The collector uses the resolved release classpath, official Google Maven/Maven Central sources, and records per-file SHA-256 hashes. Packaging verifies those hashes and excludes toolchains, credentials, compiled files and signing material. This package is sufficient to reapply the overlay and rebuild with the documented toolchain. A reproducible recipe is provided; bit-identical output across hosts has not been established.
 
 Use the same pinned sources when reproducing a release. Updating strongSwan or OpenSSL requires rebuilding all crypto ABIs, reviewing the overlay patch points, and rerunning server, emulator and VPN integration gates.
 
