@@ -18,7 +18,7 @@ Early alpha: 0.1.0-alpha2, updated 2026-10-14. Android 8+; fresh Ubuntu 24.04 VP
 - [Earlier single-server manifest](/data/release.json): Frozen 0.1.0-alpha2 artifacts and identity.
 - [Current verified artifacts](/data/current-release.json): Published APK, full source, hashes, sizes and precise test scope.
 - [Current UI evidence](/data/ui-alpha3-tests.json): Exact signed APK checks on Android 8 and 9; transport/voice fixtures and remaining gates.
-- [Current app](https://github.com/VictorBoykoV/rookstride/releases/tag/v0.2.0-alpha3): One- or two-server installation, persistent progress, offline worlds, page turns and optional device narration. Current UI test scope is in docs/UI-ALPHA3-TESTING.md; earlier server evidence is identified separately.
+- [Current app](https://github.com/VictorBoykoV/rookstride/releases/tag/v0.2.0-alpha4): One- or two-server installation, persistent progress, offline worlds, page turns and optional device narration. Current localization test scope is in docs/UI-ALPHA3-TESTING.md; earlier server evidence is identified separately.
 - [Sanitized test results](/data/alpha2-tests.json): Three signed-APK emulator/VPS reset-and-reinstall cycles.
 - [Published pair artifacts](/data/pair-release.json): Verified 0.2.0-alpha2 APK, corresponding source, sizes and hashes.
 - [Provider pair evidence](/data/pair-provider-alpha2-tests.json): Repeated app-configured two-provider pairs; exact Android/Linux client networks, reset/reboot checks and remaining gates.

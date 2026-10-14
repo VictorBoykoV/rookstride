@@ -1,36 +1,36 @@
 {
-  "version": "0.2.0-alpha3",
-  "source_commit": "2ff8e317b8010e9c99685131f756b5796cfe1477",
-  "version_code": 5,
-  "release_url": "https://github.com/VictorBoykoV/rookstride/releases/tag/v0.2.0-alpha3",
+  "version": "0.2.0-alpha4",
+  "source_commit": "56a46ffcc17ed1470f0725cada0daa09440a3535",
+  "version_code": 6,
+  "release_url": "https://github.com/VictorBoykoV/rookstride/releases/tag/v0.2.0-alpha4",
   "artifacts": [
     {
-      "name": "rookstride-0.2.0-alpha3.apk",
-      "size": 39844291,
-      "digest": "sha256:a266710d9a6d6f96fde24603d13d06ff27465a95392654af3a4ecf71f37b690a",
-      "url": "https://github.com/VictorBoykoV/rookstride/releases/download/v0.2.0-alpha3/rookstride-0.2.0-alpha3.apk"
+      "name": "rookstride-0.2.0-alpha4-release-info.txt",
+      "size": 1637,
+      "digest": "sha256:7fbe9e8e57e63259c027ad9afd1a4f08fead61f178b53a2bee111520d7643085",
+      "url": "https://github.com/VictorBoykoV/rookstride/releases/download/v0.2.0-alpha4/rookstride-0.2.0-alpha4-release-info.txt"
     },
     {
-      "name": "rookstride-0.2.0-alpha3-source.tar.gz",
-      "size": 309827918,
-      "digest": "sha256:9c746011988977115cd8530b7049a415774da084b6670654d3ceb8f2e14bf70e",
-      "url": "https://github.com/VictorBoykoV/rookstride/releases/download/v0.2.0-alpha3/rookstride-0.2.0-alpha3-source.tar.gz"
-    },
-    {
-      "name": "rookstride-0.2.0-alpha3-SHA256SUMS.txt",
+      "name": "rookstride-0.2.0-alpha4-SHA256SUMS.txt",
       "size": 198,
-      "digest": "sha256:9a2d3eb9f2af4b6a7fffa664e1da496d8f1d0358515c4d56adf38c749626ac37",
-      "url": "https://github.com/VictorBoykoV/rookstride/releases/download/v0.2.0-alpha3/rookstride-0.2.0-alpha3-SHA256SUMS.txt"
+      "digest": "sha256:390cf4a8f39c2c2f78b8db759f730619720ec3b0f00cda03d0a7ff8c14499c77",
+      "url": "https://github.com/VictorBoykoV/rookstride/releases/download/v0.2.0-alpha4/rookstride-0.2.0-alpha4-SHA256SUMS.txt"
     },
     {
-      "name": "rookstride-0.2.0-alpha3-release-info.txt",
-      "size": 1009,
-      "digest": "sha256:acc1824b2db32e11f17ab63c150b3e0031d254910bb0e620401e9ca0d4e7c971",
-      "url": "https://github.com/VictorBoykoV/rookstride/releases/download/v0.2.0-alpha3/rookstride-0.2.0-alpha3-release-info.txt"
+      "name": "rookstride-0.2.0-alpha4-source.tar.gz",
+      "size": 310355539,
+      "digest": "sha256:50b55a7771bfcf2e24670103a75e001cb9b184d28347c61b7f7f452dbf939a3b",
+      "url": "https://github.com/VictorBoykoV/rookstride/releases/download/v0.2.0-alpha4/rookstride-0.2.0-alpha4-source.tar.gz"
+    },
+    {
+      "name": "rookstride-0.2.0-alpha4.apk",
+      "size": 40332430,
+      "digest": "sha256:613bd3fc935981f0270ccabc72419dc1da0517019328e93fd285963faaa35309",
+      "url": "https://github.com/VictorBoykoV/rookstride/releases/download/v0.2.0-alpha4/rookstride-0.2.0-alpha4.apk"
     }
   ],
-  "tests": "https://github.com/VictorBoykoV/rookstride/blob/v0.2.0-alpha3/docs/UI-ALPHA3-TESTING.md",
-  "test_results": "/data/ui-alpha3-tests.json",
-  "scope": "App UI/service and offline stories; historical alpha2 server evidence remains separate.",
+  "tests": "https://github.com/VictorBoykoV/rookstride/blob/v0.2.0-alpha4/docs/LOCALIZATION-TESTING.md",
+  "test_results": "/data/localization-alpha4-tests.json",
+  "scope": "Five shared languages, beginner UI/guides and local website; historical provider evidence remains separate.",
   "published": true
 }

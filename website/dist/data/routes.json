@@ -21,7 +21,7 @@
   },
   "status": "implemented-experimental-pair-with-other-engines-proposed",
   "date": "2026-10-14",
-  "current_apk": "0.2.0-alpha3",
+  "current_apk": "0.2.0-alpha4",
   "current_topologies": [
     "single-vps",
     "two-vps"

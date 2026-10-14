@@ -140,15 +140,24 @@ def check(dist):
         require(re.fullmatch('sha256:[a-f0-9]{64}',item['digest']) is not None,'Wrong pair artifact digest')
     if (dist/'data/ui-release.json').is_file():
         current=json.loads((dist/'data/ui-release.json').read_text())
-        ui=json.loads((dist/'data/ui-alpha3-tests.json').read_text())
-        require(current['version']==ui['release']=='0.2.0-alpha3','Current release/test identity mismatch')
+        version=current['version']
+        current_test=json.loads((dist/('data/localization-alpha4-tests.json' if version=='0.2.0-alpha4' else 'data/ui-alpha3-tests.json')).read_text())
+        require(version==current_test['release'],'Current release/test identity mismatch')
         require(len(current['artifacts'])==4,'Current APK needs matching source and verification files')
         for item in current['artifacts']:
-            require(item['url'].startswith('https://github.com/VictorBoykoV/rookstride/releases/download/v0.2.0-alpha3/'),'Wrong current artifact URL')
+            require(item['url'].startswith('https://github.com/VictorBoykoV/rookstride/releases/download/v'+version+'/'),'Wrong current artifact URL')
             require(re.fullmatch('sha256:[a-f0-9]{64}',item['digest']) is not None,'Wrong current artifact digest')
             require(item['size']>0,'Empty current artifact')
-            if item['name'].endswith('.apk'):require(item['digest']=='sha256:'+ui['apk']['sha256'],'Current APK differs from tested release')
-        require({r['api'] for r in ui['signed_release_emulators']}=={26,28},'Current emulator scope missing')
+            if item['name'].endswith('.apk'):require(item['digest']=='sha256:'+current_test['apk']['sha256'],'Current APK differs from tested release')
+        require({row['api'] for row in current_test['signed_release_emulators']}=={26,28},'Current emulator scope missing')
+        if version=='0.2.0-alpha4':
+            require(current['version_code']==6,'Wrong language release version code')
+            require(current_test['catalogs']['languages']==['en','ru','fa','ar','zh-Hans'],'Missing language scope')
+            require(not current_test['catalogs']['human_native_review'],'Do not imply native human review')
+            require(current_test['android_36']['tests']==2 and current_test['android_36']['full_screen_navigation'].startswith('unverified'),'Android 16 resource/full-UI scope must stay separate')
+            history=json.loads((dist/'data/ui-alpha3-release.json').read_text());ui=json.loads((dist/'data/ui-alpha3-tests.json').read_text())
+            require(history['version']==ui['release']=='0.2.0-alpha3','Historical alpha3 identity changed')
+            require(next(a['digest'] for a in history['artifacts'] if a['name'].endswith('.apk'))=='sha256:'+ui['apk']['sha256'],'Historical alpha3 APK evidence changed')
     require((dist/'docs/universal-gateway-research.md').is_file(),'Missing full research note')
     for mode in ('panel','page','chapter'):
         require(f'data-reader-mode="{mode}"' in journal,'Missing reader mode: '+mode)

@@ -1,0 +1,36 @@
+{
+  "version": "0.2.0-alpha3",
+  "source_commit": "2ff8e317b8010e9c99685131f756b5796cfe1477",
+  "version_code": 5,
+  "release_url": "https://github.com/VictorBoykoV/rookstride/releases/tag/v0.2.0-alpha3",
+  "artifacts": [
+    {
+      "name": "rookstride-0.2.0-alpha3.apk",
+      "size": 39844291,
+      "digest": "sha256:a266710d9a6d6f96fde24603d13d06ff27465a95392654af3a4ecf71f37b690a",
+      "url": "https://github.com/VictorBoykoV/rookstride/releases/download/v0.2.0-alpha3/rookstride-0.2.0-alpha3.apk"
+    },
+    {
+      "name": "rookstride-0.2.0-alpha3-source.tar.gz",
+      "size": 309827918,
+      "digest": "sha256:9c746011988977115cd8530b7049a415774da084b6670654d3ceb8f2e14bf70e",
+      "url": "https://github.com/VictorBoykoV/rookstride/releases/download/v0.2.0-alpha3/rookstride-0.2.0-alpha3-source.tar.gz"
+    },
+    {
+      "name": "rookstride-0.2.0-alpha3-SHA256SUMS.txt",
+      "size": 198,
+      "digest": "sha256:9a2d3eb9f2af4b6a7fffa664e1da496d8f1d0358515c4d56adf38c749626ac37",
+      "url": "https://github.com/VictorBoykoV/rookstride/releases/download/v0.2.0-alpha3/rookstride-0.2.0-alpha3-SHA256SUMS.txt"
+    },
+    {
+      "name": "rookstride-0.2.0-alpha3-release-info.txt",
+      "size": 1009,
+      "digest": "sha256:acc1824b2db32e11f17ab63c150b3e0031d254910bb0e620401e9ca0d4e7c971",
+      "url": "https://github.com/VictorBoykoV/rookstride/releases/download/v0.2.0-alpha3/rookstride-0.2.0-alpha3-release-info.txt"
+    }
+  ],
+  "tests": "https://github.com/VictorBoykoV/rookstride/blob/v0.2.0-alpha3/docs/UI-ALPHA3-TESTING.md",
+  "test_results": "/data/ui-alpha3-tests.json",
+  "scope": "App UI/service and offline stories; historical alpha2 server evidence remains separate.",
+  "published": true
+}
