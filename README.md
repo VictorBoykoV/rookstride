@@ -10,7 +10,8 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/VictorBoykoV/rookstride/releases/tag/v0.2.0-alpha3"><img src="https://img.shields.io/badge/release-0.2.0--alpha3-ee3038?style=flat-square" alt="0.2.0-alpha3"></a>
+  <a href="https://github.com/VictorBoykoV/rookstride/releases/tag/v0.2.0-alpha4"><img src="https://img.shields.io/badge/release-0.2.0--alpha4-ee3038?style=flat-square" alt="0.2.0-alpha4"></a>
+  <img src="https://img.shields.io/badge/languages-EN%20RU%20FA%20AR%20ZH--Hans-7058d9?style=flat-square" alt="Five interface languages">
   <img src="https://img.shields.io/badge/Android-8%2B-3ddc84?style=flat-square" alt="Android 8 and later">
   <img src="https://img.shields.io/badge/server-Ubuntu%2024.04-e95420?style=flat-square" alt="Ubuntu 24.04">
   <img src="https://img.shields.io/badge/VPN-strongSwan%20IKEv2-7058d9?style=flat-square" alt="strongSwan IKEv2">
@@ -50,6 +51,7 @@ An Android app for deploying and managing a personal IKEv2 VPN on your own VPS. 
 | Filter DNS | Choose Standard, Strong or Strict ad and tracker blocking. |
 | Start again | Review and reset a recognized gateway with typed deletion confirmation. |
 | Follow installation | Recipe-specific checkpoints, elapsed time, remaining steps and coarse planning ranges; browse while the service continues. |
+| Languages | English, Русский, فارسی, العربية, 简体中文; follows a supported phone language, with an in-app selector and English fallback. |
 | Learn offline | Built-in guide, licenses, five story worlds and fifty chapters with optional installed-device narration. |
 
 No cloud account or public web management API is involved. Root access belongs to the administrator; it is never included in user profiles.
@@ -130,7 +132,7 @@ The original Android administration code and branding are GPL-3.0-or-later. The 
 
 ## Two-server gateway · experimental
 
-[**Download 0.2.0-alpha3 APK**](https://github.com/VictorBoykoV/rookstride/releases/download/v0.2.0-alpha3/rookstride-0.2.0-alpha3.apk) · [Complete corresponding source and checksums](https://github.com/VictorBoykoV/rookstride/releases/tag/v0.2.0-alpha3)
+[**Download 0.2.0-alpha4 APK**](https://github.com/VictorBoykoV/rookstride/releases/download/v0.2.0-alpha4/rookstride-0.2.0-alpha4.apk) · [Complete corresponding source and checksums](https://github.com/VictorBoykoV/rookstride/releases/tag/v0.2.0-alpha4)
 
 The current source retains the provider-tested `0.2.0-alpha2` recipe: **IKEv2 entry → AmneziaWG 3.1 exit** with independently pinned SSH, detached recoverable jobs, exit-side AdGuard Home and staged activation. Choose **Add a two-server gateway** in the experimental app. Reviewed **Reset both VPN nodes** and **Swap entry and exit** controls allow fresh redeployment from the phone. An optional native SSH relay manages one node through the other while retaining both physical-node identity pins.
 
@@ -172,15 +174,31 @@ a local portable build; publishing GitHub source is separate from public website
 
 ## Current app and historical server evidence
 
-The signed **0.2.0-alpha3** APK adds persistent installation progress, Rook’s helper
-roles and the complete offline story reader. Its [UI test scope](docs/UI-ALPHA3-TESTING.md)
-separates background-service and narration fixtures from actual provider deployments.
+The signed **0.2.0-alpha4** language edition adds five interface catalogs, native
+language selection and translated offline beginner guides. Its [localization test
+scope](docs/LOCALIZATION-TESTING.md) separates resource/UI checks from actual
+provider deployments. The earlier [alpha3 UI report](docs/UI-ALPHA3-TESTING.md)
+retains its own signed APK identity for progress and story tests.
 The server installer bundle is unchanged from 0.2.0-alpha2. The four independent
 provider-pair runs in [the earlier report](docs/PAIR-PROVIDER-TESTING.md) tested that
-exact earlier APK; they are not new alpha3 deployment claims.
+exact earlier APK; they are not new alpha4 deployment claims.
 
 <p><img src="brand/screenshots/alpha3/pair-progress-fixture.png" width="240" alt="Signed alpha3 eight-stage progress view with explicitly fictional transport fixture"><img src="brand/screenshots/alpha3/offline-story.png" width="240" alt="Signed alpha3 offline story page with Rook and Pip beside the lighthouse"></p>
 
 Exact signed alpha3 screens on Android 9. Progress is an explicitly labeled
 transport fixture; the story is a real bundled page. Narration tests use
 deterministic voice events rather than an audible voice performance.
+
+## Languages and future platforms
+
+The everyday Android controls and offline beginner guide use five shared catalogs: English, Russian, Persian, Arabic and Simplified Chinese. The app follows a supported phone language by default; change it using **Language**. Android 13+ also exposes the supported languages in system app settings. Technical inputs, host fingerprints and typed `DELETE VPN` / `DELETE PAIR` confirmations retain their original characters.
+
+The local website includes translated home, setup, architecture, routes, download, open source, Rook, worlds overview and plans pages. Distinct URLs and an explicit language menu avoid forced language redirects. The fifty stories, images and detailed engineering documents remain English and are labeled accordingly.
+
+[Translation workflow](i18n/README.md) · [Platform and language research](docs/PLATFORMS-AND-LANGUAGES.md) · [Localization test scope](docs/LOCALIZATION-TESTING.md)
+
+Browser planning/native handoff, a private web connector, iPhone and Telegram/Weixin assistants are researched backlog items, not available clients. A public web page cannot use ordinary raw SSH, and the public website never asks for root credentials. Each future platform has its own permissions, credential boundary and real-device gates.
+
+<p><img src="brand/screenshots/alpha4/persian-user-values.png" width="240" alt="Signed alpha4 Persian user view with the original fictional Phone labels"><img src="brand/screenshots/alpha4/persian-installation-fixture.png" width="240" alt="Signed alpha4 Persian installation status with an explicitly fictional transport fixture"></p>
+
+Signed alpha4 screens on Android 9. English names and logins in the fixture retain their original spelling. These images show UI tests, not a new server deployment.

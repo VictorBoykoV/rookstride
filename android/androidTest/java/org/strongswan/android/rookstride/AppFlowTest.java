@@ -18,6 +18,7 @@ import static org.junit.Assert.*;
 
 @RunWith(AndroidJUnit4.class)
 public class AppFlowTest {
+    @org.junit.Before public void englishFixture(){InstrumentationRegistry.getInstrumentation().runOnMainSync(()->androidx.appcompat.app.AppCompatDelegate.setApplicationLocales(androidx.core.os.LocaleListCompat.forLanguageTags("en")));}
     @Test public void guideDemoPeopleAndConnectionsAreReachable() {
         Context context=InstrumentationRegistry.getInstrumentation().getTargetContext();
         context.getSharedPreferences("rookstride-ui",Context.MODE_PRIVATE).edit().putBoolean("onboarded",true).commit();

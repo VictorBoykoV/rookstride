@@ -138,6 +138,7 @@ def offline(dist):
     for route in ('journal/','journal/text/'):
         source=(dist/(route+'index.html')).read_text()
         main=re.search(r'<main id="main">(.*?)</main>',source,re.S).group(1)
+        main=re.sub(r'<aside class="locale-notice[^"]*">.*?</aside>','',main,flags=re.S)
         main=main.replace('href="/worlds/','href="/stories/worlds/').replace('href="/rook/','href="/stories/rook/').replace('href="/journal/','href="/stories/journal/').replace('src="/assets/','src="/stories/assets/').replace('href="/assets/','href="/stories/assets/').replace('data-image="/assets/','data-image="/stories/assets/')
         main=main.replace('href="/"','href="/stories/index.html"').replace('href="/start/"','href="https://github.com/VictorBoykoV/rookstride/blob/main/docs/OPERATIONS.md"')
         file=target/(route+'index.html');file.parent.mkdir(parents=True,exist_ok=True)

@@ -1,0 +1,512 @@
+{
+  "release": "0.2.0-alpha4",
+  "version_code": 6,
+  "date": "2026-10-14",
+  "scope": "Catalogs, native language selection/resources/UI, beginner guides and main static website pages; no new provider deployment.",
+  "apk": {
+    "release": "0.2.0-alpha4",
+    "sha256": "613bd3fc935981f0270ccabc72419dc1da0517019328e93fd285963faaa35309",
+    "signer_sha256": "751386cf7143ba92c88084a0b26dfeac86128b2fe0d5277821ee4c67a92ae7ba",
+    "native_libraries": 24,
+    "zip_load_relro_16k_aligned": true,
+    "embedded_source_matches": true,
+    "offline_story_files": 134,
+    "non_debuggable": true,
+    "bytes": 40332430
+  },
+  "python_tests": {
+    "tests": 56,
+    "passed": 56
+  },
+  "jvm_tests": {
+    "tests": 97,
+    "passed": 97
+  },
+  "catalogs": {
+    "languages": [
+      "en",
+      "ru",
+      "fa",
+      "ar",
+      "zh-Hans"
+    ],
+    "messages_per_language": 557,
+    "translation_review_stages": 2,
+    "human_native_review": false,
+    "keys_placeholders_whitespace_and_protected_tokens": true,
+    "source_english_plural_translation_and_plural_review_hashes": true,
+    "compiled_english_source_round_trip": true
+  },
+  "signed_release_emulators": [
+    {
+      "api": 26,
+      "tests": 8,
+      "passed": 8,
+      "font_scale": 1.3,
+      "sha256": "613bd3fc935981f0270ccabc72419dc1da0517019328e93fd285963faaa35309"
+    },
+    {
+      "api": 28,
+      "tests": 8,
+      "passed": 8,
+      "font_scale": 1.0,
+      "sha256": "613bd3fc935981f0270ccabc72419dc1da0517019328e93fd285963faaa35309"
+    }
+  ],
+  "android_36": {
+    "resource_framework_storage": "PASS",
+    "tests": 2,
+    "passed": 2,
+    "sha256": "613bd3fc935981f0270ccabc72419dc1da0517019328e93fd285963faaa35309",
+    "scope": "Keystore encryption, compiled source round-trip, bundled guides/plurals and own-app LocaleManager language selection with an Activity lifecycle fixture; no screen-focus assertions.",
+    "full_screen_navigation": "unverified; prior System UI/focus hangs remain separate",
+    "installation_method": "Non-streaming install after package service broke the streaming connection."
+  },
+  "website": {
+    "result": "PASS",
+    "pages": 104,
+    "link_asset_references": 4577,
+    "json_ld_documents": 100,
+    "public_text_files_scanned": 143,
+    "local_release_artifacts_verified": 2,
+    "static_comic_pages": 10,
+    "comic_panels": 30,
+    "errors": []
+  },
+  "browser_layout": {
+    "mobile": {
+      "result": "PASS",
+      "actual_viewport": 400,
+      "pages": [
+        {
+          "dir": "ltr",
+          "h1": "Ваш маршрут — в ваших руках.",
+          "lang": "ru",
+          "overflow": [],
+          "path": "/ru/",
+          "scroll": 400,
+          "width": 400
+        },
+        {
+          "dir": "ltr",
+          "h1": "Ваш первый маршрут.",
+          "lang": "ru",
+          "overflow": [],
+          "path": "/ru/start/",
+          "scroll": 400,
+          "width": 400
+        },
+        {
+          "dir": "ltr",
+          "h1": "Понятные пути. Ваши серверы.",
+          "lang": "ru",
+          "overflow": [],
+          "path": "/ru/architecture/",
+          "scroll": 400,
+          "width": 400
+        },
+        {
+          "dir": "ltr",
+          "h1": "Выберите подходящий маршрут.",
+          "lang": "ru",
+          "overflow": [],
+          "path": "/ru/routes/",
+          "scroll": 400,
+          "width": 400
+        },
+        {
+          "dir": "ltr",
+          "h1": "Подписанное приложение. Соответствующий исходный код.",
+          "lang": "ru",
+          "overflow": [],
+          "path": "/ru/download/",
+          "scroll": 400,
+          "width": 400
+        },
+        {
+          "dir": "ltr",
+          "h1": "Открытый код. Понятный первый шаг.",
+          "lang": "ru",
+          "overflow": [],
+          "path": "/ru/open-source/",
+          "scroll": 400,
+          "width": 400
+        },
+        {
+          "dir": "ltr",
+          "h1": "Знакомьтесь: Rook, ваш спутник в путешествиях.",
+          "lang": "ru",
+          "overflow": [],
+          "path": "/ru/rook/",
+          "scroll": 400,
+          "width": 400
+        },
+        {
+          "dir": "ltr",
+          "h1": "Маленькая птица. Большой мир.",
+          "lang": "ru",
+          "overflow": [],
+          "path": "/ru/worlds/",
+          "scroll": 400,
+          "width": 400
+        },
+        {
+          "dir": "ltr",
+          "h1": "Полезное первое приложение. Продуманный следующий шаг.",
+          "lang": "ru",
+          "overflow": [],
+          "path": "/ru/plans/",
+          "scroll": 400,
+          "width": 400
+        },
+        {
+          "dir": "rtl",
+          "h1": "مسیرتان در اختیار شماست.",
+          "lang": "fa",
+          "overflow": [],
+          "path": "/fa/",
+          "scroll": 400,
+          "width": 400
+        },
+        {
+          "dir": "rtl",
+          "h1": "اولین مسیر شما.",
+          "lang": "fa",
+          "overflow": [],
+          "path": "/fa/start/",
+          "scroll": 400,
+          "width": 400
+        },
+        {
+          "dir": "rtl",
+          "h1": "مسیرهای روشن. سرورهای خودتان.",
+          "lang": "fa",
+          "overflow": [],
+          "path": "/fa/architecture/",
+          "scroll": 400,
+          "width": 400
+        },
+        {
+          "dir": "rtl",
+          "h1": "مسیر مناسب را انتخاب کنید.",
+          "lang": "fa",
+          "overflow": [],
+          "path": "/fa/routes/",
+          "scroll": 400,
+          "width": 400
+        },
+        {
+          "dir": "rtl",
+          "h1": "برنامه‌ای امضاشده. منبعی مطابق آن.",
+          "lang": "fa",
+          "overflow": [],
+          "path": "/fa/download/",
+          "scroll": 400,
+          "width": 400
+        },
+        {
+          "dir": "rtl",
+          "h1": "کد باز. شروعی قابل فهم.",
+          "lang": "fa",
+          "overflow": [],
+          "path": "/fa/open-source/",
+          "scroll": 400,
+          "width": 400
+        },
+        {
+          "dir": "rtl",
+          "h1": "با روک، راهنمای مسافر شما آشنا شوید.",
+          "lang": "fa",
+          "overflow": [],
+          "path": "/fa/rook/",
+          "scroll": 400,
+          "width": 400
+        },
+        {
+          "dir": "rtl",
+          "h1": "یک پرندهٔ کوچک. جهانی گسترده‌تر.",
+          "lang": "fa",
+          "overflow": [],
+          "path": "/fa/worlds/",
+          "scroll": 400,
+          "width": 400
+        },
+        {
+          "dir": "rtl",
+          "h1": "اولین برنامهٔ کاربردی. فصل بعدی با دقت.",
+          "lang": "fa",
+          "overflow": [],
+          "path": "/fa/plans/",
+          "scroll": 400,
+          "width": 400
+        },
+        {
+          "dir": "rtl",
+          "h1": "امتلك مسارك.",
+          "lang": "ar",
+          "overflow": [],
+          "path": "/ar/",
+          "scroll": 400,
+          "width": 400
+        },
+        {
+          "dir": "rtl",
+          "h1": "مسارك الأول.",
+          "lang": "ar",
+          "overflow": [],
+          "path": "/ar/start/",
+          "scroll": 400,
+          "width": 400
+        },
+        {
+          "dir": "rtl",
+          "h1": "مسارات واضحة. خوادمك أنت.",
+          "lang": "ar",
+          "overflow": [],
+          "path": "/ar/architecture/",
+          "scroll": 400,
+          "width": 400
+        },
+        {
+          "dir": "rtl",
+          "h1": "اختر المسار المناسب لك.",
+          "lang": "ar",
+          "overflow": [],
+          "path": "/ar/routes/",
+          "scroll": 400,
+          "width": 400
+        },
+        {
+          "dir": "rtl",
+          "h1": "تطبيق موقّع. ومصدر مطابق.",
+          "lang": "ar",
+          "overflow": [],
+          "path": "/ar/download/",
+          "scroll": 400,
+          "width": 400
+        },
+        {
+          "dir": "rtl",
+          "h1": "شفرة مفتوحة. وبداية سهلة الفهم.",
+          "lang": "ar",
+          "overflow": [],
+          "path": "/ar/open-source/",
+          "scroll": 400,
+          "width": 400
+        },
+        {
+          "dir": "rtl",
+          "h1": "تعرّف على روك، دليلك الرحّال.",
+          "lang": "ar",
+          "overflow": [],
+          "path": "/ar/rook/",
+          "scroll": 400,
+          "width": 400
+        },
+        {
+          "dir": "rtl",
+          "h1": "طائر صغير. وعالم أوسع.",
+          "lang": "ar",
+          "overflow": [],
+          "path": "/ar/worlds/",
+          "scroll": 400,
+          "width": 400
+        },
+        {
+          "dir": "rtl",
+          "h1": "تطبيق أول مفيد. وفصل تالٍ مدروس.",
+          "lang": "ar",
+          "overflow": [],
+          "path": "/ar/plans/",
+          "scroll": 400,
+          "width": 400
+        },
+        {
+          "dir": "ltr",
+          "h1": "掌握自己的路线。",
+          "lang": "zh-Hans",
+          "overflow": [],
+          "path": "/zh-hans/",
+          "scroll": 400,
+          "width": 400
+        },
+        {
+          "dir": "ltr",
+          "h1": "开启你的第一条路线。",
+          "lang": "zh-Hans",
+          "overflow": [],
+          "path": "/zh-hans/start/",
+          "scroll": 400,
+          "width": 400
+        },
+        {
+          "dir": "ltr",
+          "h1": "清晰的路径，自己的服务器。",
+          "lang": "zh-Hans",
+          "overflow": [],
+          "path": "/zh-hans/architecture/",
+          "scroll": 400,
+          "width": 400
+        },
+        {
+          "dir": "ltr",
+          "h1": "选择适合你的路线。",
+          "lang": "zh-Hans",
+          "overflow": [],
+          "path": "/zh-hans/routes/",
+          "scroll": 400,
+          "width": 400
+        },
+        {
+          "dir": "ltr",
+          "h1": "已签名的应用，对应的源代码。",
+          "lang": "zh-Hans",
+          "overflow": [],
+          "path": "/zh-hans/download/",
+          "scroll": 400,
+          "width": 400
+        },
+        {
+          "dir": "ltr",
+          "h1": "开放的代码，易懂的第一步。",
+          "lang": "zh-Hans",
+          "overflow": [],
+          "path": "/zh-hans/open-source/",
+          "scroll": 400,
+          "width": 400
+        },
+        {
+          "dir": "ltr",
+          "h1": "认识 Rook，你的旅途向导。",
+          "lang": "zh-Hans",
+          "overflow": [],
+          "path": "/zh-hans/rook/",
+          "scroll": 400,
+          "width": 400
+        },
+        {
+          "dir": "ltr",
+          "h1": "一只小鸟，更广阔的世界。",
+          "lang": "zh-Hans",
+          "overflow": [],
+          "path": "/zh-hans/worlds/",
+          "scroll": 400,
+          "width": 400
+        },
+        {
+          "dir": "ltr",
+          "h1": "实用的第一款应用，审慎开启下一章。",
+          "lang": "zh-Hans",
+          "overflow": [],
+          "path": "/zh-hans/plans/",
+          "scroll": 400,
+          "width": 400
+        }
+      ]
+    },
+    "desktop": {
+      "result": "PASS",
+      "pages": [
+        {
+          "dir": "ltr",
+          "flows": [
+            {
+              "dir": "ltr",
+              "text": "Телефон → IKEv2/IPsec → strongSwan на вашем VPS → Интернет по IPv4. AdGuard Home фильтрует DNS, а Unbound выполняет разрешение имён на этом же VPS."
+            },
+            {
+              "dir": "ltr",
+              "text": "Телефон → вход IKEv2/IPsec → участок AmneziaWG 3.1 → выходной VPS → Интернет по IPv4. Приватная фильтрация DNS работает на выходе. Передача трафика включается после проверки маршрута."
+            }
+          ],
+          "lang": "ru",
+          "overflow": [],
+          "path": "/ru/architecture/",
+          "scroll": 1422,
+          "width": 1422
+        },
+        {
+          "dir": "rtl",
+          "flows": [
+            {
+              "dir": "ltr",
+              "text": "گوشی → IKEv2/IPsec → strongSwan روی VPS شما → اینترنت IPv4. AdGuard Home، DNS را فیلتر می‌کند؛ Unbound روی همان VPS آن را حل می‌کند."
+            },
+            {
+              "dir": "ltr",
+              "text": "گوشی → ورودی IKEv2/IPsec → پل AmneziaWG 3.1 → VPS خروجی → اینترنت IPv4. فیلتر DNS خصوصی در خروجی اجرا می‌شود. پس از بررسی مسیر، عبور ترافیک باز می‌شود."
+            }
+          ],
+          "lang": "fa",
+          "overflow": [],
+          "path": "/fa/architecture/",
+          "scroll": 1422,
+          "width": 1422
+        },
+        {
+          "dir": "rtl",
+          "flows": [
+            {
+              "dir": "ltr",
+              "text": "الهاتف → IKEv2/IPsec → strongSwan على VPS الخاص بك → إنترنت IPv4. يصفّي AdGuard Home طلبات DNS؛ ويحلّها Unbound على VPS نفسه."
+            },
+            {
+              "dir": "ltr",
+              "text": "الهاتف → دخول IKEv2/IPsec → جسر AmneziaWG 3.1 → VPS الخروج → إنترنت IPv4. تعمل تصفية DNS الخاص عند الخروج. يُفتح تمرير الحركة بعد فحص المسار."
+            }
+          ],
+          "lang": "ar",
+          "overflow": [],
+          "path": "/ar/architecture/",
+          "scroll": 1422,
+          "width": 1422
+        },
+        {
+          "dir": "ltr",
+          "flows": [
+            {
+              "dir": "ltr",
+              "text": "手机 → IKEv2/IPsec → VPS 上的 strongSwan → IPv4 互联网。AdGuard Home 过滤 DNS，Unbound 在同一 VPS 上解析域名。"
+            },
+            {
+              "dir": "ltr",
+              "text": "手机 → IKEv2/IPsec 入口 → AmneziaWG 3.1 桥接 → 出口 VPS → IPv4 互联网。私有 DNS 过滤在出口运行，路线检查通过后才开启转发。"
+            }
+          ],
+          "lang": "zh-Hans",
+          "overflow": [],
+          "path": "/zh-hans/architecture/",
+          "scroll": 1422,
+          "width": 1422
+        }
+      ]
+    }
+  },
+  "installer_source_sha256": "996adf929ac1b0d244a530a7b0ae89817e68fbaf8018f0bffebb53e9d9947c7f",
+  "size_change_from_alpha3": {
+    "previous_bytes": 39844291,
+    "added_bytes": 488139,
+    "percent": 1.23
+  },
+  "fixed_during_review": [
+    "Language-dialog message hid choice list; removed the message.",
+    "Isolate RTL step fractions and time ranges as LTR numeric groups.",
+    "Quote Android resource values to preserve fragment whitespace and escapes.",
+    "User names and logins bypass UI translation lookup.",
+    "Offline comics exclude website language-choice controls.",
+    "English plural source changes invalidate translation review."
+  ],
+  "fixture_notes": [
+    "Legacy English UI fixtures select English explicitly.",
+    "Screenshots wait for rendered frames, not idleness during mascot animation.",
+    "Concurrent emulator/build runs expired bounded transport waits and WebView callbacks; final functional runs use one emulator at a time.",
+    "Android 16 initially ended cached test processes during direct framework locale changes with no Activity. The isolated resource fixture holds an Activity lifecycle, without asserting screen focus."
+  ],
+  "remaining_gates": [
+    "Native-speaking human translation review",
+    "Physical/OEM devices, screen readers and audible installed voices",
+    "Full Android 16 UI navigation",
+    "Real IPv6/mobile handoff and disconnected lockdown",
+    "Sustained small-VPS load and actual native 16-KiB runtime"
+  ]
+}

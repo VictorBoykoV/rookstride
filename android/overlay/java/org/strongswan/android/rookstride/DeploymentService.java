@@ -33,6 +33,10 @@ public final class DeploymentService extends Service {
     private final ExecutorService worker=Executors.newSingleThreadExecutor();
     private PowerManager.WakeLock wake;
     private Session owned;
+    private static java.lang.ref.WeakReference<DeploymentService> live=new java.lang.ref.WeakReference<>(null);
+    public static void refreshLanguage(){main.post(()->{DeploymentService service=live.get();Session session=current;if(service!=null&&session!=null&&active())((NotificationManager)service.getSystemService(NOTIFICATION_SERVICE)).notify(NOTIFICATION,service.notification(session));});}
+    @Override public void onCreate(){super.onCreate();live=new java.lang.ref.WeakReference<>(this);}
+
     public static Session current(){return current;}
     public static boolean active(){Session s=current;return s!=null&&s.progress.state.equals("running");}
     public static void observe(Listener listener){listeners.add(listener);}
@@ -58,7 +62,7 @@ public final class DeploymentService extends Service {
         if(owned==s)return START_NOT_STICKY;
         owned=s;s.serviceStartId=startId;
         NotificationManager nm=(NotificationManager)getSystemService(NOTIFICATION_SERVICE);
-        nm.createNotificationChannel(new NotificationChannel("deployment","Gateway installation",NotificationManager.IMPORTANCE_LOW));
+        nm.createNotificationChannel(new NotificationChannel("deployment",RookText.t(RookText.localized(this),"Gateway installation"),NotificationManager.IMPORTANCE_LOW));
         if(Build.VERSION.SDK_INT>=29)startForeground(NOTIFICATION,notification(s),ServiceInfo.FOREGROUND_SERVICE_TYPE_DATA_SYNC);else startForeground(NOTIFICATION,notification(s));
         releaseWake();wake=((PowerManager)getSystemService(POWER_SERVICE)).newWakeLock(PowerManager.PARTIAL_WAKE_LOCK,"rookstride:deployment");wake.acquire(5*60*60*1000L);
         publish(s);
@@ -114,11 +118,12 @@ public final class DeploymentService extends Service {
         for(Listener listener:new ArrayList<>(listeners))listener.changed();
     }
     private Notification notification(Session s){
+        Context display=RookText.localized(this);
         Intent open=new Intent(this,RookstrideActivity.class).putExtra("rookstride.progress",true).addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP|Intent.FLAG_ACTIVITY_CLEAR_TOP);
         PendingIntent pending=PendingIntent.getActivity(this,0,open,PendingIntent.FLAG_UPDATE_CURRENT|PendingIntent.FLAG_IMMUTABLE);
-        Notification publicNotice=new Notification.Builder(this,"deployment").setSmallIcon(R.drawable.rook_icon).setContentTitle("Rookstride gateway installation").setContentText("Open to view progress").setContentIntent(pending).build();
-        return new Notification.Builder(this,"deployment").setVisibility(Notification.VISIBILITY_PRIVATE).setPublicVersion(publicNotice).setSmallIcon(R.drawable.rook_icon).setContentTitle("Rookstride · "+s.progress.completed+" / "+s.progress.steps().length+" checkpoints")
-            .setContentText(s.progress.phase).setContentIntent(pending).setOngoing(true).setOnlyAlertOnce(true).setProgress(s.progress.steps().length,s.progress.completed,false).build();
+        Notification publicNotice=new Notification.Builder(this,"deployment").setSmallIcon(R.drawable.rook_icon).setContentTitle(RookText.t(display,"Rookstride gateway installation")).setContentText(RookText.t(display,"Open to view progress")).setContentIntent(pending).build();
+        return new Notification.Builder(this,"deployment").setVisibility(Notification.VISIBILITY_PRIVATE).setPublicVersion(publicNotice).setSmallIcon(R.drawable.rook_icon).setContentTitle(RookText.summary(display,s.progress))
+            .setContentText(RookText.t(display,s.progress.phase)).setContentIntent(pending).setOngoing(true).setOnlyAlertOnce(true).setProgress(s.progress.steps().length,s.progress.completed,false).build();
     }
     private void failed(Session s,Exception error){
         if(!s.progress.state.equals("running"))return;
@@ -132,7 +137,7 @@ public final class DeploymentService extends Service {
         if(s!=null&&s.progress.state.equals("running")){
             s.progress.state="needs-attention";s.progress.phase="Phone polling ended. Detached VPS jobs may continue; reopen and check the recorded job.";publish(s);
         }
-        worker.shutdownNow();releaseWake();super.onDestroy();
+        worker.shutdownNow();releaseWake();if(live.get()==this)live.clear();super.onDestroy();
     }
     private void releaseWake(){if(wake!=null&&wake.isHeld())wake.release();}
 }

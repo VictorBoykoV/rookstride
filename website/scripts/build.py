@@ -8,6 +8,7 @@ from pathlib import Path
 from urllib.parse import urlparse
 from xml.sax.saxutils import escape as xml_escape
 from stories import CHAPTERS, PANEL_CROPS
+from locales import build as build_locales
 from world_reader import content as world_content, pages as world_pages, helper as rook_helper, offline as build_offline
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -108,7 +109,7 @@ def home():
 
 def guide():
     steps = [
-        ("01", "Get ready", '<p>Use Android 8 or later and a <strong>fresh Ubuntu 24.04 VPS</strong> with a public IPv4 address. The installer supports x86_64 and aarch64; the live server cycles used x86_64. Have root or passwordless sudo SSH access.</p><p>Allow inbound <strong>UDP 500 and 4500</strong> for IKEv2, plus your SSH port. Keep the phone online and the VPS able to download Ubuntu packages and AdGuard Home. Bundled installation code does not make this an Internet-free installation.</p>'),
+        ("01", "Get ready", '<p>Use Android 8 or later and a <strong>fresh Ubuntu 24.04 VPS</strong> (two distinct fresh nodes for <a href="/routes/">the two-server route</a>) with a public IPv4 address. The installer supports x86_64 and aarch64; the live server cycles used x86_64. Have root or passwordless sudo SSH access.</p><p>Allow inbound <strong>UDP 500 and 4500</strong> for IKEv2, plus your SSH port. Keep the phone online and the VPS able to download Ubuntu packages and AdGuard Home. Bundled installation code does not make this an Internet-free installation.</p>'),
         ("02", "Install the signed app", f'<p><a href="/download/">Download and verify the APK</a>, then open it on Android. Your download app may ask for permission to install this APK. Only use the project’s signed release and retain the matching source/checksum references.</p><p>You can explore the labeled offline demo and built-in guide before adding a real server.</p>'),
         ("03", "Add and trust your gateway", '<p>Choose <strong>Add gateway</strong>. Enter its address, SSH port, administrator name, and password or private key. For examples, use <code>vpn.example.net</code>; enter your own server in the app.</p><p>Inspect the gateway. Compare the presented <strong>SSH host-key fingerprint</strong> with your provider console or another trusted route before trusting it. Rookstride pins that key and refuses a changed key.</p><p>Optional saved credentials use Android Keystore encryption. Leaving “remember” off keeps them in app memory until the process ends.</p>'),
         ("04", "Install the gateway", '<p>On a fresh server, choose <strong>Install gateway on fresh VPS</strong>. Create the first VPN login with a unique password and decide whether to enable estimated usage history.</p><p>The app transfers its installer over SSH and starts a detached job on the VPS. If the phone disconnects, reconnect to check status: the server job continues. A VPS reboot during installation can interrupt it and leave partial state.</p><p>The fresh-install guard refuses an existing VPN/DNS setup. Inspect a failed job before rebuilding; do not force the installer over a working gateway.</p>'),
@@ -349,7 +350,8 @@ def build(base,output=None):
     (data/'worlds.json').write_text(json.dumps(anthology,ensure_ascii=False,indent=2)+'\n')
     if (REPO/'docs/test-results/ui-alpha3.json').is_file():shutil.copyfile(REPO/'docs/test-results/ui-alpha3.json',data/'ui-alpha3-tests.json')
     shutil.copyfile(ROOT/'content/cultural-sources.json',data/'cultural-sources.json')
-    urls=[p for p,*_ in PAGES+additions if p!='/404.html']
+    language_urls=build_locales(dist,base,json.loads((ROOT/'content/ui-release.json').read_text()))
+    urls=[p for p,*_ in PAGES+additions if p!='/404.html']+language_urls
     robots='User-agent: *\nAllow: /\nDisallow: /404.html\n'
     sitemap=dist/'sitemap.xml'
     if base:
@@ -434,8 +436,9 @@ Routes: Experimental 0.2.0-alpha2 implements IKEv2 entry to AmneziaWG 3.1 exit w
 Rook: Original red bird mascot. Fictional Lantern Harbor, brass lantern, folded map, dark scarf, cream satchel. Motto: A good route leaves the next traveler a choice. Five complete illustrated stories: The borrowed light, The noisy market, The bridge that waited, The two bridges, The right material. Reader views: panel, page (default), whole chapter. Fiction is not a product guarantee; original AI-generated illustrations. Full accessible story at /journal/text/.
 ''')
     with (dist/'llms.txt').open('a') as file:file.write('\n## Rook’s expanded original fiction\n- [Five worlds, fifty complete chapters]('+pre+'/worlds/): Each chapter has four narrated story pages and a static readable URL. Optional device narration advances pages within a chapter and stops at its end.\n- [Rook’s origin and values]('+pre+'/rook/): The original project ambassador, his story and guiding values.\n- [Cultural source notes]('+pre+'/worlds/notes/): Real-world inspiration separated from original fiction.\n- [Story source manifest]('+pre+'/data/worlds.json): Complete world, chapter, scene and narration data.\n')
+    with (dist/'llms.txt').open('a') as file:file.write('\n## Languages and platform plans\n- Main pages: English, Russian (/ru/), Persian (/fa/), Arabic (/ar/), Simplified Chinese (/zh-hans/). Detailed engineering documents and story narratives remain English.\n- [Platform plans]('+pre+'/plans/): Browser planner, private connector, iPhone and messenger research. No public SSH credential form.\n- [Machine-readable languages]('+pre+'/data/languages.json)\n- [Platform backlog]('+pre+'/data/platform-plans.json)\n')
     build_offline(dist)
-    print(f'Built {len(PAGES)+len(additions)} static pages in {dist}')
+    print(f'Built {len(PAGES)+len(additions)+len(language_urls)} static pages in {dist}')
     print('Publication metadata: '+base if base else 'Local edition: no invented canonical domain or public sitemap.')
 
 if __name__=='__main__':

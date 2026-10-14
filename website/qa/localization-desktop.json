@@ -1,0 +1,77 @@
+{
+  "result": "PASS",
+  "pages": [
+    {
+      "dir": "ltr",
+      "flows": [
+        {
+          "dir": "ltr",
+          "text": "Телефон → IKEv2/IPsec → strongSwan на вашем VPS → Интернет по IPv4. AdGuard Home фильтрует DNS, а Unbound выполняет разрешение имён на этом же VPS."
+        },
+        {
+          "dir": "ltr",
+          "text": "Телефон → вход IKEv2/IPsec → участок AmneziaWG 3.1 → выходной VPS → Интернет по IPv4. Приватная фильтрация DNS работает на выходе. Передача трафика включается после проверки маршрута."
+        }
+      ],
+      "lang": "ru",
+      "overflow": [],
+      "path": "/ru/architecture/",
+      "scroll": 1422,
+      "width": 1422
+    },
+    {
+      "dir": "rtl",
+      "flows": [
+        {
+          "dir": "ltr",
+          "text": "گوشی → IKEv2/IPsec → strongSwan روی VPS شما → اینترنت IPv4. AdGuard Home، DNS را فیلتر می‌کند؛ Unbound روی همان VPS آن را حل می‌کند."
+        },
+        {
+          "dir": "ltr",
+          "text": "گوشی → ورودی IKEv2/IPsec → پل AmneziaWG 3.1 → VPS خروجی → اینترنت IPv4. فیلتر DNS خصوصی در خروجی اجرا می‌شود. پس از بررسی مسیر، عبور ترافیک باز می‌شود."
+        }
+      ],
+      "lang": "fa",
+      "overflow": [],
+      "path": "/fa/architecture/",
+      "scroll": 1422,
+      "width": 1422
+    },
+    {
+      "dir": "rtl",
+      "flows": [
+        {
+          "dir": "ltr",
+          "text": "الهاتف → IKEv2/IPsec → strongSwan على VPS الخاص بك → إنترنت IPv4. يصفّي AdGuard Home طلبات DNS؛ ويحلّها Unbound على VPS نفسه."
+        },
+        {
+          "dir": "ltr",
+          "text": "الهاتف → دخول IKEv2/IPsec → جسر AmneziaWG 3.1 → VPS الخروج → إنترنت IPv4. تعمل تصفية DNS الخاص عند الخروج. يُفتح تمرير الحركة بعد فحص المسار."
+        }
+      ],
+      "lang": "ar",
+      "overflow": [],
+      "path": "/ar/architecture/",
+      "scroll": 1422,
+      "width": 1422
+    },
+    {
+      "dir": "ltr",
+      "flows": [
+        {
+          "dir": "ltr",
+          "text": "手机 → IKEv2/IPsec → VPS 上的 strongSwan → IPv4 互联网。AdGuard Home 过滤 DNS，Unbound 在同一 VPS 上解析域名。"
+        },
+        {
+          "dir": "ltr",
+          "text": "手机 → IKEv2/IPsec 入口 → AmneziaWG 3.1 桥接 → 出口 VPS → IPv4 互联网。私有 DNS 过滤在出口运行，路线检查通过后才开启转发。"
+        }
+      ],
+      "lang": "zh-Hans",
+      "overflow": [],
+      "path": "/zh-hans/architecture/",
+      "scroll": 1422,
+      "width": 1422
+    }
+  ]
+}

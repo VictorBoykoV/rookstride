@@ -22,6 +22,7 @@ import static androidx.test.espresso.assertion.ViewAssertions.matches;
 /** Real foreground service with a bounded transport fixture: no VPS mutation. */
 @RunWith(AndroidJUnit4.class)
 public class DeploymentNavigationTest {
+    @org.junit.Before public void englishFixture(){InstrumentationRegistry.getInstrumentation().runOnMainSync(()->androidx.appcompat.app.AppCompatDelegate.setApplicationLocales(androidx.core.os.LocaleListCompat.forLanguageTags("en")));}
     @Test public void pairedHealthFinishesEightCheckpointRecipe()throws Exception{
         Context context=InstrumentationRegistry.getInstrumentation().getTargetContext();
         Vault vault=new Vault(context);ArrayList<Gateway> original=vault.read();

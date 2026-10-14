@@ -1,0 +1,6 @@
+{
+  "checkpoints_remaining": {
+    "one": "%1$d checkpoint remaining",
+    "other": "%1$d checkpoints remaining"
+  }
+}

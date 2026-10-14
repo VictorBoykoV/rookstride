@@ -36,3 +36,9 @@ Important boundaries: IPv4 exit only; IPv6 is intentionally sunk. Rookstride’s
 - [Rook’s origin and values](/rook/): The original project ambassador, his story and guiding values.
 - [Cultural source notes](/worlds/notes/): Real-world inspiration separated from original fiction.
 - [Story source manifest](/data/worlds.json): Complete world, chapter, scene and narration data.
+
+## Languages and platform plans
+- Main pages: English, Russian (/ru/), Persian (/fa/), Arabic (/ar/), Simplified Chinese (/zh-hans/). Detailed engineering documents and story narratives remain English.
+- [Platform plans](/plans/): Browser planner, private connector, iPhone and messenger research. No public SSH credential form.
+- [Machine-readable languages](/data/languages.json)
+- [Platform backlog](/data/platform-plans.json)

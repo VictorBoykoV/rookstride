@@ -19,6 +19,7 @@ import static androidx.test.espresso.action.ViewActions.*;
 /** Real locked offline WebView; deterministic voice events, not an audible-device test. */
 @RunWith(AndroidJUnit4.class)
 public class StoryReaderTest {
+    @org.junit.Before public void englishFixture(){InstrumentationRegistry.getInstrumentation().runOnMainSync(()->androidx.appcompat.app.AppCompatDelegate.setApplicationLocales(androidx.core.os.LocaleListCompat.forLanguageTags("en")));}
     static final class VoiceFixture {
         volatile String id="",spoken="";
         @JavascriptInterface public String voices(){return "[{\"name\":\"test-only-offline-voice\",\"lang\":\"en-US\",\"localService\":true}]";}

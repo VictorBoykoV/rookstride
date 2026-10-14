@@ -18,10 +18,12 @@ for module in json.loads((dependencies/'manifest.json').read_text())['modules']:
         if hashlib.sha256(path.read_bytes()).hexdigest()!=file['sha256']:raise SystemExit('Dependency source hash differs: '+file['path'])
 archives.extend(sorted(p for p in dependencies.rglob('*') if p.is_file() and p.suffix!='.part'))
 files=[ROOT/n for n in ('README.md','LICENSE','NOTICE.md','SECURITY.md','AGENTS.md','.gitignore','release.json')]
-for name in ('android','brand','docs','gateway','licenses','scripts','server','tests','twohop','website'):
+for name in ('android','brand','docs','gateway','licenses','scripts','server','tests','twohop','website','i18n'):
     files.extend(p for p in (ROOT/name).rglob('*') if p.is_file() and '__pycache__' not in p.parts and p.suffix not in ('.pyc','.log') and not (name=='website' and 'qa' in p.parts))
+def public_header(info):
+    info.uid=info.gid=0;info.uname=info.gname='';return info
 with tarfile.open(OUTPUT,'w:gz') as t:
-    for p in sorted(files)+archives: t.add(p,arcname=Path('rookstride')/p.relative_to(ROOT),recursive=False)
+    for p in sorted(files)+archives: t.add(p,arcname=Path('rookstride')/p.relative_to(ROOT),recursive=False,filter=public_header)
 h=hashlib.sha256()
 with OUTPUT.open('rb') as f:
     for block in iter(lambda:f.read(1024*1024),b''): h.update(block)

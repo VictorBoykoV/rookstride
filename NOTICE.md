@@ -18,3 +18,5 @@ The bundled gateway scripts derive from `VictorBoykoV/single-vps-vpn-gateway`, r
 StrongSwan, AdGuard, Android, OnePlus and Amnezia are names belonging to their respective projects/owners. Rookstride is an independent project. No vendor logo, slogan or proprietary UI artwork is included.
 
 The two-hop server adapter bundles MIT-licensed Two-Hop VPN Gateway scripts. Origin, reviewed base commit and file digests are in twohop/SOURCE.json; its license is retained in twohop/LICENSE. The original Rookstride coordinator/server job code remains GPL-3.0-or-later.
+
+Shared interface catalogs and translated beginner guides are original Rookstride work under GPL-3.0-or-later. Initial translations were generated and reviewed with model assistance; native-speaking community review is a separate recorded gate. Existing upstream translations retain upstream notices.

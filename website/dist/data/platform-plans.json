@@ -1,0 +1,17 @@
+{
+  "status": "research-backlog",
+  "implemented": [
+    "android-single-ikev2",
+    "android-pair-ikev2-amneziawg",
+    "main-flow-localization"
+  ],
+  "planned": [
+    "browser-planner-native-handoff",
+    "user-controlled-web-connector",
+    "iphone-native-admin-vpn",
+    "telegram-approved-status",
+    "weixin-feasibility"
+  ],
+  "credential_boundary": "No root passwords or private keys in public websites, plans or messenger chats.",
+  "report": "https://github.com/VictorBoykoV/rookstride/blob/main/docs/PLATFORMS-AND-LANGUAGES.md"
+}

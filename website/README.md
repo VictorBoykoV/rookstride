@@ -106,3 +106,11 @@ metadata, old release identities, evidence and the public-data boundary.
 Rook’s helper roles appear across setup, architecture, downloads and open-source
 pages; the home page introduces him and brings him back at the story invitation.
 See `../brand/AMBASSADOR.md` for consistent face, roles, tone and research sources.
+
+## Languages and platform plans
+
+Nine beginner routes have Russian, Persian, Arabic and Simplified Chinese editions: `/ru/`, `/fa/`, `/ar/`, `/zh-hans/`, plus their setup, architecture, routes, download, open source, Rook, worlds overview and plans paths. English stays at the original URLs. The site now contains 104 static pages. The story chapters, detailed engineering documents and shared images remain English, with explicit notices.
+
+An explicit language menu preserves the current beginner route. A language hint offers a choice without forcing a redirect. Persian/Arabic use RTL layout and isolated LTR technical diagrams/hashes; media is shared, not mirrored or duplicated. A real `--base-url` emits reciprocal language links and a sitemap. The local edition does not invent a hosted domain.
+
+`/plans/` and `/data/platform-plans.json` describe researched browser, iPhone and messenger work. They are a backlog, not installed services or a public SSH credential form. Shared catalogs and review records are in `../i18n/`; `python3 ../scripts/compile-locales.py` detects missing keys, broken placeholders, stale source review and unreviewed edits before a native build.

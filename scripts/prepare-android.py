@@ -17,6 +17,7 @@ APP=SOURCE/'app'
 if not APP.exists(): raise SystemExit('Prepare pinned strongSwan sources first; see docs/BUILD.md')
 import subprocess
 subprocess.run(['python3',str(ROOT/'scripts/prepare-rook-poses.py')],check=True)
+subprocess.run(['python3',str(ROOT/'scripts/compile-locales.py')],check=True)
 overlay=ROOT/'android/overlay'
 main=APP/'src/main'
 for src,dest in [('java','java'),('res','res'),('assets','assets')]:
@@ -119,6 +120,10 @@ if '.rookstride.DeploymentService' not in text:
     text=text.replace('</application>', '<service android:name=".rookstride.DeploymentService" android:exported="false" android:foregroundServiceType="dataSync"/>\n    </application>')
 if '<queries>' not in text:
     text=text.replace('<application','<queries><intent><action android:name="android.intent.action.TTS_SERVICE"/></intent></queries>\n    <application',1)
+# Native Android 13 language settings and AppCompat persistence on Android 8–12.
+if 'android:localeConfig=' not in text:text=text.replace('<application', '<application android:localeConfig="@xml/rookstride_locales" android:supportsRtl="true"',1)
+if 'androidx.appcompat.app.AppLocalesMetadataHolderService' not in text:
+    text=text.replace('</application>', '<service android:name="androidx.appcompat.app.AppLocalesMetadataHolderService" android:enabled="false" android:exported="false"><meta-data android:name="autoStoreLocales" android:value="true"/></service>\n</application>')
 write_text(manifest,text)
 
 control=main/'java/org/strongswan/android/ui/VpnProfileControlActivity.java'

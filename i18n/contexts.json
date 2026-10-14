@@ -1,0 +1,3343 @@
+{
+  "m_9e4635769f0a": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java",
+      "RookstrideActivity.java",
+      "RookstrideActivity.java",
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_82693863fab8": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_4664827f8e89": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java",
+      "RookstrideActivity.java",
+      "RookstrideActivity.java",
+      "RookstrideActivity.java",
+      "RookstrideActivity.java",
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_c062fcbd227c": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_6d09cf574882": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java",
+      "RookstrideActivity.java",
+      "RookstrideActivity.java",
+      "RookstrideActivity.java",
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_8dd65d0952ed": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java",
+      "RookstrideActivity.java",
+      "RookstrideActivity.java",
+      "RookstrideActivity.java",
+      "RookstrideActivity.java",
+      "RookstrideActivity.java",
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_1495fa597394": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_98bf3ea71938": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_adac26c531b3": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_b0cf695b0ff0": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_7d9eb7acb13e": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java",
+      "RookstrideActivity.java",
+      "RookstrideActivity.java",
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_e103ed64a00f": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java",
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_930992de891b": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java",
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_4ff006ca6b88": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_835d6dc88b70": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_4f4755b4d4c6": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_e39d8a94c065": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java",
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_cd23ffc5a24d": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_7e62d0f4b35b": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_356e6cddb39f": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_7db20897053b": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java",
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_6fa3cbf451b2": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_0a0f77c795b2": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_f1eb4e9b6189": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_2d91aa44edb6": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_946e7d445de2": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_7fb5055f7ab3": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_8e89b0981dc9": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_b49af720bf84": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_73b6e48a1b55": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_cceb99878be9": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_c51933cffb72": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_b97507adb5bb": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_1bb86dbeb58b": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_c8c1700baa33": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_3e6a71131b55": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_41a634b9ee41": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_a4f11048aa36": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_465f6700944f": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_dace85f8e12e": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_43c14bd0f933": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_aef0036479b1": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_92d70e5d38de": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_da8b1418b83a": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_275dcf6b841a": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_97f5dd793a8a": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_1b8c939b194d": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_3cfc7db1f000": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_17f2d351c7ae": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_da8b7d4613fe": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_87a469130530": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java",
+      "RookstrideActivity.java",
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_d647790cd480": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_9b1bb16adec5": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_8f681a431683": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_3564c181c43a": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_fd694fe3f298": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_182bf2ce919b": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_46cad479a15b": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_acfc5be785a9": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_1a2303ede074": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_c3fc54aa5390": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_aa9e294ac5c7": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_596df1c31c28": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_2762a0671924": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_437c820cd65f": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_d16948e73a68": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_f4ccae29e1bb": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_1a4f630ac1b6": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_1caa323186a2": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_a0044d866ea7": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_e09dacb8f4f6": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_9c86def6fdbd": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_b7d5deb211e3": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_c3fcf6c368a8": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_85232a56da2f": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_9e74bac770dd": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_c523ddd3ef87": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_64ee6aaf76e8": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_81767a73fad4": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_259db9d129f7": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_71c8f3b0958a": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_0d255542247d": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_18db8acac10c": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_5213797728b4": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_3f8a3f7502f6": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_a2f2594fa8f8": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_c99212c187b1": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java",
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_6444098d8cae": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_90a68a3218ca": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_23106087064a": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_785617f369b6": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_c4ca75440238": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_e1c5c23101c8": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_d65ed87db3d0": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_a251ef44d017": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_b23485460b1f": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_9d9fa448d275": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_868f160c1398": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_250136b3421d": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_94a120810b94": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java",
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_7632ee9ae358": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_5f6abec48741": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_4fe3cb8ab47b": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java",
+      "RookstrideActivity.java",
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_35105b29f706": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_a1794783aab7": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_d1f3b7c8d7b5": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_c85ff1d72c8e": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_0df81b589318": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_1ca811a5e466": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_0cde831d7c1e": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_faf347f248bd": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_de54571e63eb": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_a9fe2cf6dd7c": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_d307f837ba42": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_c45fd21781f8": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_d1e2115790bc": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_36fa80fb962e": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_11280678f412": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_02d733b4b734": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_cad52835e0c2": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_fb04832882cd": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_efdfe7a4fd4f": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_4ffa450f5500": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_013181cbf9ed": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_b6f601224a5e": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_3a4b27e47a15": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_17c76396f75d": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_eae9ef1eb229": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_c0d27fc72213": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_cd126377cec9": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_dd97f8b69881": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_cf3cd875ab2a": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_86e5a27f2ed5": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_4763ccb5325d": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_541a3503dd4d": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_a91010cbe2f4": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_d70334ad5096": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_274edaa80d18": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_4dd70b4a394b": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_19766ed6ccb2": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java",
+      "RookstrideActivity.java",
+      "RookstrideActivity.java",
+      "RookstrideActivity.java",
+      "RookstrideActivity.java",
+      "RookstrideActivity.java",
+      "RookstrideActivity.java",
+      "RookstrideActivity.java",
+      "RookstrideActivity.java",
+      "RookstrideActivity.java",
+      "RookstrideActivity.java",
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_12af7ade0584": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_72a66fea01d4": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_36a06794be2f": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_64dbd25f2f7f": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_31fbef162594": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java",
+      "RookstrideActivity.java",
+      "RookstrideActivity.java",
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_e82ed607b8e1": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_51b04389b8f9": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java",
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_83ff7fbdd3e2": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_ac57a873daa5": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_9ffa7382ddaf": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_42c06b99a3f9": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_e744947595c0": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_49f8032385c8": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_2bb46ece301a": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_49d178ef4264": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_3b7e1d9f0df0": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_9f92745b26de": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_946bcfef72e8": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_54c855b30ce0": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_1509f561f241": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_a8d74ed7b18f": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_1a37874f7454": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_b87a83696a38": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_7afdd78f61bd": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_f49ca922c8b9": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_2789f09f81d0": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_1559f0ad1625": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java",
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_1460227cf018": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java",
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_7afd11374e89": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_89f8607ccb4d": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_c97443e5c5a5": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_8e95c80ba7f2": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_569ca49f4aaf": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_97565c7dbdcd": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_5846575f44dd": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_de9fc41ea621": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_4de6641cfab2": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_f616e77125f8": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_8d77c31f8212": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_396473f54710": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_71410e5ae05d": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_94991dd44208": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_bc7d169193cf": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_7246a6a69373": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_a93109881e25": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_b5f1c0af981f": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_09e11795978f": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_42d4d5f7c5ab": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_441f05b49aed": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_ca0d49da0603": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_1795b73a19e2": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_4efd38d785ad": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_7e0db16960aa": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_9b00f6ae3c9d": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_85bb92786867": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_6ba9eab6d470": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_9cc9a662d708": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_d4c6727e2476": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_77369b2c622b": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_ae25e2efd46b": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_b23033151f07": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_03d163cb513a": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_4cdaba47de24": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_d177cdc09a4e": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_804042a18dcb": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_5fde79ee1195": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_5804f8b796ab": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_e1d104eb5b8c": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_651a72b8d638": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_84d9fdac7d38": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_3317042f1471": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_111dad01204c": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_a5c8cb31e5f7": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_0d46dbe98585": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_07fa86b441b6": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java",
+      "RookstrideActivity.java",
+      "PairResetController.java",
+      "PairResetController.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_fcc7a7a04e7c": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_f63ce603e027": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_5e6232bf7e72": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_c22d89d6575c": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_22ea0a0f7b19": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_55f4e5f4c047": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_ed190e2bd95a": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_115cb32db3f2": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_cf6d39ff1115": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_b30f5334f360": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_7021bd4b7276": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_7cb9d13bae9d": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_4f64137e6aa3": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java",
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_d267baa4ed15": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_bb5217b3c9c2": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_6007db63e18e": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_e4659bf2eb83": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_63dceb8800b2": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java",
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_84ccec275447": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java",
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_e7cf3ef4f17c": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_06d2e9b38a62": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_4759498ac2a7": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_029317284cb8": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_e461aa896555": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_01b235adcc66": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_ef04b247206f": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_44b637ef941b": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_11a6767d5674": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_e8cd8b5d57c9": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_d7da6f116894": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java",
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_c1ec9b62b07f": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_479f354ade1e": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_a1c774e2dad0": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_3f9c991f63a9": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java",
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_f93816531c41": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_3dd9df4441fb": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_c1c1009d3f37": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_8da69e192731": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_6b94b4575121": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_db8d413ea2a3": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_59acbda62931": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_f7ebc9a2908e": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_f14295703077": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_4f05468a5e90": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_45e920fe1747": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_3e5aa5148d24": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_9cc2d2a302cc": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_dc84aafe2658": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_c0babbef2c10": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_53cb3ef575f0": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_dc36e9959599": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_968c8ba3a67e": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_93f9bc1a07cd": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_589352238296": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_2ffd8e84d901": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_e77850d856a0": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_032134340fe6": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_fe4878aa44aa": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_a1c030800178": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_80088155b9a9": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_99b277f84062": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_b57526d3d1bd": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_1413193daa16": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_adaaca66e9ad": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_61e8d44ad423": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_6775014c7544": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_db74c940d447": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java",
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_15af50a07d8a": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_bd2d677b2ed4": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_c4272c30c83b": {
+    "surface": "android",
+    "source_files": [
+      "RookstrideActivity.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_ea749af71298": {
+    "surface": "android",
+    "source_files": [
+      "PairResetController.java",
+      "PairResetController.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_699c2b7ccf2c": {
+    "surface": "android",
+    "source_files": [
+      "PairResetController.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_543e6d217e1c": {
+    "surface": "android",
+    "source_files": [
+      "PairResetController.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_ce0e502cdba2": {
+    "surface": "android",
+    "source_files": [
+      "PairResetController.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_354a984532b9": {
+    "surface": "android",
+    "source_files": [
+      "DeploymentService.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_0698e37a2288": {
+    "surface": "android",
+    "source_files": [
+      "DeploymentService.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_5cbbd9c3ac2e": {
+    "surface": "android",
+    "source_files": [
+      "DeploymentService.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_3d38c01cc3cd": {
+    "surface": "android",
+    "source_files": [
+      "DeploymentService.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_7bf15cde10f5": {
+    "surface": "android",
+    "source_files": [
+      "DeploymentService.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_ace57d853b21": {
+    "surface": "android",
+    "source_files": [
+      "DeploymentService.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_2c211f2727b7": {
+    "surface": "android",
+    "source_files": [
+      "DeploymentService.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_b4d0dddee59b": {
+    "surface": "android",
+    "source_files": [
+      "DeploymentService.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_f9ff9eee6770": {
+    "surface": "android",
+    "source_files": [
+      "DeploymentService.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_127da57bbcf3": {
+    "surface": "android",
+    "source_files": [
+      "DeploymentService.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_6fb2bf2b509e": {
+    "surface": "android",
+    "source_files": [
+      "DeploymentService.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_a9f19e34c9de": {
+    "surface": "android",
+    "source_files": [
+      "DeploymentService.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_7b610715d8af": {
+    "surface": "android",
+    "source_files": [
+      "DeploymentService.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_acf10c0cc337": {
+    "surface": "android",
+    "source_files": [
+      "DeploymentService.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_3172f375f1e9": {
+    "surface": "android",
+    "source_files": [
+      "DeploymentService.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_b6ed598ef439": {
+    "surface": "android",
+    "source_files": [
+      "DeploymentService.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_1b18a4622123": {
+    "surface": "android",
+    "source_files": [
+      "DeploymentService.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_8c1df4af3302": {
+    "surface": "android",
+    "source_files": [
+      "PairController.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_90b5c51fda57": {
+    "surface": "android",
+    "source_files": [
+      "PairController.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_7074239ee800": {
+    "surface": "android",
+    "source_files": [
+      "PairController.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_49d3c3ec82e3": {
+    "surface": "android",
+    "source_files": [
+      "PairController.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_7c4af28b6d33": {
+    "surface": "android",
+    "source_files": [
+      "PairController.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_d304e7b45a2a": {
+    "surface": "android",
+    "source_files": [
+      "PairController.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_b1642ee58b37": {
+    "surface": "android",
+    "source_files": [
+      "PairController.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_05eb3cf5d0a0": {
+    "surface": "android",
+    "source_files": [
+      "PairController.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_b3a385f2d13e": {
+    "surface": "android",
+    "source_files": [
+      "PairController.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_5b6e5965772c": {
+    "surface": "android",
+    "source_files": [
+      "PairController.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_5fb5c0685c55": {
+    "surface": "android",
+    "source_files": [
+      "PairController.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_46840b950349": {
+    "surface": "android",
+    "source_files": [
+      "PairController.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_5f2d3e4203fc": {
+    "surface": "android",
+    "source_files": [
+      "PairController.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_5c678fc56a84": {
+    "surface": "android",
+    "source_files": [
+      "PairController.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_4c34841055ec": {
+    "surface": "android",
+    "source_files": [
+      "PairController.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_6f41d908cf3c": {
+    "surface": "android",
+    "source_files": [
+      "PairController.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_b4d4237a3a69": {
+    "surface": "android",
+    "source_files": [
+      "PairController.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_b08bcf988a04": {
+    "surface": "android",
+    "source_files": [
+      "PairController.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_b77367eb3d34": {
+    "surface": "android",
+    "source_files": [
+      "PairController.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_a91e00a95a13": {
+    "surface": "android",
+    "source_files": [
+      "PairController.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_defc507b7188": {
+    "surface": "android",
+    "source_files": [
+      "PairController.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_00051b033853": {
+    "surface": "android",
+    "source_files": [
+      "InstallationProgress.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_97493f3ec17e": {
+    "surface": "android",
+    "source_files": [
+      "InstallationProgress.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_986b05bd7e68": {
+    "surface": "android",
+    "source_files": [
+      "InstallationProgress.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_c93a63800087": {
+    "surface": "android",
+    "source_files": [
+      "InstallationProgress.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_cc47b0bb9162": {
+    "surface": "android",
+    "source_files": [
+      "InstallationProgress.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_fa60dc32dc1c": {
+    "surface": "android",
+    "source_files": [
+      "InstallationProgress.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_42d7ba3e2dad": {
+    "surface": "android",
+    "source_files": [
+      "InstallationProgress.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_f189d74bc436": {
+    "surface": "android",
+    "source_files": [
+      "InstallationProgress.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_a10f32dd97d5": {
+    "surface": "android",
+    "source_files": [
+      "InstallationProgress.java",
+      "InstallationProgress.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_a05f5b078fcb": {
+    "surface": "android",
+    "source_files": [
+      "InstallationProgress.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_dab74f2d3c26": {
+    "surface": "android",
+    "source_files": [
+      "InstallationProgress.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_5f35d520cb5d": {
+    "surface": "android",
+    "source_files": [
+      "InstallationProgress.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_0f9e20b21dfb": {
+    "surface": "android",
+    "source_files": [
+      "InstallationProgress.java",
+      "InstallationProgress.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_34768514c482": {
+    "surface": "android",
+    "source_files": [
+      "InstallationProgress.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_e2e15a6a610b": {
+    "surface": "android",
+    "source_files": [
+      "InstallationProgress.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_aeed4d26bb5f": {
+    "surface": "android",
+    "source_files": [
+      "InstallationProgress.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_1e62fc8e4729": {
+    "surface": "android",
+    "source_files": [
+      "InstallationProgress.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_d006d9b77231": {
+    "surface": "android",
+    "source_files": [
+      "InstallationProgress.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_14c4e32414d7": {
+    "surface": "android",
+    "source_files": [
+      "InstallationProgress.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_b84b20a4c592": {
+    "surface": "android",
+    "source_files": [
+      "InstallationProgress.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_733f39479f3c": {
+    "surface": "android",
+    "source_files": [
+      "InstallationProgress.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_eeecaec26709": {
+    "surface": "android",
+    "source_files": [
+      "InstallationProgress.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_5eae373fa862": {
+    "surface": "android",
+    "source_files": [
+      "InstallationProgress.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "m_fc96c4c0f5e0": {
+    "surface": "android",
+    "source_files": [
+      "InstallationProgress.java"
+    ],
+    "note": "UI label, prompt, phase, or phrase fragment. Preserve leading/trailing spaces. Never change DELETE VPN / DELETE PAIR or technology names."
+  },
+  "language.label": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "language.system": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "language.change": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "language.english_docs": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "language.stories_english": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "language.browser_hint": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "language.open": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "language.keep": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "language.fallback": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "nav.start": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "nav.architecture": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "nav.routes": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "nav.plans": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "nav.source": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "nav.worlds": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "nav.download": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "nav.home": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "nav.menu": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "nav.skip": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "common.read_english": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "common.github": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "common.begin": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "common.download": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "common.source": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "common.release": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "common.back": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "common.alpha": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "common.choice": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "common.free": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "common.scope": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "common.media": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "common.not_available": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "common.available": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "common.version": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "common.site_note": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "home.eyebrow": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "home.heading": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "home.intro": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "home.copy": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "home.steps_heading": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "home.step1": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "home.step1_copy": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "home.step2": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "home.step2_copy": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "home.step3": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "home.step3_copy": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "home.step4": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "home.step4_copy": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "home.language_heading": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "home.language_copy": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "start.title": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "start.intro": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "start.need_title": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "start.need1": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "start.need2": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "start.need3": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "start.need4": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "start.download": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "start.download_copy": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "start.add": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "start.add_copy": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "start.pin": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "start.pin_copy": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "start.install": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "start.install_copy": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "start.wait": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "start.wait_copy": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "start.resume": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "start.resume_copy": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "start.connect": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "start.connect_copy": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "start.check": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "start.check_copy": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "start.invite": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "start.invite_copy": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "start.reset_title": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "start.reset_copy": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "start.reset_phrase": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "architecture.title": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "architecture.intro": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "architecture.single": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "architecture.single_copy": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "architecture.pair": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "architecture.pair_copy": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "architecture.admin": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "architecture.admin_copy": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "architecture.usage": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "architecture.usage_copy": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "architecture.limits": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "architecture.limits_copy": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "architecture.lockdown": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "architecture.lockdown_copy": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "routes.title": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "routes.intro": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "routes.single": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "routes.single_copy": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "routes.pair": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "routes.pair_copy": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "routes.future": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "routes.future_copy": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "routes.network": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "routes.network_copy": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "download.title": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "download.intro": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "download.size": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "download.source_size": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "download.verify": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "download.hash": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "download.signer": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "download.test_title": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "download.test_copy": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "download.voice": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "source.title": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "source.intro": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "source.app": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "source.app_copy": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "source.single": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "source.single_copy": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "source.pair": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "source.pair_copy": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "source.license": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "source.license_copy": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "source.privacy": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "source.privacy_copy": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "source.translate": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "source.translate_copy": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "rook.title": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "rook.intro": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "rook.origin_title": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "rook.origin": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "rook.rule": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "rook.roles": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "rook.guide": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "rook.guide_copy": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "rook.map": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "rook.map_copy": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "rook.builder": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "rook.builder_copy": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "rook.lantern": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "rook.lantern_copy": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "rook.wait": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "rook.wait_copy": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "rook.celebrate": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "rook.celebrate_copy": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "rook.fiction": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "worlds.title": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "worlds.intro": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "worlds.english": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "worlds.open": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "worlds.harbor": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "worlds.harbor_copy": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "worlds.persia": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "worlds.persia_copy": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "worlds.china": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "worlds.china_copy": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "worlds.russia": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "worlds.russia_copy": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "worlds.america": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "worlds.america_copy": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "worlds.culture": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "plans.title": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "plans.intro": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "plans.languages": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "plans.languages_copy": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "plans.browser": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "plans.browser_copy": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "plans.controller": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "plans.controller_copy": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "plans.iphone": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "plans.iphone_copy": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "plans.telegram": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "plans.telegram_copy": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "plans.wechat": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "plans.wechat_copy": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "plans.gates": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "plans.gates_copy": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "plans.research": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "app.language_prompt": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "app.lang_story_note": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "app.server_detail": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "app.progress_summary": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "app.elapsed": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "app.estimate": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "app.confirm_ascii": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "app.advanced_guide": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "app.guide_title": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "app.chosen_language": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "app.follow_system": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "app.progress_remaining": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "app.phone_language_note": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "app.english_detail": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "app.state.running": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "app.state.complete": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "app.state.needs-attention": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "app.state.awaiting-reboot": {
+    "surface": "shared website / beginner guide / Android labels",
+    "note": "Plain text. Preserve named {placeholders}, technology/product names and exact DELETE VPN / DELETE PAIR tokens."
+  },
+  "m_c6cde641bcf7": {
+    "surface": "Android display-only labels / server phase",
+    "note": "Translate the display. Do not alter machine identifiers or commands."
+  },
+  "m_22f4f6570e39": {
+    "surface": "Android display-only labels / server phase",
+    "note": "Translate the display. Do not alter machine identifiers or commands."
+  },
+  "m_e2216778d92d": {
+    "surface": "Android display-only labels / server phase",
+    "note": "Translate the display. Do not alter machine identifiers or commands."
+  },
+  "m_2772faa6d07b": {
+    "surface": "Android display-only labels / server phase",
+    "note": "Translate the display. Do not alter machine identifiers or commands."
+  },
+  "m_cc9a323d8646": {
+    "surface": "Android display-only labels / server phase",
+    "note": "Translate the display. Do not alter machine identifiers or commands."
+  },
+  "m_0c94894c9d8c": {
+    "surface": "Android display-only labels / server phase",
+    "note": "Translate the display. Do not alter machine identifiers or commands."
+  },
+  "m_ef6691545d2c": {
+    "surface": "Android display-only labels / server phase",
+    "note": "Translate the display. Do not alter machine identifiers or commands."
+  },
+  "m_30a04fdcb6bb": {
+    "surface": "Android display-only labels / server phase",
+    "note": "Translate the display. Do not alter machine identifiers or commands."
+  },
+  "m_2e1a4c07ce94": {
+    "surface": "Android display-only labels / server phase",
+    "note": "Translate the display. Do not alter machine identifiers or commands."
+  },
+  "m_85a39ab345d6": {
+    "surface": "Android display-only labels / server phase",
+    "note": "Translate the display. Do not alter machine identifiers or commands."
+  },
+  "m_1ea442a134b2": {
+    "surface": "Android display-only labels / server phase",
+    "note": "Translate the display. Do not alter machine identifiers or commands."
+  }
+}

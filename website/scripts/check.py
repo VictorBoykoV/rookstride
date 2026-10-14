@@ -17,17 +17,18 @@ class Document(HTMLParser):
         super().__init__(convert_charrefs=True)
         self.ids=set(); self.refs=[]; self.h1=0; self.metas={}; self.title=''
         self.in_title=False; self.in_json=False; self.json_text=''; self.schemas=[]
-        self.lang=None; self.canonical=None; self.scripts=[]; self.images=[]
+        self.lang=None; self.direction=None; self.alternates={}; self.canonical=None; self.scripts=[]; self.images=[]
         self.duplicate_ids=[]
     def handle_starttag(self,tag,attrs):
         a=dict(attrs)
-        if tag=='html': self.lang=a.get('lang')
+        if tag=='html': self.lang=a.get('lang');self.direction=a.get('dir','ltr')
         if tag=='h1': self.h1+=1
         if tag=='title': self.in_title=True
         if a.get('id'):
             if a['id'] in self.ids: self.duplicate_ids.append(a['id'])
             self.ids.add(a['id'])
         if tag=='meta': self.metas[a.get('name',a.get('property',''))]=a.get('content','')
+        if tag=='link' and a.get('rel')=='alternate':self.alternates[a.get('hreflang')]=a.get('href')
         if tag=='link' and a.get('rel')=='canonical': self.canonical=a.get('href')
         if tag=='script':
             if a.get('type')=='application/ld+json': self.in_json=True; self.json_text=''
@@ -56,10 +57,11 @@ def check(dist):
     for file in sorted(dist.rglob('*.html')):
         doc=Document();doc.feed(file.read_text())
         documents[file.resolve()]=doc
-        require(doc.lang=='en',f'{file.name}: missing English lang')
+        require(doc.lang in ('en','ru','fa','ar','zh-Hans'),f'{file.name}: unsupported/missing language')
+        require(doc.direction==('rtl' if doc.lang in ('fa','ar') else 'ltr'),f'{file}: incorrect direction')
         require(doc.h1==1,f'{file}: expected one primary heading')
-        require(20<=len(doc.title)<=90,f'{file}: missing useful title')
-        require(65<=len(doc.metas.get('description',''))<=240,f'{file}: missing useful description')
+        require((20 if doc.lang=='en' else 8)<=len(doc.title)<=120,f'{file}: missing useful title')
+        require((65 if doc.lang=='en' else 35)<=len(doc.metas.get('description',''))<=450,f'{file}: missing useful description')
         require(not doc.duplicate_ids,f'{file}: duplicate IDs {doc.duplicate_ids}')
         require(all(src and src.startswith('/assets/') for src in doc.scripts),f'{file}: external/inline executable script')
         require(all('alt' in im and im.get('width') and im.get('height') for im in doc.images),f'{file}: image lacks alt/dimensions')
@@ -68,7 +70,17 @@ def check(dist):
             require('@type' in item,f'{file}: missing JSON-LD type')
             require('aggregateRating' not in item and 'review' not in item,f'{file}: invented rating field')
             schema_count+=1
-    require(len(documents)==67,'Expected nine original pages plus lore, five worlds, notes and fifty chapters')
+    require(len(documents)==104,'Expected 68 English pages and nine beginner pages in each of four additional languages')
+    from locales import LANGS,ROUTES,url
+    for lang in LANGS:
+        for route in ROUTES:
+            file=(dist/(url(lang['tag'],route).lstrip('/')+'index.html')).resolve();doc=documents.get(file)
+            require(doc is not None and doc.lang==lang['tag'],'Missing/wrong locale page '+str(file))
+            if doc and doc.canonical:
+                require(set(doc.alternates)=={'en','ru','fa','ar','zh-Hans','x-default'},'Missing hreflang equivalents '+str(file))
+                for tag,href in doc.alternates.items():
+                    target=(dist/(url('en' if tag=='x-default' else tag,route).lstrip('/')+'index.html')).resolve();other=documents.get(target)
+                    require(other and other.alternates.get(lang['tag'])==doc.canonical,'Nonreciprocal language alternate '+str(file))
     require(len({d.title for d in documents.values()})==len(documents),'Titles must be distinct')
     require(len({d.metas.get('description') for d in documents.values()})==len(documents),'Descriptions must be distinct')
     for file,doc in documents.items():

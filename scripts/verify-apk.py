@@ -39,7 +39,7 @@ assert "versionCode='"+str(release['code'])+"'" in manifest
 assert "minSdkVersion:'26'" in manifest and "targetSdkVersion:'36'" in manifest
 assert 'application-debuggable' not in manifest,'Release must not be debuggable'
 with tempfile.TemporaryDirectory(prefix='rookstride-apk-') as stage,zipfile.ZipFile(args.apk) as apk:
-    expected_assets={'assets/guide.html','assets/licenses.html','assets/gateway_bundle.zip','assets/gateway_bundle.sha256','assets/dexopt/baseline.prof','assets/dexopt/baseline.profm'}
+    expected_assets={'assets/guide-en-full.html','assets/guide-en.html','assets/guide-ru.html','assets/guide-fa.html','assets/guide-ar.html','assets/guide-zh-Hans.html','assets/guide.html','assets/licenses.html','assets/gateway_bundle.zip','assets/gateway_bundle.sha256','assets/dexopt/baseline.prof','assets/dexopt/baseline.profm'}
     assert all(not name.startswith('assets/') or name.startswith('assets/stories/') or name in expected_assets for name in apk.namelist()),'Unexpected packaged asset; review before publication'
     libraries=[n for n in apk.namelist() if n.startswith('lib/') and n.endswith('.so')]
     assert {n.split('/')[1] for n in libraries}=={'arm64-v8a','armeabi-v7a','x86_64'}
@@ -59,6 +59,8 @@ with tempfile.TemporaryDirectory(prefix='rookstride-apk-') as stage,zipfile.ZipF
     spec=importlib.util.spec_from_file_location('audit_pair',ROOT/'server/pair.py');pair_module=importlib.util.module_from_spec(spec);spec.loader.exec_module(pair_module)
     assert apk.read('assets/gateway_bundle.sha256').decode().strip()==pair_module.source_digest(ROOT),'Installer identity differs'
     assert apk.read('assets/guide.html')==(ROOT/'android/overlay/assets/guide.html').read_bytes()
+    for name in ('guide-en-full.html','guide-en.html','guide-ru.html','guide-fa.html','guide-ar.html','guide-zh-Hans.html'):
+        assert apk.read('assets/'+name)==(ROOT/'android/overlay/assets'/name).read_bytes(),'Embedded guide differs: '+name
     stories=ROOT/'android/overlay/assets/stories'
     story_files=[p for p in stories.rglob('*') if p.is_file()]
     assert story_files,'Offline story bundle missing'
