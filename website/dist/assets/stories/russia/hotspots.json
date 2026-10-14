@@ -1,0 +1,302 @@
+{
+  "warm-door": [
+    {
+      "x": 48,
+      "y": 15,
+      "w": 50,
+      "h": 66,
+      "label": "Dasha welcoming Rook into the library"
+    },
+    {
+      "x": 1,
+      "y": 23,
+      "w": 43,
+      "h": 64,
+      "label": "Rook trying the borrowed boots and hat"
+    },
+    {
+      "x": 55,
+      "y": 48,
+      "w": 34,
+      "h": 31,
+      "label": "The child’s wheeled-library drawing"
+    },
+    {
+      "x": 11,
+      "y": 23,
+      "w": 13,
+      "h": 22,
+      "label": "The lamp beside Rook’s letter"
+    }
+  ],
+  "loaf-that-stopped": [
+    {
+      "x": 10,
+      "y": 62,
+      "w": 27,
+      "h": 23,
+      "label": "Bun on the bakery windowsill"
+    },
+    {
+      "x": 53,
+      "y": 48,
+      "w": 32,
+      "h": 47,
+      "label": "Rook considering the snowy lane"
+    },
+    {
+      "x": 19,
+      "y": 38,
+      "w": 37,
+      "h": 25,
+      "label": "Dasha’s secure traveling basket"
+    },
+    {
+      "x": 8,
+      "y": 62,
+      "w": 75,
+      "h": 20,
+      "label": "Rook’s reviewed Bun story"
+    }
+  ],
+  "bell-beneath-ice": [
+    {
+      "x": 46,
+      "y": 70,
+      "w": 27,
+      "h": 28,
+      "label": "The bell visible beneath the ice"
+    },
+    {
+      "x": 58,
+      "y": 37,
+      "w": 40,
+      "h": 43,
+      "label": "Lev receiving the borrowed hand chime"
+    },
+    {
+      "x": 37,
+      "y": 52,
+      "w": 28,
+      "h": 17,
+      "label": "The carefully tied delivery parcel"
+    },
+    {
+      "x": 18,
+      "y": 20,
+      "w": 34,
+      "h": 49,
+      "label": "Lev receiving his recovered bell"
+    }
+  ],
+  "house-of-joints": [
+    {
+      "x": 79,
+      "y": 62,
+      "w": 14,
+      "h": 21,
+      "label": "Anya’s maintenance notebook"
+    },
+    {
+      "x": 17,
+      "y": 7,
+      "w": 65,
+      "h": 61,
+      "label": "The older joint and recorded newer repair"
+    },
+    {
+      "x": 45,
+      "y": 46,
+      "w": 39,
+      "h": 25,
+      "label": "The hall model at the relocated library meeting"
+    },
+    {
+      "x": 17,
+      "y": 59,
+      "w": 31,
+      "h": 23,
+      "label": "Rook’s separately credited craft stories"
+    }
+  ],
+  "message-in-whiteout": [
+    {
+      "x": 47,
+      "y": 56,
+      "w": 40,
+      "h": 22,
+      "label": "The suspended route on the station map"
+    },
+    {
+      "x": 44,
+      "y": 16,
+      "w": 31,
+      "h": 32,
+      "label": "Dasha posting a clear transport update"
+    },
+    {
+      "x": 28,
+      "y": 50,
+      "w": 31,
+      "h": 17,
+      "label": "Rook pausing Bun’s story"
+    },
+    {
+      "x": 31,
+      "y": 41,
+      "w": 26,
+      "h": 24,
+      "label": "Pip’s mint-garden drawing"
+    }
+  ],
+  "night-train-curtain": [
+    {
+      "x": 55,
+      "y": 19,
+      "w": 43,
+      "h": 62,
+      "label": "Dasha beside the travelers’ drawn curtain"
+    },
+    {
+      "x": 43,
+      "y": 40,
+      "w": 12,
+      "h": 21,
+      "label": "The secured lantern beside their boots"
+    },
+    {
+      "x": 23,
+      "y": 58,
+      "w": 67,
+      "h": 30,
+      "label": "The carefully prepared travel account"
+    },
+    {
+      "x": 3,
+      "y": 2,
+      "w": 42,
+      "h": 96,
+      "label": "The shared corridor beside a respected curtain"
+    }
+  ],
+  "tower-after-thaw": [
+    {
+      "x": 78,
+      "y": 1,
+      "w": 11,
+      "h": 24,
+      "label": "The closed lookout tower above the thaw"
+    },
+    {
+      "x": 26,
+      "y": 50,
+      "w": 71,
+      "h": 29,
+      "label": "The permitted tower photographs"
+    },
+    {
+      "x": 21,
+      "y": 29,
+      "w": 76,
+      "h": 52,
+      "label": "Rook’s honest account of the changed welcome"
+    },
+    {
+      "x": 22,
+      "y": 42,
+      "w": 24,
+      "h": 23,
+      "label": "The workshop friends in Rook’s mailed drawing"
+    }
+  ],
+  "forest-two-choices": [
+    {
+      "x": 18,
+      "y": 9,
+      "w": 53,
+      "h": 55,
+      "label": "The unassessed trail and checked longer road"
+    },
+    {
+      "x": 42,
+      "y": 39,
+      "w": 27,
+      "h": 43,
+      "label": "The fellow traveler waiting for suitable transport"
+    },
+    {
+      "x": 55,
+      "y": 43,
+      "w": 25,
+      "h": 26,
+      "label": "Rook’s account of Jun’s kite"
+    },
+    {
+      "x": 28,
+      "y": 63,
+      "w": 41,
+      "h": 33,
+      "label": "The dated route map for returning together"
+    }
+  ],
+  "stories-by-stove": [
+    {
+      "x": 10,
+      "y": 12,
+      "w": 87,
+      "h": 43,
+      "label": "Misha, Anya, and Vera sharing distinct stories"
+    },
+    {
+      "x": 22,
+      "y": 58,
+      "w": 32,
+      "h": 31,
+      "label": "The chosen story credits in Rook’s notebook"
+    },
+    {
+      "x": 22,
+      "y": 41,
+      "w": 47,
+      "h": 47,
+      "label": "The separate garden and river story pages"
+    },
+    {
+      "x": 24,
+      "y": 2,
+      "w": 9,
+      "h": 19,
+      "label": "The warm library light at the snowy gate"
+    }
+  ],
+  "ship-beyond-snow": [
+    {
+      "x": 42,
+      "y": 63,
+      "w": 24,
+      "h": 13,
+      "label": "Dasha’s sealed letter at the passenger desk"
+    },
+    {
+      "x": 57,
+      "y": 29,
+      "w": 42,
+      "h": 45,
+      "label": "The fellow traveler lending a pen"
+    },
+    {
+      "x": 55,
+      "y": 46,
+      "w": 13,
+      "h": 19,
+      "label": "Rook securing his lantern aboard the ship"
+    },
+    {
+      "x": 6,
+      "y": 10,
+      "w": 55,
+      "h": 43,
+      "label": "The far harbor under a broad open sky"
+    }
+  ]
+}

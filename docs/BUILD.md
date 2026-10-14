@@ -74,3 +74,26 @@ Use the same pinned sources when reproducing a release. Updating strongSwan or O
 The `0.2.0-alpha1` bundle includes `server`, the MIT `twohop` snapshot and the single-server `gateway` snapshot. The APK contains a SHA-256 installer identity calculated in canonical POSIX lexical path order within those three folders. The Java coordinator and Python helper must agree before an owned pair can resume. `verify-apk.py` checks the embedded files and identity; JVM tests compare the actual generated bundle as well as fixtures.
 
 The signed instrumentation APK must match the release signing certificate. `PairIntegrationTest` is opt-in and requires two disposable Ubuntu 24.04 nodes with independently verified host keys. See [PAIR-TESTING.md](PAIR-TESTING.md) for the complete test scope and incomplete compatibility gates. Never include deployment fixtures, private logs or signing keys in a source archive.
+
+## Offline stories and helper poses
+
+The checked-in Android story assets are the exact static reader inputs for the
+release. To regenerate them after a story, artwork or reader edit, run:
+
+```sh
+python3 website/scripts/build.py
+python3 website/scripts/check-worlds.py
+python3 website/scripts/check.py
+```
+
+The builder uses Python’s standard library. It builds the local static site and
+the asset-only Android edition from the same complete story source. SVG viewports
+frame original paintings; the original PNGs and exact prompts remain in the
+website source. `prepare-android.py` converts the six canonical SVG helper poses
+to Android vector drawables, with a strict supported-feature check. No image
+generation service is needed to build the provided assets.
+
+Corresponding-source archives include the website source, story text, artwork
+masters, reader and converter in addition to the pinned upstream archives.
+Publishing metadata can be added to the website after the app snapshot is tagged;
+it does not change the tagged app or its embedded story assets.

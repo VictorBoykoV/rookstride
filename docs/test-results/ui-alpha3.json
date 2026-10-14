@@ -1,0 +1,90 @@
+{
+  "release": "0.2.0-alpha3",
+  "version_code": 5,
+  "date": "2026-10-14",
+  "apk": {
+    "release": "0.2.0-alpha3",
+    "sha256": "a266710d9a6d6f96fde24603d13d06ff27465a95392654af3a4ecf71f37b690a",
+    "signer_sha256": "751386cf7143ba92c88084a0b26dfeac86128b2fe0d5277821ee4c67a92ae7ba",
+    "native_libraries": 24,
+    "zip_load_relro_16k_aligned": true,
+    "embedded_source_matches": true,
+    "offline_story_files": 134,
+    "non_debuggable": true
+  },
+  "server_installer": {
+    "unchanged_from": "0.2.0-alpha2",
+    "sha256": "996adf929ac1b0d244a530a7b0ae89817e68fbaf8018f0bffebb53e9d9947c7f",
+    "fresh_vps_runs_for_this_apk": 0,
+    "historical_provider_evidence": "pair-provider-alpha2.json"
+  },
+  "python_tests": 49,
+  "jvm_tests": 97,
+  "signed_release_emulators": [
+    {
+      "android": "8.0",
+      "api": 26,
+      "tests": 5,
+      "passed": 5,
+      "exact_apk_sha256": "a266710d9a6d6f96fde24603d13d06ff27465a95392654af3a4ecf71f37b690a",
+      "transport": "bounded in-process fixture; actual Android dataSync foreground service",
+      "voice": "deterministic events in real locked offline WebView",
+      "vps_mutations": false
+    },
+    {
+      "android": "9",
+      "api": 28,
+      "tests": 5,
+      "passed": 5,
+      "exact_apk_sha256": "a266710d9a6d6f96fde24603d13d06ff27465a95392654af3a4ecf71f37b690a",
+      "transport": "bounded in-process fixture; actual Android dataSync foreground service",
+      "voice": "deterministic events in real locked offline WebView",
+      "vps_mutations": false
+    }
+  ],
+  "development_attempts": {
+    "android_8_debug": {
+      "tests": 4,
+      "passed": 4,
+      "before_final_artwork": true
+    },
+    "android_16_debug": {
+      "tests": 4,
+      "passed": 1,
+      "failed_ui": 3,
+      "system_ui_anr_observed": true,
+      "signed_release_ui_verified": false
+    }
+  },
+  "website": {
+    "result": "PASS",
+    "pages": 67,
+    "link_asset_references": 2694,
+    "json_ld_documents": 63,
+    "public_text_files_scanned": 100,
+    "local_release_artifacts_verified": 2,
+    "static_comic_pages": 10,
+    "comic_panels": 30,
+    "errors": []
+  },
+  "worlds": {
+    "status": "PASS",
+    "worlds": 5,
+    "chapters": 50,
+    "story_pages": 200,
+    "narration_words": 12879,
+    "new_comic_artworks": 45,
+    "retained_strip_comics": 5,
+    "errors": []
+  },
+  "narration_scope": "Real asset-only WebView with deterministic installed-voice events. Browser voice availability and chapter completion observed; no audible performance or physical-device voice quality certified.",
+  "remaining_gates": [
+    "Signed APK on physical Android/OEM devices and ordinary permission prompts",
+    "Android 16 screen navigation on a working emulator or physical device",
+    "Audible native narration with installed offline voices",
+    "Phone Wi-Fi/mobile handoff, real IPv6 underlay and lockdown",
+    "Sustained load on limited VPS resources",
+    "Native 16-KiB runtime behavior"
+  ],
+  "sanitized": true
+}

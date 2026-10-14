@@ -1,0 +1,597 @@
+{
+  "version": 1,
+  "chapters": [
+    {
+      "world": "persia",
+      "id": "courtyard-welcome",
+      "tool": "built-in image_gen.imagegen",
+      "date": "2026-10-14",
+      "license": "GPL-3.0-or-later",
+      "prompt": "Use case: illustration-story. Asset type: one original Rookstride four-panel chapter comic. Make a NEW illustration, not a copy of the reference scene. EXACTLY FOUR equal rectangular panels in a clean 2-by-2 grid with clear straight warm-cream gutters. Reading order must be top-left, top-right, bottom-left, bottom-right. Wide landscape overall around 1536 by 1024; consistent panel boundaries at the horizontal and vertical halfway points. Each panel depicts the corresponding scene below, no extra panel, no panoramic merged scene. Style reference defines the warm ink/cream paper storybook style and original Rook character only: signal-red rounded bird head, swept crest, projecting beak, white oval eye patch, black pupil, charcoal scarf, cream satchel, brass lantern, small bird feet; expressive bird wings without human fingers. Beautiful composed scenes, restrained woodcut hatch and warm cream grain, signal red #EE3038, charcoal #141418, ochre and muted slate/turquoise accents. Original friendly anthropomorphic animal neighbors, thoughtful cooperative adventure. No text ANYWHERE: no lettering, no words, no captions, no dialogue balloons, no sound effects, no logos, no watermarks, no national flags, no political emblems, no firearms or swords, no copied franchise. Papers and maps can show simple visual sketches/routes but never writing. Avoid depicting any story as a generic reused world landscape. The four changing actions are essential. Add a fine 6-pixel warm-cream outer border and 6-pixel straight cream inner gutters centered at both halfway lines; equal panel dimensions are essential for page-reader viewports.\nCast continuity: Rook as described. Pip is a sandy rabbit courier in a blue work vest. Moss is a round brown hedgehog mapmaker with round spectacles and green apron. Lumen is a cream owl librarian wearing a modest navy cardigan. Nell is a small gray mouse letter writer. Mira is a brown otter inventor with plain practical work apron. Persia cast: Sima is a cream owl courtyard librarian in a turquoise cardigan; Nima is a brown otter garden keeper in a green apron; Darya is a sandy hare courier in a muted blue vest with a secure letter bag; Leila is a fox weaver in a warm ochre apron; Princess Soraya is a fox astronomer with a SMALL plain gold circlet and simple midnight-blue cloak over practical clothes, not a copied princess character; Zephyr is a gentle small ochre dragon with blue-gray wings; Aster is a camel. Keep each repeat character consistent within the comic. Show only the characters called for by that scene, not everybody in each frame.\nChapter: The courtyard welcome. Theme: A visitor begins by listening. World: fictional Garden of Many Doors inspired by Persian courtyard gardens and libraries, turquoise tiles, orchard shade, water channels. Respectful invented local setting, no national symbols. Reference image 1 defines world palette/Rook; image 2 shows Sima the cream owl in turquoise and Aster camel at arrival, keep these character designs. Nima brown otter in green apron. Ordinary doors and blue curtain should be visibly meaningful, changing four scenes not a generic reused hero.\nPanel 1 (top-left): Sima welcomes Rook into a leafy courtyard library; a tortoise reads under a tree while Aster rests beyond the open gate.\nNarrative context to interpret visually, NEVER render words: Sima’s library opened onto a courtyard full of voices, flowerpots, and a patient tortoise reading beneath a tree. Rook looked for the grand door he assumed every library must have. Sima pointed to the ordinary one he had just used. “People come through that door every day,” she said. “A welcome need not be grand to be sincere.” Aster settled in the caravan yard nearby.\nPanel 2 (top-right): Sima guides Rook toward shared reading tables and away from a curtained private doorway, with blue tiles and potted plants framing the courtyard.\nNarrative context to interpret visually, NEVER render words: Rook noticed a blue curtain across another doorway and moved toward it, hoping to explore. Sima gently asked him to wait. It led to a family room. She showed him the public reading tables, the garden path, and the desk where visitors could ask questions. Rook thanked her for explaining. An open library, he learned, did not make every neighboring room public.\nPanel 3 (bottom-left): Rook shares lunch with Sima and Nima beneath courtyard trees, writing a question beside a sketch of Lantern Harbor’s two bridges.\nNarrative context to interpret visually, NEVER render words: At lunch the neighbors asked what Lantern Harbor was like. Rook described Pip’s letters and the two bridges, then invited their questions. Nima, who cared for the garden’s water, asked about the stream beneath them. Rook knew less about that stream than he had imagined. He opened his notebook to a clean page and wrote a question to send Moss instead of making up an answer.\nPanel 4 (bottom-right): Rook adds an agreed greeting to a courtyard travelers’ shelf while Sima and Nima point toward tomorrow’s garden walk beneath a warm evening lamp.\nNarrative context to interpret visually, NEVER render words: That evening Sima gave him a place at the travelers’ shelf. He put Lantern Harbor’s greeting there with Pip’s permission written on its envelope. Nima invited him to see the water channels in the morning. Rook had crossed a world without solving a single problem, yet his map had already changed: its newest mark was a table where a stranger had been allowed to become a guest.",
+      "references": [
+        "website/artwork/worlds/world-persia.png",
+        "website/artwork/chapters/harbor/road-out-of-harbor.png"
+      ],
+      "reading_order": [
+        "top-left",
+        "top-right",
+        "bottom-left",
+        "bottom-right"
+      ],
+      "generated_output": "01a1377c-3ad8-7073-a362-76ba523ea63c/exec-4224a163-c031-401c-8e34-7f23dc5ad792.png",
+      "master_size": [
+        1536,
+        1024
+      ],
+      "web_size": [
+        1024,
+        683
+      ],
+      "web_bytes": 168894,
+      "source": "website/artwork/chapters/persia/courtyard-welcome.png",
+      "optimized": "website/brand/chapters/persia/courtyard-welcome.webp",
+      "web_quality": 46,
+      "source_sha256": "f64a5b381facde8dcb3c974f5ccc5a94eeb2f6118ace44ce103869ca0444cbc8",
+      "web_sha256": "5f24b4a289f8868347f5c3d780363da72591f7bdd4cb87d12d269749ef640166",
+      "normalized_panel_bounds": [
+        [
+          0,
+          0,
+          0.5,
+          0.5
+        ],
+        [
+          0.5,
+          0,
+          0.5,
+          0.5
+        ],
+        [
+          0,
+          0.5,
+          0.5,
+          0.5
+        ],
+        [
+          0.5,
+          0.5,
+          0.5,
+          0.5
+        ]
+      ]
+    },
+    {
+      "world": "persia",
+      "id": "four-ribbons-water",
+      "tool": "built-in image_gen.imagegen",
+      "date": "2026-10-14",
+      "license": "GPL-3.0-or-later",
+      "prompt": "Use case: illustration-story. Asset type: one original Rookstride four-panel chapter comic. Make a NEW illustration, not a copy of the reference scene. EXACTLY FOUR equal rectangular panels in a clean 2-by-2 grid with clear straight warm-cream gutters. Reading order must be top-left, top-right, bottom-left, bottom-right. Wide landscape overall around 1536 by 1024; consistent panel boundaries at the horizontal and vertical halfway points. Each panel depicts the corresponding scene below, no extra panel, no panoramic merged scene. Style reference defines the warm ink/cream paper storybook style and original Rook character only: signal-red rounded bird head, swept crest, projecting beak, white oval eye patch, black pupil, charcoal scarf, cream satchel, brass lantern, small bird feet; expressive bird wings without human fingers. Beautiful composed scenes, restrained woodcut hatch and warm cream grain, signal red #EE3038, charcoal #141418, ochre and muted slate/turquoise accents. Original friendly anthropomorphic animal neighbors, thoughtful cooperative adventure. No text ANYWHERE: no lettering, no words, no captions, no dialogue balloons, no sound effects, no logos, no watermarks, no national flags, no political emblems, no firearms or swords, no copied franchise. Papers and maps can show simple visual sketches/routes but never writing. Avoid depicting any story as a generic reused world landscape. The four changing actions are essential. Add a fine 6-pixel warm-cream outer border and 6-pixel straight cream inner gutters centered at both halfway lines; equal panel dimensions are essential for page-reader viewports.\nCast continuity: Rook as described. Pip is a sandy rabbit courier in a blue work vest. Moss is a round brown hedgehog mapmaker with round spectacles and green apron. Lumen is a cream owl librarian wearing a modest navy cardigan. Nell is a small gray mouse letter writer. Mira is a brown otter inventor with plain practical work apron. Persia cast: Sima is a cream owl courtyard librarian in a turquoise cardigan; Nima is a brown otter garden keeper in a green apron; Darya is a sandy hare courier in a muted blue vest with a secure letter bag; Leila is a fox weaver in a warm ochre apron; Princess Soraya is a fox astronomer with a SMALL plain gold circlet and simple midnight-blue cloak over practical clothes, not a copied princess character; Zephyr is a gentle small ochre dragon with blue-gray wings; Aster is a camel. Keep each repeat character consistent within the comic. Show only the characters called for by that scene, not everybody in each frame.\nChapter: Four ribbons of water. Theme: Understand a shared system before changing it. World: fictional Garden of Many Doors, beautifully connected Persian-inspired garden water channels, flowers, vegetables, pool and stone paths. Input image 1 = landscape palette and Rook; image 2 = Nima the brown otter with green apron and character continuity. The keeper carries out safe small above-ground maintenance; Rook observes and holds a basket, he is not doing dangerous or magical work. No drawings of words or written credits, show visual route diagrams only.\nPanel 1 (top-left): Nima leads Rook along four garden paths with narrow water channels; one flower bed is dry while trees, a pool, and vegetables share the water.\nNarrative context to interpret visually, NEVER render words: Four paths divided Nima’s garden, with water glimmering beside them. One bed of flowers looked thirsty. Rook pointed to the nearest channel. “Could we make this one larger?” Nima asked him to walk the whole garden first. They visited trees, a kitchen plot, a shaded pool, and the thirsty bed. The water served many places before it reached the flowers Rook had noticed.\nPanel 2 (top-right): Rook holds a leaf basket as Nima works at a safe maintenance point, with downstream garden beds visible along the channel.\nNarrative context to interpret visually, NEVER render words: At the far corner, leaves had collected where the keeper could safely clear them. Nima arranged the maintenance and explained who depended on the flow downstream. Rook held a basket for the leaves. “I was ready to change the part I could see,” he admitted. “Seeing a little is useful,” Nima replied, “when it makes us ask about the rest.”\nPanel 3 (bottom-left): Water moves back into the dry flower bed while a child counts ripples and neighboring gardeners inspect their sections with Nima.\nNarrative context to interpret visually, NEVER render words: Water returned to the flowers gradually. Rook watched impatiently, then noticed that the pool was settling and a child was counting new ripples. Nothing was broken because it took time. Nima asked each gardener to check their own bed before calling the job finished. A kitchen grower found another small obstruction, and the keepers added it to their maintenance notes.\nPanel 4 (bottom-right): Rook sketches the interconnected garden under a sunset lamp, with Nima’s chosen credit beside the paths and a sealed note addressed to Moss.\nNarrative context to interpret visually, NEVER render words: At sunset the paths looked unchanged, but Rook understood them differently. With Nima’s approval, he sketched their shared flow and credited the garden keepers. The drawing was a story about cooperation, not instructions for building a water system. Beneath it he wrote: Walk farther before moving the nearest stone. He sent Moss the page, certain that a bridge keeper would appreciate a garden keeper’s question.",
+      "references": [
+        "website/artwork/worlds/world-persia.png",
+        "website/artwork/chapters/persia/courtyard-welcome.png"
+      ],
+      "reading_order": [
+        "top-left",
+        "top-right",
+        "bottom-left",
+        "bottom-right"
+      ],
+      "generated_output": "01a1377c-3ad8-7073-a362-76ba523ea63c/exec-bebf253c-02a0-421e-9e2d-6eb722173ae6.png",
+      "master_size": [
+        1536,
+        1024
+      ],
+      "web_size": [
+        1024,
+        683
+      ],
+      "web_bytes": 176924,
+      "source": "website/artwork/chapters/persia/four-ribbons-water.png",
+      "optimized": "website/brand/chapters/persia/four-ribbons-water.webp",
+      "web_quality": 40,
+      "source_sha256": "62a5af7b561973ba169066bd3331d1d9066a0bbe25cc682d87abe1e09c7e242b",
+      "web_sha256": "481755a9d5f34e7e238cea4b5073fb94922d19e6954aa5f7e0fef65ad38a0ade",
+      "normalized_panel_bounds": [
+        [
+          0,
+          0,
+          0.5,
+          0.5
+        ],
+        [
+          0.5,
+          0,
+          0.5,
+          0.5
+        ],
+        [
+          0,
+          0.5,
+          0.5,
+          0.5
+        ],
+        [
+          0.5,
+          0.5,
+          0.5,
+          0.5
+        ]
+      ]
+    },
+    {
+      "world": "persia",
+      "id": "letter-in-wind",
+      "tool": "built-in image_gen.imagegen",
+      "date": "2026-10-14",
+      "license": "GPL-3.0-or-later",
+      "prompt": "Use case: illustration-story. Asset type: one original Rookstride four-panel chapter comic. Make a NEW illustration, not a copy of the reference scene. EXACTLY FOUR equal rectangular panels in a clean 2-by-2 grid with clear straight warm-cream gutters. Reading order must be top-left, top-right, bottom-left, bottom-right. Wide landscape overall around 1536 by 1024; consistent panel boundaries at the horizontal and vertical halfway points. Each panel depicts the corresponding scene below, no extra panel, no panoramic merged scene. Style reference defines the warm ink/cream paper storybook style and original Rook character only: signal-red rounded bird head, swept crest, projecting beak, white oval eye patch, black pupil, charcoal scarf, cream satchel, brass lantern, small bird feet; expressive bird wings without human fingers. Beautiful composed scenes, restrained woodcut hatch and warm cream grain, signal red #EE3038, charcoal #141418, ochre and muted slate/turquoise accents. Original friendly anthropomorphic animal neighbors, thoughtful cooperative adventure. No text ANYWHERE: no lettering, no words, no captions, no dialogue balloons, no sound effects, no logos, no watermarks, no national flags, no political emblems, no firearms or swords, no copied franchise. Papers and maps can show simple visual sketches/routes but never writing. Avoid depicting any story as a generic reused world landscape. The four changing actions are essential. Add a fine 6-pixel warm-cream outer border and 6-pixel straight cream inner gutters centered at both halfway lines; equal panel dimensions are essential for page-reader viewports.\nCast continuity: Rook as described. Pip is a sandy rabbit courier in a blue work vest. Moss is a round brown hedgehog mapmaker with round spectacles and green apron. Lumen is a cream owl librarian wearing a modest navy cardigan. Nell is a small gray mouse letter writer. Mira is a brown otter inventor with plain practical work apron. Persia cast: Sima is a cream owl courtyard librarian in a turquoise cardigan; Nima is a brown otter garden keeper in a green apron; Darya is a sandy hare courier in a muted blue vest with a secure letter bag; Leila is a fox weaver in a warm ochre apron; Princess Soraya is a fox astronomer with a SMALL plain gold circlet and simple midnight-blue cloak over practical clothes, not a copied princess character; Zephyr is a gentle small ochre dragon with blue-gray wings; Aster is a camel. Keep each repeat character consistent within the comic. Show only the characters called for by that scene, not everybody in each frame.\nChapter: The letter in the wind. Theme: A message needs a named destination. World: fictional Garden of Many Doors, Persian-inspired courtyard with wind-catching stone ventilation tower and safe public reading spaces, turquoise tile accents. Darya the hare courier carries a blue vest and secure courier bag. Tower keeper is a tortoise neighbor in simple practical work apron. A white SEALED envelope blows in the wind and is recovered without being opened. Make that distinct action clear across panels; keep Rook on ground and out of dangerous ventilation openings. Input image 1 = environment/style; image 2 = Rook and cream owl Sima in turquoise, maintain continuity. NO address/names/words on the envelope or books; small red wax seal and blank paper only.\nPanel 1 (top-left): Darya the courier stops Rook below a wind-catching tower as a white envelope disappears into a shaded courtyard opening.\nNarrative context to interpret visually, NEVER render words: A gust lifted a letter from Darya’s courier tray and carried it into the shade beneath a tall ventilation tower. Rook raced after it, ready to fly up through an opening. Darya called him back. She knew which doors led to safe public spaces and which passages were for trained caretakers. Together they asked the tower keeper where the paper might have landed.\nPanel 2 (top-right): The keeper returns a damp envelope to Darya and Rook; Darya compares its blurred outer address with her courier record at a shaded desk.\nNarrative context to interpret visually, NEVER render words: The keeper brought the letter from an accessible collection shelf. Its outer address had blurred where a drop of water touched it. Rook suggested opening it to find a name. Darya shook her head. “The words inside are not ours.” They checked her delivery record and contacted the sender, who could confirm the intended destination without revealing the private message.\nPanel 3 (bottom-left): Rook steadies Darya’s tray as she carries a newly addressed outer envelope toward the courtyard library, with the tower keeper waving behind them.\nNarrative context to interpret visually, NEVER render words: The sender supplied a fresh outer envelope. Darya placed the unopened letter inside and asked the recipient where it should be delivered. He chose Sima’s library desk because he would be there that afternoon. Rook carried the tray beside Darya, holding it level through the next gust. The tower no longer seemed like an obstacle; it was simply a place whose keeper knew more than a visiting bird.\nPanel 4 (bottom-right): The recipient reads privately at Sima’s library while Darya thanks the tower keeper and Rook fits a cover over the courier tray.\nNarrative context to interpret visually, NEVER render words: At the library the recipient thanked them and opened his letter himself. Rook did not lean over his shoulder. Darya gave the keeper a secure tray cover for future deliveries, and he showed her where public notices belonged. The wind still moved through the courtyard. The new arrangement did not conquer it; it made a small, ordinary task less likely to go wrong.",
+      "references": [
+        "website/artwork/worlds/world-persia.png",
+        "website/artwork/chapters/persia/courtyard-welcome.png"
+      ],
+      "reading_order": [
+        "top-left",
+        "top-right",
+        "bottom-left",
+        "bottom-right"
+      ],
+      "generated_output": "01a1377c-3ad8-7073-a362-76ba523ea63c/exec-61f50284-67ef-40ee-b6a0-7c4544b38ae0.png",
+      "master_size": [
+        1536,
+        1024
+      ],
+      "web_size": [
+        1024,
+        683
+      ],
+      "web_bytes": 176416,
+      "source": "website/artwork/chapters/persia/letter-in-wind.png",
+      "optimized": "website/brand/chapters/persia/letter-in-wind.webp",
+      "web_quality": 58,
+      "source_sha256": "6100cc7c60e2a6ec8ff1f0f8ad69618cfc89a21b28c068af35b6769b483f4593",
+      "web_sha256": "89b80396762f935febcc0b18536c4bf8a89810e0b000fcd5efbbf070a4b8d5d9",
+      "normalized_panel_bounds": [
+        [
+          0,
+          0,
+          0.5,
+          0.5
+        ],
+        [
+          0.5,
+          0,
+          0.5,
+          0.5
+        ],
+        [
+          0,
+          0.5,
+          0.5,
+          0.5
+        ],
+        [
+          0.5,
+          0.5,
+          0.5,
+          0.5
+        ]
+      ]
+    },
+    {
+      "world": "persia",
+      "id": "carpet-of-routes",
+      "tool": "built-in image_gen.imagegen",
+      "date": "2026-10-14",
+      "license": "GPL-3.0-or-later",
+      "prompt": "Use case: illustration-story. Asset type: one original Rookstride four-panel chapter comic. Make a NEW illustration, not a copy of the reference scene. EXACTLY FOUR equal rectangular panels in a clean 2-by-2 grid with clear straight warm-cream gutters. Reading order must be top-left, top-right, bottom-left, bottom-right. Wide landscape overall around 1536 by 1024; consistent panel boundaries at the horizontal and vertical halfway points. Each panel depicts the corresponding scene below, no extra panel, no panoramic merged scene. Style reference defines the warm ink/cream paper storybook style and original Rook character only: signal-red rounded bird head, swept crest, projecting beak, white oval eye patch, black pupil, charcoal scarf, cream satchel, brass lantern, small bird feet; expressive bird wings without human fingers. Beautiful composed scenes, restrained woodcut hatch and warm cream grain, signal red #EE3038, charcoal #141418, ochre and muted slate/turquoise accents. Original friendly anthropomorphic animal neighbors, thoughtful cooperative adventure. No text ANYWHERE: no lettering, no words, no captions, no dialogue balloons, no sound effects, no logos, no watermarks, no national flags, no political emblems, no firearms or swords, no copied franchise. Papers and maps can show simple visual sketches/routes but never writing. Avoid depicting any story as a generic reused world landscape. The four changing actions are essential. Add a fine 6-pixel warm-cream outer border and 6-pixel straight cream inner gutters centered at both halfway lines; equal panel dimensions are essential for page-reader viewports.\nCast continuity: Rook as described. Pip is a sandy rabbit courier in a blue work vest. Moss is a round brown hedgehog mapmaker with round spectacles and green apron. Lumen is a cream owl librarian wearing a modest navy cardigan. Nell is a small gray mouse letter writer. Mira is a brown otter inventor with plain practical work apron. Persia cast: Sima is a cream owl courtyard librarian in a turquoise cardigan; Nima is a brown otter garden keeper in a green apron; Darya is a sandy hare courier in a muted blue vest with a secure letter bag; Leila is a fox weaver in a warm ochre apron; Princess Soraya is a fox astronomer with a SMALL plain gold circlet and simple midnight-blue cloak over practical clothes, not a copied princess character; Zephyr is a gentle small ochre dragon with blue-gray wings; Aster is a camel. Keep each repeat character consistent within the comic. Show only the characters called for by that scene, not everybody in each frame.\nChapter: The carpet of routes. Theme: Credit the maker and ask what a pattern means. World: fictional Garden of Many Doors, Persian-inspired market and weaver's workshop, colorful geometric carpet border and loom. Leila is an ORIGINAL gentle fox weaver in ochre apron, not dressed as a cultural caricature. Four changing scenes about stopping to ask permission, listening to the maker, agreeing a DIFFERENT small original lantern-and-doorway emblem, sending a picture and accepting correction. Do not write the story's credits/signatures/permission text: blank paper with a simple emblem and visual sealing mark only. The carpet design must differ from the travel emblem. Reference image 1 = palette, image 2 = Rook and neighbors' animal proportions. No actual company trademarks.\nPanel 1 (top-left): Leila stands beside a carpet with a geometric border while Rook stops copying its pattern into his open travel atlas.\nNarrative context to interpret visually, NEVER render words: At the market, a weaver named Leila displayed a carpet with a border that reminded Rook of interlocking paths. He began copying it into his atlas, imagining it as a decoration for every future page. Leila watched his pencil. “Would you like to ask me about it?” she said. Rook closed the book, suddenly aware that he had mistaken admiration for an invitation.\nPanel 2 (top-right): Leila sketches an original small travel emblem at her workshop table as Rook listens beside tools and unfinished woven work.\nNarrative context to interpret visually, NEVER render words: Leila described her own design choices and the work of her family’s workshop. She offered to draw a small original travel emblem for his notebook, but asked him not to present her carpet border as his creation. Rook agreed and listened while she explained which story she wanted the emblem to tell. He did not ask her to speak for every weaver in the world.\nPanel 3 (bottom-left): Rook and Leila review a lantern-and-doorway sketch with a signed permission note while a traveler asks about the new notebook emblem.\nNarrative context to interpret visually, NEVER render words: They settled on a simple lantern beside an open doorway, different from the carpet. Leila added her chosen signature. Rook paid for the work and wrote how it could be shared. When another traveler asked for a copy, Rook showed her the permission note first. Leila smiled at the careful answer. Her work could travel without its maker disappearing from the story.\nPanel 4 (bottom-right): Rook posts a small travel picture with Leila’s credited emblem; the carpet stays visible in her workshop and a corrected caption rests on the desk.\nNarrative context to interpret visually, NEVER render words: The carpet remained in the workshop window, carrying its own story. Rook’s little emblem traveled on a separate page with Leila’s credit intact. He later sent her a photograph from the road and asked whether the caption was right. She changed one word. Rook welcomed the correction; a beautiful mark became more meaningful when the person who made it could still speak.",
+      "references": [
+        "website/artwork/worlds/world-persia.png",
+        "website/artwork/chapters/persia/courtyard-welcome.png"
+      ],
+      "reading_order": [
+        "top-left",
+        "top-right",
+        "bottom-left",
+        "bottom-right"
+      ],
+      "generated_output": "01a1377c-3ad8-7073-a362-76ba523ea63c/exec-923f1b89-a3bb-4a28-8acd-b956f039d323.png",
+      "master_size": [
+        1536,
+        1024
+      ],
+      "web_size": [
+        1024,
+        683
+      ],
+      "web_bytes": 175012,
+      "source": "website/artwork/chapters/persia/carpet-of-routes.png",
+      "optimized": "website/brand/chapters/persia/carpet-of-routes.webp",
+      "web_quality": 64,
+      "source_sha256": "5d203cc1e2c196cdb7d3cea4d2e0941a09cff74824adab6b5ad25161798df3c7",
+      "web_sha256": "2f126b952347cead428953d8445ce5631605d8de1fef84205a7b5c7573761411",
+      "normalized_panel_bounds": [
+        [
+          0,
+          0,
+          0.5,
+          0.5
+        ],
+        [
+          0.5,
+          0,
+          0.5,
+          0.5
+        ],
+        [
+          0,
+          0.5,
+          0.5,
+          0.5
+        ],
+        [
+          0.5,
+          0.5,
+          0.5,
+          0.5
+        ]
+      ]
+    },
+    {
+      "world": "persia",
+      "id": "well-after-sunset",
+      "tool": "built-in image_gen.imagegen",
+      "date": "2026-10-14",
+      "license": "GPL-3.0-or-later",
+      "prompt": "Use case: illustration-story. Asset type: one original Rookstride four-panel chapter comic. Make a NEW illustration, not a copy of the reference scene. EXACTLY FOUR equal rectangular panels in a clean 2-by-2 grid with clear straight warm-cream gutters. Reading order must be top-left, top-right, bottom-left, bottom-right. Wide landscape overall around 1536 by 1024; consistent panel boundaries at the horizontal and vertical halfway points. Each panel depicts the corresponding scene below, no extra panel, no panoramic merged scene. Style reference defines the warm ink/cream paper storybook style and original Rook character only: signal-red rounded bird head, swept crest, projecting beak, white oval eye patch, black pupil, charcoal scarf, cream satchel, brass lantern, small bird feet; expressive bird wings without human fingers. Beautiful composed scenes, restrained woodcut hatch and warm cream grain, signal red #EE3038, charcoal #141418, ochre and muted slate/turquoise accents. Original friendly anthropomorphic animal neighbors, thoughtful cooperative adventure. No text ANYWHERE: no lettering, no words, no captions, no dialogue balloons, no sound effects, no logos, no watermarks, no national flags, no political emblems, no firearms or swords, no copied franchise. Papers and maps can show simple visual sketches/routes but never writing. Avoid depicting any story as a generic reused world landscape. The four changing actions are essential. Add a fine 6-pixel warm-cream outer border and 6-pixel straight cream inner gutters centered at both halfway lines; equal panel dimensions are essential for page-reader viewports.\nCast continuity: Rook as described. Pip is a sandy rabbit courier in a blue work vest. Moss is a round brown hedgehog mapmaker with round spectacles and green apron. Lumen is a cream owl librarian wearing a modest navy cardigan. Nell is a small gray mouse letter writer. Mira is a brown otter inventor with plain practical work apron. Persia cast: Sima is a cream owl courtyard librarian in a turquoise cardigan; Nima is a brown otter garden keeper in a green apron; Darya is a sandy hare courier in a muted blue vest with a secure letter bag; Leila is a fox weaver in a warm ochre apron; Princess Soraya is a fox astronomer with a SMALL plain gold circlet and simple midnight-blue cloak over practical clothes, not a copied princess character; Zephyr is a gentle small ochre dragon with blue-gray wings; Aster is a camel. Keep each repeat character consistent within the comic. Show only the characters called for by that scene, not everybody in each frame.\nChapter: The well after sunset. Theme: Leave difficult work to the people who know it. World: fictional Garden of Many Doors, Persian-inspired covered courtyard well and library, warm lanterns and turquoise tiles. All action stays above ground. Well access remains securely covered, no dangerous underground exploration. Trained maintenance team works separately with safe barriers, Rook helps carry sealed drinking-water containers, shares clear news, listens and waits. Sima cream owl in turquoise, Nima brown otter in green apron match reference image 2. Public notice can show water-jug and clock drawings ONLY, never text or letters. Four chronological scenes progress from water failure at dusk to organized supply, reading night, restored supply next morning.\nPanel 1 (top-left): Rook stands beside a covered well with Nima while Sima directs supper guests toward a neighboring courtyard; the underground access remains secured.\nNarrative context to interpret visually, NEVER render words: The courtyard’s water delivery failed just before supper. People gathered near the covered well, and Rook wondered whether his small size made him the best person to investigate below. Nima stopped that idea before it became a plan. Underground passages were not adventures for untrained visitors. She called the responsible water team while Sima moved the supper tables toward a neighboring courtyard with a working supply.\nPanel 2 (top-right): Rook posts a clear supply notice while volunteers carry sealed water through the courtyard and Nima coordinates with a trained maintenance team.\nNarrative context to interpret visually, NEVER render words: The water team inspected the problem from their approved work area. Rook helped carry sealed drinking water and wrote clear messages at the library entrance. He asked Nima what information could be shared and kept people’s individual requests off the public board. Families chose whether to collect supplies or ask a volunteer to bring them. Nobody had to explain a private difficulty to a crowd.\nPanel 3 (bottom-left): Sima hosts a small reading circle in the library as Rook recounts his bridge mistake and Nima brings a calm maintenance update.\nNarrative context to interpret visually, NEVER render words: The repair took longer than anyone hoped. Sima opened her reading room and offered stories while they waited. Rook told the tale of the bridge that waited, including the part where he nearly acted too quickly. Nima returned with an update rather than a promise she could not keep. “The team is still checking,” she said. People had time to adjust their evening plans.\nPanel 4 (bottom-right): Neighbors return borrowed water containers after the repair while Rook records public contact information beside a thank-you note to the water team.\nNarrative context to interpret visually, NEVER render words: By morning the responsible team restored the supply and confirmed the checks were complete. The neighbors thanked the workers and returned borrowed containers. Rook recorded who to contact next time, leaving out the access details that visitors did not need. The most useful thing he had carried that night was neither a tool nor a heroic idea. It was an accurate message delivered when people needed it.",
+      "references": [
+        "website/artwork/worlds/world-persia.png",
+        "website/artwork/chapters/persia/courtyard-welcome.png"
+      ],
+      "reading_order": [
+        "top-left",
+        "top-right",
+        "bottom-left",
+        "bottom-right"
+      ],
+      "generated_output": "01a1377c-3ad8-7073-a362-76ba523ea63c/exec-1d51353f-0fba-435f-9da7-d83a0450ae23.png",
+      "master_size": [
+        1536,
+        1024
+      ],
+      "web_size": [
+        1024,
+        683
+      ],
+      "web_bytes": 179432,
+      "source": "website/artwork/chapters/persia/well-after-sunset.png",
+      "optimized": "website/brand/chapters/persia/well-after-sunset.webp",
+      "web_quality": 52,
+      "source_sha256": "adf3840a02c6cf63bd7701d56a2a21b9d7e1d23986fe85e9e6afc0d37ce35da6",
+      "web_sha256": "ebc9c11f27eacd6e9ccacb76394fda69ef108eaa6478d362e647d83623f3ffed",
+      "normalized_panel_bounds": [
+        [
+          0,
+          0,
+          0.5,
+          0.5
+        ],
+        [
+          0.5,
+          0,
+          0.5,
+          0.5
+        ],
+        [
+          0,
+          0.5,
+          0.5,
+          0.5
+        ],
+        [
+          0.5,
+          0.5,
+          0.5,
+          0.5
+        ]
+      ]
+    },
+    {
+      "world": "persia",
+      "id": "princess-of-dawn",
+      "tool": "built-in image_gen.imagegen",
+      "date": "2026-10-14",
+      "license": "GPL-3.0-or-later",
+      "prompt": "Use case: illustration-story. Asset type: one original Rookstride four-panel chapter comic. Make a NEW illustration, not a copy of the reference scene. EXACTLY FOUR equal rectangular panels in a clean 2-by-2 grid with clear straight warm-cream gutters. Reading order must be top-left, top-right, bottom-left, bottom-right. Wide landscape overall around 1536 by 1024; consistent panel boundaries at the horizontal and vertical halfway points. Each panel depicts the corresponding scene below, no extra panel, no panoramic merged scene. Style reference defines the warm ink/cream paper storybook style and original Rook character only: signal-red rounded bird head, swept crest, projecting beak, white oval eye patch, black pupil, charcoal scarf, cream satchel, brass lantern, small bird feet; expressive bird wings without human fingers. Beautiful composed scenes, restrained woodcut hatch and warm cream grain, signal red #EE3038, charcoal #141418, ochre and muted slate/turquoise accents. Original friendly anthropomorphic animal neighbors, thoughtful cooperative adventure. No text ANYWHERE: no lettering, no words, no captions, no dialogue balloons, no sound effects, no logos, no watermarks, no national flags, no political emblems, no firearms or swords, no copied franchise. Papers and maps can show simple visual sketches/routes but never writing. Avoid depicting any story as a generic reused world landscape. The four changing actions are essential. Add a fine 6-pixel warm-cream outer border and 6-pixel straight cream inner gutters centered at both halfway lines; equal panel dimensions are essential for page-reader viewports.\nCast continuity: Rook as described. Pip is a sandy rabbit courier in a blue work vest. Moss is a round brown hedgehog mapmaker with round spectacles and green apron. Lumen is a cream owl librarian wearing a modest navy cardigan. Nell is a small gray mouse letter writer. Mira is a brown otter inventor with plain practical work apron. Persia cast: Sima is a cream owl courtyard librarian in a turquoise cardigan; Nima is a brown otter garden keeper in a green apron; Darya is a sandy hare courier in a muted blue vest with a secure letter bag; Leila is a fox weaver in a warm ochre apron; Princess Soraya is a fox astronomer with a SMALL plain gold circlet and simple midnight-blue cloak over practical clothes, not a copied princess character; Zephyr is a gentle small ochre dragon with blue-gray wings; Aster is a camel. Keep each repeat character consistent within the comic. Show only the characters called for by that scene, not everybody in each frame.\nChapter: The princess of dawn. Theme: A rescue has more than one author. World: fictional Garden of Many Doors, gentle fantasy tower above garden, storm-damaged gate, safe sheltered courtyard and dawn terrace observatory. Soraya is a capable fox astronomer princess with tiny SIMPLE circlet and navy cloak; she leads her own plan and handles telescope/notes, she is never helpless or silent. Zephyr is a gentle SMALL ochre dragon with blue-gray wings, worried and listened to, not a monster or enemy; match reference 3's kind young dragon. Caretakers are ordinary tortoise/otter neighbors with practical aprons, no insignia. NO sword, fighting or violence. Image 1 = world palette, image 2 = Rook continuity, image 3 = dragon character reference ONLY. Distinct four rescue scenes, from listening to shared plan and respectful repair, then cooperative dawn celebration. Do NOT render text on notes or names/credits, just sky sketches.\nPanel 1 (top-left): Princess astronomer Soraya holds her notes at a tower window while Zephyr curls anxiously around the jammed gate and Rook listens below.\nNarrative context to interpret visually, NEVER render words: Princess Soraya studied the dawn sky from a tower above the garden. A storm jammed the outer door and frightened the young dragon Zephyr, who curled around the gate outside. Travelers called for a hero with a sword. Rook asked Soraya what she needed. “My caretaker, my notes, and a way to speak to Zephyr without shouting,” she answered from the window.\nPanel 2 (top-right): Rook shows Soraya’s courtyard drawing to Zephyr as caretakers wait at a safe distance; the dragon uncurls toward a sheltered garden space.\nNarrative context to interpret visually, NEVER render words: Rook fetched the caretaker and stood where Zephyr could see him. The dragon expected blame, so he hid his face behind a wing. Soraya lowered a drawing of the sheltered courtyard. “You may rest there while the gate is checked,” she told him. Rook held up the drawing, and Zephyr chose to move. The caretakers could finally approach without putting anyone in danger.\nPanel 3 (bottom-left): Soraya exits through the checked doorway with her telescope; Rook protects her dry notes while Zephyr speaks from the sheltered courtyard.\nNarrative context to interpret visually, NEVER render words: While the caretakers repaired the door, Soraya directed the preservation of her damp sky notes from inside. Rook kept the dry copies under his satchel flap. When the door opened, she stepped out carrying her telescope herself. Zephyr apologized for blocking the gate. “You were frightened,” she said. “Next time, let us know where you need help.” He agreed to practice asking before curling around doors.\nPanel 4 (bottom-right): Soraya, Rook, Zephyr, and the caretakers watch dawn from a safe garden terrace beside a telescope and a jointly reviewed story page.\nNarrative context to interpret visually, NEVER render words: At dawn they watched the sky together. Soraya named the figures she had invented for her notebook, and Zephyr named a cloud after himself. Rook wrote a rescue with no defeated dragon and no silent princess. Soraya checked the account and added the caretakers’ names. “Tell people I asked for help,” she said, “and tell them I helped too.” Rook gladly kept both sentences.",
+      "references": [
+        "website/artwork/worlds/world-persia.png",
+        "website/artwork/chapters/persia/courtyard-welcome.png",
+        "website/artwork/chapters/harbor/tower-with-wings.png"
+      ],
+      "reading_order": [
+        "top-left",
+        "top-right",
+        "bottom-left",
+        "bottom-right"
+      ],
+      "generated_output": "01a1377c-3ad8-7073-a362-76ba523ea63c/exec-b0795ad9-4af2-42da-a04f-cd69d6e12a9e.png",
+      "master_size": [
+        1536,
+        1024
+      ],
+      "web_size": [
+        1024,
+        683
+      ],
+      "web_bytes": 178532,
+      "source": "website/artwork/chapters/persia/princess-of-dawn.png",
+      "optimized": "website/brand/chapters/persia/princess-of-dawn.webp",
+      "web_quality": 52,
+      "source_sha256": "3cd59255b397692794796bfc41d8fa8fc6555cf1831b3c6b20db748637952253",
+      "web_sha256": "b8c0ad6069ac27dafee8dcc932b31307ad9ee199360956cce0d838a694bcb8ba",
+      "normalized_panel_bounds": [
+        [
+          0,
+          0,
+          0.5,
+          0.5
+        ],
+        [
+          0.5,
+          0,
+          0.5,
+          0.5
+        ],
+        [
+          0,
+          0.5,
+          0.5,
+          0.5
+        ],
+        [
+          0.5,
+          0.5,
+          0.5,
+          0.5
+        ]
+      ]
+    },
+    {
+      "world": "persia",
+      "id": "poem-with-room",
+      "tool": "built-in image_gen.imagegen",
+      "date": "2026-10-14",
+      "license": "GPL-3.0-or-later",
+      "prompt": "Use case: illustration-story. Asset type: one original Rookstride four-panel chapter comic. Make a NEW illustration, not a copy of the reference scene. EXACTLY FOUR equal rectangular panels in a clean 2-by-2 grid with clear straight warm-cream gutters. Reading order must be top-left, top-right, bottom-left, bottom-right. Wide landscape overall around 1536 by 1024; consistent panel boundaries at the horizontal and vertical halfway points. Each panel depicts the corresponding scene below, no extra panel, no panoramic merged scene. Style reference defines the warm ink/cream paper storybook style and original Rook character only: signal-red rounded bird head, swept crest, projecting beak, white oval eye patch, black pupil, charcoal scarf, cream satchel, brass lantern, small bird feet; expressive bird wings without human fingers. Beautiful composed scenes, restrained woodcut hatch and warm cream grain, signal red #EE3038, charcoal #141418, ochre and muted slate/turquoise accents. Original friendly anthropomorphic animal neighbors, thoughtful cooperative adventure. No text ANYWHERE: no lettering, no words, no captions, no dialogue balloons, no sound effects, no logos, no watermarks, no national flags, no political emblems, no firearms or swords, no copied franchise. Papers and maps can show simple visual sketches/routes but never writing. Avoid depicting any story as a generic reused world landscape. The four changing actions are essential. Add a fine 6-pixel warm-cream outer border and 6-pixel straight cream inner gutters centered at both halfway lines; equal panel dimensions are essential for page-reader viewports.\nCast continuity: Rook as described. Pip is a sandy rabbit courier in a blue work vest. Moss is a round brown hedgehog mapmaker with round spectacles and green apron. Lumen is a cream owl librarian wearing a modest navy cardigan. Nell is a small gray mouse letter writer. Mira is a brown otter inventor with plain practical work apron. Persia cast: Sima is a cream owl courtyard librarian in a turquoise cardigan; Nima is a brown otter garden keeper in a green apron; Darya is a sandy hare courier in a muted blue vest with a secure letter bag; Leila is a fox weaver in a warm ochre apron; Princess Soraya is a fox astronomer with a SMALL plain gold circlet and simple midnight-blue cloak over practical clothes, not a copied princess character; Zephyr is a gentle small ochre dragon with blue-gray wings; Aster is a camel. Keep each repeat character consistent within the comic. Show only the characters called for by that scene, not everybody in each frame.\nChapter: A poem with room. Theme: Make space for voices without speaking over them. World: fictional Garden of Many Doors, courtyard reading evening under a tree, with quiet side seat, warm brass lamps, bread and neighbors' original books. Sima cream owl in turquoise; Nima otter in green apron; Darya hare courier in blue vest; Leila fox weaver in ochre apron, match reference 2. Rook invites choices rather than forcing anyone to perform. Across four panels show invitation correction, preparation/practicing, quiet listening to Leila read and a PRIVATE note handed discreetly, then shared bread and permitted reading notes. The note remains private, not celebrated publicly. NO poem text/names/letters/balloons anywhere; text pages contain only tiny abstract line drawings and blank areas.\nPanel 1 (top-left): Rook revises a performance list beside Sima’s courtyard reading circle as Darya chooses a comfortable listener’s seat under the tree.\nNarrative context to interpret visually, NEVER render words: Sima planned a reading night beneath the courtyard tree. Rook made a list of everyone he thought should perform, then noticed Darya shrinking from her name. “I like listening,” she told him. “That does not mean I want the whole courtyard listening to me.” Rook crossed out the compulsory list and replaced it with an invitation people could accept, decline, or answer later.\nPanel 2 (top-right): Leila and Nima prepare their own short texts while Darya helps Rook practice a name; Sima arranges a quiet seat at the edge of the gathering.\nNarrative context to interpret visually, NEVER render words: Leila brought a poem she had written about a loom’s pause. Nima brought a short account of a repaired channel. Another neighbor asked for a quieter seat near the edge, and Sima made one. Rook offered to read the opening, but asked how his pronunciation sounded before the evening began. Darya helped him practice one name until it felt like a greeting instead of an obstacle.\nPanel 3 (bottom-left): Leila reads beneath warm courtyard lamps while Rook listens; Darya privately hands Sima a folded note at the side of the gathering.\nNarrative context to interpret visually, NEVER render words: When Leila read, Rook listened without turning every image into a lesson about bridges. It was her poem, and some of its meaning belonged to her alone. During the pause, Darya quietly handed Sima a note for next month’s evening. She might like to read then. Nobody announced it. A choice could grow best when it did not become someone else’s celebration too soon.\nPanel 4 (bottom-right): The reading circle shares food after the poems while Rook records agreed credits and Sima keeps Darya’s note tucked safely in her notebook.\nNarrative context to interpret visually, NEVER render words: After the last reader, the neighbors shared bread and discussed what they had heard. Rook copied only the lines whose authors wanted to share them, using their chosen credits. Darya’s note stayed with Sima. The courtyard’s silence no longer felt like a gap waiting to be filled. It held listeners, pauses, and ideas that might find words on another evening.",
+      "references": [
+        "website/artwork/chapters/persia/courtyard-welcome.png",
+        "website/artwork/chapters/persia/carpet-of-routes.png"
+      ],
+      "reading_order": [
+        "top-left",
+        "top-right",
+        "bottom-left",
+        "bottom-right"
+      ],
+      "generated_output": "01a1377c-3ad8-7073-a362-76ba523ea63c/exec-b396332c-8f9e-4342-bdeb-570b5e32cb02.png",
+      "master_size": [
+        1536,
+        1024
+      ],
+      "web_size": [
+        1024,
+        683
+      ],
+      "web_bytes": 171070,
+      "source": "website/artwork/chapters/persia/poem-with-room.png",
+      "optimized": "website/brand/chapters/persia/poem-with-room.webp",
+      "web_quality": 52,
+      "source_sha256": "0467cc1aeec884f33a64c43983cf90395d27e5b88a63f5ef5a2e79c00039238f",
+      "web_sha256": "b807dd8b80db17909e082355d505bbeee27d34ae2362e373bfc3ef7a0462d6fa",
+      "normalized_panel_bounds": [
+        [
+          0,
+          0,
+          0.5,
+          0.5
+        ],
+        [
+          0.5,
+          0,
+          0.5,
+          0.5
+        ],
+        [
+          0,
+          0.5,
+          0.5,
+          0.5
+        ],
+        [
+          0.5,
+          0.5,
+          0.5,
+          0.5
+        ]
+      ]
+    },
+    {
+      "world": "persia",
+      "id": "caravan-of-notes",
+      "tool": "built-in image_gen.imagegen",
+      "date": "2026-10-14",
+      "license": "GPL-3.0-or-later",
+      "prompt": "Use case: illustration-story. Asset type: one original Rookstride four-panel chapter comic. Make a NEW illustration, not a copy of the reference scene. EXACTLY FOUR equal rectangular panels in a clean 2-by-2 grid with clear straight warm-cream gutters. Reading order must be top-left, top-right, bottom-left, bottom-right. Wide landscape overall around 1536 by 1024; consistent panel boundaries at the horizontal and vertical halfway points. Each panel depicts the corresponding scene below, no extra panel, no panoramic merged scene. Style reference defines the warm ink/cream paper storybook style and original Rook character only: signal-red rounded bird head, swept crest, projecting beak, white oval eye patch, black pupil, charcoal scarf, cream satchel, brass lantern, small bird feet; expressive bird wings without human fingers. Beautiful composed scenes, restrained woodcut hatch and warm cream grain, signal red #EE3038, charcoal #141418, ochre and muted slate/turquoise accents. Original friendly anthropomorphic animal neighbors, thoughtful cooperative adventure. No text ANYWHERE: no lettering, no words, no captions, no dialogue balloons, no sound effects, no logos, no watermarks, no national flags, no political emblems, no firearms or swords, no copied franchise. Papers and maps can show simple visual sketches/routes but never writing. Avoid depicting any story as a generic reused world landscape. The four changing actions are essential. Add a fine 6-pixel warm-cream outer border and 6-pixel straight cream inner gutters centered at both halfway lines; equal panel dimensions are essential for page-reader viewports.\nCast continuity: Rook as described. Pip is a sandy rabbit courier in a blue work vest. Moss is a round brown hedgehog mapmaker with round spectacles and green apron. Lumen is a cream owl librarian wearing a modest navy cardigan. Nell is a small gray mouse letter writer. Mira is a brown otter inventor with plain practical work apron. Persia cast: Sima is a cream owl courtyard librarian in a turquoise cardigan; Nima is a brown otter garden keeper in a green apron; Darya is a sandy hare courier in a muted blue vest with a secure letter bag; Leila is a fox weaver in a warm ochre apron; Princess Soraya is a fox astronomer with a SMALL plain gold circlet and simple midnight-blue cloak over practical clothes, not a copied princess character; Zephyr is a gentle small ochre dragon with blue-gray wings; Aster is a camel. Keep each repeat character consistent within the comic. Show only the characters called for by that scene, not everybody in each frame.\nChapter: The caravan of notes. Theme: A group can travel together without moving identically. World: fictional Persian-inspired garden caravan yard, shaded desert road shelter, coastal caravan stop, turquoise/ochre/cream palette. Aster is the same gentle camel from reference image 2; caravan leader is the same fox with simple charcoal/scarlet scarf and practical brown travel clothes. Darya hare keeps her own closed secure letter bag. Rook adjusts shared supplies and learns patience. Panel 3 is safe waiting inside shelter during sand-colored haze, NOT dangerous exposure or a dramatic disaster. Panel 4 is thankful seaside arrival with smiling family greetings. Input image 1 = world palette, image 2 = consistent camel, leader and Rook from departure. Paper schedule/map visual circles and paths ONLY, no digits/letters/text/balloons.\nPanel 1 (top-left): Rook shows a rigid paper schedule to the caravan leader beside Aster and the shaded caravan yard before departure.\nNarrative context to interpret visually, NEVER render words: Rook prepared a splendid schedule for the coastal caravan. Every hour had a mark, and every mark looked impressively straight. The caravan leader compared it with the day’s heat, the travelers’ needs, and Aster’s steady pace. “This road is not your page,” she said kindly. Rook folded the schedule and asked how the group made decisions when conditions changed.\nPanel 2 (top-right): Caravan travelers distribute shared supplies while Darya keeps her secure letter bag and Rook adjusts a load with Aster’s guidance.\nNarrative context to interpret visually, NEVER render words: They chose rest points together and checked what each traveler could carry. Darya joined them for part of the route, carrying letters in a secure bag. Rook offered to take it, but she preferred to keep her entrusted work herself. He carried shared supplies instead. Aster approved of the lighter, better-balanced load and let him know when one strap needed adjusting.\nPanel 3 (bottom-left): The caravan waits in a known sheltered rest court while Rook writes a delay update and the leader observes the hazy road from safety.\nNarrative context to interpret visually, NEVER render words: A sand-colored haze delayed the next stage. Rook stared at his useless hour marks, then wrote an update for those expecting the caravan. The leader chose a known shelter, and everyone waited there. Darya delivered the update through the agreed contact when it was possible. Rook learned that arriving later with accurate news was kinder than arriving recklessly to protect a timetable.\nPanel 4 (bottom-right): At the coastal caravan stop, Rook thanks Aster and keeps an amended route sheet while travelers greet waiting relatives beside the sea.\nNarrative context to interpret visually, NEVER render words: When conditions improved, they continued at the leader’s chosen pace. At the coast, a waiting family greeted their relative with relief rather than complaints about Rook’s schedule. He tore out the hour marks and kept the rest points, contacts, and corrections. Aster leaned down for a farewell. “You have learned to draw a road that can bend,” she said. Rook thanked his very patient teacher.",
+      "references": [
+        "website/artwork/worlds/world-persia.png",
+        "website/artwork/chapters/harbor/road-out-of-harbor.png"
+      ],
+      "reading_order": [
+        "top-left",
+        "top-right",
+        "bottom-left",
+        "bottom-right"
+      ],
+      "generated_output": "01a1377c-3ad8-7073-a362-76ba523ea63c/exec-aa1ce19f-7076-4568-95c0-a3cce38dc501.png",
+      "master_size": [
+        1536,
+        1024
+      ],
+      "web_size": [
+        1024,
+        683
+      ],
+      "web_bytes": 169780,
+      "source": "website/artwork/chapters/persia/caravan-of-notes.png",
+      "optimized": "website/brand/chapters/persia/caravan-of-notes.webp",
+      "web_quality": 58,
+      "source_sha256": "5487f4fc2050dc97d2e95c80af9ac9349aa6e11b5f82192f8dec4b6c0d05abf9",
+      "web_sha256": "47c821a6b7f9c5fd39e70b694e2013c626e3e75483cb161d4d7fc93632333f58",
+      "normalized_panel_bounds": [
+        [
+          0,
+          0,
+          0.5,
+          0.5
+        ],
+        [
+          0.5,
+          0,
+          0.5,
+          0.5
+        ],
+        [
+          0,
+          0.5,
+          0.5,
+          0.5
+        ],
+        [
+          0.5,
+          0.5,
+          0.5,
+          0.5
+        ]
+      ]
+    },
+    {
+      "world": "persia",
+      "id": "window-of-stars",
+      "tool": "built-in image_gen.imagegen",
+      "date": "2026-10-14",
+      "license": "GPL-3.0-or-later",
+      "prompt": "Use case: illustration-story. Asset type: one original Rookstride four-panel chapter comic. Make a NEW illustration, not a copy of the reference scene. EXACTLY FOUR equal rectangular panels in a clean 2-by-2 grid with clear straight warm-cream gutters. Reading order must be top-left, top-right, bottom-left, bottom-right. Wide landscape overall around 1536 by 1024; consistent panel boundaries at the horizontal and vertical halfway points. Each panel depicts the corresponding scene below, no extra panel, no panoramic merged scene. Style reference defines the warm ink/cream paper storybook style and original Rook character only: signal-red rounded bird head, swept crest, projecting beak, white oval eye patch, black pupil, charcoal scarf, cream satchel, brass lantern, small bird feet; expressive bird wings without human fingers. Beautiful composed scenes, restrained woodcut hatch and warm cream grain, signal red #EE3038, charcoal #141418, ochre and muted slate/turquoise accents. Original friendly anthropomorphic animal neighbors, thoughtful cooperative adventure. No text ANYWHERE: no lettering, no words, no captions, no dialogue balloons, no sound effects, no logos, no watermarks, no national flags, no political emblems, no firearms or swords, no copied franchise. Papers and maps can show simple visual sketches/routes but never writing. Avoid depicting any story as a generic reused world landscape. The four changing actions are essential. Add a fine 6-pixel warm-cream outer border and 6-pixel straight cream inner gutters centered at both halfway lines; equal panel dimensions are essential for page-reader viewports.\nCast continuity: Rook as described. Pip is a sandy rabbit courier in a blue work vest. Moss is a round brown hedgehog mapmaker with round spectacles and green apron. Lumen is a cream owl librarian wearing a modest navy cardigan. Nell is a small gray mouse letter writer. Mira is a brown otter inventor with plain practical work apron. Persia cast: Sima is a cream owl courtyard librarian in a turquoise cardigan; Nima is a brown otter garden keeper in a green apron; Darya is a sandy hare courier in a muted blue vest with a secure letter bag; Leila is a fox weaver in a warm ochre apron; Princess Soraya is a fox astronomer with a SMALL plain gold circlet and simple midnight-blue cloak over practical clothes, not a copied princess character; Zephyr is a gentle small ochre dragon with blue-gray wings; Aster is a camel. Keep each repeat character consistent within the comic. Show only the characters called for by that scene, not everybody in each frame.\nChapter: The window of stars. Theme: Share an observation without claiming the whole sky. World: fictional Persian-inspired observatory tower and garden library at cloudy dusk, then one small opening in night cloud. Princess astronomer Soraya fox with SMALL simple gold circlet/navy cloak, gentle Zephyr ochre dragon/blue-gray wings and Rook must exactly keep designs from reference image 2. Four distinct science/creativity scenes: covered telescope and past notebook; blank observation corner versus a separate imaginative star sketch; separate shelves of observed sky drawings and whimsical cloud drawings; final genuine telescope view through a small cloud gap. NO words/dates/numbers/writing on diagrams, use visual sky sketches and deliberately empty areas. One bright point in the final night sky, avoid turning uncertain records into magic knowledge. Input image 1 = world style; image 2 = character continuity only. No portrait replicas or logos.\nPanel 1 (top-left): Soraya and Rook stand beside a covered telescope beneath clouds, then turn toward dated observation notebooks inside the tower room.\nNarrative context to interpret visually, NEVER render words: Soraya invited Rook back to the observatory before his ship departed. He expected a sky full of stars and found a roof full of clouds. Soraya did not pretend the telescope could see through everything. They checked the forecast, secured the equipment, and opened her older notebooks instead. Each page named when an observation had been made and what she had actually seen.\nPanel 2 (top-right): Soraya points to an honestly blank corner of a notebook while Rook moves his remembered star pattern onto a separate labeled sketch.\nNarrative context to interpret visually, NEVER render words: One drawing left a corner empty. Rook reached to fill it with a familiar star pattern from Lantern Harbor. Soraya stopped his pencil. That part of the sky had been hidden on the night of her observation. His remembered pattern might be beautiful, but it did not belong in her record as something she had seen. Rook added it to a separate sketch and labeled the difference.\nPanel 3 (bottom-left): Zephyr presents a playful cloud drawing as Soraya and Rook arrange separate shelves for observed sky records and clearly labeled imaginative pictures.\nNarrative context to interpret visually, NEVER render words: Zephyr arrived with a cloud drawing of his own. It looked very little like the actual clouds, and he said so cheerfully. They made a small exhibit with two shelves: observations and imaginings. Visitors could enjoy both without confusing them. Rook added a fanciful harbor constellation shaped like Pip’s mailbag, while Soraya carefully kept her measured work on its own shelf.\nPanel 4 (bottom-right): Rook views one bright point through Soraya’s prepared telescope as a small cloud gap opens above the garden tower and Zephyr watches quietly.\nNarrative context to interpret visually, NEVER render words: Just before closing, a gap appeared overhead. Soraya let Rook look through the properly set telescope and showed him one bright point. One was enough for the evening. He thanked her for the real glimpse and the honest clouds. In the morning he carried a permitted copy of her exhibit labels to his ship, ready to notice where his next view would also end.",
+      "references": [
+        "website/artwork/worlds/world-persia.png",
+        "website/artwork/chapters/persia/princess-of-dawn.png"
+      ],
+      "reading_order": [
+        "top-left",
+        "top-right",
+        "bottom-left",
+        "bottom-right"
+      ],
+      "generated_output": "01a1377c-3ad8-7073-a362-76ba523ea63c/exec-3be998cf-e793-4faf-b2fa-4770618bb3a7.png",
+      "master_size": [
+        1536,
+        1024
+      ],
+      "web_size": [
+        1024,
+        683
+      ],
+      "web_bytes": 170326,
+      "source": "website/artwork/chapters/persia/window-of-stars.png",
+      "optimized": "website/brand/chapters/persia/window-of-stars.webp",
+      "web_quality": 64,
+      "source_sha256": "3e6f3c5e0ae409efbdf029a87dc1bd70b7132be2de0b2a5cdaff7cd575d3a99e",
+      "web_sha256": "d344528d0f5804981664ad6de93d1168a2941bc89e9f28923f1d7272ceaf2630",
+      "normalized_panel_bounds": [
+        [
+          0,
+          0,
+          0.5,
+          0.5
+        ],
+        [
+          0.5,
+          0,
+          0.5,
+          0.5
+        ],
+        [
+          0,
+          0.5,
+          0.5,
+          0.5
+        ],
+        [
+          0.5,
+          0.5,
+          0.5,
+          0.5
+        ]
+      ]
+    },
+    {
+      "world": "persia",
+      "id": "sea-between-pages",
+      "tool": "built-in image_gen.imagegen",
+      "date": "2026-10-14",
+      "license": "GPL-3.0-or-later",
+      "prompt": "Use case: illustration-story. Asset type: one original Rookstride four-panel chapter comic. Make a NEW illustration, not a copy of the reference scene. EXACTLY FOUR equal rectangular panels in a clean 2-by-2 grid with clear straight warm-cream gutters. Reading order must be top-left, top-right, bottom-left, bottom-right. Wide landscape overall around 1536 by 1024; consistent panel boundaries at the horizontal and vertical halfway points. Each panel depicts the corresponding scene below, no extra panel, no panoramic merged scene. Style reference defines the warm ink/cream paper storybook style and original Rook character only: signal-red rounded bird head, swept crest, projecting beak, white oval eye patch, black pupil, charcoal scarf, cream satchel, brass lantern, small bird feet; expressive bird wings without human fingers. Beautiful composed scenes, restrained woodcut hatch and warm cream grain, signal red #EE3038, charcoal #141418, ochre and muted slate/turquoise accents. Original friendly anthropomorphic animal neighbors, thoughtful cooperative adventure. No text ANYWHERE: no lettering, no words, no captions, no dialogue balloons, no sound effects, no logos, no watermarks, no national flags, no political emblems, no firearms or swords, no copied franchise. Papers and maps can show simple visual sketches/routes but never writing. Avoid depicting any story as a generic reused world landscape. The four changing actions are essential. Add a fine 6-pixel warm-cream outer border and 6-pixel straight cream inner gutters centered at both halfway lines; equal panel dimensions are essential for page-reader viewports.\nCast continuity: Rook as described. Pip is a sandy rabbit courier in a blue work vest. Moss is a round brown hedgehog mapmaker with round spectacles and green apron. Lumen is a cream owl librarian wearing a modest navy cardigan. Nell is a small gray mouse letter writer. Mira is a brown otter inventor with plain practical work apron. Persia cast: Sima is a cream owl courtyard librarian in a turquoise cardigan; Nima is a brown otter garden keeper in a green apron; Darya is a sandy hare courier in a muted blue vest with a secure letter bag; Leila is a fox weaver in a warm ochre apron; Princess Soraya is a fox astronomer with a SMALL plain gold circlet and simple midnight-blue cloak over practical clothes, not a copied princess character; Zephyr is a gentle small ochre dragon with blue-gray wings; Aster is a camel. Keep each repeat character consistent within the comic. Show only the characters called for by that scene, not everybody in each frame.\nChapter: The sea between pages. Theme: Carry introductions rather than assumptions. FOUR distinctly changing travel scenes: Persian-inspired coastal quay farewell, camel goodbye with shared credited drawings, safe ship passenger cabin during rough weather outside, green Chinese-inspired river port arrival. Reference image 1 gives Sima the cream owl turquoise librarian and Rook; image 2 gives Aster camel and caravan; image 3 defines MEI: a gentle BROWN OTTER printer in blue work apron over a white shirt, not a mouse. Preserve Mei exactly for connection to the next world. Ship captain may be a heron in a plain practical coat without insignia. All scenes stay safe; Rook's lantern is fastened in the cabin, no hero standing in storms or risky ship edges. Sealed letters remain closed until handed to intended recipient, no text/names/flags/balloons/writing on signs or notes; use simple blank papers and drawings. No nationalist or political symbols. The final panel feels like a new river page rather than a return to the same orchard courtyard.\nPanel 1 (top-left): Sima gives Rook a sealed introduction at a coastal quay while the captain indicates a safe place for the brass lantern aboard the ship.\nNarrative context to interpret visually, NEVER render words: At the coastal quay, Sima handed Rook a letter for Mei, a printer in the river world. “She helped us exchange books,” Sima explained. Rook asked what he should say about the garden. “Tell her what you experienced,” Sima said. “Leave room for what you did not.” The ship captain checked his ticket and showed him where to secure his lantern for the crossing.\nPanel 2 (top-right): Rook says farewell to Aster beside the gangway, checking credited drawings and permission notes in his satchel while the caravan prepares to return.\nNarrative context to interpret visually, NEVER render words: Aster had brought him as far as the port and would return with the caravan. Rook thanked her before boarding. Nima sent a drawing of the four garden paths with its keepers’ credits, and Leila sent permission to share her small travel emblem. The satchel felt full of names rather than souvenirs. Rook checked that each account still carried the choice of its maker.\nPanel 3 (bottom-left): Rook and another traveler sit in a secure passenger cabin with the lantern fastened nearby while rain moves outside the window and a crew notice hangs clearly.\nNarrative context to interpret visually, NEVER render words: The ship’s first night was rough enough to make reading difficult. Rook stayed in the safe passenger area and listened to the crew’s announcements. Another traveler wanted reassurance that the ocean would become calm at once. Rook could offer company, but not that promise. They shared a story of a waiting bridge, then rested while the people responsible for the ship did their work.\nPanel 4 (bottom-right): Mei welcomes Rook at a busy river port, receiving Sima’s letter as green banks and river boats open beyond the passenger hall.\nNarrative context to interpret visually, NEVER render words: Morning revealed a river mouth lined with busy boats and green banks. Mei met the ship beside the customs hall and took Sima’s introduction. “You have come a long way,” she said. Rook looked back toward the water. “With a great many people’s help.” Mei smiled and led him toward the city. The garden remained in his atlas, and the river offered a fresh blank page.",
+      "references": [
+        "website/artwork/chapters/persia/courtyard-welcome.png",
+        "website/artwork/chapters/harbor/road-out-of-harbor.png",
+        "website/artwork/chapters/china/river-welcome.png"
+      ],
+      "reading_order": [
+        "top-left",
+        "top-right",
+        "bottom-left",
+        "bottom-right"
+      ],
+      "generated_output": "01a1377c-3ad8-7073-a362-76ba523ea63c/exec-c686b09c-b9c5-45e3-9677-6581dd6d58ab.png",
+      "master_size": [
+        1536,
+        1024
+      ],
+      "web_size": [
+        1024,
+        683
+      ],
+      "web_bytes": 178254,
+      "source": "website/artwork/chapters/persia/sea-between-pages.png",
+      "optimized": "website/brand/chapters/persia/sea-between-pages.webp",
+      "web_quality": 64,
+      "source_sha256": "05c6ae0bb28cea79532a7252bbcfa5546863752b42710d57f62326ef4fe78026",
+      "web_sha256": "c8182819bdc495e0ff3ff1de36398299c8cfe73c4ad676f4ecd15444c25e446b",
+      "normalized_panel_bounds": [
+        [
+          0,
+          0,
+          0.5,
+          0.5
+        ],
+        [
+          0.5,
+          0,
+          0.5,
+          0.5
+        ],
+        [
+          0,
+          0.5,
+          0.5,
+          0.5
+        ],
+        [
+          0.5,
+          0.5,
+          0.5,
+          0.5
+        ]
+      ]
+    }
+  ]
+}

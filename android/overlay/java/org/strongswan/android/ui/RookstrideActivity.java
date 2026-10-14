@@ -41,16 +41,27 @@ public final class RookstrideActivity extends AppCompatActivity implements VpnSt
     private VpnStateService vpn;
     private AlertDialog editor;
     private EditText keyField;
+    private TextView deploymentLabel,elapsedLabel;
+    private final Runnable progressTick=new Runnable(){public void run(){InstallationProgress p=currentProgress();if(elapsedLabel!=null&&p!=null)elapsedLabel.setText(p.remaining()+" · "+p.elapsed(System.currentTimeMillis()));handler.postDelayed(this,1000);}};
+    private ProgressBar deploymentBar;
+    private Exception handledDeploymentError;
+    private final DeploymentService.Listener deploymentListener=this::deploymentChanged;
+    private WebView storyView;
+    private StoryVoice storyVoice;
     private static final int PICK_KEY=84;
     private final ServiceConnection binding=new ServiceConnection() {
-        public void onServiceConnected(ComponentName n,IBinder b) { vpn=((VpnStateService.LocalBinder)b).getService(); vpn.registerListener(RookstrideActivity.this); render(); }
-        public void onServiceDisconnected(ComponentName n) { vpn=null; render(); }
+        public void onServiceConnected(ComponentName n,IBinder b) { vpn=((VpnStateService.LocalBinder)b).getService(); vpn.registerListener(RookstrideActivity.this); stateChanged(); }
+        public void onServiceDisconnected(ComponentName n) { vpn=null; stateChanged(); }
     };
 
     @Override public void onCreate(Bundle state) {
         super.onCreate(state);
         vault=new Vault(this);
         try { gateways=vault.read(); } catch(Exception e) { vaultFailed=true; message="Saved gateway data could not be unlocked. It has been preserved."; }
+        DeploymentService.Session running=DeploymentService.current();
+        if(running!=null)gateways=running.gateways;
+        if(state!=null)tab=state.getString("tab","Gateways");
+        if(getIntent().getBooleanExtra("rookstride.progress",false))tab="Progress";
         String remembered=getSharedPreferences("rookstride-ui",0).getString("selected","");
         for(Gateway n:gateways) if(n.get("id").equals(remembered)) selected=n;
         if(selected==null && !gateways.isEmpty()) selected=gateways.get(0);
@@ -58,15 +69,19 @@ public final class RookstrideActivity extends AppCompatActivity implements VpnSt
         render();
         if(!getSharedPreferences("rookstride-ui",0).getBoolean("onboarded",false)) handler.post(()->onboarding(0));
     }
+    @Override protected void onStart(){super.onStart();DeploymentService.observe(deploymentListener);deploymentChanged();}
+    @Override protected void onStop(){DeploymentService.unobserve(deploymentListener);handler.removeCallbacks(progressTick);if(storyView!=null)storyView.evaluateJavascript("window.rookStopNarration && window.rookStopNarration()",null);if(storyVoice!=null)storyVoice.stop();super.onStop();}
+    @Override protected void onSaveInstanceState(Bundle state){state.putString("tab",tab);super.onSaveInstanceState(state);}
+    @Override protected void onNewIntent(Intent intent){super.onNewIntent(intent);setIntent(intent);if(intent.getBooleanExtra("rookstride.progress",false)){tab="Progress";render();}}
     @Override protected void onResume() {
-        super.onResume();
-        if(selected!=null && !selected.get("job").isEmpty() && !busy && hasAuth(selected)) pollJob(selected);
+        super.onResume();handler.removeCallbacks(progressTick);handler.post(progressTick);
+        if(selected!=null && !selected.get("job").isEmpty() && !busy && !DeploymentService.active() && hasAuth(selected)) pollJob(selected);
     }
     @Override protected void onDestroy() {
         if(vpn!=null) vpn.unregisterListener(this);
-        unbindService(binding); handler.removeCallbacksAndMessages(null); executor.shutdownNow(); super.onDestroy();
+        DeploymentService.unobserve(deploymentListener);if(storyVoice!=null)storyVoice.close();if(storyView!=null){ViewParent parent=storyView.getParent();if(parent instanceof ViewGroup)((ViewGroup)parent).removeView(storyView);storyView.destroy();}unbindService(binding); handler.removeCallbacksAndMessages(null); executor.shutdownNow(); super.onDestroy();
     }
-    public void stateChanged() { render(); }
+    public void stateChanged() { if(!tab.equals("Stories")&&!tab.equals("Guide"))render(); }
     private int dp(float n) { return (int)(getResources().getDisplayMetrics().density*n+.5f); }
     private GradientDrawable shape(int color,int radius) { GradientDrawable d=new GradientDrawable(); d.setColor(color); d.setCornerRadius(dp(radius)); return d; }
     private TextView text(String value,int size,int color,boolean bold) {
@@ -85,8 +100,8 @@ public final class RookstrideActivity extends AppCompatActivity implements VpnSt
         Button v=new Button(this); v.setText(title); v.setAllCaps(false); v.setTextSize(15); v.setTypeface(Typeface.create("sans-serif-medium",0));
         v.setTextColor(primary?Color.WHITE:INK); v.setBackground(shape(primary?RED:Color.rgb(236,236,241),13));
         v.setPadding(dp(14),dp(5),dp(14),dp(5)); v.setMinHeight(dp(48));
-        v.setOnClickListener(x->{ if(!busy) action.run(); });
-        v.setEnabled(!busy); return v;
+        v.setOnClickListener(x->{ if(!busy && !DeploymentService.active()) action.run(); });
+        v.setEnabled(!busy && !DeploymentService.active()); return v;
     }
     private void fullButton(LinearLayout target,String title,boolean primary,Runnable action) {
         LinearLayout.LayoutParams p=new LinearLayout.LayoutParams(-1,dp(48)); p.topMargin=dp(10); target.addView(button(title,primary,action),p);
@@ -108,6 +123,10 @@ public final class RookstrideActivity extends AppCompatActivity implements VpnSt
 
     private void render() {
         if(isFinishing()) return;
+        if(storyView!=null&&storyView.getUrl()!=null&&storyView.getUrl().startsWith("https://rookstride.invalid/stories/"))getSharedPreferences("rookstride-ui",0).edit().putString("storyUrl",storyView.getUrl()).apply();
+        if(storyVoice!=null){storyVoice.close();storyVoice=null;}
+        if(storyView!=null){ViewParent parent=storyView.getParent();if(parent instanceof ViewGroup)((ViewGroup)parent).removeView(storyView);storyView.removeJavascriptInterface("RookVoice");storyView.destroy();}
+        storyView=null;deploymentLabel=null;deploymentBar=null;elapsedLabel=null;
         root=stack(); root.setBackgroundColor(BACK);
         ViewCompat.setOnApplyWindowInsetsListener(root,(v,insets)->{
             androidx.core.graphics.Insets b=insets.getInsets(WindowInsetsCompat.Type.systemBars());
@@ -120,14 +139,29 @@ public final class RookstrideActivity extends AppCompatActivity implements VpnSt
         if(!message.isEmpty() || busy) {
             TextView status=text((busy?"Working · ":"")+message,12,busy?RED:MUTED,false); status.setPadding(dp(22),0,dp(22),dp(10));root.addView(status);
         }
+        InstallationProgress progress=currentProgress();
+        if(progress!=null){
+            LinearLayout shortcut=stack();shortcut.setPadding(dp(22),0,dp(22),dp(10));
+            deploymentLabel=text(progressSummary(progress)+" · Tap to view",12,RED,true);shortcut.addView(deploymentLabel);
+            deploymentBar=new ProgressBar(this,null,android.R.attr.progressBarStyleHorizontal);deploymentBar.setMax(progress.steps().length);deploymentBar.setProgress(progress.completed);shortcut.addView(deploymentBar,new LinearLayout.LayoutParams(-1,dp(8)));
+            shortcut.setFocusable(true);shortcut.setContentDescription("View installation progress");shortcut.setOnClickListener(v->{tab="Progress";render();});root.addView(shortcut);
+        }
         if(demo) {
             TextView note=text("Sample data. No server is connected.",12,RED,true); note.setPadding(dp(22),0,dp(22),dp(10)); root.addView(note);
         }
-        if(tab.equals("Guide")) {
+        if(tab.equals("Stories")) {
+            storyView=new WebView(this);storyView.setBackgroundColor(Color.WHITE);
+            storyView.getSettings().setJavaScriptEnabled(true);storyView.getSettings().setAllowFileAccess(false);storyView.getSettings().setAllowContentAccess(false);
+            storyView.getSettings().setBlockNetworkLoads(true);storyView.getSettings().setDomStorageEnabled(false);
+            storyVoice=new StoryVoice(this,storyView);storyView.addJavascriptInterface(storyVoice,"RookVoice");
+            storyView.setWebViewClient(new OfflineStories(this));storyView.loadUrl(getSharedPreferences("rookstride-ui",0).getString("storyUrl","https://rookstride.invalid/stories/index.html"));
+            root.addView(storyView,new LinearLayout.LayoutParams(-1,0,1));
+        } else if(tab.equals("Guide")) {
             WebView guide=new WebView(this); guide.setBackgroundColor(Color.WHITE);
             guide.getSettings().setJavaScriptEnabled(false); guide.getSettings().setAllowFileAccess(false); guide.getSettings().setAllowContentAccess(false);
             guide.setWebViewClient(new WebViewClient() {
                 @Override public boolean shouldOverrideUrlLoading(WebView v,WebResourceRequest r) {
+                    if("rookstride:stories".equals(r.getUrl().toString())){tab="Stories";render();return true;}
                     if("rookstride:licenses".equals(r.getUrl().toString()) || "rookstride:guide".equals(r.getUrl().toString())) {
                         String asset=r.getUrl().toString().endsWith("licenses")?"licenses.html":"guide.html";
                         try(InputStream in=getAssets().open(asset)) {v.loadDataWithBaseURL("https://rookstride.invalid/",new String(read(in,250000),StandardCharsets.UTF_8),"text/html","UTF-8",null);}catch(Exception e){error(e);}return true;
@@ -141,15 +175,60 @@ public final class RookstrideActivity extends AppCompatActivity implements VpnSt
             root.addView(guide,new LinearLayout.LayoutParams(-1,0,1));
         } else {
             ScrollView scroll=new ScrollView(this); scroll.setFillViewport(true); body=stack(); body.setPadding(dp(20),dp(4),dp(20),dp(24)); scroll.addView(body); root.addView(scroll,new LinearLayout.LayoutParams(-1,0,1));
-            if(tab.equals("Gateways")) gatewayScreen(); else if(tab.equals("People")) peopleScreen(); else connectionsScreen();
+            if(tab.equals("Progress"))progressScreen();else if(tab.equals("Gateways")) gatewayScreen(); else if(tab.equals("People")) peopleScreen(); else connectionsScreen();
         }
         LinearLayout navigation=row(); navigation.setPadding(dp(8),dp(8),dp(8),dp(8)); navigation.setBackgroundColor(Color.WHITE);
-        for(String name:new String[]{"Gateways","People","Sessions","Guide"}) {
-            Button v=button(name,false,()->{tab=name;message="";render();}); v.setTextSize(12); v.setPadding(0,0,0,0);
+        for(String name:new String[]{"Gateways","People","Sessions","Guide","Stories"}) {
+            Button v=browseButton(name,()->{tab=name;message="";render();}); v.setTextSize(12); v.setPadding(0,0,0,0);
             v.setTextColor(tab.equals(name)?RED:MUTED); v.setBackground(shape(tab.equals(name)?Color.rgb(255,237,238):Color.WHITE,12));
             navigation.addView(v,new LinearLayout.LayoutParams(0,dp(45),1));
         }
         root.addView(navigation); setContentView(root); ViewCompat.requestApplyInsets(root);
+    }
+
+    private Button browseButton(String title,Runnable action){
+        Button b=button(title,false,action);b.setEnabled(true);b.setOnClickListener(v->action.run());return b;
+    }
+    private InstallationProgress currentProgress(){
+        DeploymentService.Session s=DeploymentService.current();if(s!=null)return s.progress;
+        try{String raw=getSharedPreferences("rookstride-deployment",0).getString("progress","");if(raw.isEmpty())return null;InstallationProgress p=InstallationProgress.from(new JSONObject(raw));if(p.state.equals("running")){p.state="needs-attention";p.phase="Phone polling ended. Detached VPS jobs may continue; check the recorded installation.";}return p;}catch(Exception e){return null;}
+    }
+    private String progressSummary(InstallationProgress p){return (p.kind.equals("pair")?"Two-server":p.kind.equals("enroll")?"Enrollment":"Single-server")+" setup · "+p.completed+" / "+p.steps().length+" complete · "+p.state.replace('-',' ');}
+    private void deploymentChanged(){
+        if(isFinishing()||isDestroyed())return;
+        InstallationProgress p=currentProgress();if(p!=null){if(deploymentLabel!=null)deploymentLabel.setText(progressSummary(p)+" · Tap to view");if(deploymentBar!=null)deploymentBar.setProgress(p.completed);if(tab.equals("Progress")&&body!=null){body.removeAllViews();progressScreen();}}
+        DeploymentService.Session s=DeploymentService.current();
+        if(s!=null&&s.error!=null&&handledDeploymentError!=s.error){
+            handledDeploymentError=s.error;Exception e=s.error;
+            if(e instanceof PairController.TrustNeeded){PairController.TrustNeeded t=(PairController.TrustNeeded)e;trust(t.node,t.issue,()->startDeployment(s.node,s.progress.kind,s.config,s.resume));}
+            else if(e instanceof Ssh.HostTrust)trust(s.node,(Ssh.HostTrust)e,()->startDeployment(s.node,s.progress.kind,s.config,s.resume));
+            else if(e instanceof PairController.RebootNeeded){PairController.RebootNeeded r=(PairController.RebootNeeded)e;new AlertDialog.Builder(this).setTitle("Node reboot required").setMessage(r.getMessage()).setNegativeButton("Later",null).setPositiveButton("Reboot this node",(x,w)->withSsh(r.node,"Scheduling the owned reboot",ssh->ssh.pair(json("command","reboot","pair",s.node.get("pairId"))),j->{message="Reboot requested. Wait for SSH, then resume the pair.";render();})).show();}
+            else error(e);
+        }
+    }
+    private void startDeployment(Gateway node,String kind,JSONObject config,boolean resume){
+        if(busy||DeploymentService.active())return;
+        if(!hasAuth(node)){passwordDialog(node,()->startDeployment(node,kind,config,resume));return;}
+        if(node.isPair()&&!hasAuth(node.exit)){passwordDialog(node.exit,()->startDeployment(node,kind,config,resume));return;}
+        if(node.sshRelay!=null&&!hasAuth(node.sshRelay)){passwordDialog(node.sshRelay,()->startDeployment(node,kind,config,resume));return;}
+        if(Build.VERSION.SDK_INT>=33&&checkSelfPermission(android.Manifest.permission.POST_NOTIFICATIONS)!=android.content.pm.PackageManager.PERMISSION_GRANTED)requestPermissions(new String[]{android.Manifest.permission.POST_NOTIFICATIONS},85);
+        try{DeploymentService.launch(this,node,gateways,kind,config,resume);tab="Progress";render();}catch(Exception e){error(e);}
+    }
+    private void progressScreen(){
+        InstallationProgress p=currentProgress();title("Rook is on the route.","Browse the guide or stories while setup runs. Return here using the progress shortcut.");
+        if(p==null){empty("No installation has started yet.");return;}
+        LinearLayout hero=card();LinearLayout head=row();ImageView rook=new ImageView(this);rook.setImageResource(p.state.equals("complete")?R.drawable.rook_celebrate:!p.state.equals("running")?R.drawable.rook_wait:p.completed<2?R.drawable.rook_map:p.completed<5?R.drawable.rook_builder:R.drawable.rook_lantern);rook.setContentDescription("Rook, your installation guide");head.addView(rook,new LinearLayout.LayoutParams(dp(90),dp(90)));
+        LinearLayout copy=stack();copy.addView(text(progressSummary(p),17,INK,true));copy.addView(text(p.phase,13,MUTED,false));head.addView(copy,new LinearLayout.LayoutParams(0,-2,1));hero.addView(head);
+        if(p.state.equals("running")&&android.provider.Settings.Global.getFloat(getContentResolver(),android.provider.Settings.Global.ANIMATOR_DURATION_SCALE,1)>0){android.animation.ObjectAnimator motion=android.animation.ObjectAnimator.ofFloat(rook,"rotation",-4f,4f);motion.setDuration(1800);motion.setRepeatCount(android.animation.ValueAnimator.INFINITE);motion.setRepeatMode(android.animation.ValueAnimator.REVERSE);motion.start();rook.addOnAttachStateChangeListener(new View.OnAttachStateChangeListener(){public void onViewAttachedToWindow(View v){}public void onViewDetachedFromWindow(View v){motion.cancel();}});}
+        ProgressBar bar=new ProgressBar(this,null,android.R.attr.progressBarStyleHorizontal);bar.setMax(p.steps().length);bar.setProgress(p.completed);hero.addView(bar,new LinearLayout.LayoutParams(-1,dp(12)));
+        elapsedLabel=text(p.remaining()+" · "+p.elapsed(System.currentTimeMillis()),12,RED,true);hero.addView(elapsedLabel);space(hero,8);hero.addView(text(p.estimate(),13,INK,true));hero.addView(text("A planning range, not a countdown. Package downloads, network waits and a required reboot can take longer. The bar counts finished checkpoints.",12,MUTED,false));
+        if(p.state.equals("running")){ProgressBar working=new ProgressBar(this);working.setContentDescription("Waiting for the current server stage");hero.addView(working,new LinearLayout.LayoutParams(dp(24),dp(24)));}
+        LinearLayout stages=card();String[] names=p.steps();for(int i=0;i<names.length;i++){String symbol=i<p.completed?"✓":i==p.completed&&p.state.equals("running")?"›":"○";stages.addView(text(symbol+"  "+(i+1)+". "+names[i],14,i==p.completed?RED:INK,i==p.completed));space(stages,12);}
+        LinearLayout reading=card();reading.addView(text("Keep exploring.",20,INK,true));Button stories=browseButton("Read Rook’s worlds",()->{tab="Stories";render();});reading.addView(stories,new LinearLayout.LayoutParams(-1,dp(48)));space(reading,8);reading.addView(browseButton("Learn the architecture",()->{tab="Guide";render();}),new LinearLayout.LayoutParams(-1,dp(48)));
+        if(!p.state.equals("running")&&!p.state.equals("complete")){
+            reading.addView(text("A stopped phone coordinator does not cancel detached VPS jobs. Resume uses the recorded owner and stages. Do not reset a running job.",13,MUTED,false));
+            fullButton(reading,"Check and resume",true,()->{Gateway n=null;for(Gateway g:gateways)if(g.get("id").equals(p.gatewayId))n=g;if(n==null){error(new IOException("Open the saved gateway and inspect its job first."));return;}selected=n;if(n.isPair())runPair(n,true);else if(!n.get("job").isEmpty())pollJob(n);else inspect(n);});
+        }
     }
 
     private void gatewayPicker() {
@@ -281,7 +360,7 @@ public final class RookstrideActivity extends AppCompatActivity implements VpnSt
     private interface Task {JSONObject run(Ssh ssh) throws Exception;}
     private interface Done {void finish(JSONObject result);}
     private void withSsh(Gateway node,String work,Task task,Done done) {
-        if(demo){demoNotice();return;}if(busy)return;
+        if(demo){demoNotice();return;}if(busy || DeploymentService.active())return;
         if(!hasAuth(node)) {passwordDialog(node,()->withSsh(node,work,task,done));return;}
         if(node.sshRelay!=null && !hasAuth(node.sshRelay)){passwordDialog(node.sshRelay,()->withSsh(node,work,task,done));return;}
         busy=true;message=work;render();
@@ -297,7 +376,10 @@ public final class RookstrideActivity extends AppCompatActivity implements VpnSt
             node.set("checked",new java.text.SimpleDateFormat("MMM d, HH:mm",Locale.getDefault()).format(new Date()));
             try {node.data.put("probe",p);if(p.has("status"))node.data.put("snapshot",p.getJSONObject("status"));}catch(JSONException ignored){}
             JSONObject job=p.optJSONObject("job");
-            if(job!=null && InputRules.job(job.optString("job")) && (job.optString("state").equals("running") || job.optString("state").equals("starting"))) {
+            InstallationProgress recorded=currentProgress();
+            boolean recovering=recorded!=null&&recorded.gatewayId.equals(node.get("id"))&&!recorded.kind.equals("pair")&&!recorded.state.equals("complete");
+            if(job!=null && InputRules.job(job.optString("job")) && (job.optString("state").equals("running") || job.optString("state").equals("starting") || (recovering&&p.optBoolean("helper")&&job.optString("state").equals("complete")))) {
+                if(recovering)node.set("jobKind",recorded.kind);
                 node.set("job",job.optString("job"));node.set("jobPhase",job.optString("phase"));handler.postDelayed(()->pollJob(node),3000);
             }
             save();if(!p.optBoolean("helper"))message=node.get("job").isEmpty()?"SSH works · "+p.optString("os")+" "+p.optString("version")+" · choose install or enrollment.":"Installation found on the VPS; reconnecting to its status.";
@@ -335,7 +417,7 @@ public final class RookstrideActivity extends AppCompatActivity implements VpnSt
         CheckBox remember=new CheckBox(this);remember.setText("Remember credentials securely on this phone");remember.setChecked(node!=null && node.remember());f.addView(remember);
         if(node!=null)fullButton(f,"Reset saved SSH identity",false,()->confirm("Reset SSH identity?","Do this after verifying the server was replaced or its SSH keys intentionally changed. The next connection will ask you to verify the new fingerprint.",()->{node.set("fingerprint","");save();editor.dismiss();}));
         editor=new AlertDialog.Builder(this).setTitle(node==null?"Add a gateway":"Gateway settings").setView(scrolling(f)).setNegativeButton("Cancel",null).setPositiveButton("Save",null).create();
-        if(node!=null && pairParent==null)editor.setButton(AlertDialog.BUTTON_NEUTRAL,"Remove saved gateway",(d,w)->confirm("Remove from this phone?","This removes saved access from this app. The VPS and its users continue running.",()->{gateways.remove(node);selected=gateways.isEmpty()?null:gateways.get(0);save();render();}));
+        if(node!=null && pairParent==null)editor.setButton(AlertDialog.BUTTON_NEUTRAL,"Remove saved gateway",(d,w)->confirm("Remove from this phone?","This removes saved access from this app. The VPS and its users continue running.",()->{DeploymentService.forget(this,node);gateways.remove(node);selected=gateways.isEmpty()?null:gateways.get(0);save();render();}));
         editor.show();secure(editor);
         editor.getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener(v->{
             try {
@@ -366,7 +448,7 @@ public final class RookstrideActivity extends AppCompatActivity implements VpnSt
             if(!enroll && (!InputRules.username(u)||pw.length()<16)){Toast.makeText(this,"Use a valid login and a password of at least 16 characters.",1).show();return;}
             JSONObject config=json("mode",enroll?"enroll":"install","server",node.get("host"),"login",u,"password",pw,"statistics",stats.isChecked());
             if(!enroll){node.set("vpnLogin",u);node.vpnPassword=pw;save();}
-            d.dismiss();withSsh(node,"Starting installation",ssh->{try(InputStream bundle=getAssets().open("gateway_bundle.zip")){return ssh.deploy(bundle,config);}},r->{node.set("job",r.optString("job"));node.set("jobPhase","Installation started on the VPS");save();handler.postDelayed(()->pollJob(node),3000);});
+            d.dismiss();startDeployment(node,enroll?"enroll":"single",config,false);
         });
     }
     private void addPair() {
@@ -404,22 +486,10 @@ public final class RookstrideActivity extends AppCompatActivity implements VpnSt
         }catch(Exception e){Toast.makeText(this,e.getMessage(),Toast.LENGTH_LONG).show();}});
     }
     private void runPair(Gateway node,boolean resume) {
-        if(demo){demoNotice();return;}if(busy)return;
+        if(demo){demoNotice();return;}if(busy || DeploymentService.active())return;
         if(!hasAuth(node)){passwordDialog(node,()->runPair(node,resume));return;}
         if(!hasAuth(node.exit)){passwordDialog(node.exit,()->runPair(node,resume));return;}
-        busy=true;message="Checking both server identities";node.set("pairPhase",message);save();render();
-        executor.execute(()->{
-            try {
-                JSONObject result=PairController.install(node,()->getAssets().open("gateway_bundle.zip"),phase->handler.post(()->{if(!isFinishing()){message=phase;node.set("pairPhase",phase);save();render();}}),resume);
-                handler.post(()->{try {
-                    busy=false;message="Two-hop pair installed and staged checks passed. Verify the complete route on your phone.";node.set("pairPhase","Ready · IPv4 exit "+result.optString("exit_ip"));node.data.put("snapshot",result.getJSONObject("entry"));node.exit.data.put("snapshot",result.getJSONObject("exit"));node.set("checked","Pair installation checked");save();render();
-                }catch(Exception e){error(e);}});
-            }catch(Exception e){handler.post(()->{busy=false;message="";node.set("pairPhase","Needs attention · resume the recorded step");save();render();
-                if(e instanceof PairController.TrustNeeded){PairController.TrustNeeded t=(PairController.TrustNeeded)e;trust(t.node,t.issue,()->runPair(node,resume));}
-                else if(e instanceof PairController.RebootNeeded){PairController.RebootNeeded r=(PairController.RebootNeeded)e;new AlertDialog.Builder(this).setTitle("Node reboot required").setMessage(r.getMessage()).setNegativeButton("Later",null).setPositiveButton("Reboot this node",(x,w)->withSsh(r.node,"Scheduling the owned reboot",s->s.pair(json("command","reboot","pair",node.get("pairId"))),j->{message="Reboot requested. Wait for SSH, then resume the pair.";render();})).show();}
-                else error(e);
-            });}
-        });
+        startDeployment(node,"pair",null,resume);
     }
     private void refreshPair(Gateway node) {
         withSsh(node,"Checking the entry",s->s.admin(json("action","status")),a->{try{node.data.put("snapshot",a);}catch(JSONException e){error(e);}
@@ -428,7 +498,7 @@ public final class RookstrideActivity extends AppCompatActivity implements VpnSt
     }
 
     private void resetPair(Gateway node) {
-        if(demo){demoNotice();return;}if(busy)return;
+        if(demo){demoNotice();return;}if(busy || DeploymentService.active())return;
         if(!hasAuth(node)){passwordDialog(node,()->resetPair(node));return;}
         if(!hasAuth(node.exit)){passwordDialog(node.exit,()->resetPair(node));return;}
         busy=true;message="Reviewing both VPN nodes";render();
@@ -445,7 +515,7 @@ public final class RookstrideActivity extends AppCompatActivity implements VpnSt
                     if(vpn!=null && vpn.getProfile()!=null && vpn.getProfile().getUUID().toString().equals(node.get("profileUuid")))vpn.disconnect();
                     busy=true;message="Removing pair data";render();executor.execute(()->{try {
                         PairResetController.apply(node,review,"DELETE PAIR",()->getAssets().open("gateway_bundle.zip"),p->handler.post(()->{message=p;render();}));
-                        handler.post(()->{try{busy=false;VpnProfileDataSource source=new VpnProfileSource(this);source.open();try{VpnProfile p=source.getVpnProfile(node.get("profileUuid"));if(p!=null)source.deleteVpnProfile(p);}finally{source.close();}node.data.remove("snapshot");node.exit.data.remove("snapshot");node.set("pairId",PairController.newId());node.set("pairPhase","Fresh nodes · ready to install");node.set("profileUuid","");save();message="Both nodes reset. Ubuntu and SSH retained.";render();}catch(Exception e){error(e);}});
+                        handler.post(()->{try{busy=false;VpnProfileDataSource source=new VpnProfileSource(this);source.open();try{VpnProfile p=source.getVpnProfile(node.get("profileUuid"));if(p!=null)source.deleteVpnProfile(p);}finally{source.close();}DeploymentService.forget(this,node);node.data.remove("snapshot");node.exit.data.remove("snapshot");node.set("pairId",PairController.newId());node.set("pairPhase","Fresh nodes · ready to install");node.set("profileUuid","");save();message="Both nodes reset. Ubuntu and SSH retained.";render();}catch(Exception e){error(e);}});
                     }catch(Exception e){handler.post(()->{busy=false;message="Reset stopped. Review again to finish the remaining owned node.";render();error(e);});}});
                 });
             });
@@ -464,19 +534,14 @@ public final class RookstrideActivity extends AppCompatActivity implements VpnSt
                 if(vpn!=null && vpn.getProfile()!=null && vpn.getProfile().getUUID().toString().equals(node.get("profileUuid"))) vpn.disconnect();
                 withSsh(node,"Removing gateway data",ssh->{try(InputStream bundle=getAssets().open("gateway_bundle.zip")){return ssh.reset(bundle,json("mode","apply","token",plan.getString("token"),"confirmation","DELETE VPN"));}},r->{
                     try {VpnProfileDataSource source=new VpnProfileSource(this);source.open();try{VpnProfile p=source.getVpnProfile(node.get("profileUuid"));if(p!=null)source.deleteVpnProfile(p);}finally{source.close();}
-                    node.data.remove("snapshot");node.set("checked","");node.set("profileUuid","");node.set("job","");node.set("vpnLogin","");node.vpnPassword="";save();message=r.optString("message");render();}catch(Exception e){error(e);}
+                    DeploymentService.forget(this,node);node.data.remove("snapshot");node.set("checked","");node.set("profileUuid","");node.set("job","");node.set("vpnLogin","");node.vpnPassword="";save();message=r.optString("message");render();}catch(Exception e){error(e);}
                 });
             });
         });
     }
     private void pollJob(Gateway node) {
         if(demo){demoNotice();return;}if(node.get("job").isEmpty())return;
-        withSsh(node,"Checking installation",s->s.job(node.get("job")),r->{
-            node.set("jobPhase",r.optString("phase"));String state=r.optString("state");
-            if(state.equals("complete")){node.set("job","");save();inspect(node);}
-            else if(state.equals("failed")){save();error(new IOException(r.optString("phase")));}
-            else {save();handler.postDelayed(()->{if(!isFinishing() && !busy)pollJob(node);},5000);}
-        });
+        startDeployment(node,node.get("jobKind").equals("enroll")?"enroll":"single",new JSONObject(),true);
     }
     private void addUser(Gateway node) {
         if(demo){demoNotice();return;}
@@ -563,7 +628,7 @@ public final class RookstrideActivity extends AppCompatActivity implements VpnSt
     private void onboarding(int index) {
         String[] headlines={"Your server.\nYour route.","Build once.\nShare with intent.","Know your\nprotection."};
         String[] copies={"Add a fresh Ubuntu VPS using its SSH login. Rookstride installs the VPN and helps you manage it from your phone.","Keep administrator access on your phone. Give others VPN profiles for the official StrongSwan app. Label separate device logins when you want individual usage and revocation.","The VPN protects traffic to your VPS and changes the exit IP. AdGuard blocks DNS names; it cannot remove every ad. Check IP, DNS and IPv6 on each actual device."};
-        LinearLayout f=form();ImageView icon=new ImageView(this);icon.setImageResource(R.drawable.rook_mascot);f.addView(icon,new LinearLayout.LayoutParams(-1,dp(150)));f.addView(text(String.format(Locale.US,"0%d / 03",index+1),12,RED,true));space(f,12);f.addView(text(headlines[index],31,INK,true));space(f,14);f.addView(text(copies[index],15,MUTED,false));
+        LinearLayout f=form();ImageView icon=new ImageView(this);icon.setImageResource(index==0?R.drawable.rook_guide:index==1?R.drawable.rook_map:R.drawable.rook_lantern);f.addView(icon,new LinearLayout.LayoutParams(-1,dp(150)));f.addView(text(String.format(Locale.US,"0%d / 03",index+1),12,RED,true));space(f,12);f.addView(text(headlines[index],31,INK,true));space(f,14);f.addView(text(copies[index],15,MUTED,false));
         AlertDialog d=new AlertDialog.Builder(this).setView(f).setCancelable(false).setPositiveButton(index==2?"Get started":"Continue",(a,w)->{if(index<2)onboarding(index+1);else{getSharedPreferences("rookstride-ui",0).edit().putBoolean("onboarded",true).apply();render();}}).setNegativeButton("Read guide",(a,w)->{getSharedPreferences("rookstride-ui",0).edit().putBoolean("onboarded",true).apply();tab="Guide";render();}).create();d.show();
     }
     private void openDemo() {

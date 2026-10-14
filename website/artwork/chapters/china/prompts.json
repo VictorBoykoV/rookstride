@@ -1,0 +1,669 @@
+{
+  "license": "GPL-3.0-or-later",
+  "generator": "OpenAI built-in image_gen",
+  "use_case": "illustration-story",
+  "assets": [
+    {
+      "world": "china",
+      "id": "river-welcome",
+      "prompt": "Use case: illustration-story. Create a finished ORIGINAL Rookstride storybook comic chapter in one SQUARE 1024x1024 illustration, exactly FOUR equal square panels in a tidy 2x2 grid, consistent 16px cream central gutters, no outer title. Reading order top-left, top-right, bottom-left, bottom-right. Reference image 1 supplies exact Rook identity and pen-and-ink watercolor style; reference image 2 supplies this world's environment. Rook is the SAME small bright red bird with a swept two-feather crest, large white oval eye and black pupil, short triangular beak, dark charcoal scarf, cream cross-body satchel, brass lantern and paper atlas, NEVER a human. Warm textured paper, lively fine dark ink, muted ochres and blue-grey shadows, vivid red bird as focal point. All supporting characters are friendly original anthropomorphic animals, expressive and distinctive. Mei is a brown otter printer wearing a plain blue smock, Lin a grey heron in a work vest, Shen a brown otter ferryman, Jun a young fox. This river world mixes lively contemporary ordinary daily life with Chinese-inspired canals, willow trees, tiled roofs, wooden workshops; no uniform ethnic caricatures, rulers, national flags or national villains. EACH panel must depict the DIFFERENT specified scene faithfully, with meaningful action, varied framing and clear props. Keep important subjects away from the central gutters. Captions and narrative will be rendered by the website outside the art, therefore absolutely NO readable writing, NO title, NO speech bubbles, NO letters, NO numerals, NO typography, NO watermarks; documents may have tiny abstract nonlinguistic marks only. No imitation of existing franchises.\nChapter: The river welcome. Theme: Learn the local signs before following them. Summary: Mei helps Rook find a meeting place without assuming every sign speaks his language.\nTOP LEFT: Rook waits at a river-port information desk after mistaking a festival lantern sign for Mei’s workshop marker; Mei arrives with a blue umbrella. Key prop: A misunderstood sign.\nTOP RIGHT: Mei and a shopkeeper help Rook compare a public route map with a simple verified sketch beside a busy printing street. Key prop: A verified sketch.\nBOTTOM LEFT: Mei reads Sima’s introduction at the workshop table while Rook sets down Leila’s credited notebook and shared books beside a kettle. Key prop: Friendships before arrival.\nBOTTOM RIGHT: Rook holds a newly printed contact-and-route card as festival lanterns glow above the river and Mei closes her workshop for the evening. Key prop: A small printed card.",
+      "references": [
+        "website/artwork/rook-harbor.png",
+        "website/artwork/worlds/world-china.png"
+      ],
+      "repairs": [
+        {
+          "prompt": "Edit ONLY unwanted writing and bubbles in this existing four-panel illustration. Remove the floating white question-mark thought bubble above Rook in the top-left panel; reconstruct the natural river scenery there seamlessly. Replace all writing-like marks on signs and maps throughout panels with simple nonlinguistic pictograms (a leaf, a boat silhouette, or tiny river drawing). No letters in any alphabet, no questions, no speech or thought bubbles, no typography. Keep ALL four scenes, characters, layout, central gutters, color palette, architecture and story props otherwise completely unchanged. This must remain the same 2x2 four-panel original storybook comic, square composition.",
+          "reference": "website/artwork/chapters/china/river-welcome.png",
+          "initial_generated_filename": "exec-9f30da4b-c921-41ab-89fe-a2a4e10bee27.png"
+        }
+      ],
+      "master": "website/artwork/chapters/china/river-welcome.png",
+      "asset": "website/brand/chapters/china/river-welcome.webp",
+      "master_dimensions": [
+        1254,
+        1254
+      ],
+      "asset_dimensions": [
+        1024,
+        1024
+      ],
+      "asset_bytes": 169124,
+      "quality": 40,
+      "panels": [
+        {
+          "page": 1,
+          "crop_percent": [
+            0,
+            0,
+            50,
+            50
+          ]
+        },
+        {
+          "page": 2,
+          "crop_percent": [
+            50,
+            0,
+            50,
+            50
+          ]
+        },
+        {
+          "page": 3,
+          "crop_percent": [
+            0,
+            50,
+            50,
+            50
+          ]
+        },
+        {
+          "page": 4,
+          "crop_percent": [
+            50,
+            50,
+            50,
+            50
+          ]
+        }
+      ],
+      "generated_filename": "exec-189e3e7a-43cf-4731-b20e-db9d80d0560c.png",
+      "master_sha256": "80dcc7567e3ffe619dea69a544321c30abd9e406bf2204865c8c1581243865a8",
+      "webp_sha256": "2dc47590d8854b70e491b9714bbefc0b32c6daa7ab557abd352314a0b5175fe7",
+      "inspection": "Four chronological equal grid panels inspected; Rook recognizable; chapter actions distinct; no captions, typography, speech or thought bubbles."
+    },
+    {
+      "world": "china",
+      "id": "bridge-of-many-hands",
+      "prompt": "Use case: illustration-story. Create a finished ORIGINAL Rookstride storybook comic chapter in one SQUARE 1024x1024 illustration, exactly FOUR equal square panels in a tidy 2x2 grid, consistent 16px cream central gutters, no outer title. Reading order top-left, top-right, bottom-left, bottom-right. Reference image 1 supplies exact Rook identity and pen-and-ink watercolor style; reference image 2 supplies this world's environment. Rook is the SAME small bright red bird with a swept two-feather crest, large white oval eye and black pupil, short triangular beak, dark charcoal scarf, cream cross-body satchel, brass lantern and paper atlas, NEVER a human. Warm textured paper, lively fine dark ink, muted ochres and blue-grey shadows, vivid red bird as focal point. All supporting characters are friendly original anthropomorphic animals, expressive and distinctive. Mei is a brown otter printer wearing a plain blue smock, Lin a grey heron in a work vest, Shen a brown otter ferryman, Jun a young fox. This river world mixes lively contemporary ordinary daily life with Chinese-inspired canals, willow trees, tiled roofs, wooden workshops; no uniform ethnic caricatures, rulers, national flags or national villains. EACH panel must depict the DIFFERENT specified scene faithfully, with meaningful action, varied framing and clear props. Keep important subjects away from the central gutters. Captions and narrative will be rendered by the website outside the art, therefore absolutely NO writing whatsoever, NO title, NO speech bubbles, NO thought bubbles, NO question marks, NO exclamation marks, NO letters in any alphabet, NO numerals, NO typography, NO watermarks. BLANK documents containing small pictures ONLY and blank signage containing pictograms ONLY; documents may have tiny abstract nonlinguistic marks only. No imitation of existing franchises.\nReference image 3 is continuity reference for Mei the otter printer, Lin the grey heron, and the exact four-panel layout; do not repeat its plot.\nChapter: The bridge of many hands. Theme: Value living skills and their keepers. Summary: Lin’s covered bridge teaches Rook how a craft survives through shared care.\nTOP LEFT: Lin guides Rook to a covered wooden arch bridge where experienced craftworkers and an apprentice inspect a closed maintenance section from safe work areas. Key prop: A working morning.\nTOP RIGHT: An apprentice and teacher compare repair notebooks beside the bridge frame while Rook and Lin observe from a public path. Key prop: A question for the teacher.\nBOTTOM LEFT: Rook and Lin direct visitors toward an agreed detour while the bridge crew uses its own work lights and a child reads the public history panel. Key prop: Names across generations.\nBOTTOM RIGHT: Visitors cross the reopened bridge while Rook and Lin present a reviewed story copy to the teacher and apprentice beneath the covered frame. Key prop: The next pair of hands.",
+      "references": [
+        "website/artwork/rook-harbor.png",
+        "website/artwork/worlds/world-china.png",
+        "website/artwork/chapters/china/river-welcome.png"
+      ],
+      "master": "website/artwork/chapters/china/bridge-of-many-hands.png",
+      "asset": "website/brand/chapters/china/bridge-of-many-hands.webp",
+      "master_dimensions": [
+        1254,
+        1254
+      ],
+      "asset_dimensions": [
+        1024,
+        1024
+      ],
+      "asset_bytes": 164856,
+      "quality": 25,
+      "panels": [
+        {
+          "page": 1,
+          "crop_percent": [
+            0,
+            0,
+            50,
+            50
+          ]
+        },
+        {
+          "page": 2,
+          "crop_percent": [
+            50,
+            0,
+            50,
+            50
+          ]
+        },
+        {
+          "page": 3,
+          "crop_percent": [
+            0,
+            50,
+            50,
+            50
+          ]
+        },
+        {
+          "page": 4,
+          "crop_percent": [
+            50,
+            50,
+            50,
+            50
+          ]
+        }
+      ],
+      "generated_filename": "exec-cdbd6887-d26b-4ff0-b6c7-653bbf3ebce1.png",
+      "master_sha256": "0d98ee134bd5494e8168f2cccd475f1059fc4eb22be42ac7084d934b5555f54a",
+      "webp_sha256": "8f2971179757623eb315d6a6a4e01f15526d293544a0824c70f5ac1ea0ce6533",
+      "inspection": "Four chronological equal grid panels inspected; Rook recognizable; chapter actions distinct; no captions, typography, speech or thought bubbles."
+    },
+    {
+      "world": "china",
+      "id": "printer-missing-dot",
+      "prompt": "Use case: illustration-story. Create a finished ORIGINAL Rookstride storybook comic chapter in one SQUARE 1024x1024 illustration, exactly FOUR equal square panels in a tidy 2x2 grid, consistent 16px cream central gutters, no outer title. Reading order top-left, top-right, bottom-left, bottom-right. Reference image 1 supplies exact Rook identity and pen-and-ink watercolor style; reference image 2 supplies this world's environment. Rook is the SAME small bright red bird with a swept two-feather crest, large white oval eye and black pupil, short triangular beak, dark charcoal scarf, cream cross-body satchel, brass lantern and paper atlas, NEVER a human. Warm textured paper, lively fine dark ink, muted ochres and blue-grey shadows, vivid red bird as focal point. All supporting characters are friendly original anthropomorphic animals, expressive and distinctive. Mei is a brown otter printer wearing a plain blue smock, Lin a grey heron in a work vest, Shen a brown otter ferryman, Jun a young fox. This river world mixes lively contemporary ordinary daily life with Chinese-inspired canals, willow trees, tiled roofs, wooden workshops; no uniform ethnic caricatures, rulers, national flags or national villains. EACH panel must depict the DIFFERENT specified scene faithfully, with meaningful action, varied framing and clear props. Keep important subjects away from the central gutters. Captions and narrative will be rendered by the website outside the art, therefore absolutely NO writing whatsoever, NO title, NO speech bubbles, NO thought bubbles, NO question marks, NO exclamation marks, NO letters in any alphabet, NO numerals, NO typography, NO watermarks. BLANK documents containing small pictures ONLY and blank signage containing pictograms ONLY; documents may have tiny abstract nonlinguistic marks only. No imitation of existing franchises.\nReference image 3 is continuity reference for Mei the otter printer, Lin the grey heron, and the exact four-panel layout; do not repeat its plot.\nChapter: The printer’s missing dot. Theme: Check meaning before sending a message. Summary: A tiny printing error nearly sends visitors to a closed crossing.\nTOP LEFT: Mei and Rook inspect a freshly printed festival route page at the workshop, with a small missing mark highlighted beside a closed-crossing sketch. Key prop: A missing mark.\nTOP RIGHT: Rook gathers unissued booklets from a public tray while Mei marks a defective stack and Lin reviews the route wording with the workshop team. Key prop: A paused delivery.\nBOTTOM LEFT: An independent reader follows the revised route from the information desk while Rook improves a confusing turn on the workshop’s proof copy. Key prop: A checked proof.\nBOTTOM RIGHT: A family follows the corrected festival booklet to an open river entrance while Rook dates his retained copy beside Mei’s printing table. Key prop: The intended meaning.",
+      "references": [
+        "website/artwork/rook-harbor.png",
+        "website/artwork/worlds/world-china.png",
+        "website/artwork/chapters/china/river-welcome.png"
+      ],
+      "master": "website/artwork/chapters/china/printer-missing-dot.png",
+      "asset": "website/brand/chapters/china/printer-missing-dot.webp",
+      "master_dimensions": [
+        1254,
+        1254
+      ],
+      "asset_dimensions": [
+        1024,
+        1024
+      ],
+      "asset_bytes": 168520,
+      "quality": 30,
+      "panels": [
+        {
+          "page": 1,
+          "crop_percent": [
+            0,
+            0,
+            50,
+            50
+          ]
+        },
+        {
+          "page": 2,
+          "crop_percent": [
+            50,
+            0,
+            50,
+            50
+          ]
+        },
+        {
+          "page": 3,
+          "crop_percent": [
+            0,
+            50,
+            50,
+            50
+          ]
+        },
+        {
+          "page": 4,
+          "crop_percent": [
+            50,
+            50,
+            50,
+            50
+          ]
+        }
+      ],
+      "generated_filename": "exec-856d374d-656d-47c3-b1f5-609da79984c9.png",
+      "master_sha256": "63c3410e0360089530d989a8f0ad9de624d684d9b3cc276f3bac792a28ff631b",
+      "webp_sha256": "b230eb3c90b8398aa176dc7c6c84e4dc181b82b63e1c564d3efd1a58e38cc368",
+      "inspection": "Four chronological equal grid panels inspected; Rook recognizable; chapter actions distinct; no captions, typography, speech or thought bubbles."
+    },
+    {
+      "world": "china",
+      "id": "flute-and-flag",
+      "prompt": "Use case: illustration-story. Create a finished ORIGINAL Rookstride storybook comic chapter in one SQUARE 1024x1024 illustration, exactly FOUR equal square panels in a tidy 2x2 grid, consistent 16px cream central gutters, no outer title. Reading order top-left, top-right, bottom-left, bottom-right. Reference image 1 supplies exact Rook identity and pen-and-ink watercolor style; reference image 2 supplies this world's environment. Rook is the SAME small bright red bird with a swept two-feather crest, large white oval eye and black pupil, short triangular beak, dark charcoal scarf, cream cross-body satchel, brass lantern and paper atlas, NEVER a human. Warm textured paper, lively fine dark ink, muted ochres and blue-grey shadows, vivid red bird as focal point. All supporting characters are friendly original anthropomorphic animals, expressive and distinctive. Mei is a brown otter printer wearing a plain blue smock, Lin a grey heron in a work vest, Shen a brown otter ferryman, Jun a young fox. This river world mixes lively contemporary ordinary daily life with Chinese-inspired canals, willow trees, tiled roofs, wooden workshops; no uniform ethnic caricatures, rulers, national flags or national villains. EACH panel must depict the DIFFERENT specified scene faithfully, with meaningful action, varied framing and clear props. Keep important subjects away from the central gutters. Captions and narrative will be rendered by the website outside the art, therefore absolutely NO writing whatsoever, NO title, NO speech bubbles, NO thought bubbles, NO question marks, NO exclamation marks, NO letters in any alphabet, NO numerals, NO typography, NO watermarks. BLANK documents containing small pictures ONLY and blank signage containing pictograms ONLY; documents may have tiny abstract nonlinguistic marks only. No imitation of existing franchises.\nReference image 3 is continuity reference for Mei the otter printer, Lin the grey heron, and the exact four-panel layout; do not repeat its plot.\nChapter: The flute and the flag. Theme: A shared signal should reach its audience. Summary: Rook discovers that hearing a sound is not the only way to receive a welcome.\nTOP LEFT: Rook begins too early at a riverside rehearsal as a musician’s tune echoes from a wall and a visitor asks about the gathering’s signal. Key prop: An echoed tune.\nTOP RIGHT: Visitors and organizers choose a visible flag and written start time while Rook practices raising the flag with the storyteller and musician. Key prop: A visible welcome.\nBOTTOM LEFT: A steward helps Rook reset the wind-tugged flag from a safe position while the storyteller pauses beside a clearly visible page marker. Key prop: A safe pause.\nBOTTOM RIGHT: Rook and the festival team add their own ideas to a printed signal note while music and lantern reflections drift across the evening river. Key prop: More than one way.",
+      "references": [
+        "website/artwork/rook-harbor.png",
+        "website/artwork/worlds/world-china.png",
+        "website/artwork/chapters/china/river-welcome.png"
+      ],
+      "master": "website/artwork/chapters/china/flute-and-flag.png",
+      "asset": "website/brand/chapters/china/flute-and-flag.webp",
+      "master_dimensions": [
+        1254,
+        1254
+      ],
+      "asset_dimensions": [
+        1024,
+        1024
+      ],
+      "asset_bytes": 171406,
+      "quality": 35,
+      "panels": [
+        {
+          "page": 1,
+          "crop_percent": [
+            0,
+            0,
+            50,
+            50
+          ]
+        },
+        {
+          "page": 2,
+          "crop_percent": [
+            50,
+            0,
+            50,
+            50
+          ]
+        },
+        {
+          "page": 3,
+          "crop_percent": [
+            0,
+            50,
+            50,
+            50
+          ]
+        },
+        {
+          "page": 4,
+          "crop_percent": [
+            50,
+            50,
+            50,
+            50
+          ]
+        }
+      ],
+      "generated_filename": "exec-0e183e63-cd25-4b40-b846-6c831d734c71.png",
+      "master_sha256": "ceff9193922e4119008b333afaa41dc37c0ef9f4c52d4a1580227b5c51d429c4",
+      "webp_sha256": "e1a74d5cb79d67b6c620110d892d5c1487523c4b24c96459e79a691d4b0473a3",
+      "inspection": "Four chronological equal grid panels inspected; Rook recognizable; chapter actions distinct; no captions, typography, speech or thought bubbles."
+    },
+    {
+      "world": "china",
+      "id": "dragon-at-rain-pavilion",
+      "prompt": "Use case: illustration-story. Create a finished ORIGINAL Rookstride storybook comic chapter in one SQUARE 1024x1024 illustration, exactly FOUR equal square panels in a tidy 2x2 grid, consistent 16px cream central gutters, no outer title. Reading order top-left, top-right, bottom-left, bottom-right. Reference image 1 supplies exact Rook identity and pen-and-ink watercolor style; reference image 2 supplies this world's environment. Rook is the SAME small bright red bird with a swept two-feather crest, large white oval eye and black pupil, short triangular beak, dark charcoal scarf, cream cross-body satchel, brass lantern and paper atlas, NEVER a human. Warm textured paper, lively fine dark ink, muted ochres and blue-grey shadows, vivid red bird as focal point. All supporting characters are friendly original anthropomorphic animals, expressive and distinctive. Mei is a brown otter printer wearing a plain blue smock, Lin a grey heron in a work vest, Shen a brown otter ferryman, Jun a young fox. This river world mixes lively contemporary ordinary daily life with Chinese-inspired canals, willow trees, tiled roofs, wooden workshops; no uniform ethnic caricatures, rulers, national flags or national villains. EACH panel must depict the DIFFERENT specified scene faithfully, with meaningful action, varied framing and clear props. Keep important subjects away from the central gutters. Captions and narrative will be rendered by the website outside the art, therefore absolutely NO writing whatsoever, NO title, NO speech bubbles, NO thought bubbles, NO question marks, NO exclamation marks, NO letters in any alphabet, NO numerals, NO typography, NO watermarks. BLANK documents containing small pictures ONLY and blank signage containing pictograms ONLY; documents may have tiny abstract nonlinguistic marks only. No imitation of existing franchises.\nReference image 3 is continuity reference for Mei the otter printer, Lin the grey heron, and the exact four-panel layout; do not repeat its plot.\nChapter: The dragon at the rain pavilion. Theme: Fear can hide a request for quiet. Summary: A restless dragon and busy neighbors find room for one another.\nTOP LEFT: Willow, a long gentle river dragon, curls beneath a pavilion as distant festival drums unsettle her and Rook asks to speak from a visible safe distance. Key prop: A lost quiet request.\nTOP RIGHT: Rook carries a request between festival organizers and gardeners while Willow waits beside the pavilion, with a sheltered garden visible beyond the busy stage. Key prop: An agreed invitation.\nBOTTOM LEFT: Willow rests without disturbing plants in the sheltered garden as Lin marks a public detour and Rook places a child’s sleeping-cloud sign beside the entrance. Key prop: A sleeping cloud.\nBOTTOM RIGHT: Willow enjoys quiet evening music beside the gardeners and Rook, with folded chairs and a reviewed story account resting near the pavilion. Key prop: The final song.",
+      "references": [
+        "website/artwork/rook-harbor.png",
+        "website/artwork/worlds/world-china.png",
+        "website/artwork/chapters/china/river-welcome.png"
+      ],
+      "master": "website/artwork/chapters/china/dragon-at-rain-pavilion.png",
+      "asset": "website/brand/chapters/china/dragon-at-rain-pavilion.webp",
+      "master_dimensions": [
+        1254,
+        1254
+      ],
+      "asset_dimensions": [
+        1024,
+        1024
+      ],
+      "asset_bytes": 179366,
+      "quality": 30,
+      "panels": [
+        {
+          "page": 1,
+          "crop_percent": [
+            0,
+            0,
+            50,
+            50
+          ]
+        },
+        {
+          "page": 2,
+          "crop_percent": [
+            50,
+            0,
+            50,
+            50
+          ]
+        },
+        {
+          "page": 3,
+          "crop_percent": [
+            0,
+            50,
+            50,
+            50
+          ]
+        },
+        {
+          "page": 4,
+          "crop_percent": [
+            50,
+            50,
+            50,
+            50
+          ]
+        }
+      ],
+      "generated_filename": "exec-cf30e388-d91b-4e09-bafb-33138ba681e9.png",
+      "master_sha256": "81c4776a4a8af6b7e53ee1a64a6c9c89dd3871b6642a221bb6e3f6b634adfd15",
+      "webp_sha256": "641d42f34c34b1f7e5806b58ccb465f3388940700874d149dbefa7dc5b099777",
+      "inspection": "Four chronological equal grid panels inspected; Rook recognizable; chapter actions distinct; no captions, typography, speech or thought bubbles."
+    },
+    {
+      "world": "china",
+      "id": "moon-gate",
+      "prompt": "Use case: illustration-story. Create a finished ORIGINAL Rookstride storybook comic chapter in one SQUARE 1024x1024 illustration, exactly FOUR equal square panels in a tidy 2x2 grid, consistent 16px cream central gutters, no outer title. Reading order top-left, top-right, bottom-left, bottom-right. Reference image 1 supplies exact Rook identity and pen-and-ink watercolor style; reference image 2 supplies this world's environment. Rook is the SAME small bright red bird with a swept two-feather crest, large white oval eye and black pupil, short triangular beak, dark charcoal scarf, cream cross-body satchel, brass lantern and paper atlas, NEVER a human. Warm textured paper, lively fine dark ink, muted ochres and blue-grey shadows, vivid red bird as focal point. All supporting characters are friendly original anthropomorphic animals, expressive and distinctive. Mei is a brown otter printer wearing a plain blue smock, Lin a grey heron in a work vest, Shen a brown otter ferryman, Jun a young fox. This river world mixes lively contemporary ordinary daily life with Chinese-inspired canals, willow trees, tiled roofs, wooden workshops; no uniform ethnic caricatures, rulers, national flags or national villains. EACH panel must depict the DIFFERENT specified scene faithfully, with meaningful action, varied framing and clear props. Keep important subjects away from the central gutters. Captions and narrative will be rendered by the website outside the art, therefore absolutely NO writing whatsoever, NO title, NO speech bubbles, NO thought bubbles, NO question marks, NO exclamation marks, NO letters in any alphabet, NO numerals, NO typography, NO watermarks. BLANK documents containing small pictures ONLY and blank signage containing pictograms ONLY; documents may have tiny abstract nonlinguistic marks only. No imitation of existing franchises.\nReference image 3 is continuity reference for Mei the otter printer, Lin the grey heron, and the exact four-panel layout; do not repeat its plot.\nChapter: The moon gate. Theme: A glimpse is not permission to enter. Summary: An inviting garden view needs boundaries its hosts can explain.\nTOP LEFT: Rook pauses at a circular garden doorway as Yu indicates the boundary between a public courtyard and a private meal beyond the next gate. Key prop: A framed view.\nTOP RIGHT: Yu and Rook review a public garden plan with residents and a first-time visitor at a courtyard desk, leaving the private gate closed. Key prop: A tested garden plan.\nBOTTOM LEFT: Rook sketches the empty public courtyard beside a small welcome notice while a resident passes privately beyond the frame and Yu watches the agreed path. Key prop: An agreed sketch.\nBOTTOM RIGHT: Rook joins an invited community supper with his atlas closed in his satchel, framed by the round garden gate and warm evening lights. Key prop: An invitation to supper.",
+      "references": [
+        "website/artwork/rook-harbor.png",
+        "website/artwork/worlds/world-china.png",
+        "website/artwork/chapters/china/river-welcome.png"
+      ],
+      "master": "website/artwork/chapters/china/moon-gate.png",
+      "asset": "website/brand/chapters/china/moon-gate.webp",
+      "master_dimensions": [
+        1254,
+        1254
+      ],
+      "asset_dimensions": [
+        1024,
+        1024
+      ],
+      "asset_bytes": 171126,
+      "quality": 30,
+      "panels": [
+        {
+          "page": 1,
+          "crop_percent": [
+            0,
+            0,
+            50,
+            50
+          ]
+        },
+        {
+          "page": 2,
+          "crop_percent": [
+            50,
+            0,
+            50,
+            50
+          ]
+        },
+        {
+          "page": 3,
+          "crop_percent": [
+            0,
+            50,
+            50,
+            50
+          ]
+        },
+        {
+          "page": 4,
+          "crop_percent": [
+            50,
+            50,
+            50,
+            50
+          ]
+        }
+      ],
+      "generated_filename": "exec-07dda16f-21ce-4459-afdb-4b8d8e29ffb4.png",
+      "master_sha256": "043b6be6d63324571a7cd2ebb9d5d81537b14dd4a21aec3128321131ea1f7263",
+      "webp_sha256": "921d4a746d637e3842ebe8e3299d532930acf5b615366e7adbd7aea0453e1d18",
+      "inspection": "Four chronological equal grid panels inspected; Rook recognizable; chapter actions distinct; no captions, typography, speech or thought bubbles."
+    },
+    {
+      "world": "china",
+      "id": "kite-that-came-down",
+      "prompt": "Use case: illustration-story. Create a finished ORIGINAL Rookstride storybook comic chapter in one SQUARE 1024x1024 illustration, exactly FOUR equal square panels in a tidy 2x2 grid, consistent 16px cream central gutters, no outer title. Reading order top-left, top-right, bottom-left, bottom-right. Reference image 1 supplies exact Rook identity and pen-and-ink watercolor style; reference image 2 supplies this world's environment. Rook is the SAME small bright red bird with a swept two-feather crest, large white oval eye and black pupil, short triangular beak, dark charcoal scarf, cream cross-body satchel, brass lantern and paper atlas, NEVER a human. Warm textured paper, lively fine dark ink, muted ochres and blue-grey shadows, vivid red bird as focal point. All supporting characters are friendly original anthropomorphic animals, expressive and distinctive. Mei is a brown otter printer wearing a plain blue smock, Lin a grey heron in a work vest, Shen a brown otter ferryman, Jun a young fox. This river world mixes lively contemporary ordinary daily life with Chinese-inspired canals, willow trees, tiled roofs, wooden workshops; no uniform ethnic caricatures, rulers, national flags or national villains. EACH panel must depict the DIFFERENT specified scene faithfully, with meaningful action, varied framing and clear props. Keep important subjects away from the central gutters. Captions and narrative will be rendered by the website outside the art, therefore absolutely NO writing whatsoever, NO title, NO speech bubbles, NO thought bubbles, NO question marks, NO exclamation marks, NO letters in any alphabet, NO numerals, NO typography, NO watermarks. BLANK documents containing small pictures ONLY and blank signage containing pictograms ONLY; documents may have tiny abstract nonlinguistic marks only. No imitation of existing franchises.\nReference image 3 is continuity reference for Mei the otter printer, Lin the grey heron, and the exact four-panel layout; do not repeat its plot.\nChapter: The kite that came down. Theme: A smaller safe choice can be the joyful one. Summary: A child’s kite changes course when the wind changes.\nTOP LEFT: Jun and Rook watch a paper-boat kite change direction above a riverside field as a steward observes the crowded walkway nearby. Key prop: A paper-boat kite.\nTOP RIGHT: Jun sits beside her safely lowered creased kite while Rook offers quiet company and the steward keeps the field boundary clear. Key prop: Time to feel disappointed.\nBOTTOM LEFT: Jun and Rook make tiny hanging paper boats and an awkward large-beaked bird at Mei’s workshop while the full-sized kite rests safely against a wall. Key prop: A small paper fleet.\nBOTTOM RIGHT: Jun flies her repaired boat kite at a modest height in the open field while Rook watches and a small paper boat peeks from her bag. Key prop: A flight that fits the day.",
+      "references": [
+        "website/artwork/rook-harbor.png",
+        "website/artwork/worlds/world-china.png",
+        "website/artwork/chapters/china/river-welcome.png"
+      ],
+      "master": "website/artwork/chapters/china/kite-that-came-down.png",
+      "asset": "website/brand/chapters/china/kite-that-came-down.webp",
+      "master_dimensions": [
+        1254,
+        1254
+      ],
+      "asset_dimensions": [
+        1024,
+        1024
+      ],
+      "asset_bytes": 173702,
+      "quality": 35,
+      "panels": [
+        {
+          "page": 1,
+          "crop_percent": [
+            0,
+            0,
+            50,
+            50
+          ]
+        },
+        {
+          "page": 2,
+          "crop_percent": [
+            50,
+            0,
+            50,
+            50
+          ]
+        },
+        {
+          "page": 3,
+          "crop_percent": [
+            0,
+            50,
+            50,
+            50
+          ]
+        },
+        {
+          "page": 4,
+          "crop_percent": [
+            50,
+            50,
+            50,
+            50
+          ]
+        }
+      ],
+      "generated_filename": "exec-bfa26c5c-de32-4e2d-b084-b8374157f65d.png",
+      "master_sha256": "72f401405d123c47e29adff025865224c40984c7b1e6792d0dafe70d022d19ac",
+      "webp_sha256": "dc2ac8d019e031454a98535c9a310184450b55b5409dbba1e72acf745987ecb8",
+      "inspection": "Four chronological equal grid panels inspected; Rook recognizable; chapter actions distinct; no captions, typography, speech or thought bubbles."
+    },
+    {
+      "world": "china",
+      "id": "two-ferries",
+      "prompt": "Use case: illustration-story. Create a finished ORIGINAL Rookstride storybook comic chapter in one SQUARE 1024x1024 illustration, exactly FOUR equal square panels in a tidy 2x2 grid, consistent 16px cream central gutters, no outer title. Reading order top-left, top-right, bottom-left, bottom-right. Reference image 1 supplies exact Rook identity and pen-and-ink watercolor style; reference image 2 supplies this world's environment. Rook is the SAME small bright red bird with a swept two-feather crest, large white oval eye and black pupil, short triangular beak, dark charcoal scarf, cream cross-body satchel, brass lantern and paper atlas, NEVER a human. Warm textured paper, lively fine dark ink, muted ochres and blue-grey shadows, vivid red bird as focal point. All supporting characters are friendly original anthropomorphic animals, expressive and distinctive. Mei is a brown otter printer wearing a plain blue smock, Lin a grey heron in a work vest, Shen a brown otter ferryman, Jun a young fox. This river world mixes lively contemporary ordinary daily life with Chinese-inspired canals, willow trees, tiled roofs, wooden workshops; no uniform ethnic caricatures, rulers, national flags or national villains. EACH panel must depict the DIFFERENT specified scene faithfully, with meaningful action, varied framing and clear props. Keep important subjects away from the central gutters. Captions and narrative will be rendered by the website outside the art, therefore absolutely NO writing whatsoever, NO title, NO speech bubbles, NO thought bubbles, NO question marks, NO exclamation marks, NO letters in any alphabet, NO numerals, NO typography, NO watermarks. BLANK documents containing small pictures ONLY and blank signage containing pictograms ONLY; documents may have tiny abstract nonlinguistic marks only. No imitation of existing franchises.\nReference image 3 is continuity reference for Mei the otter printer, Lin the grey heron, and the exact four-panel layout; do not repeat its plot.\nChapter: The two ferries. Theme: A route remains useful when its alternatives are clear. Summary: Shen helps waiting passengers choose rather than guess.\nTOP LEFT: Passengers gather by Shen’s paused ferry timetable while Rook and Shen compare the downstream ferry’s landing and stairway on a public map. Key prop: Two different landings.\nTOP RIGHT: Shen and Rook post verified ferry and step-free shuttle options; passengers choose from the clear board rather than crowding around guesses. Key prop: Checked alternatives.\nBOTTOM LEFT: Rook guides a passenger to the marked shuttle stop as Shen updates the waiting-time board and the maintenance crew continues its checks. Key prop: A changed estimate.\nBOTTOM RIGHT: Rook and Shen cross the river aboard the checked ferry while an alternate-route card remains on the quay notice board behind them. Key prop: Options that can be used.",
+      "references": [
+        "website/artwork/rook-harbor.png",
+        "website/artwork/worlds/world-china.png",
+        "website/artwork/chapters/china/river-welcome.png"
+      ],
+      "master": "website/artwork/chapters/china/two-ferries.png",
+      "asset": "website/brand/chapters/china/two-ferries.webp",
+      "master_dimensions": [
+        1254,
+        1254
+      ],
+      "asset_dimensions": [
+        1024,
+        1024
+      ],
+      "asset_bytes": 175722,
+      "quality": 35,
+      "panels": [
+        {
+          "page": 1,
+          "crop_percent": [
+            0,
+            0,
+            50,
+            50
+          ]
+        },
+        {
+          "page": 2,
+          "crop_percent": [
+            50,
+            0,
+            50,
+            50
+          ]
+        },
+        {
+          "page": 3,
+          "crop_percent": [
+            0,
+            50,
+            50,
+            50
+          ]
+        },
+        {
+          "page": 4,
+          "crop_percent": [
+            50,
+            50,
+            50,
+            50
+          ]
+        }
+      ],
+      "generated_filename": "exec-2ed408f3-a1de-4732-8ddb-b33a4cd4d436.png",
+      "master_sha256": "1d868f86f15e5c5f88638427bb8d6685378955e6e7e07f99e411c3ec8c79556d",
+      "webp_sha256": "150c79b0b2702d722345bfb5694f24459336a17df33535afe620510a1383cd8a",
+      "inspection": "Four chronological equal grid panels inspected; Rook recognizable; chapter actions distinct; no captions, typography, speech or thought bubbles."
+    },
+    {
+      "world": "china",
+      "id": "roof-garden",
+      "prompt": "Use case: illustration-story. Create a finished ORIGINAL Rookstride storybook comic chapter in one SQUARE 1024x1024 illustration, exactly FOUR equal square panels in a tidy 2x2 grid, consistent 16px cream central gutters, no outer title. Reading order top-left, top-right, bottom-left, bottom-right. Reference image 1 supplies exact Rook identity and pen-and-ink watercolor style; reference image 2 supplies this world's environment. Rook is the SAME small bright red bird with a swept two-feather crest, large white oval eye and black pupil, short triangular beak, dark charcoal scarf, cream cross-body satchel, brass lantern and paper atlas, NEVER a human. Warm textured paper, lively fine dark ink, muted ochres and blue-grey shadows, vivid red bird as focal point. All supporting characters are friendly original anthropomorphic animals, expressive and distinctive. Mei is a brown otter printer wearing a plain blue smock, Lin a grey heron in a work vest, Shen a brown otter ferryman, Jun a young fox. This river world mixes lively contemporary ordinary daily life with Chinese-inspired canals, willow trees, tiled roofs, wooden workshops; no uniform ethnic caricatures, rulers, national flags or national villains. EACH panel must depict the DIFFERENT specified scene faithfully, with meaningful action, varied framing and clear props. Keep important subjects away from the central gutters. Captions and narrative will be rendered by the website outside the art, therefore absolutely NO writing whatsoever, NO title, NO speech bubbles, NO thought bubbles, NO question marks, NO exclamation marks, NO letters in any alphabet, NO numerals, NO typography, NO watermarks. BLANK documents containing small pictures ONLY and blank signage containing pictograms ONLY; documents may have tiny abstract nonlinguistic marks only. No imitation of existing franchises.\nReference image 3 is continuity reference for Mei the otter printer, Lin the grey heron, and the exact four-panel layout; do not repeat its plot. For contemporary roof-garden or train scenes use modern practical architecture, elevators, solar lights, and passenger rail as specified rather than only traditional buildings.\nChapter: The roof garden. Theme: New places can carry old friendships. Summary: A modern city rooftop makes space for a garden conversation.\nTOP LEFT: An elevator opens onto a contemporary roof garden with planters, a weather board, and a small solar-powered light as Mei and Lin greet surprised Rook. Key prop: A new place to meet.\nTOP RIGHT: Rook checks planter labels with the building coordinator while a delivery team uses the approved service route and neighbors study Nima’s credited garden sketch. Key prop: A credited garden sketch.\nBOTTOM LEFT: Neighbors rearrange a movable table between a shaded reading corner and children’s drawing space while Rook sketches only agreed details of the roof garden. Key prop: A negotiated shared place.\nBOTTOM RIGHT: Mei and Rook sit under the roof garden’s small light with a permitted photograph and atlas page, while the city’s northbound station glows beyond. Key prop: A city still being made.",
+      "references": [
+        "website/artwork/rook-harbor.png",
+        "website/artwork/worlds/world-china.png",
+        "website/artwork/chapters/china/river-welcome.png",
+        "website/artwork/worlds/world-russia.png"
+      ],
+      "master": "website/artwork/chapters/china/roof-garden.png",
+      "asset": "website/brand/chapters/china/roof-garden.webp",
+      "master_dimensions": [
+        1254,
+        1254
+      ],
+      "asset_dimensions": [
+        1024,
+        1024
+      ],
+      "asset_bytes": 171962,
+      "quality": 35,
+      "panels": [
+        {
+          "page": 1,
+          "crop_percent": [
+            0,
+            0,
+            50,
+            50
+          ]
+        },
+        {
+          "page": 2,
+          "crop_percent": [
+            50,
+            0,
+            50,
+            50
+          ]
+        },
+        {
+          "page": 3,
+          "crop_percent": [
+            0,
+            50,
+            50,
+            50
+          ]
+        },
+        {
+          "page": 4,
+          "crop_percent": [
+            50,
+            50,
+            50,
+            50
+          ]
+        }
+      ],
+      "generated_filename": "exec-dd4c9c56-6dcb-400c-9d8b-b70f95d64d3b.png",
+      "master_sha256": "0c50e1cedb5a820af0c6bbd2b00d059dde3f8425a31717b5351ec52963b00d59",
+      "webp_sha256": "d1863d02bc5e1bf63a7b6c330052cd51da3f9572be5139de7791b4e02fa1748c",
+      "inspection": "Four chronological equal grid panels inspected; Rook recognizable; chapter actions distinct; no captions, typography, speech or thought bubbles."
+    },
+    {
+      "world": "china",
+      "id": "northbound-window",
+      "prompt": "Use case: illustration-story. Create a finished ORIGINAL Rookstride storybook comic chapter in one SQUARE 1024x1024 illustration, exactly FOUR equal square panels in a tidy 2x2 grid, consistent 16px cream central gutters, no outer title. Reading order top-left, top-right, bottom-left, bottom-right. Reference image 1 supplies exact Rook identity and pen-and-ink watercolor style; reference image 2 supplies this world's environment. Rook is the SAME small bright red bird with a swept two-feather crest, large white oval eye and black pupil, short triangular beak, dark charcoal scarf, cream cross-body satchel, brass lantern and paper atlas, NEVER a human. Warm textured paper, lively fine dark ink, muted ochres and blue-grey shadows, vivid red bird as focal point. All supporting characters are friendly original anthropomorphic animals, expressive and distinctive. Mei is a brown otter printer wearing a plain blue smock, Lin a grey heron in a work vest, Shen a brown otter ferryman, Jun a young fox. This river world mixes lively contemporary ordinary daily life with Chinese-inspired canals, willow trees, tiled roofs, wooden workshops; no uniform ethnic caricatures, rulers, national flags or national villains. EACH panel must depict the DIFFERENT specified scene faithfully, with meaningful action, varied framing and clear props. Keep important subjects away from the central gutters. Captions and narrative will be rendered by the website outside the art, therefore absolutely NO writing whatsoever, NO title, NO speech bubbles, NO thought bubbles, NO question marks, NO exclamation marks, NO letters in any alphabet, NO numerals, NO typography, NO watermarks. BLANK documents containing small pictures ONLY and blank signage containing pictograms ONLY; documents may have tiny abstract nonlinguistic marks only. No imitation of existing franchises.\nReference image 3 is continuity reference for Mei the otter printer, Lin the grey heron, and the exact four-panel layout; do not repeat its plot. For contemporary roof-garden or train scenes use modern practical architecture, elevators, solar lights, and passenger rail as specified rather than only traditional buildings.\nChapter: The northbound window. Theme: A farewell can carry an invitation onward. Summary: Rook boards a train with a new letter and a quieter travel plan.\nTOP LEFT: Mei and Lin give Rook a sealed letter and credited bridge account at a busy northbound station while staff confirm the correct platform. Key prop: A letter for Dasha.\nTOP RIGHT: Rook secures his brass lantern quietly in a passenger carriage as a family settles nearby and the station recedes beyond the window. Key prop: A quieter lantern.\nBOTTOM LEFT: Passengers wait calmly inside a stopped train as Rook points toward the official notice and a boy folds a small paper boat beside the window. Key prop: A paper boat on the train.\nBOTTOM RIGHT: Dasha welcomes Rook at a snowy station, accepting Mei’s unopened letter while the northbound train prepares to continue beyond the mountains. Key prop: A good door.",
+      "references": [
+        "website/artwork/rook-harbor.png",
+        "website/artwork/worlds/world-china.png",
+        "website/artwork/chapters/china/river-welcome.png",
+        "website/artwork/worlds/world-russia.png"
+      ],
+      "master": "website/artwork/chapters/china/northbound-window.png",
+      "asset": "website/brand/chapters/china/northbound-window.webp",
+      "master_dimensions": [
+        1254,
+        1254
+      ],
+      "asset_dimensions": [
+        1024,
+        1024
+      ],
+      "asset_bytes": 170406,
+      "quality": 45,
+      "panels": [
+        {
+          "page": 1,
+          "crop_percent": [
+            0,
+            0,
+            50,
+            50
+          ]
+        },
+        {
+          "page": 2,
+          "crop_percent": [
+            50,
+            0,
+            50,
+            50
+          ]
+        },
+        {
+          "page": 3,
+          "crop_percent": [
+            0,
+            50,
+            50,
+            50
+          ]
+        },
+        {
+          "page": 4,
+          "crop_percent": [
+            50,
+            50,
+            50,
+            50
+          ]
+        }
+      ],
+      "generated_filename": "exec-eebe051b-2ed8-4357-8cc7-35c80875a532.png",
+      "master_sha256": "4c6e24046d7c268057fa34de059b2ff45de4e8fd48080371edee02043959e99d",
+      "webp_sha256": "570373a8d6e868e6079b4e57f356da09a36ba72cfd9344e36b9e0b5264c483c1",
+      "inspection": "Four chronological equal grid panels inspected; Rook recognizable; chapter actions distinct; no captions, typography, speech or thought bubbles."
+    }
+  ],
+  "layout": {
+    "panels": 4,
+    "columns": 2,
+    "rows": 2,
+    "order": [
+      "top-left",
+      "top-right",
+      "bottom-left",
+      "bottom-right"
+    ],
+    "gutters": "Narrow straight cream gutters; generated widths approximate and visually checked."
+  },
+  "conversion": "Whole-canvas RGB conversion, uniform fit to 1024×1024, WebP compression below 180,000 bytes. No content editing, pixel composites, added lettering, or raster crops during conversion.",
+  "created": "2026-10-14"
+}

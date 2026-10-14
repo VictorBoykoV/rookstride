@@ -1,0 +1,302 @@
+{
+  "open-bench": [
+    {
+      "x": 30,
+      "y": 45,
+      "w": 22,
+      "h": 45,
+      "label": "Jo welcomes Rook on the bench"
+    },
+    {
+      "x": 32,
+      "y": 45,
+      "w": 42,
+      "h": 43,
+      "label": "Room beside the usable bench"
+    },
+    {
+      "x": 19,
+      "y": 68,
+      "w": 62,
+      "h": 18,
+      "label": "The open travel atlas"
+    },
+    {
+      "x": 18,
+      "y": 50,
+      "w": 23,
+      "h": 34,
+      "label": "Rook enjoys the evening harbor"
+    }
+  ],
+  "hall-of-voices": [
+    {
+      "x": 29,
+      "y": 30,
+      "w": 25,
+      "h": 28,
+      "label": "Jo listens to the proposals"
+    },
+    {
+      "x": 25,
+      "y": 10,
+      "w": 59,
+      "h": 54,
+      "label": "The visible proposal drawings"
+    },
+    {
+      "x": 59,
+      "y": 33,
+      "w": 9,
+      "h": 15,
+      "label": "The trial lantern"
+    },
+    {
+      "x": 44,
+      "y": 54,
+      "w": 23,
+      "h": 27,
+      "label": "Jo preserves the reviewed drawings"
+    }
+  ],
+  "charter-in-light": [
+    {
+      "x": 63,
+      "y": 48,
+      "w": 31,
+      "h": 15,
+      "label": "Teaching copies carried to safety"
+    },
+    {
+      "x": 16,
+      "y": 56,
+      "w": 77,
+      "h": 32,
+      "label": "The complete source display"
+    },
+    {
+      "x": 49,
+      "y": 10,
+      "w": 33,
+      "h": 40,
+      "label": "Jo checks the missing page"
+    },
+    {
+      "x": 43,
+      "y": 47,
+      "w": 55,
+      "h": 31,
+      "label": "The restored teaching display"
+    }
+  ],
+  "bridge-for-wheels": [
+    {
+      "x": 33,
+      "y": 14,
+      "w": 65,
+      "h": 47,
+      "label": "The crossing drawing and unanswered route"
+    },
+    {
+      "x": 35,
+      "y": 40,
+      "w": 29,
+      "h": 31,
+      "label": "Eli explains his journey"
+    },
+    {
+      "x": 78,
+      "y": 7,
+      "w": 16,
+      "h": 25,
+      "label": "The direction marker under review"
+    },
+    {
+      "x": 23,
+      "y": 32,
+      "w": 20,
+      "h": 20,
+      "label": "Ada keeps the crossing review notes"
+    }
+  ],
+  "signal-for-supper": [
+    {
+      "x": 69,
+      "y": 61,
+      "w": 30,
+      "h": 14,
+      "label": "The closed private delivery record"
+    },
+    {
+      "x": 1,
+      "y": 28,
+      "w": 43,
+      "h": 54,
+      "label": "Bea records the verified update"
+    },
+    {
+      "x": 12,
+      "y": 1,
+      "w": 24,
+      "h": 32,
+      "label": "The current supper notice"
+    },
+    {
+      "x": 50,
+      "y": 46,
+      "w": 14,
+      "h": 24,
+      "label": "The supper-table lantern"
+    }
+  ],
+  "dragon-at-gate": [
+    {
+      "x": 59,
+      "y": 6,
+      "w": 31,
+      "h": 89,
+      "label": "Flint at the closed gate"
+    },
+    {
+      "x": 54,
+      "y": 28,
+      "w": 24,
+      "h": 32,
+      "label": "Ada explains bridge care"
+    },
+    {
+      "x": 73,
+      "y": 23,
+      "w": 23,
+      "h": 29,
+      "label": "The checked public crossing notice"
+    },
+    {
+      "x": 48,
+      "y": 70,
+      "w": 19,
+      "h": 16,
+      "label": "Rook records the changed route"
+    }
+  ],
+  "courier-without-labels": [
+    {
+      "x": 5,
+      "y": 55,
+      "w": 40,
+      "h": 23,
+      "label": "The private arrival ledger"
+    },
+    {
+      "x": 1,
+      "y": 24,
+      "w": 42,
+      "h": 48,
+      "label": "Sam chooses a tree drawing"
+    },
+    {
+      "x": 28,
+      "y": 62,
+      "w": 35,
+      "h": 14,
+      "label": "The child’s revised colorful entry"
+    },
+    {
+      "x": 7,
+      "y": 5,
+      "w": 70,
+      "h": 48,
+      "label": "The voluntary travelers’ drawings"
+    }
+  ],
+  "paper-plane-promise": [
+    {
+      "x": 31,
+      "y": 58,
+      "w": 47,
+      "h": 27,
+      "label": "The actual passenger route"
+    },
+    {
+      "x": 35,
+      "y": 52,
+      "w": 35,
+      "h": 35,
+      "label": "Rook enjoys paper-plane play"
+    },
+    {
+      "x": 33,
+      "y": 58,
+      "w": 16,
+      "h": 14,
+      "label": "The agreed paper-plane postcard"
+    },
+    {
+      "x": 8,
+      "y": 18,
+      "w": 46,
+      "h": 59,
+      "label": "Rook writes beside the passenger window"
+    }
+  ],
+  "postcards-across-worlds": [
+    {
+      "x": 15,
+      "y": 43,
+      "w": 83,
+      "h": 51,
+      "label": "The distinct permitted travel accounts"
+    },
+    {
+      "x": 55,
+      "y": 2,
+      "w": 43,
+      "h": 54,
+      "label": "Jo arranges the shared invitations"
+    },
+    {
+      "x": 11,
+      "y": 42,
+      "w": 36,
+      "h": 28,
+      "label": "The bridge picture and agreed invitation"
+    },
+    {
+      "x": 12,
+      "y": 66,
+      "w": 83,
+      "h": 29,
+      "label": "The atlas leaves room for credits"
+    }
+  ],
+  "book-left-open": [
+    {
+      "x": 8,
+      "y": 28,
+      "w": 24,
+      "h": 48,
+      "label": "Pip welcomes Rook home"
+    },
+    {
+      "x": 2,
+      "y": 54,
+      "w": 62,
+      "h": 40,
+      "label": "The original atlas and its pocket"
+    },
+    {
+      "x": 24,
+      "y": 47,
+      "w": 72,
+      "h": 36,
+      "label": "One chosen garden story"
+    },
+    {
+      "x": 30,
+      "y": 70,
+      "w": 10,
+      "h": 13,
+      "label": "Rook’s ordinary lantern beside a traveler"
+    }
+  ]
+}

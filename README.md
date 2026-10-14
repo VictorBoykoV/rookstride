@@ -10,7 +10,7 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/VictorBoykoV/rookstride/releases/tag/v0.1.0-alpha2"><img src="https://img.shields.io/badge/release-0.1.0--alpha2-ee3038?style=flat-square" alt="0.1.0-alpha2"></a>
+  <a href="https://github.com/VictorBoykoV/rookstride/releases/tag/v0.2.0-alpha3"><img src="https://img.shields.io/badge/release-0.2.0--alpha3-ee3038?style=flat-square" alt="0.2.0-alpha3"></a>
   <img src="https://img.shields.io/badge/Android-8%2B-3ddc84?style=flat-square" alt="Android 8 and later">
   <img src="https://img.shields.io/badge/server-Ubuntu%2024.04-e95420?style=flat-square" alt="Ubuntu 24.04">
   <img src="https://img.shields.io/badge/VPN-strongSwan%20IKEv2-7058d9?style=flat-square" alt="strongSwan IKEv2">
@@ -34,7 +34,7 @@ An Android app for deploying and managing a personal IKEv2 VPN on your own VPS. 
 **Early alpha.** Download the signed APK and complete corresponding source from [Releases](https://github.com/VictorBoykoV/rookstride/releases). See [test status](docs/TESTING.md) before relying on a release. Requires Android 8 or later and a fresh Ubuntu 24.04 VPS for installation. A phone Internet connection and reachable SSH are required; the app bundles its installation code, while the VPS downloads Ubuntu packages and AdGuard Home.
 
 > [!IMPORTANT]
-> **Alpha2 passed three consecutive reset → reinstall → real VPN cycles** on Android 8, 9 and 16, including recovery after a VPS reboot. Physical-device, network-handoff and sustained-load checks remain. The [test report](docs/TESTING.md) records the exact scope and the two regression fixes.
+> **Earlier 0.1.0-alpha2 passed three consecutive reset → reinstall → real VPN cycles** on Android 8, 9 and 16, including recovery after a VPS reboot. Physical-device, network-handoff and sustained-load checks remain. The [test report](docs/TESTING.md) records the exact scope and the two regression fixes.
 
 ## What it does
 
@@ -49,7 +49,8 @@ An Android app for deploying and managing a personal IKEv2 VPN on your own VPS. 
 | Track usage | Optionally collect daily and monthly estimates with a small local SQLite service. |
 | Filter DNS | Choose Standard, Strong or Strict ad and tracker blocking. |
 | Start again | Review and reset a recognized gateway with typed deletion confirmation. |
-| Learn offline | Read the built-in guide and licenses; explore the labeled demo. |
+| Follow installation | Recipe-specific checkpoints, elapsed time, remaining steps and coarse planning ranges; browse while the service continues. |
+| Learn offline | Built-in guide, licenses, five story worlds and fifty chapters with optional installed-device narration. |
 
 No cloud account or public web management API is involved. Root access belongs to the administrator; it is never included in user profiles.
 
@@ -63,7 +64,7 @@ Screenshots show the explicitly labeled, offline demo with fictional data. Meet 
 2. Choose **Add gateway**. Enter the VPS address, SSH port, administrator name and password or private key. Root or passwordless sudo is required.
 3. Inspect the gateway. Compare the presented SSH fingerprint with your provider console before trusting it. A changed fingerprint stops the connection.
 4. On a fresh Ubuntu 24.04 VPS, choose **Install gateway on fresh VPS**, create the first VPN login, and decide whether to enable usage history.
-5. Keep the VPS reachable while installation completes. The job continues on the VPS if the app disconnects; reconnect to check its status.
+5. Follow the progress view, or browse Guide and Stories while setup continues. The progress shortcut and notification return to the current stage. Detached server jobs can continue after phone polling ends; inspect and resume the recorded job.
 6. In **People**, select a login and choose **Use on this phone**, then connect from the gateway screen. Or share a user's profile and provide their VPN password separately.
 
 After connecting, verify website access, the exit IPv4, DNS filtering and absence of an unexpected public IPv6 from the actual device over both Wi-Fi and mobile data. See [app operations](docs/OPERATIONS.md).
@@ -129,12 +130,57 @@ The original Android administration code and branding are GPL-3.0-or-later. The 
 
 ## Two-server gateway · experimental
 
-[**Download 0.2.0-alpha2 APK**](https://github.com/VictorBoykoV/rookstride/releases/download/v0.2.0-alpha2/rookstride-0.2.0-alpha2.apk) · [Complete corresponding source and checksums](https://github.com/VictorBoykoV/rookstride/releases/tag/v0.2.0-alpha2)
+[**Download 0.2.0-alpha3 APK**](https://github.com/VictorBoykoV/rookstride/releases/download/v0.2.0-alpha3/rookstride-0.2.0-alpha3.apk) · [Complete corresponding source and checksums](https://github.com/VictorBoykoV/rookstride/releases/tag/v0.2.0-alpha3)
 
-The `0.2.0-alpha2` source implements **IKEv2 entry → AmneziaWG 3.1 exit** with independently pinned SSH, detached recoverable jobs, exit-side AdGuard Home and staged activation. Choose **Add a two-server gateway** in the experimental app. Reviewed **Reset both VPN nodes** and **Swap entry and exit** controls allow fresh redeployment from the phone. An optional native SSH relay manages one node through the other while retaining both physical-node identity pins.
+The current source retains the provider-tested `0.2.0-alpha2` recipe: **IKEv2 entry → AmneziaWG 3.1 exit** with independently pinned SSH, detached recoverable jobs, exit-side AdGuard Home and staged activation. Choose **Add a two-server gateway** in the experimental app. Reviewed **Reset both VPN nodes** and **Swap entry and exit** controls allow fresh redeployment from the phone. An optional native SSH relay manages one node through the other while retaining both physical-node identity pins.
 
-Read the [pair guide](docs/PAIR-MODE.md), [real-provider test report](docs/PAIR-PROVIDER-TESTING.md) and [historical local alpha1 tests](docs/PAIR-TESTING.md). The same signed APK configured both real-provider nodes repeatedly, with clean phone resets and reversed roles. Embedded Android and isolated provider-side Linux clients verified IKE/EAP, exit IPv4, filtering and bridge-outage blocking/recovery. The report identifies each client network: one route from the test computer lost UDP replies, while its provider-side client passed. Android 16's coordinator/VPN passed; its emulator's screen navigation remains incomplete because of System UI startup hangs.
+Read the [pair guide](docs/PAIR-MODE.md), [real-provider test report](docs/PAIR-PROVIDER-TESTING.md) and [historical local alpha1 tests](docs/PAIR-TESTING.md). The same signed 0.2.0-alpha2 APK configured both real-provider nodes repeatedly, with clean phone resets and reversed roles. Embedded Android and isolated provider-side Linux clients verified IKE/EAP, exit IPv4, filtering and bridge-outage blocking/recovery. The report identifies each client network: one route from the test computer lost UDP replies, while its provider-side client passed. Android 16's coordinator/VPN passed; its emulator's screen navigation remains incomplete because of System UI startup hangs.
 
 The earlier `0.1.0-alpha2` binary is the single-server release. Pair upgrades/importing arbitrary installations and other engines in the [research note](docs/UNIVERSAL-GATEWAY-RESEARCH.md) remain future work. Reset removes owned gateway data and retains Ubuntu, SSH, packages and unrelated files; an OS factory rebuild belongs in the provider's panel.
 
-The local [website source](website/README.md) includes practical documentation, the research proposal, and five original Rook stories with panel/page/chapter views. Website hosting remains a separate step. [Mark revision notes](brand/DESIGN.md) distinguish the new source icon from the already published APK.
+## Rook, your guide
+
+<img src="website/brand/poses/rook-guide.svg" alt="Rook, the red navigator with a map and satchel" width="150" align="right">
+
+Rook is the project’s original ambassador: a small red navigator who steps out of a
+book, listens before helping, and leaves room for the next traveler’s choice.
+His map, lantern, scarf, and satchel follow him through five connected fictional
+worlds. The revised mark keeps a simple, recognizable bird silhouette.
+
+**Five worlds · fifty finished chapters · two hundred story pages.** Lantern Harbor
+leads into worlds inspired by Persian gardens, Chinese waterways, Russian winter
+stories, and American civic communities. Read one illustrated page or the whole
+chapter; optional device narration highlights the scene and turns pages within
+that chapter. The next chapter waits for your choice. The original five strip comics
+remain available. Culture notes distinguish source inspiration from original fiction.
+
+- [Rook’s origin, character, and ambassador roles](brand/AMBASSADOR.md)
+- [The fifty-chapter index and cast](website/WORLDS.md)
+- [Artwork and original master sources](website/ARTWORK-WORLDS.md)
+- [Build or host the portable website](website/README.md)
+- [Installation progress and offline reading](docs/INSTALLATION-PROGRESS.md)
+
+The mobile coordinator shows each recipe’s checkpoints and broad planning ranges.
+Stories and Guide stay available while installation runs in a separate foreground
+service. Tap the progress shortcut or notification to return. Force-stop or process
+death may end phone polling; detached VPS jobs can continue and require inspection
+before resuming. Text, art, and documentation are bundled for offline reading.
+
+[Mark revision notes](brand/DESIGN.md) and [brand rules](brand/AMBASSADOR.md) preserve
+Rook’s identity across code, app, website, and community artwork. The website remains
+a local portable build; publishing GitHub source is separate from public website hosting.
+
+## Current app and historical server evidence
+
+The signed **0.2.0-alpha3** APK adds persistent installation progress, Rook’s helper
+roles and the complete offline story reader. Its [UI test scope](docs/UI-ALPHA3-TESTING.md)
+separates background-service and narration fixtures from actual provider deployments.
+The server installer bundle is unchanged from 0.2.0-alpha2. The four independent
+provider-pair runs in [the earlier report](docs/PAIR-PROVIDER-TESTING.md) tested that
+exact earlier APK; they are not new alpha3 deployment claims.
+
+<p><img src="brand/screenshots/alpha3/pair-progress-fixture.png" width="240" alt="Signed alpha3 eight-stage progress view with explicitly fictional transport fixture"><img src="brand/screenshots/alpha3/offline-story.png" width="240" alt="Signed alpha3 offline story page with Rook and Pip beside the lighthouse"></p>
+
+Exact signed alpha3 screens on Android 9. Progress is an explicitly labeled
+transport fixture; the story is a real bundled page. Narration tests use
+deterministic voice events rather than an audible voice performance.

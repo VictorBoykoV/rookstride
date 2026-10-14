@@ -45,3 +45,7 @@ For custom settings, connect to the VPN and open `http://10.254.0.1:3000` (or th
 The app refuses unknown configurations, extra VPN connections, symlinked managed paths, changed reset plans and recorded active installations. It cannot reset an unreachable server. A complete OS rebuild is a provider control-panel operation.
 
 After resetting, install again and **export fresh client profiles**: the new installation has new certificates. Old profiles cannot authenticate the new server certificate. Keep the administrator SSH key and APK signing key backups private. See [security and recovery](../SECURITY.md).
+
+## Installation progress and reading
+
+See [installation progress](INSTALLATION-PROGRESS.md) for checkpoint counts, time-range limitations, background-service behavior, force-stop recovery, and the offline Rook reader. Browsing Stories does not stop a deployment.

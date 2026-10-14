@@ -15,7 +15,7 @@ import java.nio.charset.StandardCharsets;
 /** Two trusted SSH sessions coordinate durable jobs; no private tunnel key leaves its node. */
 public final class PairController {
     public interface Bundle { InputStream open() throws Exception; }
-    public interface Progress { void update(String phase); }
+    public interface Progress { void update(String phase); default void stage(int index,String phase){update(phase);} }
     public static final class TrustNeeded extends Exception {
         public final Gateway node; public final Ssh.HostTrust issue;
         TrustNeeded(Gateway node,Ssh.HostTrust issue) { super(issue.getMessage());this.node=node;this.issue=issue; }
@@ -79,6 +79,7 @@ public final class PairController {
         if(!entry.isPair())throw new IOException("Add both servers first");
         entry.configureRelay();
         String expectedBundle=bundleDigest(bundle);
+        progress.stage(0,"Checking both pinned SSH identities");
         // Verify both SSH identities and machine IDs before mutating either node.
         try(Ssh first=open(entry); Ssh second=open(entry.exit)) {
             JSONObject a=first.probe(),b=second.probe();
@@ -86,20 +87,26 @@ public final class PairController {
             for(JSONObject p:new JSONObject[]{a,b}) if(!p.optString("os").equals("ubuntu")||!p.optString("version").equals("24.04")) throw new IOException("Use Ubuntu 24.04 on both nodes");
             for(JSONObject p:new JSONObject[]{a,b}) if(p.optBoolean("pair_helper")&&!expectedBundle.equals(p.optString("pair_bundle"))) throw new IOException("This pair uses another installer version. An explicit pair upgrade is required; resume will not replace it.");
             JSONObject exit=request(entry,"exit");exit.put("action","bootstrap");
+            progress.stage(1,"Preparing the exit VPN and private DNS");
             step(second,entry.exit,exit,b.optBoolean("pair_helper"),bundle,progress,resume);
             JSONObject ingress=request(entry,"entry");ingress.put("action","bootstrap");ingress.put("login",entry.get("vpnLogin"));ingress.put("password",entry.vpnPassword);ingress.put("statistics",entry.data.optBoolean("pairStatistics",true));
+            progress.stage(2,"Preparing the entry VPN");
             step(first,entry,ingress,a.optBoolean("pair_helper"),bundle,progress,resume);
             JSONObject exitMaterial=second.pair(new JSONObject().put("command","material").put("pair",entry.get("pairId")));
             JSONObject entryMaterial=first.pair(new JSONObject().put("command","material").put("pair",entry.get("pairId")));
             JSONObject exitConfig=request(entry,"exit");exitConfig.put("action","configure");exitConfig.put("peer_key",entryMaterial.getString("public_key"));
+            progress.stage(3,"Joining the exit bridge");
             step(second,entry.exit,exitConfig,true,bundle,progress,resume);
             JSONObject entryConfig=request(entry,"entry");entryConfig.put("action","configure");entryConfig.put("peer_key",exitMaterial.getString("public_key"));entryConfig.put("shared",exitMaterial.getJSONObject("shared"));
+            progress.stage(4,"Joining the entry bridge");
             step(first,entry,entryConfig,true,bundle,progress,resume);
             String expected=second.pair(new JSONObject().put("command","overview").put("pair",entry.get("pairId"))).getString("exit_ip");
             for(String action:new String[]{"verify","activate"}) {
+                progress.stage(action.equals("verify")?5:6,action.equals("verify")?"Checking the complete server route":"Opening client forwarding");
                 JSONObject req=request(entry,"entry");req.put("action",action);req.put("expected_exit_ip",expected);req.put("repeat",true);
                 step(first,entry,req,true,bundle,progress,resume);
             }
+            progress.stage(7,"Reading both gateway health reports");
             return new JSONObject().put("entry",first.admin(new JSONObject().put("action","status"))).put("exit",second.admin(new JSONObject().put("action","status"))).put("exit_ip",expected);
         }
     }

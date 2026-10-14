@@ -1,0 +1,74 @@
+{
+  "version": 1,
+  "checked": "2026-10-14",
+  "scope": "Primary sources checked for a small set of cultural and historical motifs. The adventure worlds, dialogue, people, conflicts, travel geography, and solutions are original fiction. Source references do not imply endorsement.",
+  "sources": [
+    {
+      "id": "persian-garden",
+      "worlds": [
+        "persia"
+      ],
+      "title": "The Persian Garden",
+      "organization": "UNESCO World Heritage Centre",
+      "url": "https://whc.unesco.org/en/list/1372/",
+      "notes": "UNESCO describes nine Iranian gardens and the importance of four-part layouts, water, plants, and architecture. This informs the fictional garden paths and the respect shown to their keepers.",
+      "limits": "The invented courtyard and water problem are not accounts of an actual site. Iran is culturally and geographically diverse; this motif cannot represent every Iranian life."
+    },
+    {
+      "id": "silk-roads",
+      "worlds": [
+        "persia",
+        "china"
+      ],
+      "title": "About the Silk Roads",
+      "organization": "UNESCO Silk Roads Programme",
+      "url": "https://www.unesco.org/en/silk-roads/about-silk-roads?hub=196704",
+      "notes": "UNESCO describes connected land and maritime networks that carried goods, skills, ideas, and cultural exchanges. This supports the anthology’s emphasis on introductions, shared books, caravans, and sea travel.",
+      "limits": "Rook’s sequence of journeys is invented and deliberately mixes technologies. It is neither a historical itinerary nor a current travel recommendation."
+    },
+    {
+      "id": "chinese-wooden-bridges",
+      "worlds": [
+        "china"
+      ],
+      "title": "Traditional design and practices for building Chinese wooden arch bridges",
+      "organization": "UNESCO Intangible Cultural Heritage",
+      "url": "https://ich.unesco.org/en/RL/traditional-design-and-practices-for-building-chinese-wooden-arch-bridges-02156",
+      "notes": "UNESCO identifies bridge-making knowledge associated with communities in Fujian and Zhejiang, including craftsmanship and continuing transmission of skills. The fictional apprentice and teacher show a living craft rather than a frozen historical scene.",
+      "limits": "The story is not a construction manual. Its bridge, repair, crew, and records are invented, and one regional tradition is not a claim about all Chinese communities."
+    },
+    {
+      "id": "kizhi-wooden-architecture",
+      "worlds": [
+        "russia"
+      ],
+      "title": "Kizhi Pogost",
+      "organization": "UNESCO World Heritage Centre",
+      "url": "https://whc.unesco.org/en/list/544/",
+      "notes": "UNESCO documents a Karelian architectural ensemble on Lake Onega and the significance of its wooden buildings and carpentry. The story borrows only the broad idea of caring for skilled timber architecture.",
+      "limits": "The fictional community hall is not Kizhi, and the chapter does not reproduce sacred architecture or suggest visitors can attempt specialist work. A single winter community is not all of Russia."
+    },
+    {
+      "id": "kolobok-reading",
+      "worlds": [
+        "russia"
+      ],
+      "title": "Колобок — Русские сказки и былины",
+      "organization": "Lomonosov Moscow State University, Institute of Russian Language and Culture educational project",
+      "url": "https://skazki.irlc.msu.ru/russkie-narodnyie-skazki/kolobok",
+      "notes": "The university’s educational edition presents a traveling round-loaf folktale. Bun is an original talking-loaf character with a different plot, new dialogue, and an ending he chooses for himself.",
+      "limits": "No text, refrain, illustration, or recording from this edition is reused. Bun’s adventure is an original nod to a folktale motif, not a faithful retelling or claim that the motif belongs to one country alone."
+    },
+    {
+      "id": "bill-of-rights",
+      "worlds": [
+        "america"
+      ],
+      "title": "The Bill of Rights: A Transcription",
+      "organization": "U.S. National Archives",
+      "url": "https://www.archives.gov/founding-docs/bill-of-rights-transcript",
+      "notes": "The National Archives supplies the original text of the first ten amendments, including the Second Amendment, and explains their ratification. The chapter’s display and missing-page correction are fictional; the source is provided for actual document reading.",
+      "limits": "The chapter identifies subjects, not present-day legal scope or interpretation. It offers no weapons instruction, jurisdiction advice, partisan endorsement, or legal verdict. Rights are approached through accurate source access and room for discussion."
+    }
+  ]
+}

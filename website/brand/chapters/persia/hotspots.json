@@ -1,0 +1,302 @@
+{
+  "courtyard-welcome": [
+    {
+      "x": 36,
+      "y": 28,
+      "w": 29,
+      "h": 53,
+      "label": "Sima the courtyard librarian"
+    },
+    {
+      "x": 77,
+      "y": 3,
+      "w": 22,
+      "h": 83,
+      "label": "The blue curtain across a private doorway"
+    },
+    {
+      "x": 28,
+      "y": 57,
+      "w": 27,
+      "h": 21,
+      "label": "Rook's new question sketch"
+    },
+    {
+      "x": 5,
+      "y": 38,
+      "w": 17,
+      "h": 18,
+      "label": "The agreed greeting on the travelers' shelf"
+    }
+  ],
+  "four-ribbons-water": [
+    {
+      "x": 43,
+      "y": 20,
+      "w": 16,
+      "h": 77,
+      "label": "The shared garden water channel"
+    },
+    {
+      "x": 28,
+      "y": 17,
+      "w": 34,
+      "h": 57,
+      "label": "Nima checking the safe maintenance point"
+    },
+    {
+      "x": 24,
+      "y": 41,
+      "w": 7,
+      "h": 12,
+      "label": "Rook's lantern beside the returning water"
+    },
+    {
+      "x": 8,
+      "y": 51,
+      "w": 61,
+      "h": 39,
+      "label": "The sketch of four garden paths"
+    }
+  ],
+  "letter-in-wind": [
+    {
+      "x": 35,
+      "y": 1,
+      "w": 25,
+      "h": 53,
+      "label": "The wind-catching tower"
+    },
+    {
+      "x": 36,
+      "y": 43,
+      "w": 18,
+      "h": 15,
+      "label": "The recovered sealed envelope"
+    },
+    {
+      "x": 51,
+      "y": 47,
+      "w": 15,
+      "h": 12,
+      "label": "The letter on Darya's secure tray"
+    },
+    {
+      "x": 60,
+      "y": 18,
+      "w": 39,
+      "h": 48,
+      "label": "The recipient and Sima at the library"
+    }
+  ],
+  "carpet-of-routes": [
+    {
+      "x": 42,
+      "y": 72,
+      "w": 25,
+      "h": 20,
+      "label": "Rook's unfinished pattern sketch"
+    },
+    {
+      "x": 43,
+      "y": 6,
+      "w": 42,
+      "h": 67,
+      "label": "Leila the weaver"
+    },
+    {
+      "x": 43,
+      "y": 55,
+      "w": 19,
+      "h": 21,
+      "label": "The original lantern-and-doorway emblem"
+    },
+    {
+      "x": 23,
+      "y": 46,
+      "w": 56,
+      "h": 33,
+      "label": "The travel picture and corrected emblem sketch"
+    }
+  ],
+  "well-after-sunset": [
+    {
+      "x": 19,
+      "y": 27,
+      "w": 27,
+      "h": 65,
+      "label": "Nima keeping visitors safely above ground"
+    },
+    {
+      "x": 13,
+      "y": 10,
+      "w": 17,
+      "h": 52,
+      "label": "The water-supply notice with jug and clock drawings"
+    },
+    {
+      "x": 19,
+      "y": 4,
+      "w": 7,
+      "h": 20,
+      "label": "The library lamp above the reading circle"
+    },
+    {
+      "x": 24,
+      "y": 59,
+      "w": 31,
+      "h": 23,
+      "label": "Rook's public contact sketch"
+    }
+  ],
+  "princess-of-dawn": [
+    {
+      "x": 60,
+      "y": 2,
+      "w": 32,
+      "h": 35,
+      "label": "Soraya at the tower window"
+    },
+    {
+      "x": 28,
+      "y": 17,
+      "w": 41,
+      "h": 75,
+      "label": "Zephyr listening to the courtyard plan"
+    },
+    {
+      "x": 29,
+      "y": 9,
+      "w": 28,
+      "h": 73,
+      "label": "Soraya carrying her telescope"
+    },
+    {
+      "x": 29,
+      "y": 63,
+      "w": 42,
+      "h": 23,
+      "label": "The jointly reviewed sky journal"
+    }
+  ],
+  "poem-with-room": [
+    {
+      "x": 30,
+      "y": 40,
+      "w": 32,
+      "h": 45,
+      "label": "The invitation Rook is revising"
+    },
+    {
+      "x": 50,
+      "y": 36,
+      "w": 23,
+      "h": 60,
+      "label": "Darya helping Rook practice"
+    },
+    {
+      "x": 73,
+      "y": 53,
+      "w": 8,
+      "h": 23,
+      "label": "The reading-circle lantern"
+    },
+    {
+      "x": 25,
+      "y": 63,
+      "w": 27,
+      "h": 23,
+      "label": "Rook recording only agreed contributions"
+    }
+  ],
+  "caravan-of-notes": [
+    {
+      "x": 30,
+      "y": 39,
+      "w": 24,
+      "h": 53,
+      "label": "Rook's rigid first schedule"
+    },
+    {
+      "x": 35,
+      "y": 3,
+      "w": 27,
+      "h": 36,
+      "label": "Aster guiding the load adjustment"
+    },
+    {
+      "x": 24,
+      "y": 63,
+      "w": 30,
+      "h": 12,
+      "label": "Rook's accurate delay note"
+    },
+    {
+      "x": 24,
+      "y": 56,
+      "w": 26,
+      "h": 24,
+      "label": "The amended coastal route sheet"
+    }
+  ],
+  "window-of-stars": [
+    {
+      "x": 78,
+      "y": 63,
+      "w": 17,
+      "h": 16,
+      "label": "Soraya's earlier observation notebooks"
+    },
+    {
+      "x": 52,
+      "y": 55,
+      "w": 11,
+      "h": 16,
+      "label": "The honestly unobserved notebook corner"
+    },
+    {
+      "x": 3,
+      "y": 3,
+      "w": 33,
+      "h": 60,
+      "label": "Zephyr showing an imaginative cloud picture"
+    },
+    {
+      "x": 19,
+      "y": 36,
+      "w": 21,
+      "h": 39,
+      "label": "Rook looking through the prepared telescope"
+    }
+  ],
+  "sea-between-pages": [
+    {
+      "x": 41,
+      "y": 64,
+      "w": 15,
+      "h": 11,
+      "label": "Sima's sealed introduction"
+    },
+    {
+      "x": 27,
+      "y": 3,
+      "w": 26,
+      "h": 38,
+      "label": "Aster at the seaside farewell"
+    },
+    {
+      "x": 9,
+      "y": 8,
+      "w": 12,
+      "h": 25,
+      "label": "The securely fastened cabin lantern"
+    },
+    {
+      "x": 31,
+      "y": 26,
+      "w": 35,
+      "h": 25,
+      "label": "The new river route behind Mei"
+    }
+  ]
+}

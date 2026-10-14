@@ -15,7 +15,8 @@ Early alpha: 0.1.0-alpha2, updated 2026-10-14. Android 8+; fresh Ubuntu 24.04 VP
 
 ## Release evidence
 - [Route research manifest](/data/routes.json): Released single-server capabilities, experimental pair capabilities and proposed additional engines.
-- [Release manifest](/data/release.json): Machine-readable exact artifacts and identity.
+- [Earlier single-server manifest](/data/release.json): Frozen 0.1.0-alpha2 artifacts and identity.
+- [Current app](https://github.com/VictorBoykoV/rookstride/releases/tag/v0.2.0-alpha3): One- or two-server installation, persistent progress, offline worlds, page turns and optional device narration. Current UI test scope is in docs/UI-ALPHA3-TESTING.md; earlier server evidence is identified separately.
 - [Sanitized test results](/data/alpha2-tests.json): Three signed-APK emulator/VPS reset-and-reinstall cycles.
 - [Published pair artifacts](/data/pair-release.json): Verified 0.2.0-alpha2 APK, corresponding source, sizes and hashes.
 - [Provider pair evidence](/data/pair-provider-alpha2-tests.json): Repeated app-configured two-provider pairs; exact Android/Linux client networks, reset/reboot checks and remaining gates.
@@ -27,3 +28,9 @@ Early alpha: 0.1.0-alpha2, updated 2026-10-14. Android 8+; fresh Ubuntu 24.04 VP
 - [Complete text edition](/journal/text/): Every scene and dialogue line, accessible without scripts.
 
 Important boundaries: IPv4 exit only; IPv6 is intentionally sunk. Rookstride’s own administration traffic is exempt. Android lockdown while disconnected is a separate OS setting. DNS filtering cannot reliably remove YouTube in-video ads. Per-device EAP logins are not hardware-bound. Usage totals are estimates, not billing. Reset deletes recognized gateway data, not Ubuntu or unrelated files. No guaranteed anonymity, website access or location change.
+
+## Rook’s expanded original fiction
+- [Five worlds, fifty complete chapters](/worlds/): Each chapter has four narrated story pages and a static readable URL. Optional device narration advances pages within a chapter and stops at its end.
+- [Rook’s origin and values](/rook/): The original project ambassador, his story and guiding values.
+- [Cultural source notes](/worlds/notes/): Real-world inspiration separated from original fiction.
+- [Story source manifest](/data/worlds.json): Complete world, chapter, scene and narration data.

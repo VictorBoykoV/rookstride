@@ -68,7 +68,7 @@ def check(dist):
             require('@type' in item,f'{file}: missing JSON-LD type')
             require('aggregateRating' not in item and 'review' not in item,f'{file}: invented rating field')
             schema_count+=1
-    require(len(documents)==9,'Expected home, six subject pages, text edition and 404')
+    require(len(documents)==67,'Expected nine original pages plus lore, five worlds, notes and fifty chapters')
     require(len({d.title for d in documents.values()})==len(documents),'Titles must be distinct')
     require(len({d.metas.get('description') for d in documents.values()})==len(documents),'Descriptions must be distinct')
     for file,doc in documents.items():
@@ -126,6 +126,17 @@ def check(dist):
     for item in pair_release['artifacts']:
         require(item['url'].startswith('https://github.com/VictorBoykoV/rookstride/releases/download/v0.2.0-alpha2/'),'Wrong pair artifact URL')
         require(re.fullmatch('sha256:[a-f0-9]{64}',item['digest']) is not None,'Wrong pair artifact digest')
+    if (dist/'data/ui-release.json').is_file():
+        current=json.loads((dist/'data/ui-release.json').read_text())
+        ui=json.loads((dist/'data/ui-alpha3-tests.json').read_text())
+        require(current['version']==ui['release']=='0.2.0-alpha3','Current release/test identity mismatch')
+        require(len(current['artifacts'])==4,'Current APK needs matching source and verification files')
+        for item in current['artifacts']:
+            require(item['url'].startswith('https://github.com/VictorBoykoV/rookstride/releases/download/v0.2.0-alpha3/'),'Wrong current artifact URL')
+            require(re.fullmatch('sha256:[a-f0-9]{64}',item['digest']) is not None,'Wrong current artifact digest')
+            require(item['size']>0,'Empty current artifact')
+            if item['name'].endswith('.apk'):require(item['digest']=='sha256:'+ui['apk']['sha256'],'Current APK differs from tested release')
+        require({r['api'] for r in ui['signed_release_emulators']}=={26,28},'Current emulator scope missing')
     require((dist/'docs/universal-gateway-research.md').is_file(),'Missing full research note')
     for mode in ('panel','page','chapter'):
         require(f'data-reader-mode="{mode}"' in journal,'Missing reader mode: '+mode)

@@ -15,6 +15,8 @@ ROOT=Path(__file__).resolve().parents[1]
 SOURCE=ROOT/'.tools/strongswan-source/src/frontends/android'
 APP=SOURCE/'app'
 if not APP.exists(): raise SystemExit('Prepare pinned strongSwan sources first; see docs/BUILD.md')
+import subprocess
+subprocess.run(['python3',str(ROOT/'scripts/prepare-rook-poses.py')],check=True)
 overlay=ROOT/'android/overlay'
 main=APP/'src/main'
 for src,dest in [('java','java'),('res','res'),('assets','assets')]:
@@ -105,6 +107,18 @@ if '.ui.RookstrideActivity' not in text:
             <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/rookstride_file_paths"/>
         </provider>
         <activity\n''',1)
+write_text(manifest,text)
+
+# Separate, user-started installation polling, not the VPN foreground service.
+text=manifest.read_text()
+if 'android.permission.FOREGROUND_SERVICE_DATA_SYNC' not in text:
+    text=text.replace('<application', '<uses-permission android:name="android.permission.FOREGROUND_SERVICE_DATA_SYNC"/>\n    <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>\n    <application',1)
+if 'android.permission.WAKE_LOCK' not in text:
+    text=text.replace('<application', '<uses-permission android:name="android.permission.WAKE_LOCK"/>\n    <application',1)
+if '.rookstride.DeploymentService' not in text:
+    text=text.replace('</application>', '<service android:name=".rookstride.DeploymentService" android:exported="false" android:foregroundServiceType="dataSync"/>\n    </application>')
+if '<queries>' not in text:
+    text=text.replace('<application','<queries><intent><action android:name="android.intent.action.TTS_SERVICE"/></intent></queries>\n    <application',1)
 write_text(manifest,text)
 
 control=main/'java/org/strongswan/android/ui/VpnProfileControlActivity.java'

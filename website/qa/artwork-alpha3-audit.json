@@ -1,0 +1,2205 @@
+{
+  "version": 1,
+  "checkedAt": "2026-10-14T00:32:05.467614+00:00",
+  "scope": "Read-only chapter-asset and helper-vector QA. This report contains repository-relative paths and public image hashes only. No browser, app, deployment, or VPS behavior was tested.",
+  "phase": "final",
+  "overall": "passed",
+  "counts": {
+    "expectedNewChapters": 45,
+    "presentMasterAndWebPairs": 45,
+    "passedCurrentPairs": 45,
+    "pendingItems": 0,
+    "helperSVGs": 6,
+    "visualRepresentatives": 7,
+    "allPageHotspots": 200,
+    "legacyHotspots": 20,
+    "webTotalBytesCurrent": 7802568
+  },
+  "perWorld": [
+    {
+      "world": "harbor",
+      "expected": 5,
+      "presentPairs": 5,
+      "passedPairs": 5
+    },
+    {
+      "world": "persia",
+      "expected": 10,
+      "presentPairs": 10,
+      "passedPairs": 10
+    },
+    {
+      "world": "china",
+      "expected": 10,
+      "presentPairs": 10,
+      "passedPairs": 10
+    },
+    {
+      "world": "russia",
+      "expected": 10,
+      "presentPairs": 10,
+      "passedPairs": 10
+    },
+    {
+      "world": "america",
+      "expected": 10,
+      "presentPairs": 10,
+      "passedPairs": 10
+    }
+  ],
+  "pending": [],
+  "errors": [],
+  "warnings": [
+    {
+      "kind": "format-note",
+      "detail": "Some selected comics use four equal rectangular panels on a landscape canvas. The reader must derive framing from each actual image dimension rather than force square scaling.",
+      "chapters": [
+        "harbor/book-that-opened",
+        "harbor/keeper-of-names",
+        "harbor/tower-with-wings",
+        "harbor/blank-page-atlas",
+        "harbor/road-out-of-harbor",
+        "persia/courtyard-welcome",
+        "persia/four-ribbons-water",
+        "persia/letter-in-wind",
+        "persia/carpet-of-routes",
+        "persia/well-after-sunset",
+        "persia/princess-of-dawn",
+        "persia/poem-with-room",
+        "persia/caravan-of-notes",
+        "persia/window-of-stars",
+        "persia/sea-between-pages"
+      ]
+    }
+  ],
+  "sourceMetadata": {
+    "harbor": {
+      "records": 5,
+      "publicPathsPortable": true
+    },
+    "persia": {
+      "records": 10,
+      "publicPathsPortable": true
+    },
+    "china": {
+      "records": 10,
+      "publicPathsPortable": true
+    },
+    "russia": {
+      "records": 10,
+      "publicPathsPortable": true
+    },
+    "america": {
+      "records": 10,
+      "publicPathsPortable": true
+    }
+  },
+  "castAndRules": {
+    "DashaCurrentTableMatchesCheckedArt": true,
+    "winterCoverageRuleAcknowledged": true,
+    "helpersUseExactCanonicalMark": true,
+    "svgVisualInspection": "XML/path verification; no raster render was created for this audit.",
+    "JoCrossWorldHandoffMatches": true,
+    "TessDistinctFromFern": true,
+    "winterNarrationDoesNotRequireVisibleCrest": true
+  },
+  "visualInspections": [
+    {
+      "asset": "website/brand/chapters/persia/princess-of-dawn.webp",
+      "result": "passed",
+      "notes": "Four chronological scenes; Soraya is a fox astronomer with circlet and telescope, Zephyr a small gentle ochre dragon, Rook has red face, scarf, satchel and lantern. Local collaborators participate in the outcome.",
+      "fourPanelOrderInspected": true,
+      "hotspotsVisuallyReviewed": 4
+    },
+    {
+      "asset": "website/brand/chapters/china/moon-gate.webp",
+      "result": "passed",
+      "notes": "Four chronological garden scenes; readable character actions and a respected boundary. The final gathering is an invitation, with no baked dialogue. Rook, Lin and local friends retain the series look.",
+      "fourPanelOrderInspected": true,
+      "hotspotsVisuallyReviewed": 4
+    },
+    {
+      "asset": "website/brand/chapters/russia/loaf-that-stopped.webp",
+      "result": "passed-with-costume-variation",
+      "notes": "Four scenes show Bun, Misha and Dasha. Dasha is a silver-grey fox-like librarian in a cream coat and navy scarf. Rook wears a plain winter hat outdoors and removes it in the warm interior; his red face and white eye patch remain recognizable.",
+      "fourPanelOrderInspected": true,
+      "hotspotsVisuallyReviewed": 4
+    },
+    {
+      "asset": "website/brand/chapters/america/charter-in-light.webp",
+      "result": "passed",
+      "notes": "Four quiet library/source-preservation scenes. The missing teaching sheet is visible. No weapons, readable document text or national insignia are embedded.",
+      "fourPanelOrderInspected": true,
+      "hotspotsVisuallyReviewed": 4
+    },
+    {
+      "asset": "website/brand/chapters/america/paper-plane-promise.webp",
+      "result": "passed",
+      "notes": "Four distinct flight scenes. The selected final passenger panel shows a fastened lap belt, underseat luggage and an unlit secured brass lantern.",
+      "fourPanelOrderInspected": true,
+      "hotspotsVisuallyReviewed": 4
+    },
+    {
+      "asset": "website/brand/chapters/russia/ship-beyond-snow.webp",
+      "result": "passed",
+      "notes": "Final corrected handoff shows Jo as a raccoon in a plum vest, matching America/open-bench. The original tan-rabbit handoff was replaced; the selected public artwork retains two cups and the letter handoff.",
+      "fourPanelOrderInspected": true,
+      "hotspotsVisuallyReviewed": 4
+    },
+    {
+      "asset": "website/brand/chapters/america/open-bench.webp",
+      "result": "passed",
+      "notes": "Jo is the same raccoon/plum-vest design at arrival and in the archive, consistent with the final Russian handoff.",
+      "fourPanelOrderInspected": true,
+      "hotspotsVisuallyReviewed": 4
+    }
+  ],
+  "legacyHarbor": [
+    {
+      "chapter": "borrowed-light",
+      "legacyChapter": 1,
+      "source": "website/artwork/chapter-1.png",
+      "sourceSha256": "ccc5b4547758e9c61dfa8523968b6ba4756a66634985e1ab7846d50741e9d0fe",
+      "sourceDimensions": [
+        1448,
+        1086
+      ],
+      "selectedPanelIndexes": [
+        0,
+        1,
+        3,
+        5
+      ],
+      "selectedCrops": [
+        [
+          12,
+          8,
+          696,
+          372
+        ],
+        [
+          12,
+          398,
+          696,
+          302
+        ],
+        [
+          742,
+          8,
+          695,
+          372
+        ],
+        [
+          742,
+          714,
+          695,
+          359
+        ]
+      ],
+      "hotspots": [
+        {
+          "x": 42,
+          "y": 70,
+          "w": 9,
+          "h": 25,
+          "label": "Rook’s lit brass lantern beside the quay"
+        },
+        {
+          "x": 36,
+          "y": 23,
+          "w": 17,
+          "h": 64,
+          "label": "The empty lantern Pip shows Rook"
+        },
+        {
+          "x": 55,
+          "y": 38,
+          "w": 10,
+          "h": 24,
+          "label": "Rook’s lantern on the stone steps"
+        },
+        {
+          "x": 72,
+          "y": 56,
+          "w": 17,
+          "h": 34,
+          "label": "Pip delivers the last letter at the lighthouse"
+        }
+      ],
+      "checks": {
+        "sourceDecode": true,
+        "cropBounds": true,
+        "fourBoundedHotspots": true,
+        "actualObjectsVisuallyReviewed": true,
+        "narrationPlotAlignedToOriginal": true
+      }
+    },
+    {
+      "chapter": "noisy-market",
+      "legacyChapter": 2,
+      "source": "website/artwork/chapter-2.png",
+      "sourceSha256": "cb252cc5cb926d19411c82048607b4e9b9f01e7959a0edb34af4894bef4ad76a",
+      "sourceDimensions": [
+        1448,
+        1086
+      ],
+      "selectedPanelIndexes": [
+        0,
+        1,
+        3,
+        5
+      ],
+      "selectedCrops": [
+        [
+          15,
+          13,
+          693,
+          341
+        ],
+        [
+          15,
+          376,
+          693,
+          335
+        ],
+        [
+          742,
+          13,
+          692,
+          341
+        ],
+        [
+          742,
+          730,
+          692,
+          339
+        ]
+      ],
+      "hotspots": [
+        {
+          "x": 54,
+          "y": 34,
+          "w": 26,
+          "h": 49,
+          "label": "Moss behind the crowded map stall"
+        },
+        {
+          "x": 36,
+          "y": 49,
+          "w": 43,
+          "h": 43,
+          "label": "Moss’s map at the crowded counter"
+        },
+        {
+          "x": 44,
+          "y": 13,
+          "w": 22,
+          "h": 43,
+          "label": "The useful blue compass sign"
+        },
+        {
+          "x": 55,
+          "y": 60,
+          "w": 18,
+          "h": 29,
+          "label": "The map handed to the mouse customer"
+        }
+      ],
+      "checks": {
+        "sourceDecode": true,
+        "cropBounds": true,
+        "fourBoundedHotspots": true,
+        "actualObjectsVisuallyReviewed": true,
+        "narrationPlotAlignedToOriginal": true
+      }
+    },
+    {
+      "chapter": "bridge-that-waited",
+      "legacyChapter": 3,
+      "source": "website/artwork/chapter-3.png",
+      "sourceSha256": "8d4c28f520146624a31f7af42bad29a73d71559f3d6e9f21fd1398bd8a6abb0a",
+      "sourceDimensions": [
+        1448,
+        1086
+      ],
+      "selectedPanelIndexes": [
+        0,
+        1,
+        3,
+        5
+      ],
+      "selectedCrops": [
+        [
+          16,
+          16,
+          692,
+          337
+        ],
+        [
+          16,
+          370,
+          692,
+          338
+        ],
+        [
+          741,
+          16,
+          693,
+          337
+        ],
+        [
+          741,
+          723,
+          693,
+          347
+        ]
+      ],
+      "hotspots": [
+        {
+          "x": 48,
+          "y": 45,
+          "w": 49,
+          "h": 39,
+          "label": "The gap in the damaged footbridge"
+        },
+        {
+          "x": 44,
+          "y": 50,
+          "w": 43,
+          "h": 28,
+          "label": "The loose plank checked from solid ground"
+        },
+        {
+          "x": 36,
+          "y": 52,
+          "w": 25,
+          "h": 31,
+          "label": "Boards carried along the safe bank"
+        },
+        {
+          "x": 62,
+          "y": 23,
+          "w": 36,
+          "h": 44,
+          "label": "The marked detour beside the stream"
+        }
+      ],
+      "checks": {
+        "sourceDecode": true,
+        "cropBounds": true,
+        "fourBoundedHotspots": true,
+        "actualObjectsVisuallyReviewed": true,
+        "narrationPlotAlignedToOriginal": true
+      }
+    },
+    {
+      "chapter": "two-bridges",
+      "legacyChapter": 4,
+      "source": "website/artwork/chapter-4.png",
+      "sourceSha256": "c8abdbc441a8101d8155556f1707ac3d88ab2bad0488a33a638da0deafa317c0",
+      "sourceDimensions": [
+        1448,
+        1086
+      ],
+      "selectedPanelIndexes": [
+        0,
+        1,
+        3,
+        5
+      ],
+      "selectedCrops": [
+        [
+          16,
+          16,
+          696,
+          334
+        ],
+        [
+          16,
+          373,
+          696,
+          322
+        ],
+        [
+          737,
+          16,
+          695,
+          334
+        ],
+        [
+          737,
+          720,
+          695,
+          348
+        ]
+      ],
+      "hotspots": [
+        {
+          "x": 25,
+          "y": 61,
+          "w": 12,
+          "h": 19,
+          "label": "Pip’s sealed letter"
+        },
+        {
+          "x": 45,
+          "y": 53,
+          "w": 42,
+          "h": 45,
+          "label": "The near gate stays closed"
+        },
+        {
+          "x": 52,
+          "y": 30,
+          "w": 11,
+          "h": 25,
+          "label": "Rook’s lantern on the checked far bridge"
+        },
+        {
+          "x": 61,
+          "y": 43,
+          "w": 15,
+          "h": 24,
+          "label": "The letter reaches Tess across both bridges"
+        }
+      ],
+      "checks": {
+        "sourceDecode": true,
+        "cropBounds": true,
+        "fourBoundedHotspots": true,
+        "actualObjectsVisuallyReviewed": true,
+        "narrationPlotAlignedToOriginal": true
+      }
+    },
+    {
+      "chapter": "right-material",
+      "legacyChapter": 5,
+      "source": "website/artwork/chapter-5.png",
+      "sourceSha256": "6a3756450fed53cfae7487f1348784fb1628e4c9a28cf00ea0cdbc97f208d299",
+      "sourceDimensions": [
+        1448,
+        1086
+      ],
+      "selectedPanelIndexes": [
+        0,
+        1,
+        3,
+        5
+      ],
+      "selectedCrops": [
+        [
+          14,
+          12,
+          697,
+          338
+        ],
+        [
+          14,
+          373,
+          697,
+          330
+        ],
+        [
+          737,
+          12,
+          696,
+          338
+        ],
+        [
+          737,
+          727,
+          696,
+          344
+        ]
+      ],
+      "hotspots": [
+        {
+          "x": 10,
+          "y": 65,
+          "w": 84,
+          "h": 31,
+          "label": "Wooden, stone, and metal crossing models"
+        },
+        {
+          "x": 34,
+          "y": 42,
+          "w": 50,
+          "h": 41,
+          "label": "The short wooden garden crossing"
+        },
+        {
+          "x": 24,
+          "y": 61,
+          "w": 23,
+          "h": 36,
+          "label": "The crossing drawing for the windy gorge"
+        },
+        {
+          "x": 7,
+          "y": 53,
+          "w": 86,
+          "h": 44,
+          "label": "Three crossings in their own places"
+        }
+      ],
+      "checks": {
+        "sourceDecode": true,
+        "cropBounds": true,
+        "fourBoundedHotspots": true,
+        "actualObjectsVisuallyReviewed": true,
+        "narrationPlotAlignedToOriginal": true
+      }
+    }
+  ],
+  "helperVectors": [
+    {
+      "path": "website/brand/poses/rook-builder.svg",
+      "sha256": "bccbe4b58cdcaacbfe6a7eec1143960ad66081d3fab2e1953c98e52b42131478",
+      "checks": {
+        "xml": true,
+        "canonicalHeadPathsAndFills": true,
+        "canonicalPaths": 3,
+        "accessibleTitleAndDescription": true,
+        "noScriptOrExternalReference": true,
+        "viewBox": "0 0 320 360"
+      }
+    },
+    {
+      "path": "website/brand/poses/rook-celebrate.svg",
+      "sha256": "08c6adc19a2093bf7b3faf871ab664732c77081081fd152084b23462537aea80",
+      "checks": {
+        "xml": true,
+        "canonicalHeadPathsAndFills": true,
+        "canonicalPaths": 3,
+        "accessibleTitleAndDescription": true,
+        "noScriptOrExternalReference": true,
+        "viewBox": "0 0 320 360"
+      }
+    },
+    {
+      "path": "website/brand/poses/rook-guide.svg",
+      "sha256": "bac24bea9b8f86f8c0ebef2e74cd45651e5a389969fe86c66528ca33217fc755",
+      "checks": {
+        "xml": true,
+        "canonicalHeadPathsAndFills": true,
+        "canonicalPaths": 3,
+        "accessibleTitleAndDescription": true,
+        "noScriptOrExternalReference": true,
+        "viewBox": "0 0 320 360"
+      }
+    },
+    {
+      "path": "website/brand/poses/rook-lantern.svg",
+      "sha256": "0a64411d800b21785389bae1a5f5b934d21009823f9366e86f2d262b10fe0ca6",
+      "checks": {
+        "xml": true,
+        "canonicalHeadPathsAndFills": true,
+        "canonicalPaths": 3,
+        "accessibleTitleAndDescription": true,
+        "noScriptOrExternalReference": true,
+        "viewBox": "0 0 320 360"
+      }
+    },
+    {
+      "path": "website/brand/poses/rook-map.svg",
+      "sha256": "d9e8c4f876f605cfd6c0f4ed88d13218a55b5f76fc66bf6f41de2e844a54641b",
+      "checks": {
+        "xml": true,
+        "canonicalHeadPathsAndFills": true,
+        "canonicalPaths": 3,
+        "accessibleTitleAndDescription": true,
+        "noScriptOrExternalReference": true,
+        "viewBox": "0 0 320 360"
+      }
+    },
+    {
+      "path": "website/brand/poses/rook-wait.svg",
+      "sha256": "67ad1dd0c716255fa8a491a21f1a59b6fc6dbd944cd1f42501d8105d14aa5f45",
+      "checks": {
+        "xml": true,
+        "canonicalHeadPathsAndFills": true,
+        "canonicalPaths": 3,
+        "accessibleTitleAndDescription": true,
+        "noScriptOrExternalReference": true,
+        "viewBox": "0 0 320 360"
+      }
+    }
+  ],
+  "chapters": [
+    {
+      "world": "harbor",
+      "chapter": "book-that-opened",
+      "master": "website/artwork/chapters/harbor/book-that-opened.png",
+      "web": "website/brand/chapters/harbor/book-that-opened.webp",
+      "status": "passed",
+      "checks": {
+        "decode": true,
+        "webSizeCap": true,
+        "webWidth1024": true,
+        "aspectPreserved": true,
+        "fourHotspots": true,
+        "hotspotsBounded": true,
+        "provenanceRecord": true,
+        "promptPresent": true,
+        "recordedMasterDimensions": true,
+        "recordedWebDimensions": true,
+        "recordedWebBytes": true,
+        "masterRecordedPath": true,
+        "webRecordedPath": true,
+        "masterRecordedHashesMatch": true,
+        "webRecordedHashesMatch": true
+      },
+      "masterDimensions": [
+        1536,
+        1024
+      ],
+      "webDimensions": [
+        1024,
+        683
+      ],
+      "webBytes": 175500,
+      "masterSha256": "e52c21bd7736113066ea7e71ccd9e8a8cde97ea17a9fc2f0a171e624abdf2298",
+      "webSha256": "3afa107b5ef36b0c8f9dc6a74d075921ab3762d9fedf6737c65b2647af78bd1d"
+    },
+    {
+      "world": "harbor",
+      "chapter": "keeper-of-names",
+      "master": "website/artwork/chapters/harbor/keeper-of-names.png",
+      "web": "website/brand/chapters/harbor/keeper-of-names.webp",
+      "status": "passed",
+      "checks": {
+        "decode": true,
+        "webSizeCap": true,
+        "webWidth1024": true,
+        "aspectPreserved": true,
+        "fourHotspots": true,
+        "hotspotsBounded": true,
+        "provenanceRecord": true,
+        "promptPresent": true,
+        "recordedMasterDimensions": true,
+        "recordedWebDimensions": true,
+        "recordedWebBytes": true,
+        "masterRecordedPath": true,
+        "webRecordedPath": true,
+        "masterRecordedHashesMatch": true,
+        "webRecordedHashesMatch": true
+      },
+      "masterDimensions": [
+        1536,
+        1024
+      ],
+      "webDimensions": [
+        1024,
+        683
+      ],
+      "webBytes": 176372,
+      "masterSha256": "b0bf1888fe24a04c08b8ae388a4cc97a00dd6bd9cbbb4b1b9a77a5f9ff1767d2",
+      "webSha256": "c637ee96138d52da7a81552977e8cd9e8251ede0be8c869b9dd0eac8c785af6c"
+    },
+    {
+      "world": "harbor",
+      "chapter": "tower-with-wings",
+      "master": "website/artwork/chapters/harbor/tower-with-wings.png",
+      "web": "website/brand/chapters/harbor/tower-with-wings.webp",
+      "status": "passed",
+      "checks": {
+        "decode": true,
+        "webSizeCap": true,
+        "webWidth1024": true,
+        "aspectPreserved": true,
+        "fourHotspots": true,
+        "hotspotsBounded": true,
+        "provenanceRecord": true,
+        "promptPresent": true,
+        "recordedMasterDimensions": true,
+        "recordedWebDimensions": true,
+        "recordedWebBytes": true,
+        "masterRecordedPath": true,
+        "webRecordedPath": true,
+        "masterRecordedHashesMatch": true,
+        "webRecordedHashesMatch": true
+      },
+      "masterDimensions": [
+        1536,
+        1024
+      ],
+      "webDimensions": [
+        1024,
+        683
+      ],
+      "webBytes": 174358,
+      "masterSha256": "b026986168382b293aa95bbfe58f9670112b8dd3e75fcb143fd8623e8fb68f68",
+      "webSha256": "9dfaf938b000d391cd273af8af8296697ca98087c178fca95d49870d29818402"
+    },
+    {
+      "world": "harbor",
+      "chapter": "blank-page-atlas",
+      "master": "website/artwork/chapters/harbor/blank-page-atlas.png",
+      "web": "website/brand/chapters/harbor/blank-page-atlas.webp",
+      "status": "passed",
+      "checks": {
+        "decode": true,
+        "webSizeCap": true,
+        "webWidth1024": true,
+        "aspectPreserved": true,
+        "fourHotspots": true,
+        "hotspotsBounded": true,
+        "provenanceRecord": true,
+        "promptPresent": true,
+        "recordedMasterDimensions": true,
+        "recordedWebDimensions": true,
+        "recordedWebBytes": true,
+        "masterRecordedPath": true,
+        "webRecordedPath": true,
+        "masterRecordedHashesMatch": true,
+        "webRecordedHashesMatch": true
+      },
+      "masterDimensions": [
+        1536,
+        1024
+      ],
+      "webDimensions": [
+        1024,
+        683
+      ],
+      "webBytes": 176320,
+      "masterSha256": "2b65951b065c8794a04328a608aad1fb24287105cf1d59a4569a2f4e3c419d3f",
+      "webSha256": "1b7fcfb9dfbfa9b5a30ee5d22f88f25fefc7d62eeaf37f28173b2c8b12162adb"
+    },
+    {
+      "world": "harbor",
+      "chapter": "road-out-of-harbor",
+      "master": "website/artwork/chapters/harbor/road-out-of-harbor.png",
+      "web": "website/brand/chapters/harbor/road-out-of-harbor.webp",
+      "status": "passed",
+      "checks": {
+        "decode": true,
+        "webSizeCap": true,
+        "webWidth1024": true,
+        "aspectPreserved": true,
+        "fourHotspots": true,
+        "hotspotsBounded": true,
+        "provenanceRecord": true,
+        "promptPresent": true,
+        "recordedMasterDimensions": true,
+        "recordedWebDimensions": true,
+        "recordedWebBytes": true,
+        "masterRecordedPath": true,
+        "webRecordedPath": true,
+        "masterRecordedHashesMatch": true,
+        "webRecordedHashesMatch": true
+      },
+      "masterDimensions": [
+        1536,
+        1024
+      ],
+      "webDimensions": [
+        1024,
+        683
+      ],
+      "webBytes": 175760,
+      "masterSha256": "1cc81544bc62d07acd51322df127b57f86c3d013ea8c715276f0f2c27b930806",
+      "webSha256": "e0cb8393a03746a3ed7758f05a51567b98747ed5aad7896237c3b27ff1b10b85"
+    },
+    {
+      "world": "persia",
+      "chapter": "courtyard-welcome",
+      "master": "website/artwork/chapters/persia/courtyard-welcome.png",
+      "web": "website/brand/chapters/persia/courtyard-welcome.webp",
+      "status": "passed",
+      "checks": {
+        "decode": true,
+        "webSizeCap": true,
+        "webWidth1024": true,
+        "aspectPreserved": true,
+        "fourHotspots": true,
+        "hotspotsBounded": true,
+        "provenanceRecord": true,
+        "promptPresent": true,
+        "recordedMasterDimensions": true,
+        "recordedWebDimensions": true,
+        "recordedWebBytes": true,
+        "masterRecordedPath": true,
+        "webRecordedPath": true,
+        "masterRecordedHashesMatch": true,
+        "webRecordedHashesMatch": true
+      },
+      "masterDimensions": [
+        1536,
+        1024
+      ],
+      "webDimensions": [
+        1024,
+        683
+      ],
+      "webBytes": 168894,
+      "masterSha256": "f64a5b381facde8dcb3c974f5ccc5a94eeb2f6118ace44ce103869ca0444cbc8",
+      "webSha256": "5f24b4a289f8868347f5c3d780363da72591f7bdd4cb87d12d269749ef640166"
+    },
+    {
+      "world": "persia",
+      "chapter": "four-ribbons-water",
+      "master": "website/artwork/chapters/persia/four-ribbons-water.png",
+      "web": "website/brand/chapters/persia/four-ribbons-water.webp",
+      "status": "passed",
+      "checks": {
+        "decode": true,
+        "webSizeCap": true,
+        "webWidth1024": true,
+        "aspectPreserved": true,
+        "fourHotspots": true,
+        "hotspotsBounded": true,
+        "provenanceRecord": true,
+        "promptPresent": true,
+        "recordedMasterDimensions": true,
+        "recordedWebDimensions": true,
+        "recordedWebBytes": true,
+        "masterRecordedPath": true,
+        "webRecordedPath": true,
+        "masterRecordedHashesMatch": true,
+        "webRecordedHashesMatch": true
+      },
+      "masterDimensions": [
+        1536,
+        1024
+      ],
+      "webDimensions": [
+        1024,
+        683
+      ],
+      "webBytes": 176924,
+      "masterSha256": "62a5af7b561973ba169066bd3331d1d9066a0bbe25cc682d87abe1e09c7e242b",
+      "webSha256": "481755a9d5f34e7e238cea4b5073fb94922d19e6954aa5f7e0fef65ad38a0ade"
+    },
+    {
+      "world": "persia",
+      "chapter": "letter-in-wind",
+      "master": "website/artwork/chapters/persia/letter-in-wind.png",
+      "web": "website/brand/chapters/persia/letter-in-wind.webp",
+      "status": "passed",
+      "checks": {
+        "decode": true,
+        "webSizeCap": true,
+        "webWidth1024": true,
+        "aspectPreserved": true,
+        "fourHotspots": true,
+        "hotspotsBounded": true,
+        "provenanceRecord": true,
+        "promptPresent": true,
+        "recordedMasterDimensions": true,
+        "recordedWebDimensions": true,
+        "recordedWebBytes": true,
+        "masterRecordedPath": true,
+        "webRecordedPath": true,
+        "masterRecordedHashesMatch": true,
+        "webRecordedHashesMatch": true
+      },
+      "masterDimensions": [
+        1536,
+        1024
+      ],
+      "webDimensions": [
+        1024,
+        683
+      ],
+      "webBytes": 176416,
+      "masterSha256": "6100cc7c60e2a6ec8ff1f0f8ad69618cfc89a21b28c068af35b6769b483f4593",
+      "webSha256": "89b80396762f935febcc0b18536c4bf8a89810e0b000fcd5efbbf070a4b8d5d9"
+    },
+    {
+      "world": "persia",
+      "chapter": "carpet-of-routes",
+      "master": "website/artwork/chapters/persia/carpet-of-routes.png",
+      "web": "website/brand/chapters/persia/carpet-of-routes.webp",
+      "status": "passed",
+      "checks": {
+        "decode": true,
+        "webSizeCap": true,
+        "webWidth1024": true,
+        "aspectPreserved": true,
+        "fourHotspots": true,
+        "hotspotsBounded": true,
+        "provenanceRecord": true,
+        "promptPresent": true,
+        "recordedMasterDimensions": true,
+        "recordedWebDimensions": true,
+        "recordedWebBytes": true,
+        "masterRecordedPath": true,
+        "webRecordedPath": true,
+        "masterRecordedHashesMatch": true,
+        "webRecordedHashesMatch": true
+      },
+      "masterDimensions": [
+        1536,
+        1024
+      ],
+      "webDimensions": [
+        1024,
+        683
+      ],
+      "webBytes": 175012,
+      "masterSha256": "5d203cc1e2c196cdb7d3cea4d2e0941a09cff74824adab6b5ad25161798df3c7",
+      "webSha256": "2f126b952347cead428953d8445ce5631605d8de1fef84205a7b5c7573761411"
+    },
+    {
+      "world": "persia",
+      "chapter": "well-after-sunset",
+      "master": "website/artwork/chapters/persia/well-after-sunset.png",
+      "web": "website/brand/chapters/persia/well-after-sunset.webp",
+      "status": "passed",
+      "checks": {
+        "decode": true,
+        "webSizeCap": true,
+        "webWidth1024": true,
+        "aspectPreserved": true,
+        "fourHotspots": true,
+        "hotspotsBounded": true,
+        "provenanceRecord": true,
+        "promptPresent": true,
+        "recordedMasterDimensions": true,
+        "recordedWebDimensions": true,
+        "recordedWebBytes": true,
+        "masterRecordedPath": true,
+        "webRecordedPath": true,
+        "masterRecordedHashesMatch": true,
+        "webRecordedHashesMatch": true
+      },
+      "masterDimensions": [
+        1536,
+        1024
+      ],
+      "webDimensions": [
+        1024,
+        683
+      ],
+      "webBytes": 179432,
+      "masterSha256": "adf3840a02c6cf63bd7701d56a2a21b9d7e1d23986fe85e9e6afc0d37ce35da6",
+      "webSha256": "ebc9c11f27eacd6e9ccacb76394fda69ef108eaa6478d362e647d83623f3ffed"
+    },
+    {
+      "world": "persia",
+      "chapter": "princess-of-dawn",
+      "master": "website/artwork/chapters/persia/princess-of-dawn.png",
+      "web": "website/brand/chapters/persia/princess-of-dawn.webp",
+      "status": "passed",
+      "checks": {
+        "decode": true,
+        "webSizeCap": true,
+        "webWidth1024": true,
+        "aspectPreserved": true,
+        "fourHotspots": true,
+        "hotspotsBounded": true,
+        "provenanceRecord": true,
+        "promptPresent": true,
+        "recordedMasterDimensions": true,
+        "recordedWebDimensions": true,
+        "recordedWebBytes": true,
+        "masterRecordedPath": true,
+        "webRecordedPath": true,
+        "masterRecordedHashesMatch": true,
+        "webRecordedHashesMatch": true
+      },
+      "masterDimensions": [
+        1536,
+        1024
+      ],
+      "webDimensions": [
+        1024,
+        683
+      ],
+      "webBytes": 178532,
+      "masterSha256": "3cd59255b397692794796bfc41d8fa8fc6555cf1831b3c6b20db748637952253",
+      "webSha256": "b8c0ad6069ac27dafee8dcc932b31307ad9ee199360956cce0d838a694bcb8ba"
+    },
+    {
+      "world": "persia",
+      "chapter": "poem-with-room",
+      "master": "website/artwork/chapters/persia/poem-with-room.png",
+      "web": "website/brand/chapters/persia/poem-with-room.webp",
+      "status": "passed",
+      "checks": {
+        "decode": true,
+        "webSizeCap": true,
+        "webWidth1024": true,
+        "aspectPreserved": true,
+        "fourHotspots": true,
+        "hotspotsBounded": true,
+        "provenanceRecord": true,
+        "promptPresent": true,
+        "recordedMasterDimensions": true,
+        "recordedWebDimensions": true,
+        "recordedWebBytes": true,
+        "masterRecordedPath": true,
+        "webRecordedPath": true,
+        "masterRecordedHashesMatch": true,
+        "webRecordedHashesMatch": true
+      },
+      "masterDimensions": [
+        1536,
+        1024
+      ],
+      "webDimensions": [
+        1024,
+        683
+      ],
+      "webBytes": 171070,
+      "masterSha256": "0467cc1aeec884f33a64c43983cf90395d27e5b88a63f5ef5a2e79c00039238f",
+      "webSha256": "b807dd8b80db17909e082355d505bbeee27d34ae2362e373bfc3ef7a0462d6fa"
+    },
+    {
+      "world": "persia",
+      "chapter": "caravan-of-notes",
+      "master": "website/artwork/chapters/persia/caravan-of-notes.png",
+      "web": "website/brand/chapters/persia/caravan-of-notes.webp",
+      "status": "passed",
+      "checks": {
+        "decode": true,
+        "webSizeCap": true,
+        "webWidth1024": true,
+        "aspectPreserved": true,
+        "fourHotspots": true,
+        "hotspotsBounded": true,
+        "provenanceRecord": true,
+        "promptPresent": true,
+        "recordedMasterDimensions": true,
+        "recordedWebDimensions": true,
+        "recordedWebBytes": true,
+        "masterRecordedPath": true,
+        "webRecordedPath": true,
+        "masterRecordedHashesMatch": true,
+        "webRecordedHashesMatch": true
+      },
+      "masterDimensions": [
+        1536,
+        1024
+      ],
+      "webDimensions": [
+        1024,
+        683
+      ],
+      "webBytes": 169780,
+      "masterSha256": "5487f4fc2050dc97d2e95c80af9ac9349aa6e11b5f82192f8dec4b6c0d05abf9",
+      "webSha256": "47c821a6b7f9c5fd39e70b694e2013c626e3e75483cb161d4d7fc93632333f58"
+    },
+    {
+      "world": "persia",
+      "chapter": "window-of-stars",
+      "master": "website/artwork/chapters/persia/window-of-stars.png",
+      "web": "website/brand/chapters/persia/window-of-stars.webp",
+      "status": "passed",
+      "checks": {
+        "decode": true,
+        "webSizeCap": true,
+        "webWidth1024": true,
+        "aspectPreserved": true,
+        "fourHotspots": true,
+        "hotspotsBounded": true,
+        "provenanceRecord": true,
+        "promptPresent": true,
+        "recordedMasterDimensions": true,
+        "recordedWebDimensions": true,
+        "recordedWebBytes": true,
+        "masterRecordedPath": true,
+        "webRecordedPath": true,
+        "masterRecordedHashesMatch": true,
+        "webRecordedHashesMatch": true
+      },
+      "masterDimensions": [
+        1536,
+        1024
+      ],
+      "webDimensions": [
+        1024,
+        683
+      ],
+      "webBytes": 170326,
+      "masterSha256": "3e6f3c5e0ae409efbdf029a87dc1bd70b7132be2de0b2a5cdaff7cd575d3a99e",
+      "webSha256": "d344528d0f5804981664ad6de93d1168a2941bc89e9f28923f1d7272ceaf2630"
+    },
+    {
+      "world": "persia",
+      "chapter": "sea-between-pages",
+      "master": "website/artwork/chapters/persia/sea-between-pages.png",
+      "web": "website/brand/chapters/persia/sea-between-pages.webp",
+      "status": "passed",
+      "checks": {
+        "decode": true,
+        "webSizeCap": true,
+        "webWidth1024": true,
+        "aspectPreserved": true,
+        "fourHotspots": true,
+        "hotspotsBounded": true,
+        "provenanceRecord": true,
+        "promptPresent": true,
+        "recordedMasterDimensions": true,
+        "recordedWebDimensions": true,
+        "recordedWebBytes": true,
+        "masterRecordedPath": true,
+        "webRecordedPath": true,
+        "masterRecordedHashesMatch": true,
+        "webRecordedHashesMatch": true
+      },
+      "masterDimensions": [
+        1536,
+        1024
+      ],
+      "webDimensions": [
+        1024,
+        683
+      ],
+      "webBytes": 178254,
+      "masterSha256": "05c6ae0bb28cea79532a7252bbcfa5546863752b42710d57f62326ef4fe78026",
+      "webSha256": "c8182819bdc495e0ff3ff1de36398299c8cfe73c4ad676f4ecd15444c25e446b"
+    },
+    {
+      "world": "china",
+      "chapter": "river-welcome",
+      "master": "website/artwork/chapters/china/river-welcome.png",
+      "web": "website/brand/chapters/china/river-welcome.webp",
+      "status": "passed",
+      "checks": {
+        "decode": true,
+        "webSizeCap": true,
+        "webWidth1024": true,
+        "aspectPreserved": true,
+        "fourHotspots": true,
+        "hotspotsBounded": true,
+        "provenanceRecord": true,
+        "promptPresent": true,
+        "recordedMasterDimensions": true,
+        "recordedWebDimensions": true,
+        "recordedWebBytes": true,
+        "masterRecordedPath": true,
+        "webRecordedPath": true,
+        "masterRecordedHashesMatch": true,
+        "webRecordedHashesMatch": true
+      },
+      "masterDimensions": [
+        1254,
+        1254
+      ],
+      "webDimensions": [
+        1024,
+        1024
+      ],
+      "webBytes": 169124,
+      "masterSha256": "80dcc7567e3ffe619dea69a544321c30abd9e406bf2204865c8c1581243865a8",
+      "webSha256": "2dc47590d8854b70e491b9714bbefc0b32c6daa7ab557abd352314a0b5175fe7"
+    },
+    {
+      "world": "china",
+      "chapter": "bridge-of-many-hands",
+      "master": "website/artwork/chapters/china/bridge-of-many-hands.png",
+      "web": "website/brand/chapters/china/bridge-of-many-hands.webp",
+      "status": "passed",
+      "checks": {
+        "decode": true,
+        "webSizeCap": true,
+        "webWidth1024": true,
+        "aspectPreserved": true,
+        "fourHotspots": true,
+        "hotspotsBounded": true,
+        "provenanceRecord": true,
+        "promptPresent": true,
+        "recordedMasterDimensions": true,
+        "recordedWebDimensions": true,
+        "recordedWebBytes": true,
+        "masterRecordedPath": true,
+        "webRecordedPath": true,
+        "masterRecordedHashesMatch": true,
+        "webRecordedHashesMatch": true
+      },
+      "masterDimensions": [
+        1254,
+        1254
+      ],
+      "webDimensions": [
+        1024,
+        1024
+      ],
+      "webBytes": 164856,
+      "masterSha256": "0d98ee134bd5494e8168f2cccd475f1059fc4eb22be42ac7084d934b5555f54a",
+      "webSha256": "8f2971179757623eb315d6a6a4e01f15526d293544a0824c70f5ac1ea0ce6533"
+    },
+    {
+      "world": "china",
+      "chapter": "printer-missing-dot",
+      "master": "website/artwork/chapters/china/printer-missing-dot.png",
+      "web": "website/brand/chapters/china/printer-missing-dot.webp",
+      "status": "passed",
+      "checks": {
+        "decode": true,
+        "webSizeCap": true,
+        "webWidth1024": true,
+        "aspectPreserved": true,
+        "fourHotspots": true,
+        "hotspotsBounded": true,
+        "provenanceRecord": true,
+        "promptPresent": true,
+        "recordedMasterDimensions": true,
+        "recordedWebDimensions": true,
+        "recordedWebBytes": true,
+        "masterRecordedPath": true,
+        "webRecordedPath": true,
+        "masterRecordedHashesMatch": true,
+        "webRecordedHashesMatch": true
+      },
+      "masterDimensions": [
+        1254,
+        1254
+      ],
+      "webDimensions": [
+        1024,
+        1024
+      ],
+      "webBytes": 168520,
+      "masterSha256": "63c3410e0360089530d989a8f0ad9de624d684d9b3cc276f3bac792a28ff631b",
+      "webSha256": "b230eb3c90b8398aa176dc7c6c84e4dc181b82b63e1c564d3efd1a58e38cc368"
+    },
+    {
+      "world": "china",
+      "chapter": "flute-and-flag",
+      "master": "website/artwork/chapters/china/flute-and-flag.png",
+      "web": "website/brand/chapters/china/flute-and-flag.webp",
+      "status": "passed",
+      "checks": {
+        "decode": true,
+        "webSizeCap": true,
+        "webWidth1024": true,
+        "aspectPreserved": true,
+        "fourHotspots": true,
+        "hotspotsBounded": true,
+        "provenanceRecord": true,
+        "promptPresent": true,
+        "recordedMasterDimensions": true,
+        "recordedWebDimensions": true,
+        "recordedWebBytes": true,
+        "masterRecordedPath": true,
+        "webRecordedPath": true,
+        "masterRecordedHashesMatch": true,
+        "webRecordedHashesMatch": true
+      },
+      "masterDimensions": [
+        1254,
+        1254
+      ],
+      "webDimensions": [
+        1024,
+        1024
+      ],
+      "webBytes": 171406,
+      "masterSha256": "ceff9193922e4119008b333afaa41dc37c0ef9f4c52d4a1580227b5c51d429c4",
+      "webSha256": "e1a74d5cb79d67b6c620110d892d5c1487523c4b24c96459e79a691d4b0473a3"
+    },
+    {
+      "world": "china",
+      "chapter": "dragon-at-rain-pavilion",
+      "master": "website/artwork/chapters/china/dragon-at-rain-pavilion.png",
+      "web": "website/brand/chapters/china/dragon-at-rain-pavilion.webp",
+      "status": "passed",
+      "checks": {
+        "decode": true,
+        "webSizeCap": true,
+        "webWidth1024": true,
+        "aspectPreserved": true,
+        "fourHotspots": true,
+        "hotspotsBounded": true,
+        "provenanceRecord": true,
+        "promptPresent": true,
+        "recordedMasterDimensions": true,
+        "recordedWebDimensions": true,
+        "recordedWebBytes": true,
+        "masterRecordedPath": true,
+        "webRecordedPath": true,
+        "masterRecordedHashesMatch": true,
+        "webRecordedHashesMatch": true
+      },
+      "masterDimensions": [
+        1254,
+        1254
+      ],
+      "webDimensions": [
+        1024,
+        1024
+      ],
+      "webBytes": 179366,
+      "masterSha256": "81c4776a4a8af6b7e53ee1a64a6c9c89dd3871b6642a221bb6e3f6b634adfd15",
+      "webSha256": "641d42f34c34b1f7e5806b58ccb465f3388940700874d149dbefa7dc5b099777"
+    },
+    {
+      "world": "china",
+      "chapter": "moon-gate",
+      "master": "website/artwork/chapters/china/moon-gate.png",
+      "web": "website/brand/chapters/china/moon-gate.webp",
+      "status": "passed",
+      "checks": {
+        "decode": true,
+        "webSizeCap": true,
+        "webWidth1024": true,
+        "aspectPreserved": true,
+        "fourHotspots": true,
+        "hotspotsBounded": true,
+        "provenanceRecord": true,
+        "promptPresent": true,
+        "recordedMasterDimensions": true,
+        "recordedWebDimensions": true,
+        "recordedWebBytes": true,
+        "masterRecordedPath": true,
+        "webRecordedPath": true,
+        "masterRecordedHashesMatch": true,
+        "webRecordedHashesMatch": true
+      },
+      "masterDimensions": [
+        1254,
+        1254
+      ],
+      "webDimensions": [
+        1024,
+        1024
+      ],
+      "webBytes": 171126,
+      "masterSha256": "043b6be6d63324571a7cd2ebb9d5d81537b14dd4a21aec3128321131ea1f7263",
+      "webSha256": "921d4a746d637e3842ebe8e3299d532930acf5b615366e7adbd7aea0453e1d18"
+    },
+    {
+      "world": "china",
+      "chapter": "kite-that-came-down",
+      "master": "website/artwork/chapters/china/kite-that-came-down.png",
+      "web": "website/brand/chapters/china/kite-that-came-down.webp",
+      "status": "passed",
+      "checks": {
+        "decode": true,
+        "webSizeCap": true,
+        "webWidth1024": true,
+        "aspectPreserved": true,
+        "fourHotspots": true,
+        "hotspotsBounded": true,
+        "provenanceRecord": true,
+        "promptPresent": true,
+        "recordedMasterDimensions": true,
+        "recordedWebDimensions": true,
+        "recordedWebBytes": true,
+        "masterRecordedPath": true,
+        "webRecordedPath": true,
+        "masterRecordedHashesMatch": true,
+        "webRecordedHashesMatch": true
+      },
+      "masterDimensions": [
+        1254,
+        1254
+      ],
+      "webDimensions": [
+        1024,
+        1024
+      ],
+      "webBytes": 173702,
+      "masterSha256": "72f401405d123c47e29adff025865224c40984c7b1e6792d0dafe70d022d19ac",
+      "webSha256": "dc2ac8d019e031454a98535c9a310184450b55b5409dbba1e72acf745987ecb8"
+    },
+    {
+      "world": "china",
+      "chapter": "two-ferries",
+      "master": "website/artwork/chapters/china/two-ferries.png",
+      "web": "website/brand/chapters/china/two-ferries.webp",
+      "status": "passed",
+      "checks": {
+        "decode": true,
+        "webSizeCap": true,
+        "webWidth1024": true,
+        "aspectPreserved": true,
+        "fourHotspots": true,
+        "hotspotsBounded": true,
+        "provenanceRecord": true,
+        "promptPresent": true,
+        "recordedMasterDimensions": true,
+        "recordedWebDimensions": true,
+        "recordedWebBytes": true,
+        "masterRecordedPath": true,
+        "webRecordedPath": true,
+        "masterRecordedHashesMatch": true,
+        "webRecordedHashesMatch": true
+      },
+      "masterDimensions": [
+        1254,
+        1254
+      ],
+      "webDimensions": [
+        1024,
+        1024
+      ],
+      "webBytes": 175722,
+      "masterSha256": "1d868f86f15e5c5f88638427bb8d6685378955e6e7e07f99e411c3ec8c79556d",
+      "webSha256": "150c79b0b2702d722345bfb5694f24459336a17df33535afe620510a1383cd8a"
+    },
+    {
+      "world": "china",
+      "chapter": "roof-garden",
+      "master": "website/artwork/chapters/china/roof-garden.png",
+      "web": "website/brand/chapters/china/roof-garden.webp",
+      "status": "passed",
+      "checks": {
+        "decode": true,
+        "webSizeCap": true,
+        "webWidth1024": true,
+        "aspectPreserved": true,
+        "fourHotspots": true,
+        "hotspotsBounded": true,
+        "provenanceRecord": true,
+        "promptPresent": true,
+        "recordedMasterDimensions": true,
+        "recordedWebDimensions": true,
+        "recordedWebBytes": true,
+        "masterRecordedPath": true,
+        "webRecordedPath": true,
+        "masterRecordedHashesMatch": true,
+        "webRecordedHashesMatch": true
+      },
+      "masterDimensions": [
+        1254,
+        1254
+      ],
+      "webDimensions": [
+        1024,
+        1024
+      ],
+      "webBytes": 171962,
+      "masterSha256": "0c50e1cedb5a820af0c6bbd2b00d059dde3f8425a31717b5351ec52963b00d59",
+      "webSha256": "d1863d02bc5e1bf63a7b6c330052cd51da3f9572be5139de7791b4e02fa1748c"
+    },
+    {
+      "world": "china",
+      "chapter": "northbound-window",
+      "master": "website/artwork/chapters/china/northbound-window.png",
+      "web": "website/brand/chapters/china/northbound-window.webp",
+      "status": "passed",
+      "checks": {
+        "decode": true,
+        "webSizeCap": true,
+        "webWidth1024": true,
+        "aspectPreserved": true,
+        "fourHotspots": true,
+        "hotspotsBounded": true,
+        "provenanceRecord": true,
+        "promptPresent": true,
+        "recordedMasterDimensions": true,
+        "recordedWebDimensions": true,
+        "recordedWebBytes": true,
+        "masterRecordedPath": true,
+        "webRecordedPath": true,
+        "masterRecordedHashesMatch": true,
+        "webRecordedHashesMatch": true
+      },
+      "masterDimensions": [
+        1254,
+        1254
+      ],
+      "webDimensions": [
+        1024,
+        1024
+      ],
+      "webBytes": 170406,
+      "masterSha256": "4c6e24046d7c268057fa34de059b2ff45de4e8fd48080371edee02043959e99d",
+      "webSha256": "570373a8d6e868e6079b4e57f356da09a36ba72cfd9344e36b9e0b5264c483c1"
+    },
+    {
+      "world": "russia",
+      "chapter": "warm-door",
+      "master": "website/artwork/chapters/russia/warm-door.png",
+      "web": "website/brand/chapters/russia/warm-door.webp",
+      "status": "passed",
+      "checks": {
+        "decode": true,
+        "webSizeCap": true,
+        "webWidth1024": true,
+        "aspectPreserved": true,
+        "fourHotspots": true,
+        "hotspotsBounded": true,
+        "provenanceRecord": true,
+        "promptPresent": true,
+        "recordedMasterDimensions": true,
+        "recordedWebDimensions": true,
+        "recordedWebBytes": true,
+        "masterRecordedPath": true,
+        "webRecordedPath": true,
+        "masterRecordedHashesMatch": true,
+        "webRecordedHashesMatch": true
+      },
+      "masterDimensions": [
+        1254,
+        1254
+      ],
+      "webDimensions": [
+        1024,
+        1024
+      ],
+      "webBytes": 177572,
+      "masterSha256": "05852ae218e4478b132d69bf2d4a397500778d5ceaf3f6f5cc576444852abab4",
+      "webSha256": "9fb6decdc829db4212c8a1c5704597cb030b75587f1450f073ae4fef867f7fdc"
+    },
+    {
+      "world": "russia",
+      "chapter": "loaf-that-stopped",
+      "master": "website/artwork/chapters/russia/loaf-that-stopped.png",
+      "web": "website/brand/chapters/russia/loaf-that-stopped.webp",
+      "status": "passed",
+      "checks": {
+        "decode": true,
+        "webSizeCap": true,
+        "webWidth1024": true,
+        "aspectPreserved": true,
+        "fourHotspots": true,
+        "hotspotsBounded": true,
+        "provenanceRecord": true,
+        "promptPresent": true,
+        "recordedMasterDimensions": true,
+        "recordedWebDimensions": true,
+        "recordedWebBytes": true,
+        "masterRecordedPath": true,
+        "webRecordedPath": true,
+        "masterRecordedHashesMatch": true,
+        "webRecordedHashesMatch": true
+      },
+      "masterDimensions": [
+        1254,
+        1254
+      ],
+      "webDimensions": [
+        1024,
+        1024
+      ],
+      "webBytes": 177938,
+      "masterSha256": "8472e0272a4b3afdc4263a68c0460b6e578d70ce03ff96d9e89b543c1ab59a96",
+      "webSha256": "b0379592b359a663cecce39c66c5faf899d759193ed32a39ae1c90c2de80258a"
+    },
+    {
+      "world": "russia",
+      "chapter": "bell-beneath-ice",
+      "master": "website/artwork/chapters/russia/bell-beneath-ice.png",
+      "web": "website/brand/chapters/russia/bell-beneath-ice.webp",
+      "status": "passed",
+      "checks": {
+        "decode": true,
+        "webSizeCap": true,
+        "webWidth1024": true,
+        "aspectPreserved": true,
+        "fourHotspots": true,
+        "hotspotsBounded": true,
+        "provenanceRecord": true,
+        "promptPresent": true,
+        "recordedMasterDimensions": true,
+        "recordedWebDimensions": true,
+        "recordedWebBytes": true,
+        "masterRecordedPath": true,
+        "webRecordedPath": true,
+        "masterRecordedHashesMatch": true,
+        "webRecordedHashesMatch": true
+      },
+      "masterDimensions": [
+        1254,
+        1254
+      ],
+      "webDimensions": [
+        1024,
+        1024
+      ],
+      "webBytes": 173292,
+      "masterSha256": "6ba8e3099a741cbf65cccfb40fa95975b54e4bb11790e38f7ecc8f730f001ef3",
+      "webSha256": "c0bb8bf60e3a8ffd173654e3219335fb0198bf35720a320e167d4603e4c033c8"
+    },
+    {
+      "world": "russia",
+      "chapter": "house-of-joints",
+      "master": "website/artwork/chapters/russia/house-of-joints.png",
+      "web": "website/brand/chapters/russia/house-of-joints.webp",
+      "status": "passed",
+      "checks": {
+        "decode": true,
+        "webSizeCap": true,
+        "webWidth1024": true,
+        "aspectPreserved": true,
+        "fourHotspots": true,
+        "hotspotsBounded": true,
+        "provenanceRecord": true,
+        "promptPresent": true,
+        "recordedMasterDimensions": true,
+        "recordedWebDimensions": true,
+        "recordedWebBytes": true,
+        "masterRecordedPath": true,
+        "webRecordedPath": true,
+        "masterRecordedHashesMatch": true,
+        "webRecordedHashesMatch": true
+      },
+      "masterDimensions": [
+        1254,
+        1254
+      ],
+      "webDimensions": [
+        1024,
+        1024
+      ],
+      "webBytes": 174658,
+      "masterSha256": "0216984e8e09c57753ba208fb38e5b8e0d276be590b266a0c71fcb8d47e440ca",
+      "webSha256": "132ebb7175097eea7e79f98f2cda816ade2f0930dd95c953648cef1601fe9eaf"
+    },
+    {
+      "world": "russia",
+      "chapter": "message-in-whiteout",
+      "master": "website/artwork/chapters/russia/message-in-whiteout.png",
+      "web": "website/brand/chapters/russia/message-in-whiteout.webp",
+      "status": "passed",
+      "checks": {
+        "decode": true,
+        "webSizeCap": true,
+        "webWidth1024": true,
+        "aspectPreserved": true,
+        "fourHotspots": true,
+        "hotspotsBounded": true,
+        "provenanceRecord": true,
+        "promptPresent": true,
+        "recordedMasterDimensions": true,
+        "recordedWebDimensions": true,
+        "recordedWebBytes": true,
+        "masterRecordedPath": true,
+        "webRecordedPath": true,
+        "masterRecordedHashesMatch": true,
+        "webRecordedHashesMatch": true
+      },
+      "masterDimensions": [
+        1254,
+        1254
+      ],
+      "webDimensions": [
+        1024,
+        1024
+      ],
+      "webBytes": 174210,
+      "masterSha256": "f18ed484ace341b5aafb5f8ed385ebed10c463d218798f8acf61e51dbcac38e4",
+      "webSha256": "b83c0716a909077a7df66adb13eb96f2c77678c5f085d3596ad18ae8b173e4f3"
+    },
+    {
+      "world": "russia",
+      "chapter": "night-train-curtain",
+      "master": "website/artwork/chapters/russia/night-train-curtain.png",
+      "web": "website/brand/chapters/russia/night-train-curtain.webp",
+      "status": "passed",
+      "checks": {
+        "decode": true,
+        "webSizeCap": true,
+        "webWidth1024": true,
+        "aspectPreserved": true,
+        "fourHotspots": true,
+        "hotspotsBounded": true,
+        "provenanceRecord": true,
+        "promptPresent": true,
+        "recordedMasterDimensions": true,
+        "recordedWebDimensions": true,
+        "recordedWebBytes": true,
+        "masterRecordedPath": true,
+        "webRecordedPath": true,
+        "masterRecordedHashesMatch": true,
+        "webRecordedHashesMatch": true
+      },
+      "masterDimensions": [
+        1254,
+        1254
+      ],
+      "webDimensions": [
+        1024,
+        1024
+      ],
+      "webBytes": 155934,
+      "masterSha256": "f415547f08bafd1120f30c06916444db7c6520934b870030be22253741940abc",
+      "webSha256": "5a620b1564bf3b9b816ab821f958c19838d44d277a153ee4da20c8721bea2310"
+    },
+    {
+      "world": "russia",
+      "chapter": "tower-after-thaw",
+      "master": "website/artwork/chapters/russia/tower-after-thaw.png",
+      "web": "website/brand/chapters/russia/tower-after-thaw.webp",
+      "status": "passed",
+      "checks": {
+        "decode": true,
+        "webSizeCap": true,
+        "webWidth1024": true,
+        "aspectPreserved": true,
+        "fourHotspots": true,
+        "hotspotsBounded": true,
+        "provenanceRecord": true,
+        "promptPresent": true,
+        "recordedMasterDimensions": true,
+        "recordedWebDimensions": true,
+        "recordedWebBytes": true,
+        "masterRecordedPath": true,
+        "webRecordedPath": true,
+        "masterRecordedHashesMatch": true,
+        "webRecordedHashesMatch": true
+      },
+      "masterDimensions": [
+        1254,
+        1254
+      ],
+      "webDimensions": [
+        1024,
+        1024
+      ],
+      "webBytes": 174454,
+      "masterSha256": "5d07744ef7ae0e7abe4d483211d68a6cb6cbad79678807ffce0732d78a9e533b",
+      "webSha256": "41d8b4fe3e720d33daa054f83c14b4e244da03cc99aaad71340f497b83126d64"
+    },
+    {
+      "world": "russia",
+      "chapter": "forest-two-choices",
+      "master": "website/artwork/chapters/russia/forest-two-choices.png",
+      "web": "website/brand/chapters/russia/forest-two-choices.webp",
+      "status": "passed",
+      "checks": {
+        "decode": true,
+        "webSizeCap": true,
+        "webWidth1024": true,
+        "aspectPreserved": true,
+        "fourHotspots": true,
+        "hotspotsBounded": true,
+        "provenanceRecord": true,
+        "promptPresent": true,
+        "recordedMasterDimensions": true,
+        "recordedWebDimensions": true,
+        "recordedWebBytes": true,
+        "masterRecordedPath": true,
+        "webRecordedPath": true,
+        "masterRecordedHashesMatch": true,
+        "webRecordedHashesMatch": true
+      },
+      "masterDimensions": [
+        1254,
+        1254
+      ],
+      "webDimensions": [
+        1024,
+        1024
+      ],
+      "webBytes": 171768,
+      "masterSha256": "7fe9796593fd506ad479fbc7256d226bc377cb17a3c95db54e11fcc180519f6b",
+      "webSha256": "58985e44356f20d0714e5e8471e8da13d7dba4ee57227f49d8cef93990f1976c"
+    },
+    {
+      "world": "russia",
+      "chapter": "stories-by-stove",
+      "master": "website/artwork/chapters/russia/stories-by-stove.png",
+      "web": "website/brand/chapters/russia/stories-by-stove.webp",
+      "status": "passed",
+      "checks": {
+        "decode": true,
+        "webSizeCap": true,
+        "webWidth1024": true,
+        "aspectPreserved": true,
+        "fourHotspots": true,
+        "hotspotsBounded": true,
+        "provenanceRecord": true,
+        "promptPresent": true,
+        "recordedMasterDimensions": true,
+        "recordedWebDimensions": true,
+        "recordedWebBytes": true,
+        "masterRecordedPath": true,
+        "webRecordedPath": true,
+        "masterRecordedHashesMatch": true,
+        "webRecordedHashesMatch": true
+      },
+      "masterDimensions": [
+        1254,
+        1254
+      ],
+      "webDimensions": [
+        1024,
+        1024
+      ],
+      "webBytes": 172842,
+      "masterSha256": "5b0d108c36bed450ea4d69798952d70c547f53cd7c9f2a60be05535f162b372c",
+      "webSha256": "fc87d20beb2cce3f92f13bb40a4aa64162a25d31b633ad837c2a9dfa0b95a2a2"
+    },
+    {
+      "world": "russia",
+      "chapter": "ship-beyond-snow",
+      "master": "website/artwork/chapters/russia/ship-beyond-snow.png",
+      "web": "website/brand/chapters/russia/ship-beyond-snow.webp",
+      "status": "passed",
+      "checks": {
+        "decode": true,
+        "webSizeCap": true,
+        "webWidth1024": true,
+        "aspectPreserved": true,
+        "fourHotspots": true,
+        "hotspotsBounded": true,
+        "provenanceRecord": true,
+        "promptPresent": true,
+        "recordedMasterDimensions": true,
+        "recordedWebDimensions": true,
+        "recordedWebBytes": true,
+        "masterRecordedPath": true,
+        "webRecordedPath": true,
+        "masterRecordedHashesMatch": true,
+        "webRecordedHashesMatch": true
+      },
+      "masterDimensions": [
+        1254,
+        1254
+      ],
+      "webDimensions": [
+        1024,
+        1024
+      ],
+      "webBytes": 166648,
+      "masterSha256": "7d855992c66b0dd8c5dc62c39efd4094770cbfa7800b4741a00a376dfd2a9b34",
+      "webSha256": "6720569ffcbb405897393169665a9460449f0b584c531da317bee1515a654749"
+    },
+    {
+      "world": "america",
+      "chapter": "open-bench",
+      "master": "website/artwork/chapters/america/open-bench.png",
+      "web": "website/brand/chapters/america/open-bench.webp",
+      "status": "passed",
+      "checks": {
+        "decode": true,
+        "webSizeCap": true,
+        "webWidth1024": true,
+        "aspectPreserved": true,
+        "fourHotspots": true,
+        "hotspotsBounded": true,
+        "provenanceRecord": true,
+        "promptPresent": true,
+        "recordedMasterDimensions": true,
+        "recordedWebDimensions": true,
+        "recordedWebBytes": true,
+        "masterRecordedPath": true,
+        "webRecordedPath": true,
+        "masterRecordedHashesMatch": true,
+        "webRecordedHashesMatch": true
+      },
+      "masterDimensions": [
+        1254,
+        1254
+      ],
+      "webDimensions": [
+        1024,
+        1024
+      ],
+      "webBytes": 178166,
+      "masterSha256": "2f3ad90a0989871baf962fdcff79283afc51aad1b428731adda7c13bd08f506b",
+      "webSha256": "0c3d72eb3df66a9fd809933fc73fb1615e294216a5b59934de7ee687e563de77"
+    },
+    {
+      "world": "america",
+      "chapter": "hall-of-voices",
+      "master": "website/artwork/chapters/america/hall-of-voices.png",
+      "web": "website/brand/chapters/america/hall-of-voices.webp",
+      "status": "passed",
+      "checks": {
+        "decode": true,
+        "webSizeCap": true,
+        "webWidth1024": true,
+        "aspectPreserved": true,
+        "fourHotspots": true,
+        "hotspotsBounded": true,
+        "provenanceRecord": true,
+        "promptPresent": true,
+        "recordedMasterDimensions": true,
+        "recordedWebDimensions": true,
+        "recordedWebBytes": true,
+        "masterRecordedPath": true,
+        "webRecordedPath": true,
+        "masterRecordedHashesMatch": true,
+        "webRecordedHashesMatch": true
+      },
+      "masterDimensions": [
+        1254,
+        1254
+      ],
+      "webDimensions": [
+        1024,
+        1024
+      ],
+      "webBytes": 174298,
+      "masterSha256": "7d573d5b316840430339046a034949ac5008c8aee68b828e4d36ba5aed7504bc",
+      "webSha256": "984420d450eb3faab73b78484b658c747ed5fce5e7d35bd71433d19aaf3f949c"
+    },
+    {
+      "world": "america",
+      "chapter": "charter-in-light",
+      "master": "website/artwork/chapters/america/charter-in-light.png",
+      "web": "website/brand/chapters/america/charter-in-light.webp",
+      "status": "passed",
+      "checks": {
+        "decode": true,
+        "webSizeCap": true,
+        "webWidth1024": true,
+        "aspectPreserved": true,
+        "fourHotspots": true,
+        "hotspotsBounded": true,
+        "provenanceRecord": true,
+        "promptPresent": true,
+        "recordedMasterDimensions": true,
+        "recordedWebDimensions": true,
+        "recordedWebBytes": true,
+        "masterRecordedPath": true,
+        "webRecordedPath": true,
+        "masterRecordedHashesMatch": true,
+        "webRecordedHashesMatch": true
+      },
+      "masterDimensions": [
+        1254,
+        1254
+      ],
+      "webDimensions": [
+        1024,
+        1024
+      ],
+      "webBytes": 178934,
+      "masterSha256": "0439f1156dcbf4f5fd3f826e09eabf2c90c1602bb7e6d3684b2de983485c0071",
+      "webSha256": "78ee96a1786b7213f7bd61ee08f0fee2bbbaa491de6e06ff7dc58c597b68a0c8"
+    },
+    {
+      "world": "america",
+      "chapter": "bridge-for-wheels",
+      "master": "website/artwork/chapters/america/bridge-for-wheels.png",
+      "web": "website/brand/chapters/america/bridge-for-wheels.webp",
+      "status": "passed",
+      "checks": {
+        "decode": true,
+        "webSizeCap": true,
+        "webWidth1024": true,
+        "aspectPreserved": true,
+        "fourHotspots": true,
+        "hotspotsBounded": true,
+        "provenanceRecord": true,
+        "promptPresent": true,
+        "recordedMasterDimensions": true,
+        "recordedWebDimensions": true,
+        "recordedWebBytes": true,
+        "masterRecordedPath": true,
+        "webRecordedPath": true,
+        "masterRecordedHashesMatch": true,
+        "webRecordedHashesMatch": true
+      },
+      "masterDimensions": [
+        1254,
+        1254
+      ],
+      "webDimensions": [
+        1024,
+        1024
+      ],
+      "webBytes": 172066,
+      "masterSha256": "f066f8dd0725ecee7d026d3f14db873d7398ab21afa770ffc24db81457cdf53a",
+      "webSha256": "6356919e31d2722c305cc3e9d605bc62865bcad18a2f1c1de1e3b7f1dd471af6"
+    },
+    {
+      "world": "america",
+      "chapter": "signal-for-supper",
+      "master": "website/artwork/chapters/america/signal-for-supper.png",
+      "web": "website/brand/chapters/america/signal-for-supper.webp",
+      "status": "passed",
+      "checks": {
+        "decode": true,
+        "webSizeCap": true,
+        "webWidth1024": true,
+        "aspectPreserved": true,
+        "fourHotspots": true,
+        "hotspotsBounded": true,
+        "provenanceRecord": true,
+        "promptPresent": true,
+        "recordedMasterDimensions": true,
+        "recordedWebDimensions": true,
+        "recordedWebBytes": true,
+        "masterRecordedPath": true,
+        "webRecordedPath": true,
+        "masterRecordedHashesMatch": true,
+        "webRecordedHashesMatch": true
+      },
+      "masterDimensions": [
+        1254,
+        1254
+      ],
+      "webDimensions": [
+        1024,
+        1024
+      ],
+      "webBytes": 171460,
+      "masterSha256": "aa93a271d976f36ab7239fda8432c9c33a91ee1b3b11e748206ff4b2f32bfc95",
+      "webSha256": "2e7a8fc9d08591c62bfba5245e857e7f8ed15b54a5aeeee7ae4ff4056f31bd6b"
+    },
+    {
+      "world": "america",
+      "chapter": "dragon-at-gate",
+      "master": "website/artwork/chapters/america/dragon-at-gate.png",
+      "web": "website/brand/chapters/america/dragon-at-gate.webp",
+      "status": "passed",
+      "checks": {
+        "decode": true,
+        "webSizeCap": true,
+        "webWidth1024": true,
+        "aspectPreserved": true,
+        "fourHotspots": true,
+        "hotspotsBounded": true,
+        "provenanceRecord": true,
+        "promptPresent": true,
+        "recordedMasterDimensions": true,
+        "recordedWebDimensions": true,
+        "recordedWebBytes": true,
+        "masterRecordedPath": true,
+        "webRecordedPath": true,
+        "masterRecordedHashesMatch": true,
+        "webRecordedHashesMatch": true
+      },
+      "masterDimensions": [
+        1254,
+        1254
+      ],
+      "webDimensions": [
+        1024,
+        1024
+      ],
+      "webBytes": 168606,
+      "masterSha256": "ba2f704ce5354647879222cb6654dda37f4fab5e5049203fbb1551ca8d65b419",
+      "webSha256": "dc5d03596a37cc7555974d1d63d11b91193fa9f163e7d6af2a42736f13c3e152"
+    },
+    {
+      "world": "america",
+      "chapter": "courier-without-labels",
+      "master": "website/artwork/chapters/america/courier-without-labels.png",
+      "web": "website/brand/chapters/america/courier-without-labels.webp",
+      "status": "passed",
+      "checks": {
+        "decode": true,
+        "webSizeCap": true,
+        "webWidth1024": true,
+        "aspectPreserved": true,
+        "fourHotspots": true,
+        "hotspotsBounded": true,
+        "provenanceRecord": true,
+        "promptPresent": true,
+        "recordedMasterDimensions": true,
+        "recordedWebDimensions": true,
+        "recordedWebBytes": true,
+        "masterRecordedPath": true,
+        "webRecordedPath": true,
+        "masterRecordedHashesMatch": true,
+        "webRecordedHashesMatch": true
+      },
+      "masterDimensions": [
+        1254,
+        1254
+      ],
+      "webDimensions": [
+        1024,
+        1024
+      ],
+      "webBytes": 178376,
+      "masterSha256": "6f6aba3da07c61d79f19d55210aa27074736a0cd98dddc76eecb8dc1cb5e4632",
+      "webSha256": "3ec2eae2101a3fa66a6e51086908350faaedf9ea1d4d1781dcdc3afc070205fc"
+    },
+    {
+      "world": "america",
+      "chapter": "paper-plane-promise",
+      "master": "website/artwork/chapters/america/paper-plane-promise.png",
+      "web": "website/brand/chapters/america/paper-plane-promise.webp",
+      "status": "passed",
+      "checks": {
+        "decode": true,
+        "webSizeCap": true,
+        "webWidth1024": true,
+        "aspectPreserved": true,
+        "fourHotspots": true,
+        "hotspotsBounded": true,
+        "provenanceRecord": true,
+        "promptPresent": true,
+        "recordedMasterDimensions": true,
+        "recordedWebDimensions": true,
+        "recordedWebBytes": true,
+        "masterRecordedPath": true,
+        "webRecordedPath": true,
+        "masterRecordedHashesMatch": true,
+        "webRecordedHashesMatch": true
+      },
+      "masterDimensions": [
+        1254,
+        1254
+      ],
+      "webDimensions": [
+        1024,
+        1024
+      ],
+      "webBytes": 175166,
+      "masterSha256": "28c9bbdbfc44f1ba42150656bf97f159fe55a05243fab67c23e99a4cb65c8988",
+      "webSha256": "730841fa03a3f303c8a0922928b51bbc4e17cf1ecd51e6be9f32b93cf700f1a9"
+    },
+    {
+      "world": "america",
+      "chapter": "postcards-across-worlds",
+      "master": "website/artwork/chapters/america/postcards-across-worlds.png",
+      "web": "website/brand/chapters/america/postcards-across-worlds.webp",
+      "status": "passed",
+      "checks": {
+        "decode": true,
+        "webSizeCap": true,
+        "webWidth1024": true,
+        "aspectPreserved": true,
+        "fourHotspots": true,
+        "hotspotsBounded": true,
+        "provenanceRecord": true,
+        "promptPresent": true,
+        "recordedMasterDimensions": true,
+        "recordedWebDimensions": true,
+        "recordedWebBytes": true,
+        "masterRecordedPath": true,
+        "webRecordedPath": true,
+        "masterRecordedHashesMatch": true,
+        "webRecordedHashesMatch": true
+      },
+      "masterDimensions": [
+        1254,
+        1254
+      ],
+      "webDimensions": [
+        1024,
+        1024
+      ],
+      "webBytes": 171348,
+      "masterSha256": "e7315d2c3f2cea38021262012641e8e12de8cc442d108b6c4ea2ceb26c5c9071",
+      "webSha256": "9042be6baadd03c801e72a4e52f4d58baf773bdfe1566f9795a9e72dc3909272"
+    },
+    {
+      "world": "america",
+      "chapter": "book-left-open",
+      "master": "website/artwork/chapters/america/book-left-open.png",
+      "web": "website/brand/chapters/america/book-left-open.webp",
+      "status": "passed",
+      "checks": {
+        "decode": true,
+        "webSizeCap": true,
+        "webWidth1024": true,
+        "aspectPreserved": true,
+        "fourHotspots": true,
+        "hotspotsBounded": true,
+        "provenanceRecord": true,
+        "promptPresent": true,
+        "recordedMasterDimensions": true,
+        "recordedWebDimensions": true,
+        "recordedWebBytes": true,
+        "masterRecordedPath": true,
+        "webRecordedPath": true,
+        "masterRecordedHashesMatch": true,
+        "webRecordedHashesMatch": true
+      },
+      "masterDimensions": [
+        1254,
+        1254
+      ],
+      "webDimensions": [
+        1024,
+        1024
+      ],
+      "webBytes": 175692,
+      "masterSha256": "7c8d94ba746e441cb441715efb27f6fa9cd48fbc76af4d5bd8e9bf56356495e7",
+      "webSha256": "07b1016cd53617f1142947efacaddadc0c38c815559752ffb33cf4578bda0a83"
+    }
+  ]
+}

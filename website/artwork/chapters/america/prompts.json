@@ -1,0 +1,346 @@
+{
+  "version": 1,
+  "created": "2026-10-14",
+  "world": "america",
+  "license": "GPL-3.0-or-later",
+  "medium": "Original AI-assisted raster comic artwork",
+  "tool": "Built-in image_gen; no CLI/API fallback",
+  "layout": {
+    "panels": 4,
+    "columns": 2,
+    "rows": 2,
+    "order": [
+      "top-left",
+      "top-right",
+      "bottom-left",
+      "bottom-right"
+    ],
+    "canvas": "square",
+    "gutters": "Straight narrow cream gutters, visually checked; generated widths are approximate."
+  },
+  "conversion": "Whole-canvas RGB conversion, uniform fit to 1024×1024, WebP encoding below 180,000 bytes. No pixel compositing, added text, raster crop, or content editing during conversion.",
+  "notes": "One generation per chapter; paper-plane-promise received one additional focused built-in edit to show the lantern unlit and the luggage stowed. Prompts and selected outputs are recorded honestly. No readable dialogue, captions, real-world organization logos, national insignia, or weapon instructions are embedded.",
+  "chapters": [
+    {
+      "chapter": "open-bench",
+      "tool": "built-in image_gen",
+      "generation": {
+        "prompt": "Use case: illustration-story. Asset: one finished original FOUR-PANEL comic, a square canvas requested 1024x1024. Input image 1 is a style reference for the Wide-Sky Commons world only; input image 2 is the exact Rook character and textured ink style reference. Make a NEW comic, not a copy of either composition. Layout: precisely FOUR EQUAL square panels in a 2x2 grid, narrow straight cream gutters 6 pixels wide, no outer title, no merged panels, no inset panels. Read order top left, top right, bottom left, bottom right. Each panel is an independent complete scene suitable for showing alone. Rook is a small red bird with two swept pointed crest feathers, one bold white eye patch with black pupil, small projecting beak, charcoal scarf, cream satchel and ordinary brass lantern. Jo is an anthropomorphic raccoon archivist in a plain plum vest. Warm paper grain, bold black ink contours, muted blue-gray, ochre, signal red, welcoming coastal civic fantasy, same crafted graphic-novel style as the references. Chapter: The open bench. Panel 1: Harbor public bench under a wide pale sky, Rook and Jo sit at one end, a friendly animal neighbor moves a bag to make space, passenger boats behind. Panel 2: A far section of the bench has a modest maintenance barrier; Rook and Jo talk with an animal traveler using a mobility aid, with clear open space beside the bench, nobody crossing the barrier. Panel 3: Inside Jo's archive, Rook hands permission papers and his travel atlas to Jo at a warm table, shelves hold books and a small recording device, both carefully read the plain pages. Panel 4: Evening back at the usable bench, Rook and Jo sit peacefully with a closed atlas, the maintenance section still respected, expansive calm sky above. NO TEXT anywhere: no letters, numbers, speech bubbles, thought bubbles, caption boxes, question marks, signage lettering, watermark, flags, logos, or weaponry. The papers may have faint non-letter line texture but no readable or simulated writing. Prioritize distinct compositions and recognizable Rook in all four panels.",
+        "generatedFilename": "exec-38581f97-82ee-4faf-a327-cefbc68450b7.png",
+        "referenceImages": [
+          "website/artwork/worlds/world-america.png",
+          "website/artwork/rook-harbor.png"
+        ],
+        "transparentBackground": false
+      },
+      "selectedGeneratedFilename": "exec-38581f97-82ee-4faf-a327-cefbc68450b7.png",
+      "master": "website/artwork/chapters/america/open-bench.png",
+      "web": "website/brand/chapters/america/open-bench.webp",
+      "inspection": "Four equal panels, chronological order, no bubbles/labels/logos/flags/weapons; Rook and Jo remain recognizable; square grid visually reviewed.",
+      "verification": {
+        "chapter": "open-bench",
+        "masterSize": [
+          1254,
+          1254
+        ],
+        "webSize": [
+          1024,
+          1024
+        ],
+        "webBytes": 178166,
+        "masterSha256": "2f3ad90a0989871baf962fdcff79283afc51aad1b428731adda7c13bd08f506b",
+        "webSha256": "0c3d72eb3df66a9fd809933fc73fb1615e294216a5b59934de7ee687e563de77"
+      }
+    },
+    {
+      "chapter": "hall-of-voices",
+      "tool": "built-in image_gen",
+      "generation": {
+        "prompt": "Use case: illustration-story. Asset: one finished original FOUR-PANEL comic on a SQUARE canvas requested 1024x1024. Input 1 is the Wide-Sky Commons environment/style reference, input 2 is the canonical Rook character/style reference; create a NEW comic with its own plot compositions. EXACTLY FOUR EQUAL panels in a 2x2 grid with straight narrow cream gutters about 6 pixels, chronological read order top-left, top-right, bottom-left, bottom-right. Each panel must be a complete independent scene. Rook: small signal-red bird, two swept pointed crest feathers, bold white eye patch and black pupil, short projecting beak, charcoal scarf, cream satchel, ordinary brass lantern; always recognizable, bird feet and wings. Jo: anthropomorphic raccoon archivist in plain plum vest. Ada: anthropomorphic hare engineer in plain blue work shirt. Eli: anthropomorphic turtle using a wheelchair. Textured warm paper, confident black ink outlines, muted ochre and blue-gray, signal red; crafted children-friendly graphic-novel style from the references. NO TEXT ANYWHERE, including no letters, numbers, simulated legible writing, title, caption boxes, speech/thought bubbles, question marks, logos, watermarks, flags, or weapons. Documents may have simple blank ruled lines or small abstract pictograms, no lettering. Respect individual characters and practical safe spaces. Chapter The hall of voices. Panel 1: A community hall meeting around a table: Rook holds a lantern sketch, Jo listens, a neighbor gestures at a daylight window, another indicates a quiet reading alcove, a third shows a small money pouch; genuine different needs. Panel 2: A calm animal facilitator displays several unlettered proposal drawings on a large board; Jo gives a spoken summary with NO speech bubble, Rook adds his drawing beside the others. Panel 3: Two neighbors test different reading corners calmly after a pause; Rook moves a little trial lamp to one table under the facilitator's guidance, people compare light and calm. Panel 4: A welcoming reading room now has both a sunlit chair and a quiet lit corner; Jo files drawings in an archive folder, Rook's ordinary lantern illuminates one corner, neighbors read independently without a winner's stage.",
+        "generatedFilename": "exec-3b9e4059-5564-4659-8e9c-d2511e2866f6.png",
+        "referenceImages": [
+          "website/artwork/worlds/world-america.png",
+          "website/artwork/rook-harbor.png"
+        ],
+        "transparentBackground": false
+      },
+      "selectedGeneratedFilename": "exec-3b9e4059-5564-4659-8e9c-d2511e2866f6.png",
+      "master": "website/artwork/chapters/america/hall-of-voices.png",
+      "web": "website/brand/chapters/america/hall-of-voices.webp",
+      "inspection": "Four equal chronological panels, square grid visually reviewed; no bubbles, lettering, logos, flags or weapons. Hotspots correspond to actual visible scene objects.",
+      "verification": {
+        "chapter": "hall-of-voices",
+        "masterSize": [
+          1254,
+          1254
+        ],
+        "webSize": [
+          1024,
+          1024
+        ],
+        "webBytes": 174298,
+        "masterSha256": "7d573d5b316840430339046a034949ac5008c8aee68b828e4d36ba5aed7504bc",
+        "webSha256": "984420d450eb3faab73b78484b658c747ed5fce5e7d35bd71433d19aaf3f949c"
+      }
+    },
+    {
+      "chapter": "charter-in-light",
+      "tool": "built-in image_gen",
+      "generation": {
+        "prompt": "Use case: illustration-story. Asset: one finished original FOUR-PANEL comic on a SQUARE canvas requested 1024x1024. Input 1 is the Wide-Sky Commons environment/style reference, input 2 is the canonical Rook character/style reference; create a NEW comic with its own plot compositions. EXACTLY FOUR EQUAL panels in a 2x2 grid with straight narrow cream gutters about 6 pixels, chronological read order top-left, top-right, bottom-left, bottom-right. Each panel must be a complete independent scene. Rook: small signal-red bird, two swept pointed crest feathers, bold white eye patch and black pupil, short projecting beak, charcoal scarf, cream satchel, ordinary brass lantern; always recognizable, bird feet and wings. Jo: anthropomorphic raccoon archivist in plain plum vest. Ada: anthropomorphic hare engineer in plain blue work shirt. Eli: anthropomorphic turtle using a wheelchair. Textured warm paper, confident black ink outlines, muted ochre and blue-gray, signal red; crafted children-friendly graphic-novel style from the references. NO TEXT ANYWHERE, including no letters, numbers, simulated legible writing, title, caption boxes, speech/thought bubbles, question marks, logos, watermarks, flags, or weapons. Documents may have simple blank ruled lines or small abstract pictograms, no lettering. Respect individual characters and practical safe spaces. Chapter The charter in the light. Peaceful civic library preservation story, NO weapons and NO real logos or flags. Panel 1: Rain has dripped near a teaching display in Jo's archive; Jo carefully moves paper teaching copies to a dry worktable, Rook brings dry supplies, affected corner cordoned off, neighboring reading room stays available. Panel 2: Jo and Rook review a full set of blank parchment teaching pages on a long dry table, each separate amendment represented by an equally sized sheet with no numbers, no text, plain closed reference book nearby; diverse friendly animal readers discuss calmly. Panel 3: A reader points to an obvious empty place among the teaching pages; Jo compares a complete reference book and restores the missing sheet while Rook records the correction on an unlettered note; the scene is about careful source checking. Panel 4: Reopened archive display has every parchment page in its place, several neighbors read and discuss respectfully; Jo adds a tiny nonlettered correction card, Rook closes his notebook satisfied that access is complete. Do not depict constitution wording, lettering, a named politician, or weaponry.",
+        "generatedFilename": "exec-191e5083-6d3f-4fe4-a0f1-a96a6a890f1a.png",
+        "referenceImages": [
+          "website/artwork/worlds/world-america.png",
+          "website/artwork/rook-harbor.png"
+        ],
+        "transparentBackground": false
+      },
+      "selectedGeneratedFilename": "exec-191e5083-6d3f-4fe4-a0f1-a96a6a890f1a.png",
+      "master": "website/artwork/chapters/america/charter-in-light.png",
+      "web": "website/brand/chapters/america/charter-in-light.webp",
+      "inspection": "Four equal chronological panels, square grid visually reviewed; no bubbles, lettering, logos, flags or weapons. Hotspots correspond to actual visible scene objects.",
+      "verification": {
+        "chapter": "charter-in-light",
+        "masterSize": [
+          1254,
+          1254
+        ],
+        "webSize": [
+          1024,
+          1024
+        ],
+        "webBytes": 178934,
+        "masterSha256": "0439f1156dcbf4f5fd3f826e09eabf2c90c1602bb7e6d3684b2de983485c0071",
+        "webSha256": "78ee96a1786b7213f7bd61ee08f0fee2bbbaa491de6e06ff7dc58c597b68a0c8"
+      }
+    },
+    {
+      "chapter": "bridge-for-wheels",
+      "tool": "built-in image_gen",
+      "generation": {
+        "prompt": "Use case: illustration-story. Asset: one finished original FOUR-PANEL comic on a SQUARE canvas requested 1024x1024. Input 1 is the Wide-Sky Commons environment/style reference, input 2 is the canonical Rook character/style reference; create a NEW comic with its own plot compositions. EXACTLY FOUR EQUAL panels in a 2x2 grid with straight narrow cream gutters about 6 pixels, chronological read order top-left, top-right, bottom-left, bottom-right. Each panel must be a complete independent scene. Rook: small signal-red bird, two swept pointed crest feathers, bold white eye patch and black pupil, short projecting beak, charcoal scarf, cream satchel, ordinary brass lantern; always recognizable, bird feet and wings. Jo: anthropomorphic raccoon archivist in plain plum vest. Ada: anthropomorphic hare engineer in plain blue work shirt. Eli: anthropomorphic turtle using a wheelchair. Textured warm paper, confident black ink outlines, muted ochre and blue-gray, signal red; crafted children-friendly graphic-novel style from the references. NO TEXT ANYWHERE, including no letters, numbers, simulated legible writing, title, caption boxes, speech/thought bubbles, question marks, logos, watermarks, flags, or weapons. Documents may have simple blank ruled lines or small abstract pictograms, no lettering. Respect individual characters and practical safe spaces. Chapter The bridge for wheels. Panel 1: In a civic design room Ada the blue-shirt hare and Rook study a bridge drawing showing stairs; Eli the turtle in his wheelchair points at the unfinished blank side of the drawing to ask about accessible travel. Panel 2: Ada's qualified design team listens at a public consultation table: Eli, a parent with a stroller, and an older animal describe their journeys, Rook arranges chairs and supports the discussion instead of acting as an engineer. Panel 3: A newly approved gentle pedestrian crossing over a park stream is being user-reviewed; Eli rolls on the level marked route and points toward a pictorial direction marker that needs correction, Rook passes the note to Ada, safe railings, no dangerous work. Panel 4: Eli and Rook travel side by side on the accessible crossing toward a green park garden, Ada preserves review notes, Jo collects chosen credits in a plain folder; joyous but modest shared opening, wheelchair physically plausible.",
+        "generatedFilename": "exec-1803a62d-a1c7-4622-a1e8-121b2c524dcf.png",
+        "referenceImages": [
+          "website/artwork/worlds/world-america.png",
+          "website/artwork/rook-harbor.png"
+        ],
+        "transparentBackground": false
+      },
+      "selectedGeneratedFilename": "exec-1803a62d-a1c7-4622-a1e8-121b2c524dcf.png",
+      "master": "website/artwork/chapters/america/bridge-for-wheels.png",
+      "web": "website/brand/chapters/america/bridge-for-wheels.webp",
+      "inspection": "Four equal chronological panels, square grid visually reviewed; no bubbles, lettering, logos, flags or weapons. Hotspots correspond to actual visible scene objects.",
+      "verification": {
+        "chapter": "bridge-for-wheels",
+        "masterSize": [
+          1254,
+          1254
+        ],
+        "webSize": [
+          1024,
+          1024
+        ],
+        "webBytes": 172066,
+        "masterSha256": "f066f8dd0725ecee7d026d3f14db873d7398ab21afa770ffc24db81457cdf53a",
+        "webSha256": "6356919e31d2722c305cc3e9d605bc62865bcad18a2f1c1de1e3b7f1dd471af6"
+      }
+    },
+    {
+      "chapter": "signal-for-supper",
+      "tool": "built-in image_gen",
+      "generation": {
+        "prompt": "Use case: illustration-story. Asset: one finished original FOUR-PANEL comic on a SQUARE canvas requested 1024x1024. Input 1 is the Wide-Sky Commons environment/style reference, input 2 is the canonical Rook character/style reference; create a NEW comic with its own plot compositions. EXACTLY FOUR EQUAL panels in a 2x2 grid with straight narrow cream gutters about 6 pixels, chronological read order top-left, top-right, bottom-left, bottom-right. Each panel must be a complete independent scene. Rook: small signal-red bird, two swept pointed crest feathers, bold white eye patch and black pupil, short projecting beak, charcoal scarf, cream satchel, ordinary brass lantern; always recognizable, bird feet and wings. Jo: anthropomorphic raccoon archivist in plain plum vest. Ada: anthropomorphic hare engineer in plain blue work shirt. Eli: anthropomorphic turtle using a wheelchair. Textured warm paper, confident black ink outlines, muted ochre and blue-gray, signal red; crafted children-friendly graphic-novel style from the references. NO TEXT ANYWHERE, including no letters, numbers, simulated legible writing, title, caption boxes, speech/thought bubbles, question marks, logos, watermarks, flags, or weapons. Documents may have simple blank ruled lines or small abstract pictograms, no lettering. Respect individual characters and practical safe spaces. Chapter The signal for supper. Bea is an anthropomorphic black raven community broadcaster wearing headphones and a rust cardigan. Panel 1: At a community kitchen desk, Bea and Rook prepare an announcement; Jo gently indicates a closed folder of private family needs, Rook lowers his public notice paper after realizing the list should remain private, pots and ordinary bread nearby. Panel 2: Bea records a simple community meal update into an ordinary microphone at a small local studio; Rook compares a blank ruled notice to the coordinator's confirmed information, a friendly kitchen coordinator points at a clock with no numbers. Panel 3: In a busy kitchen entry, Rook replaces the public picture notice with the newest confirmed one, volunteers receive closed limited-delivery envelopes, Bea readies a corrected update, no addresses or writing. Panel 4: Community supper at long tables under Rook's ordinary brass lantern, Bea and Rook eat with welcoming animal neighbors, private delivery folders remain closed to the side, diverse warm meal, no spotlight or charity humiliation.",
+        "generatedFilename": "exec-b06da678-9b7a-474b-8445-0b0beed3a79e.png",
+        "referenceImages": [
+          "website/artwork/worlds/world-america.png",
+          "website/artwork/rook-harbor.png"
+        ],
+        "transparentBackground": false
+      },
+      "selectedGeneratedFilename": "exec-b06da678-9b7a-474b-8445-0b0beed3a79e.png",
+      "master": "website/artwork/chapters/america/signal-for-supper.png",
+      "web": "website/brand/chapters/america/signal-for-supper.webp",
+      "inspection": "Four equal chronological panels, square grid visually reviewed; no bubbles, lettering, logos, national flags or weapons. Hotspots correspond to actual visible scene objects.",
+      "verification": {
+        "chapter": "signal-for-supper",
+        "masterSize": [
+          1254,
+          1254
+        ],
+        "webSize": [
+          1024,
+          1024
+        ],
+        "webBytes": 171460,
+        "masterSha256": "aa93a271d976f36ab7239fda8432c9c33a91ee1b3b11e748206ff4b2f32bfc95",
+        "webSha256": "2e7a8fc9d08591c62bfba5245e857e7f8ed15b54a5aeeee7ae4ff4056f31bd6b"
+      }
+    },
+    {
+      "chapter": "dragon-at-gate",
+      "tool": "built-in image_gen",
+      "generation": {
+        "prompt": "Use case: illustration-story. Asset: one finished original FOUR-PANEL comic on a SQUARE canvas requested 1024x1024. Input 1 is the Wide-Sky Commons environment/style reference, input 2 is the canonical Rook character/style reference; create a NEW comic with its own plot compositions. EXACTLY FOUR EQUAL panels in a 2x2 grid with straight narrow cream gutters about 6 pixels, chronological read order top-left, top-right, bottom-left, bottom-right. Each panel must be a complete independent scene. Rook: small signal-red bird, two swept pointed crest feathers, bold white eye patch and black pupil, short projecting beak, charcoal scarf, cream satchel, ordinary brass lantern; always recognizable, bird feet and wings. Jo: anthropomorphic raccoon archivist in plain plum vest. Ada: anthropomorphic hare engineer in plain blue work shirt. Eli: anthropomorphic turtle using a wheelchair. Textured warm paper, confident black ink outlines, muted ochre and blue-gray, signal red; crafted children-friendly graphic-novel style from the references. NO TEXT ANYWHERE, including no letters, numbers, simulated legible writing, title, caption boxes, speech/thought bubbles, question marks, logos, watermarks, flags, or weapons. Documents may have simple blank ruled lines or small abstract pictograms, no lettering. Respect individual characters and practical safe spaces. Chapter The dragon at the gate. Flint is a rounded friendly-looking umber brown dragon, practical gatekeeper with no weapon, gradually learning to correct a mistake. Panel 1: Flint stands across a town footbridge gate holding an intrusive large ledger; Rook and Jo calmly ask about the crossing's rules, worried travelers wait at a distance, no violence or monster rage. Panel 2: Flint joins a public hall review with Ada the blue-shirt hare, Rook, Jo and animal travelers; Ada explains bridge care with a structural drawing and they listen to different accounts, peaceful civic discussion. Panel 3: At the gate Flint removes the unnecessary ledger and sets it in a closed box; the bridge committee posts a plain pictorial public access/safety notice, Rook and Jo wait for a checked opening before crossing. Panel 4: Flint now gives ordinary route directions beside the footbridge; a small damaged rail is responsibly cordoned and a pictorial alternate-route marker points away, Rook records the changed arrangement in an open atlas while Jo watches. No exact real-world political/national symbols or threats.",
+        "generatedFilename": "exec-2586246e-2e1c-413d-9c9e-96ba6d9ddae8.png",
+        "referenceImages": [
+          "website/artwork/worlds/world-america.png",
+          "website/artwork/rook-harbor.png"
+        ],
+        "transparentBackground": false
+      },
+      "selectedGeneratedFilename": "exec-2586246e-2e1c-413d-9c9e-96ba6d9ddae8.png",
+      "master": "website/artwork/chapters/america/dragon-at-gate.png",
+      "web": "website/brand/chapters/america/dragon-at-gate.webp",
+      "inspection": "Four equal chronological panels, square grid visually reviewed; no bubbles, lettering, logos, national flags or weapons. Hotspots correspond to actual visible scene objects.",
+      "verification": {
+        "chapter": "dragon-at-gate",
+        "masterSize": [
+          1254,
+          1254
+        ],
+        "webSize": [
+          1024,
+          1024
+        ],
+        "webBytes": 168606,
+        "masterSha256": "ba2f704ce5354647879222cb6654dda37f4fab5e5049203fbb1551ca8d65b419",
+        "webSha256": "dc5d03596a37cc7555974d1d63d11b91193fa9f163e7d6af2a42736f13c3e152"
+      }
+    },
+    {
+      "chapter": "courier-without-labels",
+      "tool": "built-in image_gen",
+      "generation": {
+        "prompt": "Use case: illustration-story. Asset: one finished original FOUR-PANEL comic on a SQUARE canvas requested 1024x1024. Input 1 is the Wide-Sky Commons environment/style reference, input 2 is the canonical Rook character/style reference; create a NEW comic with its own plot compositions. EXACTLY FOUR EQUAL panels in a 2x2 grid with straight narrow cream gutters about 6 pixels, chronological read order top-left, top-right, bottom-left, bottom-right. Each panel must be a complete independent scene. Rook: small signal-red bird, two swept pointed crest feathers, bold white eye patch and black pupil, short projecting beak, charcoal scarf, cream satchel, ordinary brass lantern; always recognizable, bird feet and wings. Jo: anthropomorphic raccoon archivist in plain plum vest. Ada: anthropomorphic hare engineer in plain blue work shirt. Eli: anthropomorphic turtle using a wheelchair. Textured warm paper, confident black ink outlines, muted ochre and blue-gray, signal red; crafted children-friendly graphic-novel style from the references. NO TEXT ANYWHERE, including no letters, numbers, simulated legible writing, title, caption boxes, speech/thought bubbles, question marks, logos, watermarks, flags, or weapons. Documents may have simple blank ruled lines or small abstract pictograms, no lettering. Respect individual characters and practical safe spaces. Chapter The courier without labels. Sam is an anthropomorphic squirrel traveler in a teal cardigan with a bushy tail. Panel 1: Jo and Rook stand at a blank public travelers' board in the archive; Rook stops before copying a private closed arrival ledger as Sam raises a calm concern, a postcard with a simple harbor drawing is nearby. Panel 2: Visitors choose their own nonlettered drawings to place on the board: Sam adds a tree sketch, another chooses a paper boat, Rook adds his permitted harbor picture, some visitors simply read away from the board with no obligation. Panel 3: Jo, Rook, a small animal child and the child's guardian quietly adjust the child's colorful board entry together at a side table, they keep the drawing but tuck private contact detail papers safely away, modest attentive scene. Panel 4: The board is full of distinct agreed drawings of a forest, harbor, paper boat and a blank open-book image; Sam adds a small picture thank-you card, Rook asks permission with an open-wing gesture before photographing an agreed section, other pictures remain outside camera framing. NO actual addresses, names, letters, numbers, question marks, bubbles or writing.",
+        "generatedFilename": "exec-b18b9990-a4ff-4e2d-91c4-b5279a2f58d8.png",
+        "referenceImages": [
+          "website/artwork/worlds/world-america.png",
+          "website/artwork/rook-harbor.png"
+        ],
+        "transparentBackground": false
+      },
+      "selectedGeneratedFilename": "exec-b18b9990-a4ff-4e2d-91c4-b5279a2f58d8.png",
+      "master": "website/artwork/chapters/america/courier-without-labels.png",
+      "web": "website/brand/chapters/america/courier-without-labels.webp",
+      "inspection": "Four equal chronological panels, square grid visually reviewed; no bubbles, lettering, logos, national flags or weapons. Hotspots correspond to actual visible scene objects.",
+      "verification": {
+        "chapter": "courier-without-labels",
+        "masterSize": [
+          1254,
+          1254
+        ],
+        "webSize": [
+          1024,
+          1024
+        ],
+        "webBytes": 178376,
+        "masterSha256": "6f6aba3da07c61d79f19d55210aa27074736a0cd98dddc76eecb8dc1cb5e4632",
+        "webSha256": "3ec2eae2101a3fa66a6e51086908350faaedf9ea1d4d1781dcdc3afc070205fc"
+      }
+    },
+    {
+      "chapter": "paper-plane-promise",
+      "tool": "built-in image_gen",
+      "generation": {
+        "prompt": "Use case: illustration-story. Asset: one finished original FOUR-PANEL comic on a SQUARE canvas requested 1024x1024. Input 1 is the Wide-Sky Commons environment/style reference, input 2 is the canonical Rook character/style reference; create a NEW comic with its own plot compositions. EXACTLY FOUR EQUAL panels in a 2x2 grid with straight narrow cream gutters about 6 pixels, chronological read order top-left, top-right, bottom-left, bottom-right. Each panel must be a complete independent scene. Rook: small signal-red bird, two swept pointed crest feathers, bold white eye patch and black pupil, short projecting beak, charcoal scarf, cream satchel, ordinary brass lantern; always recognizable, bird feet and wings. Jo: anthropomorphic raccoon archivist in plain plum vest. Ada: anthropomorphic hare engineer in plain blue work shirt. Eli: anthropomorphic turtle using a wheelchair. Textured warm paper, confident black ink outlines, muted ochre and blue-gray, signal red; crafted children-friendly graphic-novel style from the references. NO TEXT ANYWHERE, including no letters, numbers, simulated legible writing, title, caption boxes, speech/thought bubbles, question marks, logos, watermarks, flags, or weapons. Documents may have simple blank ruled lines or small abstract pictograms, no lettering. Respect individual characters and practical safe spaces. Chapter The paper-plane promise. Rosa is an anthropomorphic fox pilot in a plain blue aviation jacket with NO real organization insignia. Panel 1: At a small coastal airfield public desk Rosa and Rook inspect a simple unlettered passenger route sketch; a child with guardian admires a safely parked civilian passenger plane outside, Rosa gently explains the actual plan. Panel 2: Weather delay in the approved indoor visitor activity space: Rook and the child fold and fly small PAPER planes above a table, one comically lands near Rook's bird feet, Rosa points to a pictorial official update, no outdoor runway access. Panel 3: After the responsible crew clears the flight, Rook follows Rosa and an attendant onto the civilian passenger plane by the proper boarding steps, satchel secured, Rook leaves a paper-plane postcard through a desk contact before boarding; no dangerous work or flight instruction. Panel 4: Inside the aircraft, Rook sits properly in a passenger seat beside an oval window looking at clouds over the sea, writing honest notes in his plain notebook, lantern secured with luggage, thoughtful rather than triumphant. No flags, logos, ranks, weapons or lettering anywhere.",
+        "generatedFilename": "exec-ac9efae5-8c5f-4fbf-8f25-5cfce9759bd2.png",
+        "referenceImages": [
+          "website/artwork/worlds/world-america.png",
+          "website/artwork/rook-harbor.png"
+        ],
+        "transparentBackground": false
+      },
+      "edit": {
+        "prompt": "Use case: precise-object-edit. Edit the supplied original four-panel Rook comic. Preserve the square canvas and EXACT four equal 2x2 panel layout, gutters, all characters, all poses, all environments, palette, paper grain and ink contours. Preserve the top-left, top-right and bottom-left panels without changes. Change ONLY the bottom-right aircraft passenger panel: Rook remains seated by the oval window writing in the same notebook. His ordinary brass lantern must be completely UNLIT: dark clear glass, no flame, no orange/yellow glow, no light emission. Secure the unlit lantern inside a small protective travel carrier attached to a neatly stowed bag UNDER the passenger seat, safely clear of the aisle; show only enough of the brass silhouette to recognize it. Remove the large loose suitcase and loose glowing lantern from the passenger seat foreground; their luggage is properly stowed under the seat or behind a closed overhead compartment. Add a plainly fastened lap belt across Rook's seated lap if visible below his notebook. Do not change the story, character design, three other panels, proportions, aircraft view, or lettering-free rule. No new text, numbers, speech/thought bubbles, logos, flags or symbols.",
+        "inputGeneratedFilename": "exec-ac9efae5-8c5f-4fbf-8f25-5cfce9759bd2.png",
+        "generatedFilename": "exec-e411c406-3bc0-49ea-a519-75be8cd6d82c.png",
+        "transparentBackground": false,
+        "reason": "Necessary art QA: aircraft panel must show an unlit lantern and correctly stowed luggage.",
+        "inspection": "Final panel visually checked: fastened lap belt, underseat case, dark unlit lantern; first three panels visually preserved.",
+        "originalSha256": "8cf4d77b1a5f8758fe5ad3247edbc18277df8657a29852af7522fc0fa6ad6e17",
+        "selectedSha256": "28c9bbdbfc44f1ba42150656bf97f159fe55a05243fab67c23e99a4cb65c8988",
+        "preservationNote": "First three panels retain their scene, layout, and characters by visual inspection. Image generation altered some raster texture; they are not pixel-identical."
+      },
+      "selectedGeneratedFilename": "exec-e411c406-3bc0-49ea-a519-75be8cd6d82c.png",
+      "master": "website/artwork/chapters/america/paper-plane-promise.png",
+      "web": "website/brand/chapters/america/paper-plane-promise.webp",
+      "inspection": "Four equal chronological panels, square grid visually reviewed; no bubbles, lettering, logos, national flags or weapons. Hotspots correspond to actual visible scene objects.",
+      "verification": {
+        "chapter": "paper-plane-promise",
+        "masterSize": [
+          1254,
+          1254
+        ],
+        "webSize": [
+          1024,
+          1024
+        ],
+        "webBytes": 175166,
+        "masterSha256": "28c9bbdbfc44f1ba42150656bf97f159fe55a05243fab67c23e99a4cb65c8988",
+        "webSha256": "730841fa03a3f303c8a0922928b51bbc4e17cf1ecd51e6be9f32b93cf700f1a9"
+      }
+    },
+    {
+      "chapter": "postcards-across-worlds",
+      "tool": "built-in image_gen",
+      "generation": {
+        "prompt": "Use case: illustration-story. Asset: one finished original FOUR-PANEL comic on a SQUARE canvas requested 1024x1024. Input 1 is the Wide-Sky Commons environment/style reference, input 2 is the canonical Rook character/style reference; create a NEW comic with its own plot compositions. EXACTLY FOUR EQUAL panels in a 2x2 grid with straight narrow cream gutters about 6 pixels, chronological read order top-left, top-right, bottom-left, bottom-right. Each panel must be a complete independent scene. Rook: small signal-red bird, two swept pointed crest feathers, bold white eye patch and black pupil, short projecting beak, charcoal scarf, cream satchel, ordinary brass lantern; always recognizable, bird feet and wings. Jo: anthropomorphic raccoon archivist in plain plum vest. Ada: anthropomorphic hare engineer in plain blue work shirt. Eli: anthropomorphic turtle using a wheelchair. Textured warm paper, confident black ink outlines, muted ochre and blue-gray, signal red; crafted children-friendly graphic-novel style from the references. NO TEXT ANYWHERE, including no letters, numbers, simulated legible writing, title, caption boxes, speech/thought bubbles, question marks, logos, watermarks, flags, or weapons. Documents may have simple blank ruled lines or small abstract pictograms, no lettering. Respect individual characters and practical safe spaces. Chapter Postcards across the worlds. Panel 1: In Jo's archive, Jo and Rook lay four distinct permitted illustrated travel accounts on a table: Persian-style garden paths, a covered wooden river bridge, a snowy timber library, and the harbor's two bridges; Rook pauses a sweeping pencil line rather than inventing a real route. Panel 2: They make an atlas of invitations with different unlettered original picture postcards from Sima's courtyard garden, Mei's print workshop, Dasha's snowy library and Bun the small talking round loaf; no floating insert panels, these are ordinary papers on a shared desk. Panel 3: Rook reads Lumen's new sealed reply opened with permission and prepares a careful invitation, Jo checks the associated permission notes beside the atlas; show an illustrated bridge drawing among them, no readable text, respectful collaboration. Panel 4: Jo and Rook exchange two carefully bound copies of the invitation atlas under warm archive light, open final pages have blank ruled credits areas and ample white space; the sense is neighbors connected by choice, not a conquered map. Make four distinct scene framings and expressive helpful Rook.",
+        "generatedFilename": "exec-de5c3eba-a107-4d06-abd5-6d9268a6ed2a.png",
+        "referenceImages": [
+          "website/artwork/worlds/world-america.png",
+          "website/artwork/rook-harbor.png"
+        ],
+        "transparentBackground": false
+      },
+      "selectedGeneratedFilename": "exec-de5c3eba-a107-4d06-abd5-6d9268a6ed2a.png",
+      "master": "website/artwork/chapters/america/postcards-across-worlds.png",
+      "web": "website/brand/chapters/america/postcards-across-worlds.webp",
+      "inspection": "Four equal chronological panels, square grid visually reviewed; no bubbles, lettering, logos, national flags or weapons. Hotspots correspond to actual visible scene objects.",
+      "verification": {
+        "chapter": "postcards-across-worlds",
+        "masterSize": [
+          1254,
+          1254
+        ],
+        "webSize": [
+          1024,
+          1024
+        ],
+        "webBytes": 171348,
+        "masterSha256": "e7315d2c3f2cea38021262012641e8e12de8cc442d108b6c4ea2ceb26c5c9071",
+        "webSha256": "9042be6baadd03c801e72a4e52f4d58baf773bdfe1566f9795a9e72dc3909272"
+      }
+    },
+    {
+      "chapter": "book-left-open",
+      "tool": "built-in image_gen",
+      "generation": {
+        "prompt": "Use case: illustration-story. Asset: one finished original FOUR-PANEL comic on a SQUARE canvas requested 1024x1024. Input 1 is the Wide-Sky Commons environment/style reference, input 2 is the canonical Rook character/style reference; create a NEW comic with its own plot compositions. EXACTLY FOUR EQUAL panels in a 2x2 grid with straight narrow cream gutters about 6 pixels, chronological read order top-left, top-right, bottom-left, bottom-right. Each panel must be a complete independent scene. Rook: small signal-red bird, two swept pointed crest feathers, bold white eye patch and black pupil, short projecting beak, charcoal scarf, cream satchel, ordinary brass lantern; always recognizable, bird feet and wings. Jo: anthropomorphic raccoon archivist in plain plum vest. Ada: anthropomorphic hare engineer in plain blue work shirt. Eli: anthropomorphic turtle using a wheelchair. Textured warm paper, confident black ink outlines, muted ochre and blue-gray, signal red; crafted children-friendly graphic-novel style from the references. NO TEXT ANYWHERE, including no letters, numbers, simulated legible writing, title, caption boxes, speech/thought bubbles, question marks, logos, watermarks, flags, or weapons. Documents may have simple blank ruled lines or small abstract pictograms, no lettering. Respect individual characters and practical safe spaces. Chapter The book left open. Finale returning to Lantern Harbor, from Rook's canonical harbor reference. Pip is an anthropomorphic rabbit courier with mailbag; Moss a hedgehog mapmaker with simple glasses and apron; Fern an otter gardener carrying mint; Lumen a cream owl librarian. Panel 1: A local passenger ferry at Lantern Harbor quay, Pip and Moss and Fern warmly greet returning Rook, Pip holds a well-maintained brass lantern, Fern brings mint, harbor friends have their own lively stories. Panel 2: Inside Lumen's warm library, Lumen and Rook open the ORIGINAL old atlas beside the traveling copy, a tiny ink red feather in a margin and a pocket of permitted papers visible, no lettering, Lumen moves another chair closer. Panel 3: Pip, Moss and Fern listen at the library table as Rook reads ONE chosen garden story from the open atlas, he closes his beak at its natural ending and invites conversation, friends ask with gentle wing/paw gestures and no bubbles, the next page stays unturned. Panel 4: Night outside the library: Rook walks ALONGSIDE a new traveler with his ordinary brass lantern helping them find a quay turn, not leading a procession; through the library window the travelers' shelf holds an open atlas and blank notebook, an invitation to an unwritten next tale. Warm gentle completed homecoming with no text or branding.",
+        "generatedFilename": "exec-fc029479-71ef-4053-82a1-7be87636e564.png",
+        "referenceImages": [
+          "website/artwork/worlds/world-america.png",
+          "website/artwork/rook-harbor.png"
+        ],
+        "transparentBackground": false
+      },
+      "selectedGeneratedFilename": "exec-fc029479-71ef-4053-82a1-7be87636e564.png",
+      "master": "website/artwork/chapters/america/book-left-open.png",
+      "web": "website/brand/chapters/america/book-left-open.webp",
+      "inspection": "Four equal chronological panels, square grid visually reviewed; no bubbles, lettering, logos, national flags or weapons. Hotspots correspond to actual visible scene objects.",
+      "verification": {
+        "chapter": "book-left-open",
+        "masterSize": [
+          1254,
+          1254
+        ],
+        "webSize": [
+          1024,
+          1024
+        ],
+        "webBytes": 175692,
+        "masterSha256": "7c8d94ba746e441cb441715efb27f6fa9cd48fbc76af4d5bd8e9bf56356495e7",
+        "webSha256": "07b1016cd53617f1142947efacaddadc0c38c815559752ffb33cf4578bda0a83"
+      }
+    }
+  ]
+}

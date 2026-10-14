@@ -1,0 +1,302 @@
+{
+  "book-that-opened": [
+    {
+      "x": 7,
+      "y": 50,
+      "w": 87,
+      "h": 47,
+      "label": "The open atlas"
+    },
+    {
+      "x": 2,
+      "y": 8,
+      "w": 42,
+      "h": 66,
+      "label": "Lumen the librarian"
+    },
+    {
+      "x": 2,
+      "y": 55,
+      "w": 93,
+      "h": 39,
+      "label": "The repaired atlas pocket"
+    },
+    {
+      "x": 17,
+      "y": 24,
+      "w": 57,
+      "h": 72,
+      "label": "Rook packing the blank leaf"
+    }
+  ],
+  "keeper-of-names": [
+    {
+      "x": 7,
+      "y": 60,
+      "w": 87,
+      "h": 38,
+      "label": "The unfinished public map"
+    },
+    {
+      "x": 79,
+      "y": 37,
+      "w": 20,
+      "h": 58,
+      "label": "Nell writing at her private desk"
+    },
+    {
+      "x": 5,
+      "y": 62,
+      "w": 91,
+      "h": 36,
+      "label": "The reviewed route map"
+    },
+    {
+      "x": 7,
+      "y": 56,
+      "w": 91,
+      "h": 42,
+      "label": "The finished map and correction sketch"
+    }
+  ],
+  "tower-with-wings": [
+    {
+      "x": 42,
+      "y": 0,
+      "w": 57,
+      "h": 96,
+      "label": "Mira's watchtower window"
+    },
+    {
+      "x": 59,
+      "y": 19,
+      "w": 33,
+      "h": 76,
+      "label": "The frightened young dragon"
+    },
+    {
+      "x": 7,
+      "y": 4,
+      "w": 43,
+      "h": 47,
+      "label": "Mira on the checked platform"
+    },
+    {
+      "x": 5,
+      "y": 62,
+      "w": 47,
+      "h": 34,
+      "label": "Rook recording shared credit"
+    }
+  ],
+  "blank-page-atlas": [
+    {
+      "x": 17,
+      "y": 57,
+      "w": 74,
+      "h": 34,
+      "label": "The atlas leaf Rook is correcting"
+    },
+    {
+      "x": 28,
+      "y": 20,
+      "w": 69,
+      "h": 58,
+      "label": "Pip and Mira contributing their drawings"
+    },
+    {
+      "x": 9,
+      "y": 45,
+      "w": 76,
+      "h": 45,
+      "label": "The known route on the travel atlas"
+    },
+    {
+      "x": 52,
+      "y": 66,
+      "w": 10,
+      "h": 23,
+      "label": "Rook's brass lantern"
+    }
+  ],
+  "road-out-of-harbor": [
+    {
+      "x": 41,
+      "y": 33,
+      "w": 31,
+      "h": 59,
+      "label": "Rook packing for the journey"
+    },
+    {
+      "x": 3,
+      "y": 4,
+      "w": 46,
+      "h": 93,
+      "label": "Aster the patient camel"
+    },
+    {
+      "x": 39,
+      "y": 55,
+      "w": 17,
+      "h": 14,
+      "label": "Rook's own travel notebook"
+    },
+    {
+      "x": 16,
+      "y": 2,
+      "w": 80,
+      "h": 95,
+      "label": "Sima's open courtyard gate"
+    }
+  ],
+  "borrowed-light": [
+    {
+      "x": 42,
+      "y": 70,
+      "w": 9,
+      "h": 25,
+      "label": "Rook’s lit brass lantern beside the quay"
+    },
+    {
+      "x": 36,
+      "y": 23,
+      "w": 17,
+      "h": 64,
+      "label": "The empty lantern Pip shows Rook"
+    },
+    {
+      "x": 55,
+      "y": 38,
+      "w": 10,
+      "h": 24,
+      "label": "Rook’s lantern on the stone steps"
+    },
+    {
+      "x": 72,
+      "y": 56,
+      "w": 17,
+      "h": 34,
+      "label": "Pip delivers the last letter at the lighthouse"
+    }
+  ],
+  "noisy-market": [
+    {
+      "x": 54,
+      "y": 34,
+      "w": 26,
+      "h": 49,
+      "label": "Moss behind the crowded map stall"
+    },
+    {
+      "x": 36,
+      "y": 49,
+      "w": 43,
+      "h": 43,
+      "label": "Moss’s map at the crowded counter"
+    },
+    {
+      "x": 44,
+      "y": 13,
+      "w": 22,
+      "h": 43,
+      "label": "The useful blue compass sign"
+    },
+    {
+      "x": 55,
+      "y": 60,
+      "w": 18,
+      "h": 29,
+      "label": "The map handed to the mouse customer"
+    }
+  ],
+  "bridge-that-waited": [
+    {
+      "x": 48,
+      "y": 45,
+      "w": 49,
+      "h": 39,
+      "label": "The gap in the damaged footbridge"
+    },
+    {
+      "x": 44,
+      "y": 50,
+      "w": 43,
+      "h": 28,
+      "label": "The loose plank checked from solid ground"
+    },
+    {
+      "x": 36,
+      "y": 52,
+      "w": 25,
+      "h": 31,
+      "label": "Boards carried along the safe bank"
+    },
+    {
+      "x": 62,
+      "y": 23,
+      "w": 36,
+      "h": 44,
+      "label": "The marked detour beside the stream"
+    }
+  ],
+  "two-bridges": [
+    {
+      "x": 25,
+      "y": 61,
+      "w": 12,
+      "h": 19,
+      "label": "Pip’s sealed letter"
+    },
+    {
+      "x": 45,
+      "y": 53,
+      "w": 42,
+      "h": 45,
+      "label": "The near gate stays closed"
+    },
+    {
+      "x": 52,
+      "y": 30,
+      "w": 11,
+      "h": 25,
+      "label": "Rook’s lantern on the checked far bridge"
+    },
+    {
+      "x": 61,
+      "y": 43,
+      "w": 15,
+      "h": 24,
+      "label": "The letter reaches Tess across both bridges"
+    }
+  ],
+  "right-material": [
+    {
+      "x": 10,
+      "y": 65,
+      "w": 84,
+      "h": 31,
+      "label": "Wooden, stone, and metal crossing models"
+    },
+    {
+      "x": 34,
+      "y": 42,
+      "w": 50,
+      "h": 41,
+      "label": "The short wooden garden crossing"
+    },
+    {
+      "x": 24,
+      "y": 61,
+      "w": 23,
+      "h": 36,
+      "label": "The crossing drawing for the windy gorge"
+    },
+    {
+      "x": 7,
+      "y": 53,
+      "w": 86,
+      "h": 44,
+      "label": "Three crossings in their own places"
+    }
+  ]
+}

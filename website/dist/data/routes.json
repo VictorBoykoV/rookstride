@@ -21,9 +21,10 @@
   },
   "status": "implemented-experimental-pair-with-other-engines-proposed",
   "date": "2026-10-14",
-  "current_apk": "0.1.0-alpha2",
+  "current_apk": "0.2.0-alpha3",
   "current_topologies": [
-    "single-vps"
+    "single-vps",
+    "two-vps"
   ],
   "current_client_engines": [
     "strongswan-ikev2"
@@ -32,7 +33,7 @@
     "phone_to_entry": "ikev2",
     "entry_to_exit": "amneziawg-3.1",
     "dns_location": "exit",
-    "available_in_current_apk": false,
+    "available_in_current_apk": true,
     "local_pair_verified": true,
     "independent_provider_pair_verified": true,
     "client_network_limits": {

@@ -57,6 +57,13 @@ with tempfile.TemporaryDirectory(prefix='rookstride-apk-') as stage,zipfile.ZipF
     spec=importlib.util.spec_from_file_location('audit_pair',ROOT/'server/pair.py');pair_module=importlib.util.module_from_spec(spec);spec.loader.exec_module(pair_module)
     assert apk.read('assets/gateway_bundle.sha256').decode().strip()==pair_module.source_digest(ROOT),'Installer identity differs'
     assert apk.read('assets/guide.html')==(ROOT/'android/overlay/assets/guide.html').read_bytes()
+    stories=ROOT/'android/overlay/assets/stories'
+    story_files=[p for p in stories.rglob('*') if p.is_file()]
+    assert story_files,'Offline story bundle missing'
+    for path in story_files:
+        assert apk.read('assets/stories/'+path.relative_to(stories).as_posix())==path.read_bytes(),'Embedded story differs: '+str(path.relative_to(stories))
+    assert len(list((stories/'worlds').glob('*/*/index.html')))==50,'Expected fifty offline chapters'
+    assert len(list((stories/'assets/stories').glob('*/*.webp')))==45,'Expected forty-five new chapter comics'
 print(json.dumps({'release':release['name'],'sha256':hashlib.sha256(args.apk.read_bytes()).hexdigest(),
                   'signer_sha256':signer.group(1),'native_libraries':len(libraries),
-                  'zip_load_relro_16k_aligned':True,'embedded_source_matches':True,'non_debuggable':True},indent=2))
+                  'zip_load_relro_16k_aligned':True,'embedded_source_matches':True,'offline_story_files':len(story_files),'non_debuggable':True},indent=2))

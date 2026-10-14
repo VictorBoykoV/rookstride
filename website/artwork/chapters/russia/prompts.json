@@ -1,0 +1,688 @@
+{
+  "license": "GPL-3.0-or-later",
+  "generator": "OpenAI built-in image_gen",
+  "use_case": "illustration-story",
+  "assets": [
+    {
+      "world": "russia",
+      "id": "warm-door",
+      "prompt": "Use case: illustration-story. Create a finished ORIGINAL Rookstride storybook comic chapter in one SQUARE 1024x1024 illustration, exactly FOUR equal square panels in a tidy 2x2 grid, consistent 16px cream central gutters, no outer title. Reading order top-left, top-right, bottom-left, bottom-right. Reference image 1 supplies exact Rook identity and pen-and-ink watercolor style; reference image 2 supplies this world's environment. Rook is the SAME small bright red bird with a swept two-feather crest, large white oval eye and black pupil, short triangular beak, dark charcoal scarf, cream cross-body satchel, brass lantern and paper atlas, NEVER a human. Warm textured paper, lively fine dark ink, muted ochres and blue-grey shadows, vivid red bird as focal point. All supporting characters are friendly original anthropomorphic animals, expressive and distinctive. This world is a fictional snowy library region with Russian-inspired wooden civic buildings, birch and pine forests, practical passenger trains, everyday contemporary details alongside local craft; warm interiors and peach twilight snow. No uniform national caricatures, rulers, national flags or national villains. Dasha is the SAME silver-grey fox librarian seen in the final bottom-right panel of reference image 3: cream winter coat with a fur collar, navy scarf, carrying a notebook. Other locals are varied original anthropomorphic animals: Misha a brown bear baker with a simple apron, Lev a young grey hare courier, Anya a tawny squirrel timber caretaker in a practical olive jacket, Vera an elderly red fox storyteller. In snowy OUTDOOR scenes Rook wears a plain dark charcoal ushanka earflap hat with his red crest visible plus brown felt boots, exactly like reference image 2. In warm rooms he may remove the hat; NEVER conceal his bird identity. The winter clothes are borrowed and are returned in the final panel of 'Stories by the stove'; in 'The ship beyond the snow' he has his visible red crest and no ushanka, with his ordinary scarf and satchel. Make casts, winter attire and props consistent across panels; no soldiers, weapons or unsafe behavior. EACH panel must depict the DIFFERENT specified scene faithfully, with meaningful action, varied framing and clear props. Keep important subjects away from the central gutters. Captions and narrative will be rendered by the website outside the art, therefore absolutely NO writing whatsoever, NO title, NO speech bubbles, NO thought bubbles, NO question marks, NO exclamation marks, NO letters in any alphabet, NO numerals, NO typography, NO watermarks. BLANK documents containing small pictures ONLY and blank signage containing pictograms ONLY; documents may have tiny abstract nonlinguistic marks only. No imitation of existing franchises.\nReference image 3 supplies exact Dasha identity in its final panel, while its earlier train setting is not required unless the scene calls for it.\nChapter: The warm door. Theme: Let a host tell you what welcome looks like. Summary: Dasha’s winter library gives Rook warmth without asking him to perform gratitude.\nTOP LEFT: Dasha welcomes Rook into a timber library with a kettle, warm seats, books, and a visitor repairing a tablet at a side desk. Key prop: A seat of his own.\nTOP RIGHT: Rook tries borrowed felt boots and an earflap hat with his red swept crest still visible while Dasha checks the fit beside a travelers’ loan basket. Key prop: Borrowed winter clothes.\nBOTTOM LEFT: Dasha reads Mei’s introduction as a child shows Rook an imaginative wheeled-library drawing near the exchange shelf holding Lin’s credited account. Key prop: A library with wheels.\nBOTTOM RIGHT: Rook writes to Lumen from an arranged guest room, with borrowed boots drying safely by the door and the library lamp visible through the window. Key prop: A good winter door.",
+      "references": [
+        "website/artwork/rook-harbor.png",
+        "website/artwork/worlds/world-russia.png",
+        "website/artwork/chapters/china/northbound-window.png"
+      ],
+      "master": "website/artwork/chapters/russia/warm-door.png",
+      "asset": "website/brand/chapters/russia/warm-door.webp",
+      "master_dimensions": [
+        1254,
+        1254
+      ],
+      "asset_dimensions": [
+        1024,
+        1024
+      ],
+      "asset_bytes": 177572,
+      "quality": 45,
+      "panels": [
+        {
+          "page": 1,
+          "crop_percent": [
+            0,
+            0,
+            50,
+            50
+          ]
+        },
+        {
+          "page": 2,
+          "crop_percent": [
+            50,
+            0,
+            50,
+            50
+          ]
+        },
+        {
+          "page": 3,
+          "crop_percent": [
+            0,
+            50,
+            50,
+            50
+          ]
+        },
+        {
+          "page": 4,
+          "crop_percent": [
+            50,
+            50,
+            50,
+            50
+          ]
+        }
+      ],
+      "generated_filename": "exec-7dc3cae3-5f5e-4f8c-824d-fcc62c028993.png",
+      "master_sha256": "05852ae218e4478b132d69bf2d4a397500778d5ceaf3f6f5cc576444852abab4",
+      "webp_sha256": "9fb6decdc829db4212c8a1c5704597cb030b75587f1450f073ae4fef867f7fdc",
+      "inspection": "Four chronological equal grid panels inspected; Rook recognizable; chapter actions distinct; no captions, typography, speech or thought bubbles."
+    },
+    {
+      "world": "russia",
+      "id": "loaf-that-stopped",
+      "prompt": "Use case: illustration-story. Create a finished ORIGINAL Rookstride storybook comic chapter in one SQUARE 1024x1024 illustration, exactly FOUR equal square panels in a tidy 2x2 grid, consistent 16px cream central gutters, no outer title. Reading order top-left, top-right, bottom-left, bottom-right. Reference image 1 supplies exact Rook identity and pen-and-ink watercolor style; reference image 2 supplies this world's environment. Rook is the SAME small bright red bird with a swept two-feather crest, large white oval eye and black pupil, short triangular beak, dark charcoal scarf, cream cross-body satchel, brass lantern and paper atlas, NEVER a human. Warm textured paper, lively fine dark ink, muted ochres and blue-grey shadows, vivid red bird as focal point. All supporting characters are friendly original anthropomorphic animals, expressive and distinctive. This world is a fictional snowy library region with Russian-inspired wooden civic buildings, birch and pine forests, practical passenger trains, everyday contemporary details alongside local craft; warm interiors and peach twilight snow. No uniform national caricatures, rulers, national flags or national villains. Dasha is the SAME silver-grey fox librarian seen in the final bottom-right panel of reference image 3: cream winter coat with a fur collar, navy scarf, carrying a notebook. Other locals are varied original anthropomorphic animals: Misha a brown bear baker with a simple apron, Lev a young grey hare courier, Anya a tawny squirrel timber caretaker in a practical olive jacket, Vera an elderly red fox storyteller. In snowy OUTDOOR scenes Rook wears a plain dark charcoal ushanka earflap hat with his red crest visible plus brown felt boots, exactly like reference image 2. In warm rooms he may remove the hat; NEVER conceal his bird identity. The winter clothes are borrowed and are returned in the final panel of 'Stories by the stove'; in 'The ship beyond the snow' he has his visible red crest and no ushanka, with his ordinary scarf and satchel. Make casts, winter attire and props consistent across panels; no soldiers, weapons or unsafe behavior. EACH panel must depict the DIFFERENT specified scene faithfully, with meaningful action, varied framing and clear props. Keep important subjects away from the central gutters. Captions and narrative will be rendered by the website outside the art, therefore absolutely NO writing whatsoever, NO title, NO speech bubbles, NO thought bubbles, NO question marks, NO exclamation marks, NO letters in any alphabet, NO numerals, NO typography, NO watermarks. BLANK documents containing small pictures ONLY and blank signage containing pictograms ONLY; documents may have tiny abstract nonlinguistic marks only. No imitation of existing franchises.\nReference image 3 supplies exact Dasha identity in its final panel, while its earlier train setting is not required unless the scene calls for it.\nChapter: The loaf that chose to stop. Theme: A familiar story can leave room for a new decision. Summary: A talking little loaf discovers that stopping is a choice too.\nTOP LEFT: A small original talking loaf named Bun blinks on Misha’s bakery windowsill while Rook watches the snowy lane beyond the open window. Key prop: Bun’s own song.\nTOP RIGHT: Bun pauses on Dasha’s tray beside the bakery yard as Rook points out a steep lane and warm light shines from the shop. Key prop: A choice before the ending.\nBOTTOM LEFT: Dasha carries Bun in a secure basket toward the library as Rook walks beside her and Misha waves from the bakery door. Key prop: A new traveling verse.\nBOTTOM RIGHT: Bun sings from a library table before choosing to return home; Rook adds the word chose to the reviewed title while Dasha smiles. Key prop: The loaf’s chosen ending.",
+      "references": [
+        "website/artwork/rook-harbor.png",
+        "website/artwork/worlds/world-russia.png",
+        "website/artwork/chapters/china/northbound-window.png"
+      ],
+      "master": "website/artwork/chapters/russia/loaf-that-stopped.png",
+      "asset": "website/brand/chapters/russia/loaf-that-stopped.webp",
+      "master_dimensions": [
+        1254,
+        1254
+      ],
+      "asset_dimensions": [
+        1024,
+        1024
+      ],
+      "asset_bytes": 177938,
+      "quality": 40,
+      "panels": [
+        {
+          "page": 1,
+          "crop_percent": [
+            0,
+            0,
+            50,
+            50
+          ]
+        },
+        {
+          "page": 2,
+          "crop_percent": [
+            50,
+            0,
+            50,
+            50
+          ]
+        },
+        {
+          "page": 3,
+          "crop_percent": [
+            0,
+            50,
+            50,
+            50
+          ]
+        },
+        {
+          "page": 4,
+          "crop_percent": [
+            50,
+            50,
+            50,
+            50
+          ]
+        }
+      ],
+      "generated_filename": "exec-b249388a-d84c-4ca7-8732-23c9bb6e4730.png",
+      "master_sha256": "8472e0272a4b3afdc4263a68c0460b6e578d70ce03ff96d9e89b543c1ab59a96",
+      "webp_sha256": "b0379592b359a663cecce39c66c5faf899d759193ed32a39ae1c90c2de80258a",
+      "inspection": "Four chronological equal grid panels inspected; Rook recognizable; chapter actions distinct; no captions, typography, speech or thought bubbles."
+    },
+    {
+      "world": "russia",
+      "id": "bell-beneath-ice",
+      "prompt": "Use case: illustration-story. Create a finished ORIGINAL Rookstride storybook comic chapter in one SQUARE 1024x1024 illustration, exactly FOUR equal square panels in a tidy 2x2 grid, consistent 16px cream central gutters, no outer title. Reading order top-left, top-right, bottom-left, bottom-right. Reference image 1 supplies exact Rook identity and pen-and-ink watercolor style; reference image 2 supplies this world's environment. Rook is the SAME small bright red bird with a swept two-feather crest, large white oval eye and black pupil, short triangular beak, dark charcoal scarf, cream cross-body satchel, brass lantern and paper atlas, NEVER a human. Warm textured paper, lively fine dark ink, muted ochres and blue-grey shadows, vivid red bird as focal point. All supporting characters are friendly original anthropomorphic animals, expressive and distinctive. This world is a fictional snowy library region with Russian-inspired wooden civic buildings, birch and pine forests, practical passenger trains, everyday contemporary details alongside local craft; warm interiors and peach twilight snow. No uniform national caricatures, rulers, national flags or national villains. Dasha is the SAME silver-grey fox librarian seen in the final bottom-right panel of reference image 3: cream winter coat with a fur collar, navy scarf, carrying a notebook. Other locals are varied original anthropomorphic animals: Misha a brown bear baker with a simple apron, Lev a young grey hare courier, Anya a tawny squirrel timber caretaker in a practical olive jacket, Vera an elderly red fox storyteller. In snowy OUTDOOR scenes Rook wears a plain dark charcoal ushanka earflap hat with his red crest visible plus brown felt boots, exactly like reference image 2. In warm rooms he may remove the hat; NEVER conceal his bird identity. The winter clothes are borrowed and are returned in the final panel of 'Stories by the stove'; in 'The ship beyond the snow' he has his visible red crest and no ushanka, with his ordinary scarf and satchel. Make casts, winter attire and props consistent across panels; no soldiers, weapons or unsafe behavior. EACH panel must depict the DIFFERENT specified scene faithfully, with meaningful action, varied framing and clear props. Keep important subjects away from the central gutters. Captions and narrative will be rendered by the website outside the art, therefore absolutely NO writing whatsoever, NO title, NO speech bubbles, NO thought bubbles, NO question marks, NO exclamation marks, NO letters in any alphabet, NO numerals, NO typography, NO watermarks. BLANK documents containing small pictures ONLY and blank signage containing pictograms ONLY; documents may have tiny abstract nonlinguistic marks only. No imitation of existing franchises.\nReference image 3 supplies exact Dasha identity in its final panel, while its earlier train setting is not required unless the scene calls for it.\nChapter: The bell beneath the ice. Theme: An appealing shortcut can hide an unknown. Summary: Rook helps recover a lost bell from shore without testing the frozen water himself.\nTOP LEFT: Lev, Dasha, and Rook look at a small delivery bell visible beneath clear ice near a marked riverbank, with everyone remaining safely on shore. Key prop: A bell beyond reach.\nTOP RIGHT: Rook gives Lev an approved borrowed hand chime while Dasha contacts the riverside caretakers and marks the lost bell on a shore map. Key prop: A borrowed hand chime.\nBOTTOM LEFT: Lev and Rook make deliveries using agreed knocks and the borrowed chime while a caretaker posts a riverbank safety notice in the background. Key prop: A useful question.\nBOTTOM RIGHT: Lev receives the safely recovered bell from the riverside caretaker and returns Dasha’s hand chime while Rook records the patient outcome. Key prop: The bell that waited.",
+      "references": [
+        "website/artwork/rook-harbor.png",
+        "website/artwork/worlds/world-russia.png",
+        "website/artwork/chapters/china/northbound-window.png"
+      ],
+      "master": "website/artwork/chapters/russia/bell-beneath-ice.png",
+      "asset": "website/brand/chapters/russia/bell-beneath-ice.webp",
+      "master_dimensions": [
+        1254,
+        1254
+      ],
+      "asset_dimensions": [
+        1024,
+        1024
+      ],
+      "asset_bytes": 173292,
+      "quality": 30,
+      "panels": [
+        {
+          "page": 1,
+          "crop_percent": [
+            0,
+            0,
+            50,
+            50
+          ]
+        },
+        {
+          "page": 2,
+          "crop_percent": [
+            50,
+            0,
+            50,
+            50
+          ]
+        },
+        {
+          "page": 3,
+          "crop_percent": [
+            0,
+            50,
+            50,
+            50
+          ]
+        },
+        {
+          "page": 4,
+          "crop_percent": [
+            50,
+            50,
+            50,
+            50
+          ]
+        }
+      ],
+      "generated_filename": "exec-ae486b35-3da7-4b8b-b80d-ae1ceb4035d5.png",
+      "master_sha256": "6ba8e3099a741cbf65cccfb40fa95975b54e4bb11790e38f7ecc8f730f001ef3",
+      "webp_sha256": "c0bb8bf60e3a8ffd173654e3219335fb0198bf35720a320e167d4603e4c033c8",
+      "inspection": "Four chronological equal grid panels inspected; Rook recognizable; chapter actions distinct; no captions, typography, speech or thought bubbles."
+    },
+    {
+      "world": "russia",
+      "id": "house-of-joints",
+      "prompt": "Use case: illustration-story. Create a finished ORIGINAL Rookstride storybook comic chapter in one SQUARE 1024x1024 illustration, exactly FOUR equal square panels in a tidy 2x2 grid, consistent 16px cream central gutters, no outer title. Reading order top-left, top-right, bottom-left, bottom-right. Reference image 1 supplies exact Rook identity and pen-and-ink watercolor style; reference image 2 supplies this world's environment. Rook is the SAME small bright red bird with a swept two-feather crest, large white oval eye and black pupil, short triangular beak, dark charcoal scarf, cream cross-body satchel, brass lantern and paper atlas, NEVER a human. Warm textured paper, lively fine dark ink, muted ochres and blue-grey shadows, vivid red bird as focal point. All supporting characters are friendly original anthropomorphic animals, expressive and distinctive. This world is a fictional snowy library region with Russian-inspired wooden civic buildings, birch and pine forests, practical passenger trains, everyday contemporary details alongside local craft; warm interiors and peach twilight snow. No uniform national caricatures, rulers, national flags or national villains. Dasha is the SAME silver-grey fox librarian seen in the final bottom-right panel of reference image 3: cream winter coat with a fur collar, navy scarf, carrying a notebook. Other locals are varied original anthropomorphic animals: Misha a brown bear baker with a simple apron, Lev a young grey hare courier, Anya a tawny squirrel timber caretaker in a practical olive jacket, Vera an elderly red fox storyteller. In snowy OUTDOOR scenes Rook wears a plain dark charcoal ushanka earflap hat with his red crest visible plus brown felt boots, exactly like reference image 2. In warm indoor library rooms and carriages Rook removes the hat, leaving his swept red crest visible (except a scene specifically trying on the borrowed hat); NEVER conceal his bird identity. The winter clothes are borrowed and are returned in the final panel of 'Stories by the stove'; in 'The ship beyond the snow' he has his visible red crest and no ushanka, with his ordinary scarf and satchel. Make casts, winter attire and props consistent across panels; no soldiers, weapons or unsafe behavior. EACH panel must depict the DIFFERENT specified scene faithfully, with meaningful action, varied framing and clear props. Keep important subjects away from the central gutters. Captions and narrative will be rendered by the website outside the art, therefore absolutely NO writing whatsoever, NO title, NO speech bubbles, NO thought bubbles, NO question marks, NO exclamation marks, NO letters in any alphabet, NO numerals, NO typography, NO watermarks. BLANK documents containing small pictures ONLY and blank signage containing pictograms ONLY; documents may have tiny abstract nonlinguistic marks only. No imitation of existing franchises.\nReference image 3 supplies exact Dasha identity in its final panel. Reference image 4 is cast continuity for Dasha the silver fox and Rook’s winter outfit, while the new chapter must show its own unique events rather than repeat the arrival.\nChapter: The house of joints. Theme: A beautiful structure also needs a keeper. Summary: Anya’s workshop teaches Rook to see care behind a wooden building.\nTOP LEFT: Anya holds a maintenance notebook beside a timber community hall while Rook admires the fitted structure from a clearly marked public viewing area. Key prop: Anya’s notebook.\nTOP RIGHT: Rook compares an older frame and a visibly newer recorded repair as Anya points to the community hall’s public history display. Key prop: A visible repair.\nBOTTOM LEFT: Rook delivers a location update while Anya presents a safe display model in Dasha’s library and the hall’s inspection barrier remains respected. Key prop: The evening moves safely.\nBOTTOM RIGHT: Neighbors return to the checked community hall as Anya updates the public record and Rook keeps two separately credited craft stories in his atlas. Key prop: Care within time.",
+      "references": [
+        "website/artwork/rook-harbor.png",
+        "website/artwork/worlds/world-russia.png",
+        "website/artwork/chapters/china/northbound-window.png",
+        "website/artwork/chapters/russia/warm-door.png"
+      ],
+      "master": "website/artwork/chapters/russia/house-of-joints.png",
+      "asset": "website/brand/chapters/russia/house-of-joints.webp",
+      "master_dimensions": [
+        1254,
+        1254
+      ],
+      "asset_dimensions": [
+        1024,
+        1024
+      ],
+      "asset_bytes": 174658,
+      "quality": 35,
+      "panels": [
+        {
+          "page": 1,
+          "crop_percent": [
+            0,
+            0,
+            50,
+            50
+          ]
+        },
+        {
+          "page": 2,
+          "crop_percent": [
+            50,
+            0,
+            50,
+            50
+          ]
+        },
+        {
+          "page": 3,
+          "crop_percent": [
+            0,
+            50,
+            50,
+            50
+          ]
+        },
+        {
+          "page": 4,
+          "crop_percent": [
+            50,
+            50,
+            50,
+            50
+          ]
+        }
+      ],
+      "generated_filename": "exec-4e4fb51b-b168-4872-950a-6e42f7b4c843.png",
+      "master_sha256": "0216984e8e09c57753ba208fb38e5b8e0d276be590b266a0c71fcb8d47e440ca",
+      "webp_sha256": "132ebb7175097eea7e79f98f2cda816ade2f0930dd95c953648cef1601fe9eaf",
+      "inspection": "Four chronological equal grid panels inspected; Rook recognizable; chapter actions distinct; no captions, typography, speech or thought bubbles."
+    },
+    {
+      "world": "russia",
+      "id": "message-in-whiteout",
+      "prompt": "Use case: illustration-story. Create a finished ORIGINAL Rookstride storybook comic chapter in one SQUARE 1024x1024 illustration, exactly FOUR equal square panels in a tidy 2x2 grid, consistent 16px cream central gutters, no outer title. Reading order top-left, top-right, bottom-left, bottom-right. Reference image 1 supplies exact Rook identity and pen-and-ink watercolor style; reference image 2 supplies this world's environment. Rook is the SAME small bright red bird with a swept two-feather crest, large white oval eye and black pupil, short triangular beak, dark charcoal scarf, cream cross-body satchel, brass lantern and paper atlas, NEVER a human. Warm textured paper, lively fine dark ink, muted ochres and blue-grey shadows, vivid red bird as focal point. All supporting characters are friendly original anthropomorphic animals, expressive and distinctive. This world is a fictional snowy library region with Russian-inspired wooden civic buildings, birch and pine forests, practical passenger trains, everyday contemporary details alongside local craft; warm interiors and peach twilight snow. No uniform national caricatures, rulers, national flags or national villains. Dasha is the SAME silver-grey fox librarian seen in the final bottom-right panel of reference image 3: cream winter coat with a fur collar, navy scarf, carrying a notebook. Other locals are varied original anthropomorphic animals: Misha a brown bear baker with a simple apron, Lev a young grey hare courier, Anya a tawny squirrel timber caretaker in a practical olive jacket, Vera an elderly red fox storyteller. In snowy OUTDOOR scenes Rook wears a plain dark charcoal ushanka earflap hat with his red crest visible plus brown felt boots, exactly like reference image 2. In warm indoor library rooms and carriages Rook removes the hat, leaving his swept red crest visible (except a scene specifically trying on the borrowed hat); NEVER conceal his bird identity. The winter clothes are borrowed and are returned in the final panel of 'Stories by the stove'; in 'The ship beyond the snow' he has his visible red crest and no ushanka, with his ordinary scarf and satchel. Make casts, winter attire and props consistent across panels; no soldiers, weapons or unsafe behavior. EACH panel must depict the DIFFERENT specified scene faithfully, with meaningful action, varied framing and clear props. Keep important subjects away from the central gutters. Captions and narrative will be rendered by the website outside the art, therefore absolutely NO writing whatsoever, NO title, NO speech bubbles, NO thought bubbles, NO question marks, NO exclamation marks, NO letters in any alphabet, NO numerals, NO typography, NO watermarks. BLANK documents containing small pictures ONLY and blank signage containing pictograms ONLY; documents may have tiny abstract nonlinguistic marks only. No imitation of existing franchises.\nReference image 3 supplies exact Dasha identity in its final panel. Reference image 4 is cast continuity for Dasha the silver fox and Rook’s winter outfit, while the new chapter must show its own unique events rather than repeat the arrival.\nChapter: The message in the whiteout. Theme: Do not let urgency erase safe choices. Summary: A changing forecast calls for a clear delay message and a warm waiting room.\nTOP LEFT: Rook looks toward a distant station lamp through thickening snow while Dasha and a transport coordinator review the suspended delivery route inside the library. Key prop: A letter across the square.\nTOP RIGHT: Travelers settle in a warm library waiting room as Rook arranges chairs and Dasha posts clear transport updates, with the letter safely stored at the station. Key prop: A warm waiting room.\nBOTTOM LEFT: Rook pauses Bun’s story in the waiting room as travelers listen to a transport announcement, with the child’s picture of a round loaf on the table. Key prop: A story with room for news.\nBOTTOM RIGHT: Rook finally reads Pip’s mint-garden drawing at a library desk while a courier signs the ordinary delivery record and snow clears beyond the window. Key prop: The letter arrives safely.",
+      "references": [
+        "website/artwork/rook-harbor.png",
+        "website/artwork/worlds/world-russia.png",
+        "website/artwork/chapters/china/northbound-window.png",
+        "website/artwork/chapters/russia/warm-door.png"
+      ],
+      "master": "website/artwork/chapters/russia/message-in-whiteout.png",
+      "asset": "website/brand/chapters/russia/message-in-whiteout.webp",
+      "master_dimensions": [
+        1254,
+        1254
+      ],
+      "asset_dimensions": [
+        1024,
+        1024
+      ],
+      "asset_bytes": 174210,
+      "quality": 40,
+      "panels": [
+        {
+          "page": 1,
+          "crop_percent": [
+            0,
+            0,
+            50,
+            50
+          ]
+        },
+        {
+          "page": 2,
+          "crop_percent": [
+            50,
+            0,
+            50,
+            50
+          ]
+        },
+        {
+          "page": 3,
+          "crop_percent": [
+            0,
+            50,
+            50,
+            50
+          ]
+        },
+        {
+          "page": 4,
+          "crop_percent": [
+            50,
+            50,
+            50,
+            50
+          ]
+        }
+      ],
+      "generated_filename": "exec-d8a3be01-efc5-4be7-abf8-358eb171daf5.png",
+      "master_sha256": "f18ed484ace341b5aafb5f8ed385ebed10c463d218798f8acf61e51dbcac38e4",
+      "webp_sha256": "b83c0716a909077a7df66adb13eb96f2c77678c5f085d3596ad18ae8b173e4f3",
+      "inspection": "Four chronological equal grid panels inspected; Rook recognizable; chapter actions distinct; no captions, typography, speech or thought bubbles."
+    },
+    {
+      "world": "russia",
+      "id": "night-train-curtain",
+      "prompt": "Use case: illustration-story. Create a finished ORIGINAL Rookstride storybook comic chapter in one SQUARE 1024x1024 illustration, exactly FOUR equal square panels in a tidy 2x2 grid, consistent 16px cream central gutters, no outer title. Reading order top-left, top-right, bottom-left, bottom-right. Reference image 1 supplies exact Rook identity and pen-and-ink watercolor style; reference image 2 supplies this world's environment. Rook is the SAME small bright red bird with a swept two-feather crest, large white oval eye and black pupil, short triangular beak, dark charcoal scarf, cream cross-body satchel, brass lantern and paper atlas, NEVER a human. Warm textured paper, lively fine dark ink, muted ochres and blue-grey shadows, vivid red bird as focal point. All supporting characters are friendly original anthropomorphic animals, expressive and distinctive. This world is a fictional snowy library region with Russian-inspired wooden civic buildings, birch and pine forests, practical passenger trains, everyday contemporary details alongside local craft; warm interiors and peach twilight snow. No uniform national caricatures, rulers, national flags or national villains. Dasha is the SAME silver-grey fox librarian seen in the final bottom-right panel of reference image 3: cream winter coat with a fur collar, navy scarf, carrying a notebook. Other locals are varied original anthropomorphic animals: Misha a brown bear baker with a simple apron, Lev a young grey hare courier, Anya a tawny squirrel timber caretaker in a practical olive jacket, Vera an elderly red fox storyteller. In snowy OUTDOOR scenes Rook wears a plain dark charcoal ushanka earflap hat with his red crest visible plus brown felt boots, exactly like reference image 2. In warm indoor library rooms and carriages Rook removes the hat, leaving his swept red crest visible (except a scene specifically trying on the borrowed hat); NEVER conceal his bird identity. The winter clothes are borrowed and are returned in the final panel of 'Stories by the stove'; in 'The ship beyond the snow' he has his visible red crest and no ushanka, with his ordinary scarf and satchel. Make casts, winter attire and props consistent across panels; no soldiers, weapons or unsafe behavior. EACH panel must depict the DIFFERENT specified scene faithfully, with meaningful action, varied framing and clear props. Keep important subjects away from the central gutters. Captions and narrative will be rendered by the website outside the art, therefore absolutely NO writing whatsoever, NO title, NO speech bubbles, NO thought bubbles, NO question marks, NO exclamation marks, NO letters in any alphabet, NO numerals, NO typography, NO watermarks. BLANK documents containing small pictures ONLY and blank signage containing pictograms ONLY; documents may have tiny abstract nonlinguistic marks only. No imitation of existing franchises.\nReference image 3 supplies exact Dasha identity in its final panel. Reference image 4 is cast continuity for Dasha the silver fox and Rook’s winter outfit, while the new chapter must show its own unique events rather than repeat the arrival.\nChapter: The night-train curtain. Theme: A traveler can choose what to reveal. Summary: Rook learns to put away his camera on a shared journey.\nTOP LEFT: Rook lowers his camera in a night-train carriage as one passenger draws a curtain and Dasha waits beside a closed travel notebook. Key prop: A drawn curtain.\nTOP RIGHT: Rook and Dasha photograph their own boots, notebook, and secured lantern in an empty permitted common area of the train. Key prop: A portrait of boots.\nBOTTOM LEFT: Rook and Dasha prepare a restrained travel account at the exchange library, including public service details and leaving fellow passengers unnamed. Key prop: A careful account.\nBOTTOM RIGHT: Rook and Dasha exchange a friendly corridor greeting before returning to separate train seats, with a closed camera and a respectfully drawn curtain nearby. Key prop: A curtain left closed.",
+      "references": [
+        "website/artwork/rook-harbor.png",
+        "website/artwork/worlds/world-russia.png",
+        "website/artwork/chapters/china/northbound-window.png",
+        "website/artwork/chapters/russia/warm-door.png"
+      ],
+      "master": "website/artwork/chapters/russia/night-train-curtain.png",
+      "asset": "website/brand/chapters/russia/night-train-curtain.webp",
+      "master_dimensions": [
+        1254,
+        1254
+      ],
+      "asset_dimensions": [
+        1024,
+        1024
+      ],
+      "asset_bytes": 155934,
+      "quality": 50,
+      "panels": [
+        {
+          "page": 1,
+          "crop_percent": [
+            0,
+            0,
+            50,
+            50
+          ]
+        },
+        {
+          "page": 2,
+          "crop_percent": [
+            50,
+            0,
+            50,
+            50
+          ]
+        },
+        {
+          "page": 3,
+          "crop_percent": [
+            0,
+            50,
+            50,
+            50
+          ]
+        },
+        {
+          "page": 4,
+          "crop_percent": [
+            50,
+            50,
+            50,
+            50
+          ]
+        }
+      ],
+      "generated_filename": "exec-7c4e016b-618c-43cf-98e7-d0a4e58f612b.png",
+      "master_sha256": "f415547f08bafd1120f30c06916444db7c6520934b870030be22253741940abc",
+      "webp_sha256": "5a620b1564bf3b9b816ab821f958c19838d44d277a153ee4da20c8721bea2310",
+      "inspection": "Four chronological equal grid panels inspected; Rook recognizable; chapter actions distinct; no captions, typography, speech or thought bubbles."
+    },
+    {
+      "world": "russia",
+      "id": "tower-after-thaw",
+      "prompt": "Use case: illustration-story. Create a finished ORIGINAL Rookstride storybook comic chapter in one SQUARE 1024x1024 illustration, exactly FOUR equal square panels in a tidy 2x2 grid, consistent 16px cream central gutters, no outer title. Reading order top-left, top-right, bottom-left, bottom-right. Reference image 1 supplies exact Rook identity and pen-and-ink watercolor style; reference image 2 supplies this world's environment. Rook is the SAME small bright red bird with a swept two-feather crest, large white oval eye and black pupil, short triangular beak, dark charcoal scarf, cream cross-body satchel, brass lantern and paper atlas, NEVER a human. Warm textured paper, lively fine dark ink, muted ochres and blue-grey shadows, vivid red bird as focal point. All supporting characters are friendly original anthropomorphic animals, expressive and distinctive. This world is a fictional snowy library region with Russian-inspired wooden civic buildings, birch and pine forests, practical passenger trains, everyday contemporary details alongside local craft; warm interiors and peach twilight snow. No uniform national caricatures, rulers, national flags or national villains. Dasha is the SAME silver-grey fox librarian seen in the final bottom-right panel of reference image 3: cream winter coat with a fur collar, navy scarf, carrying a notebook. Other locals are varied original anthropomorphic animals: Misha a brown bear baker with a simple apron, Lev a young grey hare courier, Anya a tawny squirrel timber caretaker in a practical olive jacket, Vera an elderly red fox storyteller. In snowy OUTDOOR scenes Rook wears a plain dark charcoal ushanka earflap hat with his red crest visible plus brown felt boots, exactly like reference image 2. In warm indoor library rooms and carriages Rook removes the hat, leaving his swept red crest visible (except a scene specifically trying on the borrowed hat); NEVER conceal his bird identity. The winter clothes are borrowed and are returned in the final panel of 'Stories by the stove'; in 'The ship beyond the snow' he has his visible red crest and no ushanka, with his ordinary scarf and satchel. Make casts, winter attire and props consistent across panels; no soldiers, weapons or unsafe behavior. EACH panel must depict the DIFFERENT specified scene faithfully, with meaningful action, varied framing and clear props. Keep important subjects away from the central gutters. Captions and narrative will be rendered by the website outside the art, therefore absolutely NO writing whatsoever, NO title, NO speech bubbles, NO thought bubbles, NO question marks, NO exclamation marks, NO letters in any alphabet, NO numerals, NO typography, NO watermarks. BLANK documents containing small pictures ONLY and blank signage containing pictograms ONLY; documents may have tiny abstract nonlinguistic marks only. No imitation of existing franchises.\nReference image 3 supplies exact Dasha identity in its final panel. Reference image 4 is cast continuity for Dasha the silver fox and Rook’s winter outfit, while the new chapter must show its own unique events rather than repeat the arrival.\nChapter: The tower after the thaw. Theme: Change a plan when conditions change. Summary: A thawing path closes one outing and opens another kind of celebration.\nTOP LEFT: Rook revises an eager journal introduction beside a closed path notice while Anya’s team examines the thaw-affected tower approach from a permitted work area. Key prop: A changed introduction.\nTOP RIGHT: Neighbors share permitted tower photographs and summer and autumn stories in a warm community workshop while Rook listens beside Dasha. Key prop: More than one season.\nBOTTOM LEFT: Rook dates permitted tower images and adds Anya’s current closure note, then sketches the workshop gathering while leaving his tower-visit page honestly incomplete. Key prop: The day that actually happened.\nBOTTOM RIGHT: Rook receives a later tower update during his onward journey and mails Dasha a drawing of the completed workshop welcome with a small crossed-out tower sketch. Key prop: A welcome that moved.",
+      "references": [
+        "website/artwork/rook-harbor.png",
+        "website/artwork/worlds/world-russia.png",
+        "website/artwork/chapters/china/northbound-window.png",
+        "website/artwork/chapters/russia/warm-door.png"
+      ],
+      "master": "website/artwork/chapters/russia/tower-after-thaw.png",
+      "asset": "website/brand/chapters/russia/tower-after-thaw.webp",
+      "master_dimensions": [
+        1254,
+        1254
+      ],
+      "asset_dimensions": [
+        1024,
+        1024
+      ],
+      "asset_bytes": 174454,
+      "quality": 35,
+      "panels": [
+        {
+          "page": 1,
+          "crop_percent": [
+            0,
+            0,
+            50,
+            50
+          ]
+        },
+        {
+          "page": 2,
+          "crop_percent": [
+            50,
+            0,
+            50,
+            50
+          ]
+        },
+        {
+          "page": 3,
+          "crop_percent": [
+            0,
+            50,
+            50,
+            50
+          ]
+        },
+        {
+          "page": 4,
+          "crop_percent": [
+            50,
+            50,
+            50,
+            50
+          ]
+        }
+      ],
+      "generated_filename": "exec-0b45dd0c-fa71-45e7-adba-16a5badea7be.png",
+      "master_sha256": "5d07744ef7ae0e7abe4d483211d68a6cb6cbad79678807ffce0732d78a9e533b",
+      "webp_sha256": "41d8b4fe3e720d33daa054f83c14b4e244da03cc99aaad71340f497b83126d64",
+      "inspection": "Four chronological equal grid panels inspected; Rook recognizable; chapter actions distinct; no captions, typography, speech or thought bubbles."
+    },
+    {
+      "world": "russia",
+      "id": "forest-two-choices",
+      "prompt": "Use case: illustration-story. Create a finished ORIGINAL Rookstride storybook comic chapter in one SQUARE 1024x1024 illustration, exactly FOUR equal square panels in a tidy 2x2 grid, consistent 16px cream central gutters, no outer title. Reading order top-left, top-right, bottom-left, bottom-right. Reference image 1 supplies exact Rook identity and pen-and-ink watercolor style; reference image 2 supplies this world's environment. Rook is the SAME small bright red bird with a swept two-feather crest, large white oval eye and black pupil, short triangular beak, dark charcoal scarf, cream cross-body satchel, brass lantern and paper atlas, NEVER a human. Warm textured paper, lively fine dark ink, muted ochres and blue-grey shadows, vivid red bird as focal point. All supporting characters are friendly original anthropomorphic animals, expressive and distinctive. This world is a fictional snowy library region with Russian-inspired wooden civic buildings, birch and pine forests, practical passenger trains, everyday contemporary details alongside local craft; warm interiors and peach twilight snow. No uniform national caricatures, rulers, national flags or national villains. Dasha is the SAME silver-grey fox librarian seen in the final bottom-right panel of reference image 3: cream winter coat with a fur collar, navy scarf, carrying a notebook. Other locals are varied original anthropomorphic animals: Misha a brown bear baker with a simple apron, Lev a young grey hare courier, Anya a tawny squirrel timber caretaker in a practical olive jacket, Vera an elderly red fox storyteller. In snowy OUTDOOR scenes Rook wears a plain dark charcoal ushanka earflap hat with his red crest visible plus brown felt boots, exactly like reference image 2. In warm indoor library rooms and carriages Rook removes the hat, leaving his swept red crest visible (except a scene specifically trying on the borrowed hat); NEVER conceal his bird identity. The winter clothes are borrowed and are returned in the final panel of 'Stories by the stove'; in 'The ship beyond the snow' he has his visible red crest and no ushanka, with his ordinary scarf and satchel. Make casts, winter attire and props consistent across panels; no soldiers, weapons or unsafe behavior. EACH panel must depict the DIFFERENT specified scene faithfully, with meaningful action, varied framing and clear props. Keep important subjects away from the central gutters. Captions and narrative will be rendered by the website outside the art, therefore absolutely NO writing whatsoever, NO title, NO speech bubbles, NO thought bubbles, NO question marks, NO exclamation marks, NO letters in any alphabet, NO numerals, NO typography, NO watermarks. BLANK documents containing small pictures ONLY and blank signage containing pictograms ONLY; documents may have tiny abstract nonlinguistic marks only. No imitation of existing franchises.\nReference image 3 supplies exact Dasha identity in its final panel. Reference image 4 is cast continuity for Dasha the silver fox and Rook’s winter outfit, while the new chapter must show its own unique events rather than repeat the arrival.\nChapter: The forest’s two choices. Theme: The shortest line is not always the usable route. Summary: Rook and a guide choose a known road with room to change their minds.\nTOP LEFT: Rook compares a narrow unassessed trail and a longer checked road with a forest guide at a public departure point near the library. Key prop: A longer checked line.\nTOP RIGHT: The group waits while a coordinator arranges suitable transport; Rook apologizes to a fellow traveler and listens to the guide’s own forest story. Key prop: Whose afternoon counts.\nBOTTOM LEFT: Travelers gather safely at the forest reading hut around a kettle while Rook shares Jun’s kite story and a child connects it with their adjusted journey. Key prop: A day that fits everyone.\nBOTTOM RIGHT: The guide confirms return transport as Rook dates his verified route notes, leaving the unassessed forest trail without a guessed recommendation. Key prop: More than distance.",
+      "references": [
+        "website/artwork/rook-harbor.png",
+        "website/artwork/worlds/world-russia.png",
+        "website/artwork/chapters/china/northbound-window.png",
+        "website/artwork/chapters/russia/warm-door.png"
+      ],
+      "master": "website/artwork/chapters/russia/forest-two-choices.png",
+      "asset": "website/brand/chapters/russia/forest-two-choices.webp",
+      "master_dimensions": [
+        1254,
+        1254
+      ],
+      "asset_dimensions": [
+        1024,
+        1024
+      ],
+      "asset_bytes": 171768,
+      "quality": 35,
+      "panels": [
+        {
+          "page": 1,
+          "crop_percent": [
+            0,
+            0,
+            50,
+            50
+          ]
+        },
+        {
+          "page": 2,
+          "crop_percent": [
+            50,
+            0,
+            50,
+            50
+          ]
+        },
+        {
+          "page": 3,
+          "crop_percent": [
+            0,
+            50,
+            50,
+            50
+          ]
+        },
+        {
+          "page": 4,
+          "crop_percent": [
+            50,
+            50,
+            50,
+            50
+          ]
+        }
+      ],
+      "generated_filename": "exec-b21fc6b1-5a9b-4735-aca3-e03593350cb6.png",
+      "master_sha256": "7fe9796593fd506ad479fbc7256d226bc377cb17a3c95db54e11fcc180519f6b",
+      "webp_sha256": "58985e44356f20d0714e5e8471e8da13d7dba4ee57227f49d8cef93990f1976c",
+      "inspection": "Four chronological equal grid panels inspected; Rook recognizable; chapter actions distinct; no captions, typography, speech or thought bubbles."
+    },
+    {
+      "world": "russia",
+      "id": "ship-beyond-snow",
+      "prompt": "Use case: illustration-story. Create a finished ORIGINAL Rookstride storybook comic chapter in one SQUARE 1024x1024 illustration, exactly FOUR equal square panels in a tidy 2x2 grid, consistent 16px cream central gutters, no outer title. Reading order top-left, top-right, bottom-left, bottom-right. Reference image 1 supplies exact Rook identity and pen-and-ink watercolor style; reference image 2 supplies this world's environment. Rook is the SAME small bright red bird with a swept two-feather crest, large white oval eye and black pupil, short triangular beak, dark charcoal scarf, cream cross-body satchel, brass lantern and paper atlas, NEVER a human. Warm textured paper, lively fine dark ink, muted ochres and blue-grey shadows, vivid red bird as focal point. All supporting characters are friendly original anthropomorphic animals, expressive and distinctive. This world is a fictional snowy library region with Russian-inspired wooden civic buildings, birch and pine forests, practical passenger trains, everyday contemporary details alongside local craft; warm interiors and peach twilight snow. No uniform national caricatures, rulers, national flags or national villains. Dasha is the SAME silver-grey fox librarian seen in the final bottom-right panel of reference image 3: cream winter coat with a fur collar, navy scarf, carrying a notebook. Other locals are varied original anthropomorphic animals: Misha a brown bear baker with a simple apron, Lev a young grey hare courier, Anya a tawny squirrel timber caretaker in a practical olive jacket, Vera an elderly red fox storyteller. In snowy OUTDOOR scenes Rook wears a plain dark charcoal ushanka earflap hat with his red crest visible plus brown felt boots, exactly like reference image 2. In warm indoor library rooms and carriages Rook removes the hat, leaving his swept red crest visible (except a scene specifically trying on the borrowed hat); NEVER conceal his bird identity. The winter clothes are borrowed and are returned in the final panel of 'Stories by the stove'; in 'The ship beyond the snow' he has his visible red crest and no ushanka, with his ordinary scarf and satchel. Make casts, winter attire and props consistent across panels; no soldiers, weapons or unsafe behavior. EACH panel must depict the DIFFERENT specified scene faithfully, with meaningful action, varied framing and clear props. Keep important subjects away from the central gutters. Captions and narrative will be rendered by the website outside the art, therefore absolutely NO writing whatsoever, NO title, NO speech bubbles, NO thought bubbles, NO question marks, NO exclamation marks, NO letters in any alphabet, NO numerals, NO typography, NO watermarks. BLANK documents containing small pictures ONLY and blank signage containing pictograms ONLY; documents may have tiny abstract nonlinguistic marks only. No imitation of existing franchises.\nReference image 3 supplies exact Dasha identity in its final panel. Reference image 4 is cast continuity for Dasha the silver fox and Rook’s winter outfit, while the new chapter must show its own unique events rather than repeat the arrival.\nALL FOUR PANELS COSTUME CHANGE: Rook has already returned winter hat and boots. DO NOT draw any ushanka hat or felt boots on Rook in any panel of this chapter. His bare swept red crest, ordinary scarf, satchel, lantern, and bird feet remain visible. The final harbor is the broad open-sky commons, with modern everyday dock life; Jo is a friendly tan rabbit archivist with a plain teal vest.\nChapter: The ship beyond the snow. Theme: Carry care across a changing horizon. Summary: Rook leaves the library world with a new introduction and his old questions.\nTOP LEFT: Rook confirms his passenger booking at a coastal terminal with Dasha’s letter for Jo secured in his satchel beside the sea-facing window. Key prop: A letter for Jo.\nTOP RIGHT: Rook writes a carefully credited account in the terminal waiting area as a fellow traveler offers a pen during the announced boarding delay. Key prop: A borrowed pen.\nBOTTOM LEFT: Rook boards and secures his lantern as instructed while the snowy coast recedes beyond the passenger deck window and earlier travel pages rest closed nearby. Key prop: The shore recedes.\nBOTTOM RIGHT: Jo greets Rook at the agreed far-harbor desk with two cups of water, accepting Dasha’s letter beneath a broad open sky. Key prop: Blank paper for the next friend.",
+      "references": [
+        "website/artwork/rook-harbor.png",
+        "website/artwork/worlds/world-russia.png",
+        "website/artwork/chapters/china/northbound-window.png",
+        "website/artwork/chapters/russia/warm-door.png"
+      ],
+      "master": "website/artwork/chapters/russia/ship-beyond-snow.png",
+      "asset": "website/brand/chapters/russia/ship-beyond-snow.webp",
+      "master_dimensions": [
+        1254,
+        1254
+      ],
+      "asset_dimensions": [
+        1024,
+        1024
+      ],
+      "asset_bytes": 166648,
+      "quality": 50,
+      "panels": [
+        {
+          "page": 1,
+          "crop_percent": [
+            0,
+            0,
+            50,
+            50
+          ]
+        },
+        {
+          "page": 2,
+          "crop_percent": [
+            50,
+            0,
+            50,
+            50
+          ]
+        },
+        {
+          "page": 3,
+          "crop_percent": [
+            0,
+            50,
+            50,
+            50
+          ]
+        },
+        {
+          "page": 4,
+          "crop_percent": [
+            50,
+            50,
+            50,
+            50
+          ]
+        }
+      ],
+      "repairs": [
+        {
+          "prompt": "Use case: identity-preserve and illustration-story. Edit ONLY the BOTTOM RIGHT panel of the first reference image (the four-panel sea-voyage chapter). Replace the tan rabbit archivist in a teal vest with the established Jo from reference image 2: the same friendly grey raccoon with clear dark face mask, rounded ears, wearing a plain plum-purple vest over a cream shirt, archivist demeanor. Keep Jo accepting Rook's sealed letter at the desk, with two cups, notebook, and the same small red Rook with bare swept crest, scarf and cream satchel unchanged. This is now the far-harbor arrival in the Wide-Sky Commons: within ONLY this bottom-right panel, replace snowy mountains and European onion-domed buildings in the background with a broad mild blue-peach sky, everyday North American-style coastal dock buildings and practical harbor cranes, no snow, no flags, no landmarks or stereotypes. Preserve ALL THREE OTHER PANELS PIXEL-LIKE EXACTLY: their characters, snowbound departure, plot, composition, documents and props. Keep the same four equal panels and cream gutters, square format, finely inked warm paper style. Absolutely no writing, dialogue, speech/thought bubbles, or typography anywhere. Jo must look like the raccoon in image 2, not the rabbit being replaced.",
+          "references": [
+            "website/artwork/chapters/russia/ship-beyond-snow.png",
+            "website/artwork/chapters/america/charter-in-light.png"
+          ],
+          "initial_generated_filename": "exec-bae2e6c9-c9bc-420f-9743-df66021875de.png"
+        }
+      ],
+      "generated_filename": "exec-95cc97e6-9587-49ef-8f2a-7bf7ccb57c7b.png",
+      "master_sha256": "7d855992c66b0dd8c5dc62c39efd4094770cbfa7800b4741a00a376dfd2a9b34",
+      "webp_sha256": "6720569ffcbb405897393169665a9460449f0b584c531da317bee1515a654749",
+      "inspection": "Four chronological equal grid panels inspected; Rook recognizable; chapter actions distinct; no captions, typography, speech or thought bubbles."
+    },
+    {
+      "world": "russia",
+      "id": "stories-by-stove",
+      "prompt": "Use case: illustration-story. Create a finished ORIGINAL Rookstride storybook comic chapter in one SQUARE 1024x1024 illustration, exactly FOUR equal square panels in a tidy 2x2 grid, consistent 16px cream central gutters, no outer title. Reading order top-left, top-right, bottom-left, bottom-right. Reference image 1 supplies exact Rook identity and pen-and-ink watercolor style; reference image 2 supplies this world's environment. Rook is the SAME small bright red bird with a swept two-feather crest, large white oval eye and black pupil, short triangular beak, dark charcoal scarf, cream cross-body satchel, brass lantern and paper atlas, NEVER a human. Warm textured paper, lively fine dark ink, muted ochres and blue-grey shadows, vivid red bird as focal point. All supporting characters are friendly original anthropomorphic animals, expressive and distinctive. This world is a fictional snowy library region with Russian-inspired wooden civic buildings, birch and pine forests, practical passenger trains, everyday contemporary details alongside local craft; warm interiors and peach twilight snow. No uniform national caricatures, rulers, national flags or national villains. Dasha is the SAME silver-grey fox librarian seen in the final bottom-right panel of reference image 3: cream winter coat with a fur collar, navy scarf, carrying a notebook. Other locals are varied original anthropomorphic animals: Misha a brown bear baker with a simple apron, Lev a young grey hare courier, Anya a tawny squirrel timber caretaker in a practical olive jacket, Vera an elderly red fox storyteller. In snowy OUTDOOR scenes Rook wears a plain dark charcoal ushanka earflap hat with his red crest visible plus brown felt boots, exactly like reference image 2. In warm indoor library rooms and carriages Rook removes the hat, leaving his swept red crest visible (except a scene specifically trying on the borrowed hat); NEVER conceal his bird identity. The winter clothes are borrowed and are returned in the final panel of 'Stories by the stove'; in 'The ship beyond the snow' he has his visible red crest and no ushanka, with his ordinary scarf and satchel. Make casts, winter attire and props consistent across panels; no soldiers, weapons or unsafe behavior. EACH panel must depict the DIFFERENT specified scene faithfully, with meaningful action, varied framing and clear props. Keep important subjects away from the central gutters. Captions and narrative will be rendered by the website outside the art, therefore absolutely NO writing whatsoever, NO title, NO speech bubbles, NO thought bubbles, NO question marks, NO exclamation marks, NO letters in any alphabet, NO numerals, NO typography, NO watermarks. BLANK documents containing small pictures ONLY and blank signage containing pictograms ONLY; documents may have tiny abstract nonlinguistic marks only. No imitation of existing franchises.\nReference image 3 supplies exact Dasha identity in its final panel. Reference image 4 is cast continuity for Dasha the silver fox and Rook’s winter outfit, while the new chapter must show its own unique events rather than repeat the arrival.\nFINAL PANEL COSTUME CHANGE: Rook's ushanka and felt boots are now in Dasha's travelers' loan basket, NOT on him. Show his bare swept red crest and ordinary bird feet as he receives a clean spare scarf.\nChapter: Stories by the stove. Theme: A community holds more than one tradition. Summary: Rook gathers different original voices without flattening them into one tale.\nTOP LEFT: Misha, Anya, and Vera share distinct stories in Dasha’s warm library beside an enclosed stove, while Rook revises an overly broad journal heading. Key prop: More than one voice.\nTOP RIGHT: Rook records chosen credits while Dasha makes a clearly labeled permitted summary and another neighbor’s private account remains unwritten. Key prop: A careful heading.\nBOTTOM LEFT: Bun listens from a secure basket as neighbors choose among Rook’s garden and river accounts, with several distinct story pages laid open on a table. Key prop: A chosen page.\nBOTTOM RIGHT: Rook returns borrowed winter clothes to Dasha’s loan basket and accepts a spare scarf before leaving the library’s glowing snowy gate. Key prop: A story to send home.",
+      "references": [
+        "website/artwork/rook-harbor.png",
+        "website/artwork/worlds/world-russia.png",
+        "website/artwork/chapters/china/northbound-window.png",
+        "website/artwork/chapters/russia/warm-door.png"
+      ],
+      "master": "website/artwork/chapters/russia/stories-by-stove.png",
+      "asset": "website/brand/chapters/russia/stories-by-stove.webp",
+      "master_dimensions": [
+        1254,
+        1254
+      ],
+      "asset_dimensions": [
+        1024,
+        1024
+      ],
+      "asset_bytes": 172842,
+      "quality": 45,
+      "panels": [
+        {
+          "page": 1,
+          "crop_percent": [
+            0,
+            0,
+            50,
+            50
+          ]
+        },
+        {
+          "page": 2,
+          "crop_percent": [
+            50,
+            0,
+            50,
+            50
+          ]
+        },
+        {
+          "page": 3,
+          "crop_percent": [
+            0,
+            50,
+            50,
+            50
+          ]
+        },
+        {
+          "page": 4,
+          "crop_percent": [
+            50,
+            50,
+            50,
+            50
+          ]
+        }
+      ],
+      "repairs": [
+        {
+          "prompt": "Use case: precise-object-edit and illustration-story. In the first reference image, edit ONLY the small character sitting inside the wicker basket at the far LEFT of the BOTTOM LEFT panel. It was mistakenly drawn as a white rabbit. Replace that one little basket character with Bun, the SAME small original round golden-brown talking loaf of bread from reference image 2: warm baked crust, two tiny black dot eyes, smiling mouth, tiny simple arms, no rabbit ears, no fur. Bun is securely seated inside this existing basket listening to the library's stories. Preserve the basket and EVERY other detail of that panel, including Rook, Dasha, Misha the bear, all other animal neighbors, tables, paintings and story pages. Preserve ALL THREE OTHER PANELS completely unchanged. Keep the original four equal 2x2 panels and cream gutters, square textured ink-and-watercolor style. Absolutely no readable writing, speech/thought bubbles, letters or typography. Reference image 2 is ONLY for Bun's talking-loaf identity; do not borrow its bakery plot.",
+          "references": [
+            "website/artwork/chapters/russia/stories-by-stove.png",
+            "website/artwork/chapters/russia/loaf-that-stopped.png"
+          ],
+          "initial_generated_filename": "exec-70e12d66-31bd-4b0f-850e-0a78e1e18aa4.png"
+        }
+      ],
+      "generated_filename": "exec-b2052c88-d2bb-4265-94bf-9316f884459c.png",
+      "master_sha256": "5b0d108c36bed450ea4d69798952d70c547f53cd7c9f2a60be05535f162b372c",
+      "webp_sha256": "fc87d20beb2cce3f92f13bb40a4aa64162a25d31b633ad837c2a9dfa0b95a2a2",
+      "inspection": "Four chronological equal grid panels inspected; Rook recognizable; chapter actions distinct; no captions, typography, speech or thought bubbles."
+    }
+  ],
+  "layout": {
+    "panels": 4,
+    "columns": 2,
+    "rows": 2,
+    "order": [
+      "top-left",
+      "top-right",
+      "bottom-left",
+      "bottom-right"
+    ],
+    "gutters": "Narrow straight cream gutters; generated widths approximate and visually checked."
+  },
+  "conversion": "Whole-canvas RGB conversion, uniform fit to 1024×1024, WebP compression below 180,000 bytes. No content editing, pixel composites, added lettering, or raster crops during conversion.",
+  "created": "2026-10-14"
+}

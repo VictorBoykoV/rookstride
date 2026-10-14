@@ -1,0 +1,299 @@
+{
+  "version": 1,
+  "chapters": [
+    {
+      "world": "harbor",
+      "id": "book-that-opened",
+      "tool": "built-in image_gen.imagegen",
+      "date": "2026-10-14",
+      "license": "GPL-3.0-or-later",
+      "prompt": "Use case: illustration-story. Asset type: one original Rookstride four-panel chapter comic. Make a NEW illustration, not a copy of the reference scene. EXACTLY FOUR equal rectangular panels in a clean 2-by-2 grid with clear straight warm-cream gutters. Reading order must be top-left, top-right, bottom-left, bottom-right. Wide landscape overall around 1536 by 1024; consistent panel boundaries at the horizontal and vertical halfway points. Each panel depicts the corresponding scene below, no extra panel, no panoramic merged scene. Style reference defines the warm ink/cream paper storybook style and original Rook character only: signal-red rounded bird head, swept crest, projecting beak, white oval eye patch, black pupil, charcoal scarf, cream satchel, brass lantern, small bird feet; expressive bird wings without human fingers. Beautiful composed scenes, restrained woodcut hatch and warm cream grain, signal red #EE3038, charcoal #141418, ochre and muted slate/turquoise accents. Original friendly anthropomorphic animal neighbors, thoughtful cooperative adventure. No text ANYWHERE: no lettering, no words, no captions, no dialogue balloons, no sound effects, no logos, no watermarks, no national flags, no political emblems, no firearms or swords, no copied franchise. Papers and maps can show simple visual sketches/routes but never writing. Avoid depicting any story as a generic reused world landscape. The four changing actions are essential.\nCast continuity: Rook as described. Pip is a sandy rabbit courier in a blue work vest. Moss is a round brown hedgehog mapmaker with round spectacles and green apron. Lumen is a cream owl librarian wearing a modest navy cardigan. Nell is a small gray mouse letter writer. Mira is a brown otter inventor with plain practical work apron. Persia cast: Sima is a cream owl courtyard librarian in a turquoise cardigan; Nima is a brown otter garden keeper in a green apron; Darya is a sandy hare courier in a muted blue vest with a secure letter bag; Leila is a fox weaver in a warm ochre apron; Princess Soraya is a fox astronomer with a SMALL plain gold circlet and simple midnight-blue cloak over practical clothes, not a copied princess character; Zephyr is a gentle small ochre dragon with blue-gray wings; Aster is a camel. Keep each repeat character consistent within the comic. Show only the characters called for by that scene, not everybody in each frame.\nChapter: The book that opened. Theme: Beginnings belong to their witnesses. Setting: fictional Lantern Harbor, libraries, quay, roof gardens, stone bridges. The reference world plate is style and character reference only. Do not insert its landscape into every panel.\nPanel 1 (top-left): In Lumen’s library, Rook notices a red feather in an atlas margin while the librarian supports the book’s loose binding.\nNarrative context to interpret visually, NEVER render the words: Lumen asked Rook to help move the library’s old atlas. Its binding had loosened, and a page caught on his satchel. There, beside an unfinished route, was a tiny red feather drawn in ink. Rook remembered the smell of lantern oil and the first evening he had stood on the desk. “Was I made to finish this map?” he asked quietly.\nPanel 2 (top-right): Lumen speaks beside the open atlas as Pip arrives with handwritten accounts; Rook makes space between tools and unfinished maps.\nNarrative context to interpret visually, NEVER render the words: Lumen set down her tools. “I do not know who drew you,” she said. “I know you came alive when someone needed help. Those are different questions.” Rook looked at the empty spaces. For a moment he wanted a neat answer more than the truth. Then Pip arrived carrying three very untidy stories from the morning’s deliveries. Rook made room on the desk.\nPanel 3 (bottom-left): A conservator helps mend the atlas while Pip, Moss, and Rook place original accounts and corrections in a new paper pocket.\nNarrative context to interpret visually, NEVER render the words: They repaired the binding with the library conservator’s help and added a pocket for new accounts. Pip’s first story described a route the atlas had missed entirely. Moss added a correction to an old bridge. Rook contributed the sentence he remembered from the margin. None of the additions explained his birth. All of them explained a little more of his life.\nPanel 4 (bottom-right): Rook folds a blank atlas leaf into his cream satchel as Lumen leaves the repaired book open beneath a warm reading lamp.\nNarrative context to interpret visually, NEVER render the words: That night Rook left the atlas open, but he no longer waited for it to tell him what to do. Lumen gave him a loose blank leaf for his travels. “Bring questions back,” she said. Rook folded the leaf carefully. His beginning could remain a mystery. Tomorrow he could still choose to listen, be useful, and tell the truth about where his map ended.",
+      "reading_order": [
+        "top-left",
+        "top-right",
+        "bottom-left",
+        "bottom-right"
+      ],
+      "master_size": [
+        1536,
+        1024
+      ],
+      "web_size": [
+        1024,
+        683
+      ],
+      "web_bytes": 175500,
+      "source": "website/artwork/chapters/harbor/book-that-opened.png",
+      "optimized": "website/brand/chapters/harbor/book-that-opened.webp",
+      "web_quality": 76,
+      "normalized_panel_bounds": [
+        [
+          0,
+          0,
+          0.5,
+          0.5
+        ],
+        [
+          0.5,
+          0,
+          0.5,
+          0.5
+        ],
+        [
+          0,
+          0.5,
+          0.5,
+          0.5
+        ],
+        [
+          0.5,
+          0.5,
+          0.5,
+          0.5
+        ]
+      ],
+      "generated_output": "01a1377c-3ad8-7073-a362-76ba523ea63c/exec-3cf43949-7a93-442a-81d0-a906c09e130c.png",
+      "source_sha256": "e52c21bd7736113066ea7e71ccd9e8a8cde97ea17a9fc2f0a171e624abdf2298",
+      "web_sha256": "3afa107b5ef36b0c8f9dc6a74d075921ab3762d9fedf6737c65b2647af78bd1d",
+      "references": [
+        "website/artwork/rook-harbor.png"
+      ]
+    },
+    {
+      "world": "harbor",
+      "id": "keeper-of-names",
+      "tool": "built-in image_gen.imagegen",
+      "date": "2026-10-14",
+      "license": "GPL-3.0-or-later",
+      "prompt": "Use case: illustration-story. Asset type: one original Rookstride four-panel chapter comic. Make a NEW illustration, not a copy of the reference scene. EXACTLY FOUR equal rectangular panels in a clean 2-by-2 grid with clear straight warm-cream gutters. Reading order must be top-left, top-right, bottom-left, bottom-right. Wide landscape overall around 1536 by 1024; consistent panel boundaries at the horizontal and vertical halfway points. Each panel depicts the corresponding scene below, no extra panel, no panoramic merged scene. Style reference defines the warm ink/cream paper storybook style and original Rook character only: signal-red rounded bird head, swept crest, projecting beak, white oval eye patch, black pupil, charcoal scarf, cream satchel, brass lantern, small bird feet; expressive bird wings without human fingers. Beautiful composed scenes, restrained woodcut hatch and warm cream grain, signal red #EE3038, charcoal #141418, ochre and muted slate/turquoise accents. Original friendly anthropomorphic animal neighbors, thoughtful cooperative adventure. No text ANYWHERE: no lettering, no words, no captions, no dialogue balloons, no sound effects, no logos, no watermarks, no national flags, no political emblems, no firearms or swords, no copied franchise. Papers and maps can show simple visual sketches/routes but never writing. Avoid depicting any story as a generic reused world landscape. The four changing actions are essential. Add a fine 6-pixel warm-cream outer border and 6-pixel straight cream inner gutters centered at both halfway lines; equal panel dimensions are essential for page-reader viewports.\nCast continuity: Rook as described. Pip is a sandy rabbit courier in a blue work vest. Moss is a round brown hedgehog mapmaker with round spectacles and green apron. Lumen is a cream owl librarian wearing a modest navy cardigan. Nell is a small gray mouse letter writer. Mira is a brown otter inventor with plain practical work apron. Persia cast: Sima is a cream owl courtyard librarian in a turquoise cardigan; Nima is a brown otter garden keeper in a green apron; Darya is a sandy hare courier in a muted blue vest with a secure letter bag; Leila is a fox weaver in a warm ochre apron; Princess Soraya is a fox astronomer with a SMALL plain gold circlet and simple midnight-blue cloak over practical clothes, not a copied princess character; Zephyr is a gentle small ochre dragon with blue-gray wings; Aster is a camel. Keep each repeat character consistent within the comic. Show only the characters called for by that scene, not everybody in each frame.\nChapter: The keeper of names. Theme: Ask before sharing someone’s story. Setting: fictional Lantern Harbor, libraries, quay, stone bridges. Input image 1 = character/style reference, not exact scene; image 2 = existing comic cast/proportions reference ONLY, do not copy panels. NO TEXT even on maps, letters or credits.\nPanel 1 (top-left): Nell points at her upstairs room on Rook’s draft map in a public workshop; Rook pauses with his pencil lowered.\nNarrative context to interpret visually, NEVER render words: The harbor council asked Rook to draw a map of friendly houses where lost travelers could ask for directions. He began with places he knew from walking with Pip. Then a letter writer named Nell saw her small upstairs room marked on the draft. “I welcomed you once,” she said, “but I did not offer my door to every passing crowd.” Rook put his pencil down.\nPanel 2 (top-right): Rook consults shopkeepers while Nell writes route directions privately at a window; a public copy shows agreed gathering places instead of homes.\nNarrative context to interpret visually, NEVER render words: Rook apologized and erased Nell’s home from the public copy. He asked the other households one by one instead of assuming that kindness meant permission. Some offered their shops during opening hours. Others suggested the library or the quay office. Nell chose to help write clear directions from her desk, with her address kept off the page.\nPanel 3 (bottom-left): Pip carries reviewed map copies while Nell adds her chosen first-name credit and Rook marks an accessible alternative beside a stairway.\nNarrative context to interpret visually, NEVER render words: Pip delivered the draft only to the people who had agreed to review it. They found an old opening time and a stairway that needed an alternative route. Nell’s careful directions solved both problems. When someone asked who had written them, Rook checked with her before answering. She signed them with her first name and smiled. That much sharing felt right to her.\nPanel 4 (bottom-right): Neighbors gather around the finished map at the library; Nell shares tea while a correction note is visible on the map’s reverse.\nNarrative context to interpret visually, NEVER render words: The finished map welcomed strangers without sending them into private lives. On the back, Rook wrote how to request a correction or withdraw an offer. Nell brought tea to the library launch and chose to stay. “A door can be friendly and still have a lock,” she told him. Rook tucked his own copy into the atlas, grateful for the lesson he had almost missed.",
+      "references": [
+        "website/artwork/rook-harbor.png",
+        "website/artwork/chapters/harbor/book-that-opened.png"
+      ],
+      "reading_order": [
+        "top-left",
+        "top-right",
+        "bottom-left",
+        "bottom-right"
+      ],
+      "generated_output": "01a1377c-3ad8-7073-a362-76ba523ea63c/exec-179e8fe5-c0f8-43a1-96e8-702f43673053.png",
+      "master_size": [
+        1536,
+        1024
+      ],
+      "web_size": [
+        1024,
+        683
+      ],
+      "web_bytes": 176372,
+      "source": "website/artwork/chapters/harbor/keeper-of-names.png",
+      "optimized": "website/brand/chapters/harbor/keeper-of-names.webp",
+      "web_quality": 70,
+      "source_sha256": "b0bf1888fe24a04c08b8ae388a4cc97a00dd6bd9cbbb4b1b9a77a5f9ff1767d2",
+      "web_sha256": "c637ee96138d52da7a81552977e8cd9e8251ede0be8c869b9dd0eac8c785af6c",
+      "normalized_panel_bounds": [
+        [
+          0,
+          0,
+          0.5,
+          0.5
+        ],
+        [
+          0.5,
+          0,
+          0.5,
+          0.5
+        ],
+        [
+          0,
+          0.5,
+          0.5,
+          0.5
+        ],
+        [
+          0.5,
+          0.5,
+          0.5,
+          0.5
+        ]
+      ]
+    },
+    {
+      "world": "harbor",
+      "id": "tower-with-wings",
+      "tool": "built-in image_gen.imagegen",
+      "date": "2026-10-14",
+      "license": "GPL-3.0-or-later",
+      "prompt": "Use case: illustration-story. Asset type: one original Rookstride four-panel chapter comic. Make a NEW illustration, not a copy of the reference scene. EXACTLY FOUR equal rectangular panels in a clean 2-by-2 grid with clear straight warm-cream gutters. Reading order must be top-left, top-right, bottom-left, bottom-right. Wide landscape overall around 1536 by 1024; consistent panel boundaries at the horizontal and vertical halfway points. Each panel depicts the corresponding scene below, no extra panel, no panoramic merged scene. Style reference defines the warm ink/cream paper storybook style and original Rook character only: signal-red rounded bird head, swept crest, projecting beak, white oval eye patch, black pupil, charcoal scarf, cream satchel, brass lantern, small bird feet; expressive bird wings without human fingers. Beautiful composed scenes, restrained woodcut hatch and warm cream grain, signal red #EE3038, charcoal #141418, ochre and muted slate/turquoise accents. Original friendly anthropomorphic animal neighbors, thoughtful cooperative adventure. No text ANYWHERE: no lettering, no words, no captions, no dialogue balloons, no sound effects, no logos, no watermarks, no national flags, no political emblems, no firearms or swords, no copied franchise. Papers and maps can show simple visual sketches/routes but never writing. Avoid depicting any story as a generic reused world landscape. The four changing actions are essential. Add a fine 6-pixel warm-cream outer border and 6-pixel straight cream inner gutters centered at both halfway lines; equal panel dimensions are essential for page-reader viewports.\nCast continuity: Rook as described. Pip is a sandy rabbit courier in a blue work vest. Moss is a round brown hedgehog mapmaker with round spectacles and green apron. Lumen is a cream owl librarian wearing a modest navy cardigan. Nell is a small gray mouse letter writer. Mira is a brown otter inventor with plain practical work apron. Persia cast: Sima is a cream owl courtyard librarian in a turquoise cardigan; Nima is a brown otter garden keeper in a green apron; Darya is a sandy hare courier in a muted blue vest with a secure letter bag; Leila is a fox weaver in a warm ochre apron; Princess Soraya is a fox astronomer with a SMALL plain gold circlet and simple midnight-blue cloak over practical clothes, not a copied princess character; Zephyr is a gentle small ochre dragon with blue-gray wings; Aster is a camel. Keep each repeat character consistent within the comic. Show only the characters called for by that scene, not everybody in each frame.\nChapter: The tower with wings. Theme: Listen to the person you mean to help. Fictional Lantern Harbor watchtower and safe courtyard; NO princess stereotype, Mira is a capable otter inventor whose plan guides the rescue. SMALL frightened ochre dragon with blue-gray wings, harmless and listened to, no fighting. Input image 1 = Rook character/style; image 2 = cast proportions only. NO written measurements/names, use simple line drawings.\nPanel 1 (top-left): Mira looks from a watchtower window above a damaged stair, lowering a measured drawing to Rook rather than waiting silently for rescue.\nNarrative context to interpret visually, NEVER render words: Mira, the harbor’s wing designer, was stranded in the old watchtower when a storm damaged the stair. Rumor said she wanted a heroic rescue. Rook arrived below with a rope and discovered that Mira had already lowered a drawing. “Please find the tower keeper,” she called. “I need a proper inspection, a platform, and someone who can read these measurements.” Rook folded away his untested rope.\nPanel 2 (top-right): A keeper and repair crew review Mira’s plan in the courtyard while Rook speaks to a frightened small dragon beside a blocked equipment cart.\nNarrative context to interpret visually, NEVER render words: The keeper studied the plan and brought a trained repair crew. Rook carried messages between the safe courtyard and the workshop while Mira explained what had shifted inside. A frightened young dragon had sheltered in the tower shed during the storm. His tail blocked the crew’s cart. Rook asked where he would feel safe, and the dragon chose the empty boat house.\nPanel 3 (bottom-left): Mira steps onto a checked platform with her drawings; Rook and the crew stand safely below while the dragon watches from an open boat house.\nNarrative context to interpret visually, NEVER render words: With the shed clear, the crew set up their checked platform. Mira descended with her drawings in a waterproof case. She thanked the crew first, then Rook for listening. The dragon peered from the boat house, worried that everyone blamed him for the broken stair. Mira showed him the storm damage. “You were in trouble too,” she said. “That is not the same as causing it.”\nPanel 4 (bottom-right): Mira presents a folding model wing in the restored tower courtyard; the dragon helps with boxes while Rook records everyone’s contributions.\nNarrative context to interpret visually, NEVER render words: At the tower’s reopening, Mira displayed a model wing that folded instead of fighting the wind. The dragon offered to carry empty boxes, and the keeper gave him a clear place to stand. Rook wrote the adventure as Mira’s plan, the crew’s skill, and a visitor’s useful errands. It made a fine rescue story, especially because its supposed hero had learned to share the title.",
+      "references": [
+        "website/artwork/rook-harbor.png",
+        "website/artwork/chapters/harbor/book-that-opened.png"
+      ],
+      "reading_order": [
+        "top-left",
+        "top-right",
+        "bottom-left",
+        "bottom-right"
+      ],
+      "generated_output": "01a1377c-3ad8-7073-a362-76ba523ea63c/exec-527aa64f-bd5f-43ad-b562-f69071e9c7f5.png",
+      "master_size": [
+        1536,
+        1024
+      ],
+      "web_size": [
+        1024,
+        683
+      ],
+      "web_bytes": 174358,
+      "source": "website/artwork/chapters/harbor/tower-with-wings.png",
+      "optimized": "website/brand/chapters/harbor/tower-with-wings.webp",
+      "web_quality": 64,
+      "source_sha256": "b026986168382b293aa95bbfe58f9670112b8dd3e75fcb143fd8623e8fb68f68",
+      "web_sha256": "9dfaf938b000d391cd273af8af8296697ca98087c178fca95d49870d29818402",
+      "normalized_panel_bounds": [
+        [
+          0,
+          0,
+          0.5,
+          0.5
+        ],
+        [
+          0.5,
+          0,
+          0.5,
+          0.5
+        ],
+        [
+          0,
+          0.5,
+          0.5,
+          0.5
+        ],
+        [
+          0.5,
+          0.5,
+          0.5,
+          0.5
+        ]
+      ]
+    },
+    {
+      "world": "harbor",
+      "id": "blank-page-atlas",
+      "tool": "built-in image_gen.imagegen",
+      "date": "2026-10-14",
+      "license": "GPL-3.0-or-later",
+      "prompt": "Use case: illustration-story. Asset type: one original Rookstride four-panel chapter comic. Make a NEW illustration, not a copy of the reference scene. EXACTLY FOUR equal rectangular panels in a clean 2-by-2 grid with clear straight warm-cream gutters. Reading order must be top-left, top-right, bottom-left, bottom-right. Wide landscape overall around 1536 by 1024; consistent panel boundaries at the horizontal and vertical halfway points. Each panel depicts the corresponding scene below, no extra panel, no panoramic merged scene. Style reference defines the warm ink/cream paper storybook style and original Rook character only: signal-red rounded bird head, swept crest, projecting beak, white oval eye patch, black pupil, charcoal scarf, cream satchel, brass lantern, small bird feet; expressive bird wings without human fingers. Beautiful composed scenes, restrained woodcut hatch and warm cream grain, signal red #EE3038, charcoal #141418, ochre and muted slate/turquoise accents. Original friendly anthropomorphic animal neighbors, thoughtful cooperative adventure. No text ANYWHERE: no lettering, no words, no captions, no dialogue balloons, no sound effects, no logos, no watermarks, no national flags, no political emblems, no firearms or swords, no copied franchise. Papers and maps can show simple visual sketches/routes but never writing. Avoid depicting any story as a generic reused world landscape. The four changing actions are essential. Add a fine 6-pixel warm-cream outer border and 6-pixel straight cream inner gutters centered at both halfway lines; equal panel dimensions are essential for page-reader viewports.\nCast continuity: Rook as described. Pip is a sandy rabbit courier in a blue work vest. Moss is a round brown hedgehog mapmaker with round spectacles and green apron. Lumen is a cream owl librarian wearing a modest navy cardigan. Nell is a small gray mouse letter writer. Mira is a brown otter inventor with plain practical work apron. Persia cast: Sima is a cream owl courtyard librarian in a turquoise cardigan; Nima is a brown otter garden keeper in a green apron; Darya is a sandy hare courier in a muted blue vest with a secure letter bag; Leila is a fox weaver in a warm ochre apron; Princess Soraya is a fox astronomer with a SMALL plain gold circlet and simple midnight-blue cloak over practical clothes, not a copied princess character; Zephyr is a gentle small ochre dragon with blue-gray wings; Aster is a camel. Keep each repeat character consistent within the comic. Show only the characters called for by that scene, not everybody in each frame.\nChapter: The blank-page atlas. Theme: A map grows through many voices. Fictional Lantern Harbor library and travelers' shelf. Make varied camera angles and distinct actions rather than repeating the atlas repair chapter. Input image 1 = Rook character/style; image 2 = cast proportions only. New visitors may be kind rabbit librarians; no textual labels, credits, names or words on papers, just blank fields, visual sketches and simple symbolic marks.\nPanel 1 (top-left): Rook erases an unverified mountain from a blank atlas leaf while Moss and Lumen sit at a library table with scattered route notes.\nNarrative context to interpret visually, NEVER render words: Rook laid his blank leaf on the library table and wrote Places I have not seen. Moss wanted to mark every shore before Rook left. Lumen asked who would check those marks. They stared at a magnificent mountain nobody present had ever visited. Rook erased it. “A blank space can be honest,” he said. “An invented answer can send someone the wrong way.”\nPanel 2 (top-right): Friends place questions, a courier greeting, and Mira’s labeled wing sketch into a paper pocket attached to Rook’s travel leaf.\nNarrative context to interpret visually, NEVER render words: They made a pocket for accounts instead of filling the page with guesses. Fern contributed questions about gardens. Pip wrote a greeting for another courier. Mira added a sketch of her folding wing, labeled as her own experiment. Rook promised to ask before copying anything he encountered. The leaf became lighter to carry when it no longer pretended to know the whole world.\nPanel 3 (bottom-left): A visiting librarian marks a known route to a garden courtyard while Moss studies the many names credited along the atlas leaf’s edge.\nNarrative context to interpret visually, NEVER render words: A visitor from the Garden of Many Doors heard the discussion and offered Rook an introduction to Sima, a courtyard librarian. She drew the route she actually knew and left the rest for the caravan leader to explain. Moss noticed how many hands the map would need. “It will not be yours alone,” he said. Rook grinned. “That is why it might be useful.”\nPanel 4 (bottom-right): A new travelers’ shelf holds the atlas and an inviting blank notebook; Rook collects his brass lantern beneath a library’s open evening window.\nNarrative context to interpret visually, NEVER render words: They opened a small travelers’ shelf in Lantern Harbor. It held the atlas, agreed accounts, and a card saying that questions were welcome. The shelf’s first blank notebook belonged to nobody until someone chose to write. Rook set his lantern beside it for the evening, then took both leaf and lamp home. A journey had begun before he had traveled a single mile.",
+      "references": [
+        "website/artwork/rook-harbor.png",
+        "website/artwork/chapters/harbor/book-that-opened.png"
+      ],
+      "reading_order": [
+        "top-left",
+        "top-right",
+        "bottom-left",
+        "bottom-right"
+      ],
+      "generated_output": "01a1377c-3ad8-7073-a362-76ba523ea63c/exec-c43b5b98-f5dd-4559-9d8f-bfd5e101f8ea.png",
+      "master_size": [
+        1536,
+        1024
+      ],
+      "web_size": [
+        1024,
+        683
+      ],
+      "web_bytes": 176320,
+      "source": "website/artwork/chapters/harbor/blank-page-atlas.png",
+      "optimized": "website/brand/chapters/harbor/blank-page-atlas.webp",
+      "web_quality": 76,
+      "source_sha256": "2b65951b065c8794a04328a608aad1fb24287105cf1d59a4569a2f4e3c419d3f",
+      "web_sha256": "1b7fcfb9dfbfa9b5a30ee5d22f88f25fefc7d62eeaf37f28173b2c8b12162adb",
+      "normalized_panel_bounds": [
+        [
+          0,
+          0,
+          0.5,
+          0.5
+        ],
+        [
+          0.5,
+          0,
+          0.5,
+          0.5
+        ],
+        [
+          0,
+          0.5,
+          0.5,
+          0.5
+        ],
+        [
+          0.5,
+          0.5,
+          0.5,
+          0.5
+        ]
+      ]
+    },
+    {
+      "world": "harbor",
+      "id": "road-out-of-harbor",
+      "tool": "built-in image_gen.imagegen",
+      "date": "2026-10-14",
+      "license": "GPL-3.0-or-later",
+      "prompt": "Use case: illustration-story. Asset type: one original Rookstride four-panel chapter comic. Make a NEW illustration, not a copy of the reference scene. EXACTLY FOUR equal rectangular panels in a clean 2-by-2 grid with clear straight warm-cream gutters. Reading order must be top-left, top-right, bottom-left, bottom-right. Wide landscape overall around 1536 by 1024; consistent panel boundaries at the horizontal and vertical halfway points. Each panel depicts the corresponding scene below, no extra panel, no panoramic merged scene. Style reference defines the warm ink/cream paper storybook style and original Rook character only: signal-red rounded bird head, swept crest, projecting beak, white oval eye patch, black pupil, charcoal scarf, cream satchel, brass lantern, small bird feet; expressive bird wings without human fingers. Beautiful composed scenes, restrained woodcut hatch and warm cream grain, signal red #EE3038, charcoal #141418, ochre and muted slate/turquoise accents. Original friendly anthropomorphic animal neighbors, thoughtful cooperative adventure. No text ANYWHERE: no lettering, no words, no captions, no dialogue balloons, no sound effects, no logos, no watermarks, no national flags, no political emblems, no firearms or swords, no copied franchise. Papers and maps can show simple visual sketches/routes but never writing. Avoid depicting any story as a generic reused world landscape. The four changing actions are essential. Add a fine 6-pixel warm-cream outer border and 6-pixel straight cream inner gutters centered at both halfway lines; equal panel dimensions are essential for page-reader viewports.\nCast continuity: Rook as described. Pip is a sandy rabbit courier in a blue work vest. Moss is a round brown hedgehog mapmaker with round spectacles and green apron. Lumen is a cream owl librarian wearing a modest navy cardigan. Nell is a small gray mouse letter writer. Mira is a brown otter inventor with plain practical work apron. Persia cast: Sima is a cream owl courtyard librarian in a turquoise cardigan; Nima is a brown otter garden keeper in a green apron; Darya is a sandy hare courier in a muted blue vest with a secure letter bag; Leila is a fox weaver in a warm ochre apron; Princess Soraya is a fox astronomer with a SMALL plain gold circlet and simple midnight-blue cloak over practical clothes, not a copied princess character; Zephyr is a gentle small ochre dragon with blue-gray wings; Aster is a camel. Keep each repeat character consistent within the comic. Show only the characters called for by that scene, not everybody in each frame.\nChapter: The road out of the harbor. Theme: Depart with gratitude and a way home. Distinct changing settings: first Lantern Harbor quay, then road caravan with friendly camel Aster, shaded hill marker, finally turquoise-tiled orchard courtyard. Input image 1 = Rook character/style; image 2 = Persian garden/environment reference only. The caravan leader is a friendly fox in ordinary practical travel clothes, Sima owl in turquoise cardigan. NO writing on letters/maps/notebooks; sealed envelopes remain unopened.\nPanel 1 (top-left): Pip, Moss, and Lumen help Rook pack beside the quay; a caravan meeting note and the library’s return address lie atop his satchel.\nNarrative context to interpret visually, NEVER render words: On departure morning, Pip packed a letter for Sima and Moss packed far too many pencils. Rook checked the caravan leader’s meeting place before leaving the quay. He could fly across a yard, but not across every mountain and sea. Travel would take companions, rest, and more time than a brave announcement. Lumen slipped the library’s return address into his satchel.\nPanel 2 (top-right): Rook greets Aster the camel at the edge of the harbor road, securing his lantern carefully while the caravan leader points toward a planned rest stop.\nNarrative context to interpret visually, NEVER render words: Beyond the harbor, the caravan leader introduced him to Aster the camel. Aster lowered her head until they could speak eye to eye. “I choose a steady pace,” she said. “Passengers who want a race can choose another ride.” Rook agreed. He secured his lantern where it would not swing against her and asked where the others preferred to stop for the night.\nPanel 3 (bottom-left): At a shaded road marker, Rook writes in his own notebook while Pip’s sealed letter remains in the satchel and Aster waits nearby.\nNarrative context to interpret visually, NEVER render words: The first hill hid Lantern Harbor, and Rook suddenly missed it. He almost opened Pip’s sealed letter just to hear a familiar voice. Instead he took out his own notebook and wrote what he wanted to tell his friends. Aster waited beside a shaded marker. “Home can travel with you,” she said, “without every private letter becoming yours to read.”\nPanel 4 (bottom-right): Sima welcomes Rook and Aster at a garden courtyard gate with leafy trees beyond the road, accepting Pip’s sealed introduction.\nNarrative context to interpret visually, NEVER render words: By evening they saw the garden world’s first trees beyond the dry road. Sima met the caravan at the courtyard gate and took Pip’s letter. Rook introduced himself without presenting a list of problems he planned to fix. “I have brought questions,” he said. Sima opened the gate. “Good. We have answers to some, and questions to lend you too.”",
+      "references": [
+        "website/artwork/rook-harbor.png",
+        "website/artwork/worlds/world-persia.png"
+      ],
+      "reading_order": [
+        "top-left",
+        "top-right",
+        "bottom-left",
+        "bottom-right"
+      ],
+      "generated_output": "01a1377c-3ad8-7073-a362-76ba523ea63c/exec-9a1f192b-500c-4e41-b0c6-0f779b8c9f4c.png",
+      "master_size": [
+        1536,
+        1024
+      ],
+      "web_size": [
+        1024,
+        683
+      ],
+      "web_bytes": 175760,
+      "source": "website/artwork/chapters/harbor/road-out-of-harbor.png",
+      "optimized": "website/brand/chapters/harbor/road-out-of-harbor.webp",
+      "web_quality": 52,
+      "source_sha256": "1cc81544bc62d07acd51322df127b57f86c3d013ea8c715276f0f2c27b930806",
+      "web_sha256": "e0cb8393a03746a3ed7758f05a51567b98747ed5aad7896237c3b27ff1b10b85",
+      "normalized_panel_bounds": [
+        [
+          0,
+          0,
+          0.5,
+          0.5
+        ],
+        [
+          0.5,
+          0,
+          0.5,
+          0.5
+        ],
+        [
+          0,
+          0.5,
+          0.5,
+          0.5
+        ],
+        [
+          0.5,
+          0.5,
+          0.5,
+          0.5
+        ]
+      ]
+    }
+  ]
+}

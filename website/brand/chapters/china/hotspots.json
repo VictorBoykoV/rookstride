@@ -1,0 +1,302 @@
+{
+  "river-welcome": [
+    {
+      "x": 68,
+      "y": 6,
+      "w": 23,
+      "h": 36,
+      "label": "The festival lantern"
+    },
+    {
+      "x": 32,
+      "y": 41,
+      "w": 57,
+      "h": 46,
+      "label": "The checked route map"
+    },
+    {
+      "x": 20,
+      "y": 66,
+      "w": 55,
+      "h": 23,
+      "label": "The shared books"
+    },
+    {
+      "x": 24,
+      "y": 44,
+      "w": 59,
+      "h": 54,
+      "label": "Rook holding the printed card"
+    }
+  ],
+  "bridge-of-many-hands": [
+    {
+      "x": 30,
+      "y": 2,
+      "w": 68,
+      "h": 70,
+      "label": "The covered bridge under care"
+    },
+    {
+      "x": 37,
+      "y": 54,
+      "w": 38,
+      "h": 24,
+      "label": "The repair notebook"
+    },
+    {
+      "x": 15,
+      "y": 28,
+      "w": 30,
+      "h": 39,
+      "label": "The marked detour"
+    },
+    {
+      "x": 60,
+      "y": 22,
+      "w": 38,
+      "h": 72,
+      "label": "The teacher and apprentice"
+    }
+  ],
+  "printer-missing-dot": [
+    {
+      "x": 8,
+      "y": 50,
+      "w": 57,
+      "h": 28,
+      "label": "The unfinished route proof"
+    },
+    {
+      "x": 45,
+      "y": 31,
+      "w": 36,
+      "h": 35,
+      "label": "Mei reviewing the paused stack"
+    },
+    {
+      "x": 31,
+      "y": 72,
+      "w": 66,
+      "h": 25,
+      "label": "The revised route drawing"
+    },
+    {
+      "x": 44,
+      "y": 76,
+      "w": 39,
+      "h": 22,
+      "label": "The checked festival booklet"
+    }
+  ],
+  "flute-and-flag": [
+    {
+      "x": 68,
+      "y": 38,
+      "w": 25,
+      "h": 33,
+      "label": "The flute player"
+    },
+    {
+      "x": 45,
+      "y": 1,
+      "w": 53,
+      "h": 28,
+      "label": "The visible welcome flag"
+    },
+    {
+      "x": 67,
+      "y": 51,
+      "w": 27,
+      "h": 23,
+      "label": "The storyteller pausing"
+    },
+    {
+      "x": 67,
+      "y": 1,
+      "w": 13,
+      "h": 15,
+      "label": "An evening festival lantern over the river"
+    }
+  ],
+  "dragon-at-rain-pavilion": [
+    {
+      "x": 9,
+      "y": 24,
+      "w": 45,
+      "h": 56,
+      "label": "Willow resting beneath the pavilion"
+    },
+    {
+      "x": 59,
+      "y": 47,
+      "w": 27,
+      "h": 49,
+      "label": "The gardener considering the request"
+    },
+    {
+      "x": 3,
+      "y": 49,
+      "w": 32,
+      "h": 32,
+      "label": "The agreed garden detour"
+    },
+    {
+      "x": 27,
+      "y": 73,
+      "w": 31,
+      "h": 18,
+      "label": "The reviewed Willow story"
+    }
+  ],
+  "moon-gate": [
+    {
+      "x": 14,
+      "y": 2,
+      "w": 74,
+      "h": 58,
+      "label": "The circular doorway and private garden"
+    },
+    {
+      "x": 17,
+      "y": 63,
+      "w": 64,
+      "h": 32,
+      "label": "The tested public garden plan"
+    },
+    {
+      "x": 57,
+      "y": 18,
+      "w": 25,
+      "h": 59,
+      "label": "Yu watching the agreed path"
+    },
+    {
+      "x": 8,
+      "y": 39,
+      "w": 32,
+      "h": 51,
+      "label": "Rook as an invited guest"
+    }
+  ],
+  "kite-that-came-down": [
+    {
+      "x": 64,
+      "y": 4,
+      "w": 30,
+      "h": 21,
+      "label": "The paper-boat kite changing direction"
+    },
+    {
+      "x": 7,
+      "y": 40,
+      "w": 34,
+      "h": 42,
+      "label": "Jun beside the lowered kite"
+    },
+    {
+      "x": 32,
+      "y": 43,
+      "w": 26,
+      "h": 29,
+      "label": "Rook making a tiny paper boat"
+    },
+    {
+      "x": 70,
+      "y": 4,
+      "w": 25,
+      "h": 23,
+      "label": "The repaired kite flying at a safe height"
+    }
+  ],
+  "two-ferries": [
+    {
+      "x": 61,
+      "y": 57,
+      "w": 31,
+      "h": 30,
+      "label": "The ferries and landing route map"
+    },
+    {
+      "x": 25,
+      "y": 18,
+      "w": 61,
+      "h": 45,
+      "label": "The verified ferry and shuttle options"
+    },
+    {
+      "x": 7,
+      "y": 47,
+      "w": 41,
+      "h": 42,
+      "label": "The traveler approaching the step-free shuttle"
+    },
+    {
+      "x": 78,
+      "y": 14,
+      "w": 19,
+      "h": 27,
+      "label": "The alternate routes left on the quay"
+    }
+  ],
+  "roof-garden": [
+    {
+      "x": 51,
+      "y": 35,
+      "w": 34,
+      "h": 54,
+      "label": "Mei welcoming Rook to the modern roof garden"
+    },
+    {
+      "x": 60,
+      "y": 8,
+      "w": 39,
+      "h": 44,
+      "label": "The credited garden sketch"
+    },
+    {
+      "x": 41,
+      "y": 22,
+      "w": 58,
+      "h": 42,
+      "label": "Neighbors making room at the table"
+    },
+    {
+      "x": 10,
+      "y": 5,
+      "w": 16,
+      "h": 29,
+      "label": "The solar-powered light over the garden"
+    }
+  ],
+  "northbound-window": [
+    {
+      "x": 43,
+      "y": 60,
+      "w": 23,
+      "h": 14,
+      "label": "Mei’s sealed introduction"
+    },
+    {
+      "x": 21,
+      "y": 59,
+      "w": 13,
+      "h": 24,
+      "label": "Rook’s secured brass lantern"
+    },
+    {
+      "x": 67,
+      "y": 9,
+      "w": 28,
+      "h": 36,
+      "label": "The official rail notice in the carriage"
+    },
+    {
+      "x": 34,
+      "y": 27,
+      "w": 48,
+      "h": 65,
+      "label": "Dasha receiving the letter at the snowy station"
+    }
+  ]
+}

@@ -1,0 +1,1892 @@
+{
+  "version": 1,
+  "lore": {
+    "title": "The bird who stepped out of the margin",
+    "paragraphs": [
+      "Before Rook had a harbor, he had a page. A librarian named Lumen found a small red bird drawn beside an unfinished route in an old atlas. Whenever someone asked a question the atlas could not answer, its little bird seemed to lean closer.",
+      "One stormy evening, Lumen left the book open for a stranded courier. A drop of lantern oil touched the margin; the drawn bird blinked, folded his paper wings, and stepped onto the desk. He could not remember an author or a destination. He remembered one sentence: A good route leaves the next traveler a choice.",
+      "Lumen offered him a name, a scarf, and a cream satchel. Rook chose the name because it sounded like a small beginning with room to grow. His red feathers and swept crest stayed as they had been drawn. His lantern was ordinary brass: it needed oil, care, and someone willing to carry it.",
+      "Rook settled in Lantern Harbor, where Pip delivered letters and Moss repaired crossings. He learned that helping did not mean arriving with every answer. Sometimes it meant listening to a bridge keeper, waiting out bad weather, or asking whose story had been left off the map.",
+      "The atlas still contains a blank page that will never fill itself. Rook carries it into worlds inspired by gardens and caravans, river cities, snowy libraries, and wide-sky towns. He travels by camel, boat, train, and plane. Each place lends him a friend, a question, and a different way to be useful.",
+      "He is a gentleman by his actions: he asks before entering, gives credit, keeps entrusted names private, and offers help without demanding gratitude. He can be nervous, impatient, or wrong. When he makes a mistake, he says so and helps put it right.",
+      "Dragons exist in these stories. Some are frightened; some hold a gate too tightly; one simply needs a quieter place to sleep. Princesses can be astronomers, engineers, and the authors of their own rescue plans. Rook never owns the people he helps, and being rescued never takes away their voice.",
+      "The worlds share one book, not one correct way to live. Their towns and adventures are invented. Their cultural inspirations belong to many living communities, whose real histories are richer than a tale can hold. Rook returns home with a map of invitations rather than a map of conquered places."
+    ],
+    "rules": [
+      "Keep Rook recognizable: signal-red bird, two swept crest feathers, white eye patch, projecting beak, dark scarf, cream satchel, brass lantern.",
+      "Costume changes serve the weather or a host’s invitation. Hats and boots may appear in winter scenes; they never replace the silhouette or turn a community into a costume.",
+      "Local friends have expertise, choices, humor, and continuing lives. Rook is a visitor who helps and learns.",
+      "Every chapter resolves its central problem. An invitation may connect it to the next world, but the reader chooses when to continue.",
+      "The lantern lights a small area. It is never an all-seeing device, a magic privacy shield, or a promise that a product defeats every restriction.",
+      "Bridges and routes express care, choice, and checking a journey. Their materials do not stand for a ranking of VPN protocols.",
+      "No real nation, faith, ethnicity, or ordinary resident is a villain. Obstacles belong to fictional circumstances and characters.",
+      "No borrowed franchise characters, company mascots, national caricatures, sacred-text quotations, or unlicensed decorative motifs.",
+      "Names, letters, and homes remain private when their owners ask. Sharing is offered rather than forced.",
+      "Conflict is solved through listening, evidence, repair, collective action, and safe alternatives. No weapon instructions or dangerous repair directions.",
+      "Real history belongs in clearly labeled cultural notes with primary sources. Fictional dialogue is not legal, historical, or engineering guidance.",
+      "The tale is enjoyable on its own. Product architecture is explained separately, where accurate terms and limitations can be stated plainly."
+    ]
+  },
+  "worlds": [
+    {
+      "id": "harbor",
+      "title": "Lantern Harbor",
+      "region": "An original universal world",
+      "tagline": "Small lights. Many ways forward.",
+      "description": "Rook’s home is a fictional harbor of roof gardens, couriers, libraries, and bridges. These ten adventures establish the friends and values he carries into every world.",
+      "accent": "#EE3038",
+      "travel": "A harbor footpath becomes a caravan road toward the Garden of Many Doors.",
+      "chapters": [
+        {
+          "id": "borrowed-light",
+          "title": "The borrowed light",
+          "theme": "Share a useful light",
+          "summary": "Pip’s last letters need a light that Rook is willing to lend.",
+          "pages": [
+            {
+              "text": "The last letters were ready, but the harbor lighthouse was dark. Pip the rabbit courier stood beside the water with his mailbag, watching steps disappear into the night. Rook arrived carrying his small brass lantern. “I cannot see the path,” Pip admitted. Rook looked from the letters to the stone stairway. His lamp could not light the whole harbor, but it could help two travelers begin.",
+              "scene": "Pip waits with undelivered letters beside the dark harbor lighthouse while Rook approaches with his small lit brass lantern on the quay.",
+              "focus": "lantern",
+              "setting": "harbor",
+              "prop": "The last letters"
+            },
+            {
+              "text": "Pip showed Rook his empty lantern. There was no light left inside it, and he did not want to guess his way through the dark. Rook listened before suggesting a route. Together they checked the familiar winding path toward the lighthouse. “Then we will find it together,” Rook said. Pip knew the doors; Rook had a useful lamp. Each brought something the other needed.",
+              "scene": "Pip holds an empty dark lantern at the harbor while Rook listens closely, with quiet buildings and water behind their conversation.",
+              "focus": "lantern",
+              "setting": "harbor",
+              "prop": "Pip’s empty lantern"
+            },
+            {
+              "text": "They took the stone steps one at a time, keeping to the small circle of gold. Rook carried the lantern ahead, and Pip followed with the letters safe in his bag. At the lighthouse door, Rook passed the light to him. “Keep it,” he said. “Someone else may need you.” Pip accepted it carefully. A useful gift could continue its journey after its first owner stopped walking.",
+              "scene": "Rook carries the glowing brass lantern up the stone lighthouse steps while Pip follows with his mailbag, both moving carefully along the known path.",
+              "focus": "lantern",
+              "setting": "tower",
+              "prop": "A circle of gold"
+            },
+            {
+              "text": "By sunrise the lighthouse shone above the harbor, and Pip delivered the last letter at its door. From the nearby bridge, Rook waved to the courier who now carried a light of his own. Pip waved back before continuing his round. Neither friend had made the night disappear alone. They had shared a route and a lamp, leaving the next traveler two people who could help.",
+              "scene": "At sunrise Pip delivers a letter at the bright lighthouse door while Rook waves from the nearby stone bridge above the harbor.",
+              "focus": "friend",
+              "setting": "harbor",
+              "prop": "The last letter arrives"
+            }
+          ],
+          "legacyChapter": 1
+        },
+        {
+          "id": "noisy-market",
+          "title": "The noisy market",
+          "theme": "Choose what deserves attention",
+          "summary": "Moss’s market stall needs quiet without losing the signs that help people.",
+          "pages": [
+            {
+              "text": "Moss made maps, but his market stall had become a forest of hanging signs. Ribbons brushed the counter, banners hid the drawings, and a mouse customer could scarcely see him. Rook stopped beside the crowded stall instead of squeezing through. “What would you like people to find here?” he asked. Moss peered around a dangling board. “A place where they can ask the way.”",
+              "scene": "Rook finds Moss the hedgehog and a mouse customer at a map stall crowded with dangling signs, ribbons, banners, and hidden route drawings.",
+              "focus": "friend",
+              "setting": "market",
+              "prop": "A forest of signs"
+            },
+            {
+              "text": "Moss tried to show a map through the clutter while the customer waited. Rook asked which signs were useful and which had merely accumulated. They agreed to loosen the unwanted knots and give the counter room. Moss steadied the work, and Rook used his wings to reach the hanging ribbons. Taking things away was helpful only when they knew what they wanted to keep.",
+              "scene": "Moss shows a large illustrated map through the stall’s hanging clutter while Rook listens and the mouse customer waits beside the counter.",
+              "focus": "book",
+              "setting": "market",
+              "prop": "Moss’s map"
+            },
+            {
+              "text": "Rook reached toward a small blue sign bearing a compass. Moss raised a paw before it disappeared with the others. “That one tells people what I do,” he explained. Rook paused, then gave the sign a clear place above the stall. A quieter market did not need to become a silent one. The useful compass could help someone find Moss’s maps and begin a conversation.",
+              "scene": "Rook reaches toward the blue compass sign while Moss points out its purpose, with the stall’s remaining signs and map rolls around them.",
+              "focus": "route",
+              "setting": "market",
+              "prop": "The useful blue compass"
+            },
+            {
+              "text": "At last the mouse could reach the counter and ask for directions. Moss handed over a folded map, hearing every question clearly. Rook rested on the stall roof above the single compass sign and watched the conversation unfold. The market still had colors, neighbors, and voices. What it had lost was the clutter that stood between a mapmaker and the person who needed his help.",
+              "scene": "Moss gives a folded map to the mouse at the tidy stall while Rook rests on its roof above the single blue compass sign.",
+              "focus": "book",
+              "setting": "market",
+              "prop": "The customer’s map"
+            }
+          ],
+          "legacyChapter": 2
+        },
+        {
+          "id": "bridge-that-waited",
+          "title": "The bridge that waited",
+          "theme": "A pause can be part of progress",
+          "summary": "Tess’s train journey meets a damaged crossing, and the neighbors mark a safe detour.",
+          "pages": [
+            {
+              "text": "Tess the otter had a train to catch and a green backpack ready for the journey. At the stream, she found a gap in the wooden footbridge. Rook met her on the solid bank as rain darkened the hills. “Can we make it?” Tess asked. Rook studied the broken crossing before answering. Wanting to reach the station did not tell them whether this bridge could carry them.",
+              "scene": "Tess the otter with a green backpack meets Rook on the solid bank beside a damaged wooden bridge and a clear gap above the stream.",
+              "focus": "bridge",
+              "setting": "river",
+              "prop": "The broken crossing"
+            },
+            {
+              "text": "Rook checked the first loose plank from solid ground. The wood answered with a crack, and he drew his wing back. Tess waited beside him instead of stepping onto the damaged bridge. Rook folded his map and admitted they needed another beginning. A pause was disappointing when a train was waiting, but a broken plank was useful information. They turned toward the known bank path together.",
+              "scene": "Rook checks a loose bridge plank with his wing while remaining on the bank, and Tess waits safely beside him with her green backpack.",
+              "focus": "bridge",
+              "setting": "river",
+              "prop": "The loose plank"
+            },
+            {
+              "text": "Pip and Moss joined them with boards and red ribbon. The neighbors knew a dry route along the bank where a short detour could be marked. Rook carried his share while Tess helped choose the turning toward the station. They worked with the people who knew the path, giving the next traveler clear markers instead of another guess. The original damaged bridge stayed out of their route.",
+              "scene": "Rook, Tess, Pip, and Moss carry boards and red ribbon along the safe bank toward a marked alternative path beside the stream.",
+              "focus": "route",
+              "setting": "river",
+              "prop": "Boards along the bank"
+            },
+            {
+              "text": "The marked detour let Tess continue by the longer way, and she reached her train. Before leaving, she waved from the safe path to the friends who had helped. Rook, Pip, and Moss stayed beside the stream to check the red ribbons for the next traveler. The first crossing had not become usable just because they wished it so. Another beginning had brought the journey to a good ending.",
+              "scene": "Tess waves from the red-ribbon-marked detour while Rook, Pip, and Moss remain on the safe bank beside the stream and the damaged original bridge.",
+              "focus": "route",
+              "setting": "river",
+              "prop": "A marked detour"
+            }
+          ],
+          "legacyChapter": 3
+        },
+        {
+          "id": "two-bridges",
+          "title": "The two bridges",
+          "theme": "Check the far crossing first",
+          "summary": "A letter must cross two bridges, and the first gate waits for a signal from the second.",
+          "pages": [
+            {
+              "text": "Pip showed Rook a sealed letter beside a harbor divided by a small island. A wooden bridge reached the island, and a stone bridge would carry the journey onward to Tess’s village. The far crossing still had scaffolding around it. “The first bridge is ready,” Pip said. Rook looked beyond its gate. One completed beginning could not yet give the letter a completed way to its destination.",
+              "scene": "Pip shows Rook a sealed letter beside the near wooden bridge, with an island and unfinished stone crossing visible beyond the harbor water.",
+              "focus": "book",
+              "setting": "harbor",
+              "prop": "One sealed letter"
+            },
+            {
+              "text": "Rook rested a wing on the near gate and kept it closed. Pip waited with his letter while they arranged a check of the second crossing. “Then let us check the far bridge,” Rook said. Moss brought his tools, and he and Rook took the workboat by the safe route. They agreed that Pip would wait for their clear lantern signal before opening the first gate.",
+              "scene": "Rook keeps the near wooden gate closed while Pip waits with his letter, and the unfinished far crossing remains visible across the harbor.",
+              "focus": "bridge",
+              "setting": "harbor",
+              "prop": "The closed near gate"
+            },
+            {
+              "text": "At the stone bridge, Moss and the crossing’s workers finished the remaining work and checked its condition. Rook waited until the deck was ready, then walked the complete path with his lantern. He did not stop at the part that looked good from shore. Only after the far crossing had been checked from end to end did he raise the agreed light for Pip to see.",
+              "scene": "Moss and the crossing workers attend to the stone bridge while Rook walks its completed deck with his brass lantern to check the whole route.",
+              "focus": "lantern",
+              "setting": "river",
+              "prop": "The checked far crossing"
+            },
+            {
+              "text": "Pip saw the gold signal, opened the near gate, and crossed both bridges. On the far bank, he placed the sealed letter in Tess’s paws. Rook and Moss stood beside them, with the complete route stretching back across the water. Tess thanked the courier and his companions. The letter had needed a good last crossing as well as a good first one, and all three friends had helped it arrive.",
+              "scene": "Pip hands the sealed letter to Tess on the far bank while Rook and Moss stand beside them and both complete bridges are visible behind.",
+              "focus": "book",
+              "setting": "harbor",
+              "prop": "The letter reaches Tess"
+            }
+          ],
+          "legacyChapter": 4
+        },
+        {
+          "id": "right-material",
+          "title": "The right material",
+          "theme": "Fit the crossing to the journey",
+          "summary": "Rook discovers why wood, stone, and iron each have a place.",
+          "pages": [
+            {
+              "text": "Moss set three little bridge models on the workshop table: wood, stone, and iron. Pip, a mouse neighbor, and Tess had three different journeys in mind. “Which is best?” Moss asked. Rook almost chose the grandest model, then looked at the travelers. A garden basket, a heavy mail cart, and a windy gorge were asking different questions. They would need to visit the places before answering.",
+              "scene": "Rook and Moss show wooden, stone, and iron bridge models to Pip, the mouse neighbor, and Tess in a workshop filled with crossing sketches.",
+              "focus": "bridge",
+              "setting": "library",
+              "prop": "Three little bridge models"
+            },
+            {
+              "text": "The mouse’s garden route needed a few steady steps across a small stream. Rook accompanied her over the short wooden crossing as she carried vegetables home. Its modest shape fit that journey. Pip’s loaded mail cart asked for a different route, and the broad stone arch gave its wheels room. Rook began to see why the answer could change when the traveler, place, and load changed.",
+              "scene": "Rook walks beside the mouse carrying garden vegetables across a short wooden footbridge with a handrail over the small stream.",
+              "focus": "bridge",
+              "setting": "garden",
+              "prop": "The garden’s wooden crossing"
+            },
+            {
+              "text": "At the gorge, Tess’s scarf tugged in the wind while she and Rook studied a drawing from solid ground. They listened to the crossing’s experienced keepers before settling the plan. A properly designed and checked iron bridge later carried the long journey between the cliffs. Tess walked it steadily. The useful answer had come from this particular place and its requirements, rather than a material wearing a crown.",
+              "scene": "Rook and Tess remain on solid ground beside the windy gorge while studying a drawing of the planned metal crossing between the cliffs.",
+              "focus": "book",
+              "setting": "mountain",
+              "prop": "The gorge crossing drawing"
+            },
+            {
+              "text": "Back at the workshop, the friends gathered around a map showing all three bridges in their places. Rook set his lantern down and listened as each traveler described what had helped. Wood, stone, and iron had all found a useful role, with their own design and care. Moss smiled at the models he had first tried to rank. “Best for this journey,” Rook said, leaving every other journey its own question.",
+              "scene": "All the friends gather around the map of three different crossings while Rook sets his brass lantern beside the workshop table and listens.",
+              "focus": "book",
+              "setting": "library",
+              "prop": "Every bridge in its place"
+            }
+          ],
+          "legacyChapter": 5
+        },
+        {
+          "id": "book-that-opened",
+          "title": "The book that opened",
+          "theme": "Beginnings belong to their witnesses",
+          "summary": "Rook returns to the atlas where he first stepped into the world.",
+          "pages": [
+            {
+              "text": "Lumen asked Rook to help move the library’s old atlas. Its binding had loosened, and a page caught on his satchel. There, beside an unfinished route, was a tiny red feather drawn in ink. Rook remembered the smell of lantern oil and the first evening he had stood on the desk. “Was I made to finish this map?” he asked quietly.",
+              "scene": "In Lumen’s library, Rook notices a red feather in an atlas margin while the librarian supports the book’s loose binding.",
+              "focus": "book",
+              "setting": "library",
+              "prop": "An ink feather"
+            },
+            {
+              "text": "Lumen set down her tools. “I do not know who drew you,” she said. “I know you came alive when someone needed help. Those are different questions.” Rook looked at the empty spaces. For a moment he wanted a neat answer more than the truth. Then Pip arrived carrying three very untidy stories from the morning’s deliveries. Rook made room on the desk.",
+              "scene": "Lumen speaks beside the open atlas as Pip arrives with handwritten accounts; Rook makes space between tools and unfinished maps.",
+              "focus": "friend",
+              "setting": "library",
+              "prop": "Room on the desk"
+            },
+            {
+              "text": "They repaired the binding with the library conservator’s help and added a pocket for new accounts. Pip’s first story described a route the atlas had missed entirely. Moss added a correction to an old bridge. Rook contributed the sentence he remembered from the margin. None of the additions explained his birth. All of them explained a little more of his life.",
+              "scene": "A conservator helps mend the atlas while Pip, Moss, and Rook place original accounts and corrections in a new paper pocket.",
+              "focus": "book",
+              "setting": "library",
+              "prop": "A pocket for accounts"
+            },
+            {
+              "text": "That night Rook left the atlas open, but he no longer waited for it to tell him what to do. Lumen gave him a loose blank leaf for his travels. “Bring questions back,” she said. Rook folded the leaf carefully. His beginning could remain a mystery. Tomorrow he could still choose to listen, be useful, and tell the truth about where his map ended.",
+              "scene": "Rook folds a blank atlas leaf into his cream satchel as Lumen leaves the repaired book open beneath a warm reading lamp.",
+              "focus": "rook",
+              "setting": "library",
+              "prop": "The blank leaf"
+            }
+          ]
+        },
+        {
+          "id": "keeper-of-names",
+          "title": "The keeper of names",
+          "theme": "Ask before sharing someone’s story",
+          "summary": "A helpful public map nearly reveals a letter writer’s private home.",
+          "pages": [
+            {
+              "text": "The harbor council asked Rook to draw a map of friendly houses where lost travelers could ask for directions. He began with places he knew from walking with Pip. Then a letter writer named Nell saw her small upstairs room marked on the draft. “I welcomed you once,” she said, “but I did not offer my door to every passing crowd.” Rook put his pencil down.",
+              "scene": "Nell points at her upstairs room on Rook’s draft map in a public workshop; Rook pauses with his pencil lowered.",
+              "focus": "book",
+              "setting": "library",
+              "prop": "An unfinished public map"
+            },
+            {
+              "text": "Rook apologized and erased Nell’s home from the public copy. He asked the other households one by one instead of assuming that kindness meant permission. Some offered their shops during opening hours. Others suggested the library or the quay office. Nell chose to help write clear directions from her desk, with her address kept off the page.",
+              "scene": "Rook consults shopkeepers while Nell writes route directions privately at a window; a public copy shows agreed gathering places instead of homes.",
+              "focus": "friend",
+              "setting": "market",
+              "prop": "Permission first"
+            },
+            {
+              "text": "Pip delivered the draft only to the people who had agreed to review it. They found an old opening time and a stairway that needed an alternative route. Nell’s careful directions solved both problems. When someone asked who had written them, Rook checked with her before answering. She signed them with her first name and smiled. That much sharing felt right to her.",
+              "scene": "Pip carries reviewed map copies while Nell adds her chosen first-name credit and Rook marks an accessible alternative beside a stairway.",
+              "focus": "route",
+              "setting": "harbor",
+              "prop": "A chosen credit"
+            },
+            {
+              "text": "The finished map welcomed strangers without sending them into private lives. On the back, Rook wrote how to request a correction or withdraw an offer. Nell brought tea to the library launch and chose to stay. “A door can be friendly and still have a lock,” she told him. Rook tucked his own copy into the atlas, grateful for the lesson he had almost missed.",
+              "scene": "Neighbors gather around the finished map at the library; Nell shares tea while a correction note is visible on the map’s reverse.",
+              "focus": "book",
+              "setting": "library",
+              "prop": "A friendly door"
+            }
+          ]
+        },
+        {
+          "id": "tower-with-wings",
+          "title": "The tower with wings",
+          "theme": "Listen to the person you mean to help",
+          "summary": "A trapped inventor already has a plan, and Rook brings the missing partner.",
+          "pages": [
+            {
+              "text": "Mira, the harbor’s wing designer, was stranded in the old watchtower when a storm damaged the stair. Rumor said she wanted a heroic rescue. Rook arrived below with a rope and discovered that Mira had already lowered a drawing. “Please find the tower keeper,” she called. “I need a proper inspection, a platform, and someone who can read these measurements.” Rook folded away his untested rope.",
+              "scene": "Mira looks from a watchtower window above a damaged stair, lowering a measured drawing to Rook rather than waiting silently for rescue.",
+              "focus": "tower",
+              "setting": "tower",
+              "prop": "Mira’s drawing"
+            },
+            {
+              "text": "The keeper studied the plan and brought a trained repair crew. Rook carried messages between the safe courtyard and the workshop while Mira explained what had shifted inside. A frightened young dragon had sheltered in the tower shed during the storm. His tail blocked the crew’s cart. Rook asked where he would feel safe, and the dragon chose the empty boat house.",
+              "scene": "A keeper and repair crew review Mira’s plan in the courtyard while Rook speaks to a frightened small dragon beside a blocked equipment cart.",
+              "focus": "dragon",
+              "setting": "tower",
+              "prop": "A safe shelter"
+            },
+            {
+              "text": "With the shed clear, the crew set up their checked platform. Mira descended with her drawings in a waterproof case. She thanked the crew first, then Rook for listening. The dragon peered from the boat house, worried that everyone blamed him for the broken stair. Mira showed him the storm damage. “You were in trouble too,” she said. “That is not the same as causing it.”",
+              "scene": "Mira steps onto a checked platform with her drawings; Rook and the crew stand safely below while the dragon watches from an open boat house.",
+              "focus": "friend",
+              "setting": "tower",
+              "prop": "A waterproof case"
+            },
+            {
+              "text": "At the tower’s reopening, Mira displayed a model wing that folded instead of fighting the wind. The dragon offered to carry empty boxes, and the keeper gave him a clear place to stand. Rook wrote the adventure as Mira’s plan, the crew’s skill, and a visitor’s useful errands. It made a fine rescue story, especially because its supposed hero had learned to share the title.",
+              "scene": "Mira presents a folding model wing in the restored tower courtyard; the dragon helps with boxes while Rook records everyone’s contributions.",
+              "focus": "book",
+              "setting": "tower",
+              "prop": "Shared credit"
+            }
+          ]
+        },
+        {
+          "id": "blank-page-atlas",
+          "title": "The blank-page atlas",
+          "theme": "A map grows through many voices",
+          "summary": "The blank atlas leaf becomes an invitation rather than a demand for answers.",
+          "pages": [
+            {
+              "text": "Rook laid his blank leaf on the library table and wrote Places I have not seen. Moss wanted to mark every shore before Rook left. Lumen asked who would check those marks. They stared at a magnificent mountain nobody present had ever visited. Rook erased it. “A blank space can be honest,” he said. “An invented answer can send someone the wrong way.”",
+              "scene": "Rook erases an unverified mountain from a blank atlas leaf while Moss and Lumen sit at a library table with scattered route notes.",
+              "focus": "book",
+              "setting": "library",
+              "prop": "An honest blank space"
+            },
+            {
+              "text": "They made a pocket for accounts instead of filling the page with guesses. Fern contributed questions about gardens. Pip wrote a greeting for another courier. Mira added a sketch of her folding wing, labeled as her own experiment. Rook promised to ask before copying anything he encountered. The leaf became lighter to carry when it no longer pretended to know the whole world.",
+              "scene": "Friends place questions, a courier greeting, and Mira’s labeled wing sketch into a paper pocket attached to Rook’s travel leaf.",
+              "focus": "friend",
+              "setting": "library",
+              "prop": "Questions to carry"
+            },
+            {
+              "text": "A visitor from the Garden of Many Doors heard the discussion and offered Rook an introduction to Sima, a courtyard librarian. She drew the route she actually knew and left the rest for the caravan leader to explain. Moss noticed how many hands the map would need. “It will not be yours alone,” he said. Rook grinned. “That is why it might be useful.”",
+              "scene": "A visiting librarian marks a known route to a garden courtyard while Moss studies the many names credited along the atlas leaf’s edge.",
+              "focus": "route",
+              "setting": "market",
+              "prop": "An introduction"
+            },
+            {
+              "text": "They opened a small travelers’ shelf in Lantern Harbor. It held the atlas, agreed accounts, and a card saying that questions were welcome. The shelf’s first blank notebook belonged to nobody until someone chose to write. Rook set his lantern beside it for the evening, then took both leaf and lamp home. A journey had begun before he had traveled a single mile.",
+              "scene": "A new travelers’ shelf holds the atlas and an inviting blank notebook; Rook collects his brass lantern beneath a library’s open evening window.",
+              "focus": "lantern",
+              "setting": "library",
+              "prop": "The travelers’ shelf"
+            }
+          ]
+        },
+        {
+          "id": "road-out-of-harbor",
+          "title": "The road out of the harbor",
+          "theme": "Depart with gratitude and a way home",
+          "summary": "Rook joins a caravan carrying questions, introductions, and a return address.",
+          "pages": [
+            {
+              "text": "On departure morning, Pip packed a letter for Sima and Moss packed far too many pencils. Rook checked the caravan leader’s meeting place before leaving the quay. He could fly across a yard, but not across every mountain and sea. Travel would take companions, rest, and more time than a brave announcement. Lumen slipped the library’s return address into his satchel.",
+              "scene": "Pip, Moss, and Lumen help Rook pack beside the quay; a caravan meeting note and the library’s return address lie atop his satchel.",
+              "focus": "rook",
+              "setting": "harbor",
+              "prop": "A return address"
+            },
+            {
+              "text": "Beyond the harbor, the caravan leader introduced him to Aster the camel. Aster lowered her head until they could speak eye to eye. “I choose a steady pace,” she said. “Passengers who want a race can choose another ride.” Rook agreed. He secured his lantern where it would not swing against her and asked where the others preferred to stop for the night.",
+              "scene": "Rook greets Aster the camel at the edge of the harbor road, securing his lantern carefully while the caravan leader points toward a planned rest stop.",
+              "focus": "friend",
+              "setting": "desert",
+              "prop": "A steady pace"
+            },
+            {
+              "text": "The first hill hid Lantern Harbor, and Rook suddenly missed it. He almost opened Pip’s sealed letter just to hear a familiar voice. Instead he took out his own notebook and wrote what he wanted to tell his friends. Aster waited beside a shaded marker. “Home can travel with you,” she said, “without every private letter becoming yours to read.”",
+              "scene": "At a shaded road marker, Rook writes in his own notebook while Pip’s sealed letter remains in the satchel and Aster waits nearby.",
+              "focus": "book",
+              "setting": "mountain",
+              "prop": "A sealed introduction"
+            },
+            {
+              "text": "By evening they saw the garden world’s first trees beyond the dry road. Sima met the caravan at the courtyard gate and took Pip’s letter. Rook introduced himself without presenting a list of problems he planned to fix. “I have brought questions,” he said. Sima opened the gate. “Good. We have answers to some, and questions to lend you too.”",
+              "scene": "Sima welcomes Rook and Aster at a garden courtyard gate with leafy trees beyond the road, accepting Pip’s sealed introduction.",
+              "focus": "route",
+              "setting": "garden",
+              "prop": "The next open gate"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "persia",
+      "title": "The Garden of Many Doors",
+      "region": "A fictional world inspired by Iran and Persian cultural heritage",
+      "tagline": "Water remembers the paths we share.",
+      "description": "Courtyard libraries, living gardens, night skies, and caravan conversations welcome Rook. Sima, Nima, and Soraya lead their own community’s adventures; this invented world is a starting point for curiosity about diverse living cultures, not a portrait of every Iranian life.",
+      "accent": "#267C83",
+      "travel": "Aster carries Rook to the garden city; a shared caravan and a coastal ship carry his next questions east.",
+      "chapters": [
+        {
+          "id": "courtyard-welcome",
+          "title": "The courtyard welcome",
+          "theme": "A visitor begins by listening",
+          "summary": "Sima introduces Rook to a garden where every door belongs to someone.",
+          "pages": [
+            {
+              "text": "Sima’s library opened onto a courtyard full of voices, flowerpots, and a patient tortoise reading beneath a tree. Rook looked for the grand door he assumed every library must have. Sima pointed to the ordinary one he had just used. “People come through that door every day,” she said. “A welcome need not be grand to be sincere.” Aster settled in the caravan yard nearby.",
+              "scene": "Sima welcomes Rook into a leafy courtyard library; a tortoise reads under a tree while Aster rests beyond the open gate.",
+              "focus": "friend",
+              "setting": "garden",
+              "prop": "An ordinary welcome"
+            },
+            {
+              "text": "Rook noticed a blue curtain across another doorway and moved toward it, hoping to explore. Sima gently asked him to wait. It led to a family room. She showed him the public reading tables, the garden path, and the desk where visitors could ask questions. Rook thanked her for explaining. An open library, he learned, did not make every neighboring room public.",
+              "scene": "Sima guides Rook toward shared reading tables and away from a curtained private doorway, with blue tiles and potted plants framing the courtyard.",
+              "focus": "route",
+              "setting": "library",
+              "prop": "A blue curtain"
+            },
+            {
+              "text": "At lunch the neighbors asked what Lantern Harbor was like. Rook described Pip’s letters and the two bridges, then invited their questions. Nima, who cared for the garden’s water, asked about the stream beneath them. Rook knew less about that stream than he had imagined. He opened his notebook to a clean page and wrote a question to send Moss instead of making up an answer.",
+              "scene": "Rook shares lunch with Sima and Nima beneath courtyard trees, writing a question beside a sketch of Lantern Harbor’s two bridges.",
+              "focus": "book",
+              "setting": "garden",
+              "prop": "A question for Moss"
+            },
+            {
+              "text": "That evening Sima gave him a place at the travelers’ shelf. He put Lantern Harbor’s greeting there with Pip’s permission written on its envelope. Nima invited him to see the water channels in the morning. Rook had crossed a world without solving a single problem, yet his map had already changed: its newest mark was a table where a stranger had been allowed to become a guest.",
+              "scene": "Rook adds an agreed greeting to a courtyard travelers’ shelf while Sima and Nima point toward tomorrow’s garden walk beneath a warm evening lamp.",
+              "focus": "book",
+              "setting": "library",
+              "prop": "A place at the table"
+            }
+          ]
+        },
+        {
+          "id": "four-ribbons-water",
+          "title": "Four ribbons of water",
+          "theme": "Understand a shared system before changing it",
+          "summary": "A quiet garden puzzle is solved by its keeper’s knowledge, not Rook’s first guess.",
+          "pages": [
+            {
+              "text": "Four paths divided Nima’s garden, with water glimmering beside them. One bed of flowers looked thirsty. Rook pointed to the nearest channel. “Could we make this one larger?” Nima asked him to walk the whole garden first. They visited trees, a kitchen plot, a shaded pool, and the thirsty bed. The water served many places before it reached the flowers Rook had noticed.",
+              "scene": "Nima leads Rook along four garden paths with narrow water channels; one flower bed is dry while trees, a pool, and vegetables share the water.",
+              "focus": "route",
+              "setting": "garden",
+              "prop": "Four garden paths"
+            },
+            {
+              "text": "At the far corner, leaves had collected where the keeper could safely clear them. Nima arranged the maintenance and explained who depended on the flow downstream. Rook held a basket for the leaves. “I was ready to change the part I could see,” he admitted. “Seeing a little is useful,” Nima replied, “when it makes us ask about the rest.”",
+              "scene": "Rook holds a leaf basket as Nima works at a safe maintenance point, with downstream garden beds visible along the channel.",
+              "focus": "friend",
+              "setting": "garden",
+              "prop": "A basket of leaves"
+            },
+            {
+              "text": "Water returned to the flowers gradually. Rook watched impatiently, then noticed that the pool was settling and a child was counting new ripples. Nothing was broken because it took time. Nima asked each gardener to check their own bed before calling the job finished. A kitchen grower found another small obstruction, and the keepers added it to their maintenance notes.",
+              "scene": "Water moves back into the dry flower bed while a child counts ripples and neighboring gardeners inspect their sections with Nima.",
+              "focus": "lantern",
+              "setting": "garden",
+              "prop": "New ripples"
+            },
+            {
+              "text": "At sunset the paths looked unchanged, but Rook understood them differently. With Nima’s approval, he sketched their shared flow and credited the garden keepers. The drawing was a story about cooperation, not instructions for building a water system. Beneath it he wrote: Walk farther before moving the nearest stone. He sent Moss the page, certain that a bridge keeper would appreciate a garden keeper’s question.",
+              "scene": "Rook sketches the interconnected garden under a sunset lamp, with Nima’s chosen credit beside the paths and a sealed note addressed to Moss.",
+              "focus": "book",
+              "setting": "garden",
+              "prop": "Walk farther first"
+            }
+          ]
+        },
+        {
+          "id": "letter-in-wind",
+          "title": "The letter in the wind",
+          "theme": "A message needs a named destination",
+          "summary": "Rook and a local courier recover a letter without opening it.",
+          "pages": [
+            {
+              "text": "A gust lifted a letter from Darya’s courier tray and carried it into the shade beneath a tall ventilation tower. Rook raced after it, ready to fly up through an opening. Darya called him back. She knew which doors led to safe public spaces and which passages were for trained caretakers. Together they asked the tower keeper where the paper might have landed.",
+              "scene": "Darya the courier stops red Rook below a wind-catching tower as a white envelope disappears into a shaded courtyard opening.",
+              "focus": "tower",
+              "setting": "tower",
+              "prop": "A windblown letter"
+            },
+            {
+              "text": "The keeper brought the letter from an accessible collection shelf. Its outer address had blurred where a drop of water touched it. Rook suggested opening it to find a name. Darya shook her head. “The words inside are not ours.” They checked her delivery record and contacted the sender, who could confirm the intended destination without revealing the private message.",
+              "scene": "The keeper returns a damp envelope to Darya and Rook; Darya compares its blurred outer address with her courier record at a shaded desk.",
+              "focus": "book",
+              "setting": "library",
+              "prop": "A blurred address"
+            },
+            {
+              "text": "The sender supplied a fresh outer envelope. Darya placed the unopened letter inside and asked the recipient where it should be delivered. He chose Sima’s library desk because he would be there that afternoon. Rook carried the tray beside Darya, holding it level through the next gust. The tower no longer seemed like an obstacle; it was simply a place whose keeper knew more than a visiting bird.",
+              "scene": "Rook steadies Darya’s tray as she carries a newly addressed outer envelope toward the courtyard library, with the tower keeper waving behind them.",
+              "focus": "route",
+              "setting": "market",
+              "prop": "The recipient’s choice"
+            },
+            {
+              "text": "At the library the recipient thanked them and opened his letter himself. Rook did not lean over his shoulder. Darya gave the keeper a secure tray cover for future deliveries, and he showed her where public notices belonged. The wind still moved through the courtyard. The new arrangement did not conquer it; it made a small, ordinary task less likely to go wrong.",
+              "scene": "The recipient reads privately at Sima’s library while Darya thanks the tower keeper and Rook fits a cover over the courier tray.",
+              "focus": "friend",
+              "setting": "library",
+              "prop": "A covered tray"
+            }
+          ]
+        },
+        {
+          "id": "carpet-of-routes",
+          "title": "The carpet of routes",
+          "theme": "Credit the maker and ask what a pattern means",
+          "summary": "A weaver helps Rook distinguish admiration from permission.",
+          "pages": [
+            {
+              "text": "At the market, a weaver named Leila displayed a carpet with a border that reminded Rook of interlocking paths. He began copying it into his atlas, imagining it as a decoration for every future page. Leila watched his pencil. “Would you like to ask me about it?” she said. Rook closed the book, suddenly aware that he had mistaken admiration for an invitation.",
+              "scene": "Leila stands beside a carpet with a geometric border while Rook stops copying its pattern into his open travel atlas.",
+              "focus": "book",
+              "setting": "market",
+              "prop": "Leila’s border"
+            },
+            {
+              "text": "Leila described her own design choices and the work of her family’s workshop. She offered to draw a small original travel emblem for his notebook, but asked him not to present her carpet border as his creation. Rook agreed and listened while she explained which story she wanted the emblem to tell. He did not ask her to speak for every weaver in the world.",
+              "scene": "Leila sketches an original small travel emblem at her workshop table as Rook listens beside tools and unfinished woven work.",
+              "focus": "friend",
+              "setting": "market",
+              "prop": "An original emblem"
+            },
+            {
+              "text": "They settled on a simple lantern beside an open doorway, different from the carpet. Leila added her chosen signature. Rook paid for the work and wrote how it could be shared. When another traveler asked for a copy, Rook showed her the permission note first. Leila smiled at the careful answer. Her work could travel without its maker disappearing from the story.",
+              "scene": "Rook and Leila review a lantern-and-doorway sketch with a signed permission note while a traveler asks about the new notebook emblem.",
+              "focus": "lantern",
+              "setting": "library",
+              "prop": "A named maker"
+            },
+            {
+              "text": "The carpet remained in the workshop window, carrying its own story. Rook’s little emblem traveled on a separate page with Leila’s credit intact. He later sent her a photograph from the road and asked whether the caption was right. She changed one word. Rook welcomed the correction; a beautiful mark became more meaningful when the person who made it could still speak.",
+              "scene": "Rook posts a small travel picture with Leila’s credited emblem; the carpet stays visible in her workshop and a corrected caption rests on the desk.",
+              "focus": "book",
+              "setting": "market",
+              "prop": "A welcomed correction"
+            }
+          ]
+        },
+        {
+          "id": "well-after-sunset",
+          "title": "The well after sunset",
+          "theme": "Leave difficult work to the people who know it",
+          "summary": "A missing water delivery calls for patient coordination above ground.",
+          "pages": [
+            {
+              "text": "The courtyard’s water delivery failed just before supper. People gathered near the covered well, and Rook wondered whether his small size made him the best person to investigate below. Nima stopped that idea before it became a plan. Underground passages were not adventures for untrained visitors. She called the responsible water team while Sima moved the supper tables toward a neighboring courtyard with a working supply.",
+              "scene": "Rook stands beside a covered well with Nima while Sima directs supper guests toward a neighboring courtyard; the underground access remains secured.",
+              "focus": "friend",
+              "setting": "garden",
+              "prop": "The covered well"
+            },
+            {
+              "text": "The water team inspected the problem from their approved work area. Rook helped carry sealed drinking water and wrote clear messages at the library entrance. He asked Nima what information could be shared and kept people’s individual requests off the public board. Families chose whether to collect supplies or ask a volunteer to bring them. Nobody had to explain a private difficulty to a crowd.",
+              "scene": "Rook posts a clear supply notice while volunteers carry sealed water through the courtyard and Nima coordinates with a trained maintenance team.",
+              "focus": "book",
+              "setting": "garden",
+              "prop": "A clear supply notice"
+            },
+            {
+              "text": "The repair took longer than anyone hoped. Sima opened her reading room and offered stories while they waited. Rook told the tale of the bridge that waited, including the part where he nearly acted too quickly. Nima returned with an update rather than a promise she could not keep. “The team is still checking,” she said. People had time to adjust their evening plans.",
+              "scene": "Sima hosts a small reading circle in the library as Rook recounts his bridge mistake and Nima brings a calm maintenance update.",
+              "focus": "lantern",
+              "setting": "library",
+              "prop": "An honest update"
+            },
+            {
+              "text": "By morning the responsible team restored the supply and confirmed the checks were complete. The neighbors thanked the workers and returned borrowed containers. Rook recorded who to contact next time, leaving out the access details that visitors did not need. The most useful thing he had carried that night was neither a tool nor a heroic idea. It was an accurate message delivered when people needed it.",
+              "scene": "Neighbors return borrowed water containers after the repair while Rook records public contact information beside a thank-you note to the water team.",
+              "focus": "book",
+              "setting": "garden",
+              "prop": "The right message"
+            }
+          ]
+        },
+        {
+          "id": "princess-of-dawn",
+          "title": "The princess of dawn",
+          "theme": "A rescue has more than one author",
+          "summary": "Soraya’s tower plan and a frightened dragon turn a rescue into a shared repair.",
+          "pages": [
+            {
+              "text": "Princess Soraya studied the dawn sky from a tower above the garden. A storm jammed the outer door and frightened the young dragon Zephyr, who curled around the gate outside. Travelers called for a hero with a sword. Rook asked Soraya what she needed. “My caretaker, my notes, and a way to speak to Zephyr without shouting,” she answered from the window.",
+              "scene": "Princess astronomer Soraya holds her notes at a tower window while Zephyr curls anxiously around the jammed gate and Rook listens below.",
+              "focus": "tower",
+              "setting": "tower",
+              "prop": "Soraya’s notes"
+            },
+            {
+              "text": "Rook fetched the caretaker and stood where Zephyr could see him. The dragon expected blame, so he hid his face behind a wing. Soraya lowered a drawing of the sheltered courtyard. “You may rest there while the gate is checked,” she told him. Rook held up the drawing, and Zephyr chose to move. The caretakers could finally approach without putting anyone in danger.",
+              "scene": "Rook shows Soraya’s courtyard drawing to Zephyr as caretakers wait at a safe distance; the dragon uncurls toward a sheltered garden space.",
+              "focus": "dragon",
+              "setting": "tower",
+              "prop": "A quieter place"
+            },
+            {
+              "text": "While the caretakers repaired the door, Soraya directed the preservation of her damp sky notes from inside. Rook kept the dry copies under his satchel flap. When the door opened, she stepped out carrying her telescope herself. Zephyr apologized for blocking the gate. “You were frightened,” she said. “Next time, let us know where you need help.” He agreed to practice asking before curling around doors.",
+              "scene": "Soraya exits through the checked doorway with her telescope; Rook protects her dry notes while Zephyr speaks from the sheltered courtyard.",
+              "focus": "friend",
+              "setting": "tower",
+              "prop": "The dry sky notes"
+            },
+            {
+              "text": "At dawn they watched the sky together. Soraya named the figures she had invented for her notebook, and Zephyr named a cloud after himself. Rook wrote a rescue with no defeated dragon and no silent princess. Soraya checked the account and added the caretakers’ names. “Tell people I asked for help,” she said, “and tell them I helped too.” Rook gladly kept both sentences.",
+              "scene": "Soraya, Rook, Zephyr, and the caretakers watch dawn from a safe garden terrace beside a telescope and a jointly reviewed story page.",
+              "focus": "book",
+              "setting": "sky",
+              "prop": "A rescue with many authors"
+            }
+          ]
+        },
+        {
+          "id": "poem-with-room",
+          "title": "A poem with room",
+          "theme": "Make space for voices without speaking over them",
+          "summary": "Sima’s reading night welcomes both a public poem and a quiet listener.",
+          "pages": [
+            {
+              "text": "Sima planned a reading night beneath the courtyard tree. Rook made a list of everyone he thought should perform, then noticed Darya shrinking from her name. “I like listening,” she told him. “That does not mean I want the whole courtyard listening to me.” Rook crossed out the compulsory list and replaced it with an invitation people could accept, decline, or answer later.",
+              "scene": "Rook revises a performance list beside Sima’s courtyard reading circle as Darya chooses a comfortable listener’s seat under the tree.",
+              "focus": "book",
+              "setting": "garden",
+              "prop": "An invitation to read"
+            },
+            {
+              "text": "Leila brought a poem she had written about a loom’s pause. Nima brought a short account of a repaired channel. Another neighbor asked for a quieter seat near the edge, and Sima made one. Rook offered to read the opening, but asked how his pronunciation sounded before the evening began. Darya helped him practice one name until it felt like a greeting instead of an obstacle.",
+              "scene": "Leila and Nima prepare their own short texts while Darya helps Rook practice a name; Sima arranges a quiet seat at the edge of the gathering.",
+              "focus": "friend",
+              "setting": "library",
+              "prop": "A practiced name"
+            },
+            {
+              "text": "When Leila read, Rook listened without turning every image into a lesson about bridges. It was her poem, and some of its meaning belonged to her alone. During the pause, Darya quietly handed Sima a note for next month’s evening. She might like to read then. Nobody announced it. A choice could grow best when it did not become someone else’s celebration too soon.",
+              "scene": "Leila reads beneath warm courtyard lamps while Rook listens; Darya privately hands Sima a folded note at the side of the gathering.",
+              "focus": "lantern",
+              "setting": "garden",
+              "prop": "A quiet possibility"
+            },
+            {
+              "text": "After the last reader, the neighbors shared bread and discussed what they had heard. Rook copied only the lines whose authors wanted to share them, using their chosen credits. Darya’s note stayed with Sima. The courtyard’s silence no longer felt like a gap waiting to be filled. It held listeners, pauses, and ideas that might find words on another evening.",
+              "scene": "The reading circle shares food after the poems while Rook records agreed credits and Sima keeps Darya’s note tucked safely in her notebook.",
+              "focus": "book",
+              "setting": "garden",
+              "prop": "Room for a pause"
+            }
+          ]
+        },
+        {
+          "id": "caravan-of-notes",
+          "title": "The caravan of notes",
+          "theme": "A group can travel together without moving identically",
+          "summary": "Aster and the caravan leader help Rook abandon a hurried schedule.",
+          "pages": [
+            {
+              "text": "Rook prepared a splendid schedule for the coastal caravan. Every hour had a mark, and every mark looked impressively straight. The caravan leader compared it with the day’s heat, the travelers’ needs, and Aster’s steady pace. “This road is not your page,” she said kindly. Rook folded the schedule and asked how the group made decisions when conditions changed.",
+              "scene": "red Rook shows a rigid paper schedule to the caravan leader beside Aster and the shaded caravan yard before departure.",
+              "focus": "route",
+              "setting": "desert",
+              "prop": "A folded schedule"
+            },
+            {
+              "text": "They chose rest points together and checked what each traveler could carry. Darya joined them for part of the route, carrying letters in a secure bag. Rook offered to take it, but she preferred to keep her entrusted work herself. He carried shared supplies instead. Aster approved of the lighter, better-balanced load and let him know when one strap needed adjusting.",
+              "scene": "Caravan travelers distribute shared supplies while Darya keeps her secure letter bag and Rook adjusts a load with Aster’s guidance.",
+              "focus": "friend",
+              "setting": "desert",
+              "prop": "Shared supplies"
+            },
+            {
+              "text": "A sand-colored haze delayed the next stage. Rook stared at his useless hour marks, then wrote an update for those expecting the caravan. The leader chose a known shelter, and everyone waited there. Darya delivered the update through the agreed contact when it was possible. Rook learned that arriving later with accurate news was kinder than arriving recklessly to protect a timetable.",
+              "scene": "The caravan waits in a known sheltered rest court while Rook writes a delay update and the leader observes the hazy road from safety.",
+              "focus": "book",
+              "setting": "desert",
+              "prop": "An accurate delay"
+            },
+            {
+              "text": "When conditions improved, they continued at the leader’s chosen pace. At the coast, a waiting family greeted their relative with relief rather than complaints about Rook’s schedule. He tore out the hour marks and kept the rest points, contacts, and corrections. Aster leaned down for a farewell. “You have learned to draw a road that can bend,” she said. Rook thanked his very patient teacher.",
+              "scene": "At the coastal caravan stop, Rook thanks Aster and keeps an amended route sheet while travelers greet waiting relatives beside the sea.",
+              "focus": "route",
+              "setting": "sea",
+              "prop": "A road that can bend"
+            }
+          ]
+        },
+        {
+          "id": "window-of-stars",
+          "title": "The window of stars",
+          "theme": "Share an observation without claiming the whole sky",
+          "summary": "A cloudy evening gives Soraya and Rook a different kind of discovery.",
+          "pages": [
+            {
+              "text": "Soraya invited Rook back to the observatory before his ship departed. He expected a sky full of stars and found a roof full of clouds. Soraya did not pretend the telescope could see through everything. They checked the forecast, secured the equipment, and opened her older notebooks instead. Each page named when an observation had been made and what she had actually seen.",
+              "scene": "Soraya and Rook stand beside a covered telescope beneath clouds, then turn toward dated observation notebooks inside the tower room.",
+              "focus": "book",
+              "setting": "tower",
+              "prop": "Dated observations"
+            },
+            {
+              "text": "One drawing left a corner empty. Rook reached to fill it with a familiar star pattern from Lantern Harbor. Soraya stopped his pencil. That part of the sky had been hidden on the night of her observation. His remembered pattern might be beautiful, but it did not belong in her record as something she had seen. Rook added it to a separate sketch and labeled the difference.",
+              "scene": "Soraya points to an honestly blank corner of a notebook while Rook moves his remembered star pattern onto a separate labeled sketch.",
+              "focus": "book",
+              "setting": "tower",
+              "prop": "The unseen corner"
+            },
+            {
+              "text": "Zephyr arrived with a cloud drawing of his own. It looked very little like the actual clouds, and he said so cheerfully. They made a small exhibit with two shelves: observations and imaginings. Visitors could enjoy both without confusing them. Rook added a fanciful harbor constellation shaped like Pip’s mailbag, while Soraya carefully kept her measured work on its own shelf.",
+              "scene": "Zephyr presents a playful cloud drawing as Soraya and Rook arrange separate shelves for observed sky records and clearly labeled imaginative pictures.",
+              "focus": "dragon",
+              "setting": "library",
+              "prop": "Observations and imaginings"
+            },
+            {
+              "text": "Just before closing, a gap appeared overhead. Soraya let Rook look through the properly set telescope and showed him one bright point. One was enough for the evening. He thanked her for the real glimpse and the honest clouds. In the morning he carried a permitted copy of her exhibit labels to his ship, ready to notice where his next view would also end.",
+              "scene": "Rook views one bright point through Soraya’s prepared telescope as a small cloud gap opens above the garden tower and Zephyr watches quietly.",
+              "focus": "rook",
+              "setting": "sky",
+              "prop": "One real glimpse"
+            }
+          ]
+        },
+        {
+          "id": "sea-between-pages",
+          "title": "The sea between pages",
+          "theme": "Carry introductions rather than assumptions",
+          "summary": "Rook leaves the garden with a friendship that can travel by sea.",
+          "pages": [
+            {
+              "text": "At the coastal quay, Sima handed Rook a letter for Mei, a printer in the river world. “She helped us exchange books,” Sima explained. Rook asked what he should say about the garden. “Tell her what you experienced,” Sima said. “Leave room for what you did not.” The ship captain checked his ticket and showed him where to secure his lantern for the crossing.",
+              "scene": "Sima gives Rook a sealed introduction at a coastal quay while the captain indicates a safe place for the brass lantern aboard the ship.",
+              "focus": "book",
+              "setting": "sea",
+              "prop": "A letter for Mei"
+            },
+            {
+              "text": "Aster had brought him as far as the port and would return with the caravan. Rook thanked her before boarding. Nima sent a drawing of the four garden paths with its keepers’ credits, and Leila sent permission to share her small travel emblem. The satchel felt full of names rather than souvenirs. Rook checked that each account still carried the choice of its maker.",
+              "scene": "Rook says farewell to Aster beside the gangway, checking credited drawings and permission notes in his satchel while the caravan prepares to return.",
+              "focus": "friend",
+              "setting": "sea",
+              "prop": "Names to carry"
+            },
+            {
+              "text": "The ship’s first night was rough enough to make reading difficult. Rook stayed in the safe passenger area and listened to the crew’s announcements. Another traveler wanted reassurance that the ocean would become calm at once. Rook could offer company, but not that promise. They shared a story of a waiting bridge, then rested while the people responsible for the ship did their work.",
+              "scene": "Rook and another traveler sit in a secure passenger cabin with the lantern fastened nearby while rain moves outside the window and a crew notice hangs clearly.",
+              "focus": "lantern",
+              "setting": "sea",
+              "prop": "Company through a rough night"
+            },
+            {
+              "text": "Morning revealed a river mouth lined with busy boats and green banks. Mei met the ship beside the customs hall and took Sima’s introduction. “You have come a long way,” she said. Rook looked back toward the water. “With a great many people’s help.” Mei smiled and led him toward the city. The garden remained in his atlas, and the river offered a fresh blank page.",
+              "scene": "Mei welcomes Rook at a busy river port, receiving Sima’s letter as green banks and river boats open beyond the passenger hall.",
+              "focus": "route",
+              "setting": "river",
+              "prop": "A fresh river page"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "china",
+      "title": "The River of Returning Lanterns",
+      "region": "A fictional world inspired by China’s varied river, craft, and urban traditions",
+      "tagline": "Every current carries another story.",
+      "description": "A lively river city welcomes Rook among workshops, covered crossings, printers, ferries, and roof gardens. Mei, Lin, and Shen know this place better than their visitor. Old crafts and contemporary city life share the same horizon; this world never claims to represent all of China.",
+      "accent": "#B7612D",
+      "travel": "A coastal ship brings Rook upriver; a northbound passenger train leads him toward the Snowbound Library.",
+      "chapters": [
+        {
+          "id": "river-welcome",
+          "title": "The river welcome",
+          "theme": "Learn the local signs before following them",
+          "summary": "Mei helps Rook find a meeting place without assuming every sign speaks his language.",
+          "pages": [
+            {
+              "text": "The river city seemed to have a boat for every purpose. Rook followed a lantern symbol toward what he thought was Mei’s workshop and reached a festival storage room instead. The attendant kindly redirected him to the agreed meeting desk. Rook waited there, embarrassed but safe. Mei arrived carrying a blue umbrella. “You found a picture,” she said, “but not yet its meaning here.”",
+              "scene": "Rook waits at a river-port information desk after mistaking a festival lantern sign for Mei’s workshop marker; Mei arrives with a blue umbrella.",
+              "focus": "lantern",
+              "setting": "river",
+              "prop": "A misunderstood sign"
+            },
+            {
+              "text": "Mei walked him to the printing street and explained the route symbols used on the public map. Rook repeated the meeting place back to make sure he had understood. A shopkeeper offered directions with a sketch when words became difficult. Rook did not pretend he could read every notice. He thanked her and kept the verified sketch, including the desk where he could ask again.",
+              "scene": "Mei and a shopkeeper help Rook compare a public route map with a simple verified sketch beside a busy printing street.",
+              "focus": "route",
+              "setting": "market",
+              "prop": "A verified sketch"
+            },
+            {
+              "text": "At the workshop, Mei opened Sima’s letter and recognized Leila’s little travel emblem on Rook’s notebook. They set the introductions beside a kettle and compared the books that had traveled between their libraries. Rook saw how much work had happened before his arrival. He was following friendships, not discovering a place that had somehow waited for him to put it on a map.",
+              "scene": "Mei reads Sima’s introduction at the workshop table while Rook sets down Leila’s credited notebook and shared books beside a kettle.",
+              "focus": "book",
+              "setting": "library",
+              "prop": "Friendships before arrival"
+            },
+            {
+              "text": "By evening Rook could find the workshop from the meeting desk without guessing. Mei let him print a small card with the agreed route and his own return contact. He left room for corrections as always. Outside, festival lanterns rose over the water for their actual purpose. Rook enjoyed them more now that he no longer needed every beautiful symbol to point toward himself.",
+              "scene": "Rook holds a newly printed contact-and-route card as festival lanterns glow above the river and Mei closes her workshop for the evening.",
+              "focus": "rook",
+              "setting": "river",
+              "prop": "A small printed card"
+            }
+          ]
+        },
+        {
+          "id": "bridge-of-many-hands",
+          "title": "The bridge of many hands",
+          "theme": "Value living skills and their keepers",
+          "summary": "Lin’s covered bridge teaches Rook how a craft survives through shared care.",
+          "pages": [
+            {
+              "text": "Lin met Rook at a covered wooden bridge whose frame looked to him like lines woven together. He wanted to call it ancient and leave the description there. Lin introduced the people repairing a worn section, including a young apprentice studying beside her teacher. “It has a history,” she said, “and it has a working morning.” Rook watched from the permitted viewing area.",
+              "scene": "Lin guides Rook to a covered wooden arch bridge where experienced craftworkers and an apprentice inspect a closed maintenance section from safe work areas.",
+              "focus": "bridge",
+              "setting": "river",
+              "prop": "A working morning"
+            },
+            {
+              "text": "The apprentice asked her teacher why an older record differed from what they found today. Rook expected the teacher to be offended. Instead she brought out another notebook and compared the repair history. The bridge had changed through many caretakers’ work. Lin explained that keeping a craft alive involved questions, training, and good records, not asking every young person to repeat without understanding.",
+              "scene": "An apprentice and teacher compare repair notebooks beside the bridge frame while Rook and Lin observe from a public path.",
+              "focus": "book",
+              "setting": "river",
+              "prop": "A question for the teacher"
+            },
+            {
+              "text": "Rook offered his lantern when a cloud darkened the viewing space, but the crew had appropriate work lights already. He found a more useful task helping Lin redirect visitors around the closed section. A child asked who had built the bridge. They read the public history together, including the names of current caretakers. The answer belonged to generations and to the people working that very day.",
+              "scene": "Rook and Lin direct visitors toward an agreed detour while the bridge crew uses its own work lights and a child reads the public history panel.",
+              "focus": "route",
+              "setting": "river",
+              "prop": "Names across generations"
+            },
+            {
+              "text": "After the authorized inspection, the bridge reopened. Lin invited Rook to record a story with the crew’s agreement. He described the apprentice’s question as carefully as the elegant frame. Back at Mei’s workshop, they printed copies for the caretakers to review. Rook’s atlas gained a bridge that was more than a pretty outline: it carried learning, labor, and a place for the next pair of hands.",
+              "scene": "Visitors cross the reopened bridge while Rook and Lin present a reviewed story copy to the teacher and apprentice beneath the covered frame.",
+              "focus": "friend",
+              "setting": "river",
+              "prop": "The next pair of hands"
+            }
+          ]
+        },
+        {
+          "id": "printer-missing-dot",
+          "title": "The printer’s missing dot",
+          "theme": "Check meaning before sending a message",
+          "summary": "A tiny printing error nearly sends visitors to a closed crossing.",
+          "pages": [
+            {
+              "text": "Mei was preparing a booklet for the river festival when Rook spotted a handsome route page. He offered to deliver the first stack at once. Mei asked him to read the route aloud first. A small mark had vanished during printing, changing a clear instruction into a confusing one. The page looked finished, but visitors might follow it toward the bridge’s closed maintenance entrance.",
+              "scene": "Mei and Rook inspect a freshly printed festival route page at the workshop, with a small missing mark highlighted beside a closed-crossing sketch.",
+              "focus": "book",
+              "setting": "library",
+              "prop": "A missing mark"
+            },
+            {
+              "text": "They paused distribution and asked Lin to check the route wording. Rook counted the copies already placed in the public tray and collected them before anyone left with one. Mei marked the defective stack for recycling. Nobody blamed the apprentice who had first set the page. The error had passed several eyes, and their shared check had caught it while a correction was still easy.",
+              "scene": "Rook gathers unissued booklets from a public tray while Mei marks a defective stack and Lin reviews the route wording with the workshop team.",
+              "focus": "friend",
+              "setting": "market",
+              "prop": "A paused delivery"
+            },
+            {
+              "text": "The corrected booklet included the bridge’s opening times and a contact for updates. Mei asked a reader who had not worked on it to test the instructions from the meeting desk. He returned with a suggestion about a confusing turn. Rook revised the drawing, then tested it again. The handsome border remained, but the clearer route was what finally made the page ready.",
+              "scene": "An independent reader follows the revised route from the information desk while Rook improves a confusing turn on the workshop’s proof copy.",
+              "focus": "route",
+              "setting": "market",
+              "prop": "A checked proof"
+            },
+            {
+              "text": "At the festival, a family used the booklet to reach the right entrance and thanked the printing team. Rook thought of all the people who would never hear about the missing mark. That was a satisfactory ending. He put one corrected copy in his atlas and wrote the date beside it. A message did not need to be dramatic; it needed to mean what its makers intended.",
+              "scene": "A family follows the corrected festival booklet to an open river entrance while Rook dates his retained copy beside Mei’s printing table.",
+              "focus": "book",
+              "setting": "river",
+              "prop": "The intended meaning"
+            }
+          ]
+        },
+        {
+          "id": "flute-and-flag",
+          "title": "The flute and the flag",
+          "theme": "A shared signal should reach its audience",
+          "summary": "Rook discovers that hearing a sound is not the only way to receive a welcome.",
+          "pages": [
+            {
+              "text": "At a riverside rehearsal, a musician played a short tune to announce the storyteller’s arrival. Rook heard it twice as an echo returned from the opposite wall and began the introduction too early. The storyteller laughed and waited. Nearby, a visitor who did not hear the tune asked why everyone had moved at once. The welcome had reached some people and confused others.",
+              "scene": "Rook begins too early at a riverside rehearsal as a musician’s tune echoes from a wall and a visitor asks about the gathering’s signal.",
+              "focus": "friend",
+              "setting": "river",
+              "prop": "An echoed tune"
+            },
+            {
+              "text": "The organizers asked the visitors what would help. They agreed on a visible flag and a clear written start time alongside the music. Rook offered to raise the flag, but practiced with the storyteller first so the movement matched the actual beginning. The musician kept the tune; adding another signal did not require taking someone’s art away.",
+              "scene": "Visitors and organizers choose a visible flag and written start time while Rook practices raising the flag with the storyteller and musician.",
+              "focus": "route",
+              "setting": "market",
+              "prop": "A visible welcome"
+            },
+            {
+              "text": "During the performance, a breeze tugged the flag out of place. Rook nearly chased it into the busy quay, then stopped and asked a steward for help. They reset it from a safe position. The storyteller paused long enough for everyone to find the next page. Nobody lost their place merely because one signal had failed for a moment.",
+              "scene": "A steward helps Rook reset the wind-tugged flag from a safe position while the storyteller pauses beside a clearly visible page marker.",
+              "focus": "book",
+              "setting": "river",
+              "prop": "A safe pause"
+            },
+            {
+              "text": "Afterward the visitor thanked the organizers for asking instead of guessing. Rook wrote a note beside his lantern signal from Lantern Harbor: Who can receive this, and how do we know? Mei printed the note for the festival team, who added their own ideas. The river still carried echoes, music, and wind. The welcome now had more than one way to arrive.",
+              "scene": "Rook and the festival team add their own ideas to a printed signal note while music and lantern reflections drift across the evening river.",
+              "focus": "lantern",
+              "setting": "river",
+              "prop": "More than one way"
+            }
+          ]
+        },
+        {
+          "id": "dragon-at-rain-pavilion",
+          "title": "The dragon at the rain pavilion",
+          "theme": "Fear can hide a request for quiet",
+          "summary": "A restless dragon and busy neighbors find room for one another.",
+          "pages": [
+            {
+              "text": "A dragon named Willow rested beneath a river pavilion during the festival. Whenever drums sounded nearby, her tail swept across the footpath. Some visitors called her unfriendly. Lin knew that Willow had asked for a quieter resting place before the festival began, but the message had been lost. Rook approached where she could see him and asked whether they could talk without the drums.",
+              "scene": "Willow, a long gentle river dragon, curls beneath a pavilion as distant festival drums unsettle her and Rook asks to speak from a visible safe distance.",
+              "focus": "dragon",
+              "setting": "river",
+              "prop": "A lost quiet request"
+            },
+            {
+              "text": "Willow explained that she loved the festival but could not sleep beside its loudest stage. The organizers had a sheltered garden farther from the speakers. They asked the gardeners whether it could host her and whether the visitors’ path should change. Rook carried the agreed messages instead of announcing that a dragon would simply move in. The gardeners proposed hours that worked for everyone.",
+              "scene": "Rook carries a request between festival organizers and gardeners while Willow waits beside the pavilion, with a sheltered garden visible beyond the busy stage.",
+              "focus": "friend",
+              "setting": "garden",
+              "prop": "An agreed invitation"
+            },
+            {
+              "text": "Lin marked the alternate footpath while stewards helped Willow reach her new resting place. The dragon folded herself carefully away from the beds. Rook left a clear sign with the gardeners’ chosen words, and a child added a picture of a sleeping cloud. Willow chuckled at it before settling down. Her tail stayed out of the path, and the afternoon concert continued.",
+              "scene": "Willow rests without disturbing plants in the sheltered garden as Lin marks a public detour and Rook places a child’s sleeping-cloud sign beside the entrance.",
+              "focus": "route",
+              "setting": "garden",
+              "prop": "A sleeping cloud"
+            },
+            {
+              "text": "In the evening Willow returned to listen to the softer music from a comfortable distance. She thanked the gardeners and helped carry their empty folding chairs with permission. Rook recorded a tale of neighbors adjusting a shared space, not of a bird taming a beast. Willow read the account and asked him to include that she had enjoyed the final song. He gave it a whole sentence.",
+              "scene": "Willow enjoys quiet evening music beside the gardeners and Rook, with folded chairs and a reviewed story account resting near the pavilion.",
+              "focus": "book",
+              "setting": "river",
+              "prop": "The final song"
+            }
+          ]
+        },
+        {
+          "id": "moon-gate",
+          "title": "The moon gate",
+          "theme": "A glimpse is not permission to enter",
+          "summary": "An inviting garden view needs boundaries its hosts can explain.",
+          "pages": [
+            {
+              "text": "Rook saw a circular doorway framing a lovely small garden and stepped toward it with his atlas open. A caretaker named Yu welcomed him to the public courtyard but asked him to stop at the next gate. Beyond it, residents were having a private meal. The round opening made a beautiful view. It did not turn the people inside into part of a visitor’s exhibit.",
+              "scene": "Rook pauses at a circular garden doorway as Yu indicates the boundary between a public courtyard and a private meal beyond the next gate.",
+              "focus": "route",
+              "setting": "garden",
+              "prop": "A framed view"
+            },
+            {
+              "text": "Rook closed his sketchbook and apologized. Yu showed him a public garden plan with a suggested path and explained which spaces opened at different hours. He asked whether visitors needed clearer signs, and Rook described the mistake he had made without blaming the doorway. They invited a few neighbors to test the plan, including someone arriving for the first time.",
+              "scene": "Yu and Rook review a public garden plan with residents and a first-time visitor at a courtyard desk, leaving the private gate closed.",
+              "focus": "book",
+              "setting": "garden",
+              "prop": "A tested garden plan"
+            },
+            {
+              "text": "The neighbors chose a small notice that felt like a welcome rather than a scolding. It named the shared areas and offered a way to ask about special visits. Rook sketched only the empty public courtyard after receiving permission. A resident who did not want to appear in the drawing passed behind him without explanation. The drawing needed a garden, not every person in it.",
+              "scene": "Rook sketches the empty public courtyard beside a small welcome notice while a resident passes privately beyond the frame and Yu watches the agreed path.",
+              "focus": "friend",
+              "setting": "garden",
+              "prop": "An agreed sketch"
+            },
+            {
+              "text": "Later Yu invited him to a community supper in the garden. Rook entered as a guest, with his notebook tucked away. The round gate looked exactly as beautiful as before, and the invitation made the evening richer. He left with the hosts’ chosen recipe note and no pictures of their private meal. A place could open generously because its people could also decide when to close.",
+              "scene": "Rook joins an invited community supper with his atlas closed in his satchel, framed by the round garden gate and warm evening lights.",
+              "focus": "rook",
+              "setting": "garden",
+              "prop": "An invitation to supper"
+            }
+          ]
+        },
+        {
+          "id": "kite-that-came-down",
+          "title": "The kite that came down",
+          "theme": "A smaller safe choice can be the joyful one",
+          "summary": "A child’s kite changes course when the wind changes.",
+          "pages": [
+            {
+              "text": "A young fox named Jun made a kite shaped like a paper boat and invited Rook to its first flight. Rook loved how it rose above the riverside field. Then the wind turned, carrying it toward a crowded walkway. Jun wanted to keep it flying because she had worked all week. Rook remembered the bridge that waited and suggested asking the field steward about the new wind.",
+              "scene": "Jun and Rook watch a paper-boat kite change direction above a riverside field as a steward observes the crowded walkway nearby.",
+              "focus": "route",
+              "setting": "sky",
+              "prop": "A paper-boat kite"
+            },
+            {
+              "text": "The steward helped Jun bring the kite down within the field’s safe area. One corner had creased. Jun sat beside it, furious at the lost flight. Rook did not tell her to be grateful for a lesson. He sat with her until she was ready to talk, then asked whether she wanted help carrying it home or time to think about another way to enjoy the afternoon.",
+              "scene": "Jun sits beside her safely lowered creased kite while Rook offers quiet company and the steward keeps the field boundary clear.",
+              "focus": "friend",
+              "setting": "garden",
+              "prop": "Time to feel disappointed"
+            },
+            {
+              "text": "Jun chose the covered workshop, where Mei had spare paper for visitors. She made a tiny version of the boat kite that could hang over her desk. Rook made a harbor bird that looked comically unlike himself. They laughed at its enormous beak. The larger kite would wait for suitable conditions; the small paper fleet could sail above a table while the wind did whatever it wished outside.",
+              "scene": "Jun and Rook make tiny hanging paper boats and an awkward large-beaked bird at Mei’s workshop while the full-sized kite rests safely against a wall.",
+              "focus": "rook",
+              "setting": "library",
+              "prop": "A small paper fleet"
+            },
+            {
+              "text": "Two days later, the steward confirmed that the field was ready for another flight. Jun chose a modest height and brought the kite down before the afternoon changed. She had a fine flight and a fine paper boat at home. Rook put neither above the other in his account. Joy could take more than one shape, including one that fit the day it had been given.",
+              "scene": "Jun flies her repaired boat kite at a modest height in the open field while Rook watches and a small paper boat peeks from her bag.",
+              "focus": "route",
+              "setting": "sky",
+              "prop": "A flight that fits the day"
+            }
+          ]
+        },
+        {
+          "id": "two-ferries",
+          "title": "The two ferries",
+          "theme": "A route remains useful when its alternatives are clear",
+          "summary": "Shen helps waiting passengers choose rather than guess.",
+          "pages": [
+            {
+              "text": "Shen operated the small ferry linking the printing street to the opposite quay. One morning it needed maintenance, and passengers gathered beneath its timetable. Rook offered to announce that the larger ferry downstream would take everyone. Shen asked him to check its route and capacity first. It reached a different landing, and some passengers could not use the long stair from there.",
+              "scene": "Passengers gather by Shen’s paused ferry timetable while Rook and Shen compare the downstream ferry’s landing and stairway on a public map.",
+              "focus": "route",
+              "setting": "river",
+              "prop": "Two different landings"
+            },
+            {
+              "text": "Shen contacted the other ferry’s crew and the riverside shuttle. The team posted the checked options, including a step-free route and expected waiting times that could change. Rook stood beside the board to read it aloud for anyone who asked. A passenger chose to wait for the repair rather than take a longer journey. Rook respected that decision without calling it the wrong answer.",
+              "scene": "Shen and Rook post verified ferry and step-free shuttle options; passengers choose from the clear board rather than crowding around guesses.",
+              "focus": "book",
+              "setting": "river",
+              "prop": "Checked alternatives"
+            },
+            {
+              "text": "The repair crew found that the small ferry needed more time. Shen updated the board instead of leaving the earlier estimate in place. The passenger who had chosen to wait changed her mind and took the shuttle. Rook walked her to its marked stop. Nothing about her earlier choice had been foolish; a new fact had made another route a better fit.",
+              "scene": "Rook guides a passenger to the marked shuttle stop as Shen updates the waiting-time board and the maintenance crew continues its checks.",
+              "focus": "friend",
+              "setting": "river",
+              "prop": "A changed estimate"
+            },
+            {
+              "text": "By afternoon the ferry returned to service after its crew’s checks. Shen kept the alternate-route card on the notice board for future disruptions. Rook crossed with him and watched the two landings from the water. A city did not need every route to work every moment to care for its travelers. It needed honest updates and options people could actually use.",
+              "scene": "Rook and Shen cross the river aboard the checked ferry while an alternate-route card remains on the quay notice board behind them.",
+              "focus": "route",
+              "setting": "river",
+              "prop": "Options that can be used"
+            }
+          ]
+        },
+        {
+          "id": "roof-garden",
+          "title": "The roof garden",
+          "theme": "New places can carry old friendships",
+          "summary": "A modern city rooftop makes space for a garden conversation.",
+          "pages": [
+            {
+              "text": "Mei invited Rook to a community roof garden above a busy apartment building. He had expected every memorable place in the river world to be an old pavilion. Instead an elevator opened onto planters, a weather board, and neighbors talking beside a solar-powered light. Lin laughed at his surprised face. “People keep making places to meet,” she said. “We did not stop when your story began.”",
+              "scene": "An elevator opens onto a contemporary roof garden with planters, a weather board, and a small solar-powered light as Mei and Lin greet surprised Rook.",
+              "focus": "friend",
+              "setting": "garden",
+              "prop": "A new place to meet"
+            },
+            {
+              "text": "A planter delivery had arrived at the wrong entrance. Rook offered to carry the heavy boxes upstairs, but the building coordinator had a safe delivery process. He helped check the labels and guide the delivery team to the correct service point instead. The neighbors chose where their new plants would go. Rook shared Nima’s garden sketch as a conversation piece, with its permission and credits intact.",
+              "scene": "Rook checks planter labels with the building coordinator while a delivery team uses the approved service route and neighbors study Nima’s credited garden sketch.",
+              "focus": "book",
+              "setting": "garden",
+              "prop": "A credited garden sketch"
+            },
+            {
+              "text": "One neighbor preferred a shaded reading corner to another row of pots. Another wanted space for children to draw. The garden group found room for both by changing a movable table’s position. Rook asked before sketching the scene and left people out if they wished. The most interesting feature of the roof was not its height. It was how its neighbors kept negotiating a shared place.",
+              "scene": "Neighbors rearrange a movable table between a shaded reading corner and children’s drawing space while Rook sketches only agreed details of the roof garden.",
+              "focus": "friend",
+              "setting": "garden",
+              "prop": "A negotiated shared place"
+            },
+            {
+              "text": "That night the small light glowed above the table, and Mei sent a permitted picture of the garden to Sima. Rook added the roof to his atlas beside the covered bridge, giving both their own dates and stories. Old skills and new meeting places could share a page without becoming the same thing. From the roof, the northbound station shone across the city.",
+              "scene": "Mei and Rook sit under the roof garden’s small light with a permitted photograph and atlas page, while the city’s northbound station glows beyond.",
+              "focus": "lantern",
+              "setting": "sky",
+              "prop": "A city still being made"
+            }
+          ]
+        },
+        {
+          "id": "northbound-window",
+          "title": "The northbound window",
+          "theme": "A farewell can carry an invitation onward",
+          "summary": "Rook boards a train with a new letter and a quieter travel plan.",
+          "pages": [
+            {
+              "text": "At the northbound station, Mei handed Rook a letter for Dasha, keeper of the Snowbound Library. Lin gave him a permitted copy of the bridge story, including the apprentice’s correction. Rook checked the train number with the station staff instead of following a painted bird that merely looked familiar. His friends waited with him until the announced platform was ready.",
+              "scene": "Mei and Lin give Rook a sealed letter and credited bridge account at a busy northbound station while staff confirm the correct platform.",
+              "focus": "book",
+              "setting": "rail",
+              "prop": "A letter for Dasha"
+            },
+            {
+              "text": "A family entered the quiet carriage with a child who was overwhelmed by the station noise. Rook’s lantern handle clinked every time he moved, so he wrapped it with a spare cloth after asking the crew where it belonged. He put his notebook away and enjoyed the view. Being useful on this part of the journey meant taking up a little less sound.",
+              "scene": "Rook secures his brass lantern quietly in a passenger carriage as a family settles nearby and the station recedes beyond the window.",
+              "focus": "lantern",
+              "setting": "rail",
+              "prop": "A quieter lantern"
+            },
+            {
+              "text": "The train paused while the crew waited for a cleared route ahead. Rook’s fellow passengers asked how long it would take. He directed them to the official announcement rather than inventing an answer from the trees outside. A boy wanted a story, so Rook quietly told him about Jun’s paper fleet. The child made a boat from his own scrap paper and kept it on the table.",
+              "scene": "Passengers wait calmly inside a stopped train as Rook points toward the official notice and a boy folds a small paper boat beside the window.",
+              "focus": "book",
+              "setting": "rail",
+              "prop": "A paper boat on the train"
+            },
+            {
+              "text": "Snow appeared far beyond the next mountains. At the announced station, Dasha greeted Rook with an ordinary warm coat and a smile. He handed over Mei’s unopened letter. “I have heard about a library that keeps travelers’ stories,” he said. Dasha took his satchel only after he agreed. “Then you have arrived at a good door.” Behind them, the train carried its other journeys onward.",
+              "scene": "Dasha welcomes Rook at a snowy station, accepting Mei’s unopened letter while the northbound train prepares to continue beyond the mountains.",
+              "focus": "route",
+              "setting": "snow",
+              "prop": "A good door"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "russia",
+      "title": "The Snowbound Library",
+      "region": "A fictional winter journey inspired by Russia’s varied landscapes and storytelling traditions",
+      "tagline": "Keep a warm place for the next traveler.",
+      "description": "Rook visits one invented northern community during winter, not an entire country frozen into one season. Dasha’s library, Anya’s workshop, Misha’s bakery, and a passenger railway hold stories of hospitality, care, and honest routes. An original runaway-loaf adventure nods to the broader folktale tradition.",
+      "accent": "#497CA2",
+      "travel": "A train brings Rook to the winter library; a checked coastal passenger ship carries him west toward the Wide-Sky Commons.",
+      "chapters": [
+        {
+          "id": "warm-door",
+          "title": "The warm door",
+          "theme": "Let a host tell you what welcome looks like",
+          "summary": "Dasha’s winter library gives Rook warmth without asking him to perform gratitude.",
+          "pages": [
+            {
+              "text": "Snow brushed Rook’s scarf as Dasha led him from the station to a timber library. A sign offered warm seats to travelers during opening hours. Inside, a kettle hummed and someone repaired a modern tablet at a side desk. Rook had expected a place made only of old stories. Dasha smiled. “We read yesterday, today, and tomorrow here. Which seat would you like?”",
+              "scene": "Dasha welcomes Rook into a timber library with a kettle, warm seats, books, and a visitor repairing a tablet at a side desk.",
+              "focus": "friend",
+              "setting": "library",
+              "prop": "A seat of his own"
+            },
+            {
+              "text": "Rook chose a place near the window and admitted that his bird feet were cold. Dasha found felt boots in the travelers’ loan basket and an earflap hat that kept his red face visible. She asked whether they fit before he wore them. They were useful borrowed clothes, not a costume he had to perform to belong. Rook thanked her and carefully noted where to return them.",
+              "scene": "Rook tries borrowed felt boots and an earflap hat with his red swept crest still visible while Dasha checks the fit beside a travelers’ loan basket.",
+              "focus": "rook",
+              "setting": "snow",
+              "prop": "Borrowed winter clothes"
+            },
+            {
+              "text": "Dasha read Mei’s letter and placed Lin’s permitted bridge account on the exchange shelf. A child asked if Rook had really come from a book. “That is how I remember it,” he answered. “I cannot tell you who drew the first page.” The child accepted that and showed him a drawing of a library with wheels. They imagined where such a library might travel.",
+              "scene": "Dasha reads Mei’s introduction as a child shows Rook an imaginative wheeled-library drawing near the exchange shelf holding Lin’s credited account.",
+              "focus": "book",
+              "setting": "library",
+              "prop": "A library with wheels"
+            },
+            {
+              "text": "When evening arrived, Dasha explained the library’s closing time and helped Rook find his arranged guest room. He did not mistake a warm public seat for a promise that every door would remain open forever. The guest-room window looked back toward the library lamp. Rook wrote to Lumen that he had found another good door, and a host who let him be both grateful and tired.",
+              "scene": "Rook writes to Lumen from an arranged guest room, with borrowed boots drying safely by the door and the library lamp visible through the window.",
+              "focus": "lantern",
+              "setting": "snow",
+              "prop": "A good winter door"
+            }
+          ]
+        },
+        {
+          "id": "loaf-that-stopped",
+          "title": "The loaf that chose to stop",
+          "theme": "A familiar story can leave room for a new decision",
+          "summary": "A talking little loaf discovers that stopping is a choice too.",
+          "pages": [
+            {
+              "text": "Misha the baker set a round loaf on the windowsill, and in this story the loaf promptly blinked. He named himself Bun and rolled toward the lane, singing a song he had just invented. Rook recognized the shape of a traveling folktale, but Bun’s words were his own. “Where will you go?” Rook asked. “Farther,” Bun replied, which was not quite an address.",
+              "scene": "A small original talking loaf named Bun blinks on Misha’s bakery windowsill while Rook watches the snowy lane beyond the open window.",
+              "focus": "friend",
+              "setting": "market",
+              "prop": "Bun’s own song"
+            },
+            {
+              "text": "Bun rolled safely into the cleared yard, then saw a steep lane ahead. Rook suggested stopping to decide, but Bun worried that every good traveling story required more traveling. Dasha arrived with a tray. “A book may have an ending,” she said, “but you can make a choice before reaching it.” Bun rested on the tray and listened to the quiet inside the bakery.",
+              "scene": "Bun pauses on Dasha’s tray beside the bakery yard as Rook points out a steep lane and warm light shines from the shop.",
+              "focus": "route",
+              "setting": "snow",
+              "prop": "A choice before the ending"
+            },
+            {
+              "text": "Misha asked whether Bun wanted to return, stay in the library window, or travel later with a companion. Bun chose a library visit first. Dasha carried him in a safe basket, and Rook walked beside her. They did not sing another storyteller’s refrain. Bun composed a new verse about asking where the next road led and being allowed to change his mind.",
+              "scene": "Dasha carries Bun in a secure basket toward the library as Rook walks beside her and Misha waves from the bakery door.",
+              "focus": "book",
+              "setting": "snow",
+              "prop": "A new traveling verse"
+            },
+            {
+              "text": "At the library, Bun became the day’s smallest storyteller. After his song, he asked to return to Misha’s warm windowsill. Nobody called the trip a failure because it ended nearby. Rook wrote an original tale about a loaf who stopped, asked, visited, and went home. Bun reviewed the title and added one word: chose. It was his favorite part of the adventure.",
+              "scene": "Bun sings from a library table before choosing to return home; Rook adds the word chose to the reviewed title while Dasha smiles.",
+              "focus": "book",
+              "setting": "library",
+              "prop": "The loaf’s chosen ending"
+            }
+          ]
+        },
+        {
+          "id": "bell-beneath-ice",
+          "title": "The bell beneath the ice",
+          "theme": "An appealing shortcut can hide an unknown",
+          "summary": "Rook helps recover a lost bell from shore without testing the frozen water himself.",
+          "pages": [
+            {
+              "text": "A dog named Lev lost the library delivery bell beside the river. Through the clear edge of the ice, they could see it near the bank. Rook’s first thought was that a small bird could make a very small step. Dasha asked him to stay on the marked shore. They did not know the ice’s condition, and a visible object did not make the route to it safe.",
+              "scene": "Lev, Dasha, and Rook look at a small delivery bell visible beneath clear ice near a marked riverbank, with everyone remaining safely on shore.",
+              "focus": "route",
+              "setting": "snow",
+              "prop": "A bell beyond reach"
+            },
+            {
+              "text": "Lev needed a way to announce deliveries that morning. Rook lent him a small hand chime from the library after checking with Dasha. The bell could wait. Dasha contacted the people responsible for the riverside area and explained the location. Rook marked it on their public shore map without telling children that the ice was a place to go hunting for lost things.",
+              "scene": "Rook gives Lev an approved borrowed hand chime while Dasha contacts the riverside caretakers and marks the lost bell on a shore map.",
+              "focus": "friend",
+              "setting": "library",
+              "prop": "A borrowed hand chime"
+            },
+            {
+              "text": "The caretakers assessed the area and decided the bell should remain until it could be recovered safely from shore. Lev was disappointed, but his deliveries continued. Rook accompanied one trip and discovered that some households preferred a knock to either bell. They updated the agreed delivery notes. An object lying just out of reach had led them to a useful question they could answer immediately.",
+              "scene": "Lev and Rook make deliveries using agreed knocks and the borrowed chime while a caretaker posts a riverbank safety notice in the background.",
+              "focus": "book",
+              "setting": "snow",
+              "prop": "A useful question"
+            },
+            {
+              "text": "Later, when the caretakers recovered the bell through their own safe process, Lev returned the chime clean and thanked Dasha. He kept the updated delivery notes. Rook recorded the part of the adventure that might otherwise sound unheroic: nobody walked onto uncertain ice, and the letters still arrived. The little bell rang brightly that afternoon, sounding no less lovely for having been allowed to wait.",
+              "scene": "Lev receives the safely recovered bell from the riverside caretaker and returns Dasha’s hand chime while Rook records the patient outcome.",
+              "focus": "friend",
+              "setting": "river",
+              "prop": "The bell that waited"
+            }
+          ]
+        },
+        {
+          "id": "house-of-joints",
+          "title": "The house of joints",
+          "theme": "A beautiful structure also needs a keeper",
+          "summary": "Anya’s workshop teaches Rook to see care behind a wooden building.",
+          "pages": [
+            {
+              "text": "Anya showed Rook a timber community hall whose fitted pieces made him think of Lin’s covered bridge. He admired the outline and asked if it could stand forever. Anya lifted her maintenance notebook. “That is not a promise a building makes,” she said. She cared for it with a trained team, records, and regular inspections. Rook asked whether he could watch from the public area.",
+              "scene": "Anya holds a maintenance notebook beside a timber community hall while Rook admires the fitted structure from a clearly marked public viewing area.",
+              "focus": "book",
+              "setting": "snow",
+              "prop": "Anya’s notebook"
+            },
+            {
+              "text": "A repaired window frame did not match the older wood’s color. Rook thought the difference spoiled the picture. Anya explained that the new piece’s date was recorded, so future caretakers could understand what had changed. She invited him to compare the public history with the present building. Beauty could include the visible truth that people had kept working on a place.",
+              "scene": "Rook compares an older frame and a visibly newer recorded repair as Anya points to the community hall’s public history display.",
+              "focus": "tower",
+              "setting": "library",
+              "prop": "A visible repair"
+            },
+            {
+              "text": "The hall’s story evening had to move while a section was inspected. Dasha offered the library’s larger room, and Rook helped deliver the location update. He did not try to squeeze guests around the maintenance barrier for the sake of a prettier setting. At the new room, Anya brought a permitted model showing the fitted structure without teaching visitors to attempt the work themselves.",
+              "scene": "Rook delivers a location update while Anya presents a safe display model in Dasha’s library and the hall’s inspection barrier remains respected.",
+              "focus": "route",
+              "setting": "library",
+              "prop": "The evening moves safely"
+            },
+            {
+              "text": "When the hall reopened, neighbors returned with stories from the temporary room. Anya added the inspection date to the public record. Rook placed her reviewed account beside Lin’s bridge story in his atlas. Similar-looking lines could belong to different skills and histories; he credited each carefully. The hall did not stand outside time. Its people gave it a cared-for place within time.",
+              "scene": "Neighbors return to the checked community hall as Anya updates the public record and Rook keeps two separately credited craft stories in his atlas.",
+              "focus": "book",
+              "setting": "snow",
+              "prop": "Care within time"
+            }
+          ]
+        },
+        {
+          "id": "message-in-whiteout",
+          "title": "The message in the whiteout",
+          "theme": "Do not let urgency erase safe choices",
+          "summary": "A changing forecast calls for a clear delay message and a warm waiting room.",
+          "pages": [
+            {
+              "text": "Pip’s letter for Rook arrived at the station as snow thickened. The station courier planned to bring it to the library, but the transport coordinator suspended the route before he left. Rook could see the station lamp across the square and wanted to fetch it himself. Dasha asked what in the envelope could possibly require an unapproved walk through worsening visibility.",
+              "scene": "Rook looks toward a distant station lamp through thickening snow while Dasha and a transport coordinator review the suspended delivery route inside the library.",
+              "focus": "route",
+              "setting": "snow",
+              "prop": "A letter across the square"
+            },
+            {
+              "text": "The courier confirmed that it was an ordinary personal letter and stored it securely. Rook accepted the delay. Dasha opened a waiting room for travelers whose onward journeys had also paused. Rook helped place clear updates on the board and brought chairs where the coordinator requested them. He could not clear the weather, but he could make an uncertain afternoon a little less lonely.",
+              "scene": "Travelers settle in a warm library waiting room as Rook arranges chairs and Dasha posts clear transport updates, with the letter safely stored at the station.",
+              "focus": "friend",
+              "setting": "library",
+              "prop": "A warm waiting room"
+            },
+            {
+              "text": "A child asked whether everyone would be home by supper. Rook began to say yes, then stopped. “I do not know,” he said. “The coordinator will tell us when the route is ready.” He offered a story while they waited, and the child chose the tale of Bun. Halfway through, the announcement changed. Rook paused the story so people could hear the information that mattered more.",
+              "scene": "Rook pauses Bun’s story in the waiting room as travelers listen to a transport announcement, with the child’s picture of a round loaf on the table.",
+              "focus": "book",
+              "setting": "library",
+              "prop": "A story with room for news"
+            },
+            {
+              "text": "When the coordinator reopened the route, the courier delivered Pip’s letter through the normal service. It contained a drawing of Fern’s new mint bed and no crisis at all. Rook read it twice, glad to receive it safely. He sent Pip a reply about the waiting room and the child’s question. The friendship had survived an extra day without requiring anyone to become a weatherproof hero.",
+              "scene": "Rook finally reads Pip’s mint-garden drawing at a library desk while a courier signs the ordinary delivery record and snow clears beyond the window.",
+              "focus": "book",
+              "setting": "snow",
+              "prop": "The letter arrives safely"
+            }
+          ]
+        },
+        {
+          "id": "night-train-curtain",
+          "title": "The night-train curtain",
+          "theme": "A traveler can choose what to reveal",
+          "summary": "Rook learns to put away his camera on a shared journey.",
+          "pages": [
+            {
+              "text": "Dasha took Rook on a short train trip to an exchange library. He wanted a picture of the carriage full of warm faces against the snow. A passenger drew her curtain and asked not to appear. Rook lowered his camera at once. Another passenger preferred no photograph either. A shared carriage was a place to travel, not automatic permission to become part of his journal.",
+              "scene": "Rook lowers his camera in a night-train carriage as one passenger draws a curtain and Dasha waits beside a closed travel notebook.",
+              "focus": "friend",
+              "setting": "rail",
+              "prop": "A drawn curtain"
+            },
+            {
+              "text": "The crew showed him an empty common area where a picture would not expose other travelers. Rook photographed his own lantern and notebook there, then asked Dasha whether she wanted to appear. She chose a picture of their boots instead. They laughed at the oddly useful portrait. It showed a winter journey without borrowing anyone else’s face or revealing where they had slept.",
+              "scene": "Rook and Dasha photograph their own boots, notebook, and secured lantern in an empty permitted common area of the train.",
+              "focus": "lantern",
+              "setting": "rail",
+              "prop": "A portrait of boots"
+            },
+            {
+              "text": "At the exchange library, the host asked for a travel account. Rook described the journey without naming the passengers or the private stops they had mentioned. Dasha added the public train service information that visitors could verify themselves. Their account had enough detail to be useful and enough restraint to let strangers remain strangers. The host set it beside a map of agreed library visits.",
+              "scene": "Rook and Dasha prepare a restrained travel account at the exchange library, including public service details and leaving fellow passengers unnamed.",
+              "focus": "book",
+              "setting": "library",
+              "prop": "A careful account"
+            },
+            {
+              "text": "On the return train, the passenger who had drawn her curtain greeted them in the corridor. Rook did not treat the greeting as permission to take a picture after all. They shared a pleasant conversation, then went back to their separate seats. He remembered only what she agreed could become a story: sometimes a good journey includes a curtain that nobody tries to open.",
+              "scene": "Rook and Dasha exchange a friendly corridor greeting before returning to separate train seats, with a closed camera and a respectfully drawn curtain nearby.",
+              "focus": "route",
+              "setting": "rail",
+              "prop": "A curtain left closed"
+            }
+          ]
+        },
+        {
+          "id": "tower-after-thaw",
+          "title": "The tower after the thaw",
+          "theme": "Change a plan when conditions change",
+          "summary": "A thawing path closes one outing and opens another kind of celebration.",
+          "pages": [
+            {
+              "text": "A small village had invited Rook to see its wooden lookout tower. Overnight a thaw changed the approach path, and Anya’s team closed the visit pending inspection. Rook had already written an excited introduction in his journal. He hated crossing it out. Dasha handed him a new sheet. “A changed plan can have a true introduction too,” she said. Rook asked what the visitors could safely do instead.",
+              "scene": "Rook revises an eager journal introduction beside a closed path notice while Anya’s team examines the thaw-affected tower approach from a permitted work area.",
+              "focus": "tower",
+              "setting": "snow",
+              "prop": "A changed introduction"
+            },
+            {
+              "text": "The hosts moved their welcome to the community workshop. They brought photographs they had permission to share and stories from the tower keepers. Rook expected everyone to sound disappointed. Instead a neighbor told a funny tale about a crow who stole a picnic napkin there one summer. Another described a autumn visit. Winter was only the season Rook happened to be seeing.",
+              "scene": "Neighbors share permitted tower photographs and summer and autumn stories in a warm community workshop while Rook listens beside Dasha.",
+              "focus": "book",
+              "setting": "library",
+              "prop": "More than one season"
+            },
+            {
+              "text": "Rook asked before adding the accounts to his atlas. Anya included the closure note so future readers would not mistake old pictures for a present invitation. They set the dates beside each image. Rook drew the workshop gathering as the day’s actual scene. His unfinished tower sketch remained unfinished, and the empty space no longer looked like something he needed to hide.",
+              "scene": "Rook dates permitted tower images and adds Anya’s current closure note, then sketches the workshop gathering while leaving his tower-visit page honestly incomplete.",
+              "focus": "book",
+              "setting": "library",
+              "prop": "The day that actually happened"
+            },
+            {
+              "text": "The hosts sent him a later update when their inspection was finished. He was already traveling onward, so he thanked them and saved it for another visit. The workshop story had a complete ending of its own: a welcome kept its warmth after its location changed. Rook mailed Dasha a copy with a tiny crossed-out tower and a very large table of friends.",
+              "scene": "Rook receives a later tower update during his onward journey and mails Dasha a drawing of the completed workshop welcome with a small crossed-out tower sketch.",
+              "focus": "friend",
+              "setting": "rail",
+              "prop": "A welcome that moved"
+            }
+          ]
+        },
+        {
+          "id": "forest-two-choices",
+          "title": "The forest’s two choices",
+          "theme": "The shortest line is not always the usable route",
+          "summary": "Rook and a guide choose a known road with room to change their minds.",
+          "pages": [
+            {
+              "text": "Rook joined a guided visit to a forest reading hut. On the map, a narrow trail looked shorter than the road. He pointed at it, pleased with his discovery. The guide explained that it had not been cleared or assessed for the group that day. The road had a longer line and a checked transport service. Rook put away his clever finger and asked how to join that service.",
+              "scene": "Rook compares a narrow unassessed trail and a longer checked road with a forest guide at a public departure point near the library.",
+              "focus": "route",
+              "setting": "snow",
+              "prop": "A longer checked line"
+            },
+            {
+              "text": "One traveler could not use the planned vehicle, so the coordinator arranged an accessible option and adjusted the meeting time. Rook worried about losing the afternoon. Dasha asked whose afternoon counted. He looked at the traveler and apologized for speaking as if only his schedule existed. While they waited, the guide shared a local forest story she had written, not a tale Rook had assumed she must know.",
+              "scene": "The group waits while a coordinator arranges suitable transport; Rook apologizes to a fellow traveler and listens to the guide’s own forest story.",
+              "focus": "friend",
+              "setting": "library",
+              "prop": "Whose afternoon counts"
+            },
+            {
+              "text": "At the reading hut, the hosts had kept the kettle warm and moved the first story later. Everyone arrived through the arranged service, and nobody had been sent down the unassessed trail to prove adventurousness. Rook contributed the tale of Jun’s kite, with the part about disappointment intact. A child pointed out that the kite and the forest visit had both found a different way to fit the day.",
+              "scene": "Travelers gather safely at the forest reading hut around a kettle while Rook shares Jun’s kite story and a child connects it with their adjusted journey.",
+              "focus": "book",
+              "setting": "library",
+              "prop": "A day that fits everyone"
+            },
+            {
+              "text": "Before returning, the guide checked the current service arrangements again. Rook marked his atlas with the source and date of the route information. He left the narrow trail without a guessed label. The reading hut had been worth reaching, and the shared road had been part of its welcome. A straight pencil line could not measure everything a good journey needed.",
+              "scene": "The guide confirms return transport as Rook dates his verified route notes, leaving the unassessed forest trail without a guessed recommendation.",
+              "focus": "route",
+              "setting": "snow",
+              "prop": "More than distance"
+            }
+          ]
+        },
+        {
+          "id": "stories-by-stove",
+          "title": "Stories by the stove",
+          "theme": "A community holds more than one tradition",
+          "summary": "Rook gathers different original voices without flattening them into one tale.",
+          "pages": [
+            {
+              "text": "For Rook’s final library evening, Dasha invited neighbors to share their own stories. Misha brought a comic account of Bun. Anya brought a workshop memory. A grandmother named Vera told a new tale about a river that misplaced its reflection. Rook began writing One winter story from this country, then looked around the room. There were already three stories, and none spoke for everyone present.",
+              "scene": "Misha, Anya, and Vera share distinct stories in Dasha’s warm library beside an enclosed stove, while Rook revises an overly broad journal heading.",
+              "focus": "friend",
+              "setting": "library",
+              "prop": "More than one voice"
+            },
+            {
+              "text": "He changed the heading to Stories shared at Dasha’s library on a winter evening. Vera approved and chose how her name should appear. One neighbor wanted her account to stay in the room, so Rook left it out of his notes. Another spoke in words Rook did not understand. With permission, Dasha summarized the meaning and marked the summary as her own, not the teller’s exact phrasing.",
+              "scene": "red Rook records chosen credits while Dasha makes a clearly labeled permitted summary and another neighbor’s private account remains unwritten.",
+              "focus": "book",
+              "setting": "library",
+              "prop": "A careful heading"
+            },
+            {
+              "text": "The listeners asked questions without insisting on a single moral. Bun, sitting securely in his basket, preferred the funny ending to the useful one. Rook agreed that a story could be good without becoming advice. He showed the group his accounts from the garden and river worlds, where different friends had taught him the same restraint. Each person chose which page they wanted to hear.",
+              "scene": "Bun listens from a secure basket as neighbors choose among Rook’s garden and river accounts, with several distinct story pages laid open on a table.",
+              "focus": "book",
+              "setting": "library",
+              "prop": "A chosen page"
+            },
+            {
+              "text": "After the last tale, Rook returned his borrowed boots and hat to the loan basket. Dasha wrapped a clean spare scarf for the coastal journey ahead. He asked if it should be returned. “Send a story instead, if you wish,” she said. Rook promised a story with real names only where their owners agreed. The warm library light followed him as far as the snowy gate.",
+              "scene": "Rook returns borrowed winter clothes to Dasha’s loan basket and accepts a spare scarf before leaving the library’s glowing snowy gate.",
+              "focus": "lantern",
+              "setting": "snow",
+              "prop": "A story to send home"
+            }
+          ]
+        },
+        {
+          "id": "ship-beyond-snow",
+          "title": "The ship beyond the snow",
+          "theme": "Carry care across a changing horizon",
+          "summary": "Rook leaves the library world with a new introduction and his old questions.",
+          "pages": [
+            {
+              "text": "The coastal passenger terminal smelled of wet coats and the sea. Dasha had sent a letter for Jo, an archivist in the Wide-Sky Commons. Rook checked his booking and route with the terminal staff, knowing that ships had their own arrangements beyond any map he drew. He put the letter securely beside Mei’s introduction and wondered how many friendships could fit inside one small satchel.",
+              "scene": "Rook confirms his passenger booking at a coastal terminal with Dasha’s letter for Jo secured in his satchel beside the sea-facing window.",
+              "focus": "book",
+              "setting": "sea",
+              "prop": "A letter for Jo"
+            },
+            {
+              "text": "An announcement delayed boarding. Rook sat in the waiting area and wrote the story he had promised Dasha: the listening fox librarian, the loaf who chose to stop, and the travelers whose afternoon mattered together. He kept Vera’s permitted account distinct from Dasha’s summary. The pen ran out just before his own signature. A fellow traveler lent him another after he asked.",
+              "scene": "Rook writes a carefully credited account in the terminal waiting area as a fellow traveler offers a pen during the announced boarding delay.",
+              "focus": "friend",
+              "setting": "sea",
+              "prop": "A borrowed pen"
+            },
+            {
+              "text": "When boarding began, he returned the pen and followed the crew’s directions. The snowbound shore slowly slipped behind the ship. Rook wanted to call the next sea completely new, but it held his earlier memory of Sima’s farewell and the rough first crossing. He secured the lantern in the approved place and let the water connect his stories without pretending the journeys were identical.",
+              "scene": "Rook boards and secures his lantern as instructed while the snowy coast recedes beyond the passenger deck window and earlier travel pages rest closed nearby.",
+              "focus": "lantern",
+              "setting": "sea",
+              "prop": "The shore recedes"
+            },
+            {
+              "text": "At the far harbor, Jo waited at the agreed meeting desk with a notebook and two empty cups. Rook handed over Dasha’s unopened letter and accepted a cup of water. Above the quay stretched a wide sky full of ordinary weather. “What have you brought?” Jo asked. Rook touched the satchel. “Stories with their owners’ names still attached, and enough blank paper for yours.”",
+              "scene": "Jo greets Rook at the agreed far-harbor desk with two cups of water, accepting Dasha’s letter beneath a broad open sky.",
+              "focus": "route",
+              "setting": "harbor",
+              "prop": "Blank paper for the next friend"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "america",
+      "title": "The Wide-Sky Commons",
+      "region": "A fictional world inspired by the United States and its many civic, coastal, and traveling communities",
+      "tagline": "A common space needs room for different voices.",
+      "description": "Jo’s archive, a town meeting, an accessible bridge, a community broadcast, and a coastal airfield give Rook new questions about shared spaces and individual choices. A chapter preserves access to the U.S. Bill of Rights, including the Second Amendment, through verified source reading rather than legal claims or weapon instruction.",
+      "accent": "#6E72AA",
+      "travel": "A passenger ship brings Rook to Jo’s harbor; a plane and a final local ferry return him to Lantern Harbor with invitations from every world.",
+      "chapters": [
+        {
+          "id": "open-bench",
+          "title": "The open bench",
+          "theme": "A welcome does not require a matching past",
+          "summary": "Jo gives Rook a place to begin without assuming where he belongs.",
+          "pages": [
+            {
+              "text": "Jo’s harbor had a long public bench facing the sky. Rook sat at one end with Dasha’s letter, unsure whether the other seats belonged to regular visitors. Jo explained that anyone could sit there during the harbor’s open hours. A neighbor moved her bag to make room. Nobody asked Rook to prove that his story began in the same place as theirs.",
+              "scene": "Jo and Rook sit on a long public harbor bench as a neighbor moves her bag to make space, with the wide sky and passenger ships beyond.",
+              "focus": "friend",
+              "setting": "harbor",
+              "prop": "Room on the bench"
+            },
+            {
+              "text": "The bench needed a repair at its far end, marked by the harbor crew. Rook wanted to remove the barrier because it made the welcome look incomplete. Jo asked him to watch how visitors used the remaining seats and the clear space beside them. Someone arriving with a mobility aid had room to join the conversation. A marked limit could protect a welcome instead of contradicting it.",
+              "scene": "Rook notices a clearly marked repair section at one end of the bench while a traveler with a mobility aid joins the conversation in the open space beside it.",
+              "focus": "route",
+              "setting": "harbor",
+              "prop": "A welcome with a safe limit"
+            },
+            {
+              "text": "Jo took him to the neighborhood archive, where accounts arrived in different languages and forms. Some were written, some recorded, and some shared only during visits. Rook offered his permission notes before his travel pages. Jo read the chosen credits carefully. “You have brought people with their choices intact,” she said. “That is a good way to enter a room full of stories.”",
+              "scene": "Jo reviews Rook’s permission notes and credited travel accounts at an archive table holding written pages and clearly labeled recordings.",
+              "focus": "book",
+              "setting": "library",
+              "prop": "Choices kept intact"
+            },
+            {
+              "text": "Before leaving the archive, Rook added his own short introduction. It named Lantern Harbor as home and described his uncertain beginning in the atlas. He did not pretend that Jo’s town had resolved the mystery. Outside, the repaired part of the bench was still closed. There was plenty of room to sit, ask another question, and enjoy a sky nobody at the table had made.",
+              "scene": "Rook places his own introduction in the archive, then sits with Jo on the usable part of the public bench beneath an open evening sky.",
+              "focus": "rook",
+              "setting": "harbor",
+              "prop": "A place to begin"
+            }
+          ]
+        },
+        {
+          "id": "hall-of-voices",
+          "title": "The hall of voices",
+          "theme": "Disagreement can stay in the room",
+          "summary": "A town meeting makes its welcome practical for people who differ.",
+          "pages": [
+            {
+              "text": "A community hall was planning its new reading corner. Rook arrived with Jo expecting everyone to agree that more lanterns would improve it. A neighbor wanted daylight seating. Another needed a quiet place away from the entrance. A third worried about cost. Rook looked at his lantern sketch and realized that arriving with a favorite answer had made him less ready to hear the actual question.",
+              "scene": "Rook holds a lantern sketch at a community hall meeting as neighbors propose daylight seating, quiet space, and affordable options around a shared table.",
+              "focus": "friend",
+              "setting": "library",
+              "prop": "Different useful questions"
+            },
+            {
+              "text": "The facilitator gave each speaker time and made the proposals visible in large writing. A visitor asked for a spoken summary, which Jo provided without adding her opinion to it. Rook helped count the available chairs and wrote his own suggestion where it belonged, among the others. The meeting had room for disagreement because nobody’s preferred idea was allowed to become the only readable page.",
+              "scene": "A facilitator records different proposals in large writing while Jo gives an accurate spoken summary and Rook adds his own suggestion among the others.",
+              "focus": "book",
+              "setting": "library",
+              "prop": "Every proposal readable"
+            },
+            {
+              "text": "A sharp exchange interrupted the discussion. The facilitator paused it and asked both neighbors to name the practical need behind their words. One wanted light for small print; the other needed rest from noise. They did not suddenly become identical, but the group could work with both needs. Rook moved a trial lamp while the neighbors tested two different corners and reported what they noticed.",
+              "scene": "Two neighbors test different reading corners after a calm pause in the discussion, with Rook moving a trial lamp under the facilitator’s direction.",
+              "focus": "lantern",
+              "setting": "library",
+              "prop": "A trial instead of a victory"
+            },
+            {
+              "text": "The group chose a small pilot arrangement and a date to review it. The budget note included what remained uncertain. Jo archived the decision with the earlier proposals, so future readers could see how it had been reached. Rook’s lantern was part of one corner, not the crown of the hall. He left pleased that a room could become more useful without declaring one neighbor the winner.",
+              "scene": "The hall displays a dated pilot plan and budget note while Jo preserves the proposals and Rook’s lantern lights one of several useful reading corners.",
+              "focus": "book",
+              "setting": "library",
+              "prop": "A decision that can be reviewed"
+            }
+          ]
+        },
+        {
+          "id": "charter-in-light",
+          "title": "The charter in the light",
+          "theme": "Keep the source available for careful discussion",
+          "summary": "Jo repairs an incomplete display of the U.S. Bill of Rights, including the Second Amendment.",
+          "pages": [
+            {
+              "text": "Rain leaked onto a public archive display just before a civic reading day. Jo moved the wet teaching copies to a dry worktable and closed the affected corner. Rook offered his satchel for clean supplies. One visitor worried that losing the display meant losing access to the words themselves. Jo pointed toward the reading room. “We keep verified references as well as this wall.”",
+              "scene": "Jo secures a rain-damaged teaching display in the archive while Rook carries dry supplies and visitors move toward an unaffected reading room.",
+              "focus": "book",
+              "setting": "library",
+              "prop": "The words beyond one wall"
+            },
+            {
+              "text": "The display concerned the United States Bill of Rights. Jo explained that its amendments address several liberties, including speech, religion, assembly, and privacy protections. The Second Amendment concerns keeping and bearing arms. Rook asked which page mattered most. Jo invited him to read the complete source instead of deciding that one familiar phrase could stand in for the whole document.",
+              "scene": "Jo and Rook review labeled teaching pages about the U.S. Bill of Rights at a dry table, with each amendment identified and a primary-source reference beside them.",
+              "focus": "book",
+              "setting": "library",
+              "prop": "Read the complete source"
+            },
+            {
+              "text": "A replacement teaching set accidentally omitted the Second Amendment’s page. A reader noticed the gap before the display reopened. Jo compared the set with the National Archives transcription and restored the missing material. They also checked every other page and its labels. Rook recorded the source address and the correction, grateful that a careful reader had asked a question instead of accepting a handsome but incomplete wall.",
+              "scene": "A reader identifies a missing labeled amendment page as Jo compares the replacement set with a verified National Archives transcription and Rook records the correction.",
+              "focus": "friend",
+              "setting": "library",
+              "prop": "A careful reader’s question"
+            },
+            {
+              "text": "The reopened display gave each amendment its own place and directed readers to the actual document. Visitors discussed differing views without expecting Rook to settle law from a story. Jo kept the correction note visible. Protecting this archive’s welcome meant preserving accurate access, including words people approached from different convictions. Rook left with no weapon and no legal verdict, but with a better habit: check the source before speaking for it.",
+              "scene": "Visitors read and discuss the completed teaching display while Jo leaves a visible correction note and Rook closes his source notebook after checking the full set.",
+              "focus": "book",
+              "setting": "library",
+              "prop": "A complete, checked display"
+            }
+          ]
+        },
+        {
+          "id": "bridge-for-wheels",
+          "title": "The bridge for wheels",
+          "theme": "Ask who can actually use the route",
+          "summary": "Ada and the community test a crossing with the people it is meant to serve.",
+          "pages": [
+            {
+              "text": "Ada’s team was reviewing a pedestrian crossing between the archive and the park. Rook liked the graceful steps in the first drawing. A neighbor named Eli asked where his chair would go. Rook stared at the blank side of the page. Ada thanked Eli for pointing it out before the design advanced. A beautiful connection was unfinished if some of its intended travelers could not use it.",
+              "scene": "Ada, Eli, and Rook review a crossing drawing whose graceful steps leave an unanswered access question beside a park route.",
+              "focus": "bridge",
+              "setting": "river",
+              "prop": "The blank side of the drawing"
+            },
+            {
+              "text": "The qualified design team consulted the people who would use the route and considered their requirements. Rook helped organize the public meeting instead of pretending his atlas made him an engineer. Eli brought his own questions, and parents described stroller journeys. An older neighbor asked about resting places. The drawing grew clearer as more journeys became visible, without treating one traveler as an inconvenience to everyone else.",
+              "scene": "Residents bring varied journey needs to the crossing consultation while Ada’s qualified team records them and Rook arranges a clear public discussion space.",
+              "focus": "friend",
+              "setting": "library",
+              "prop": "More journeys become visible"
+            },
+            {
+              "text": "When the approved crossing was ready, its responsible team ran the required checks and organized a user review. Eli traveled the marked route and identified a sign that pointed too late. Rook moved nothing on his own; he passed the issue to the team, who corrected it. A final photograph was taken only after the participants chose whether to appear. The useful result belonged to their work, not the picture.",
+              "scene": "Eli reviews the checked crossing’s marked route and points out a late sign while Rook relays the issue to Ada’s responsible team.",
+              "focus": "route",
+              "setting": "river",
+              "prop": "A sign in the right place"
+            },
+            {
+              "text": "At the opening, Eli crossed beside Rook and told him about a garden beyond the park. It was a route Rook had never noticed from the stair sketch. Ada kept the review notes for future maintenance, and Jo archived the public story with everyone’s chosen credits. Rook drew the crossing in his atlas with both its shape and the question that had improved it: Who is this for?",
+              "scene": "Eli and Rook cross toward the park garden while Ada preserves review notes and Jo gathers chosen credits for the crossing’s public story.",
+              "focus": "book",
+              "setting": "garden",
+              "prop": "Who is this for?"
+            }
+          ]
+        },
+        {
+          "id": "signal-for-supper",
+          "title": "The signal for supper",
+          "theme": "Clear news can travel without exposing private lives",
+          "summary": "A community broadcast coordinates a meal after a disrupted delivery.",
+          "pages": [
+            {
+              "text": "A delayed delivery left the community kitchen unsure how many suppers it could offer. Bea hosted a local information program and asked Rook to help collect updates. He began with a list of families who might need food. Jo stopped him before it reached the public board. A useful announcement needed serving times and contact options, not a display of people’s private needs.",
+              "scene": "Bea and Rook prepare a community-kitchen announcement while Jo prevents a list of individual family needs from becoming a public notice.",
+              "focus": "book",
+              "setting": "market",
+              "prop": "Useful public information"
+            },
+            {
+              "text": "The kitchen coordinator confirmed the available meals and arranged a private way to ask for delivery. Bea recorded the update in plain language and offered it in written form as well. Rook thought of the flute and flag by the river. A signal should have more than one usable form. He checked that the two versions said the same thing before they were shared.",
+              "scene": "Bea records a plain-language meal update as Rook compares its written version with the kitchen coordinator’s confirmed times and private delivery contact.",
+              "focus": "friend",
+              "setting": "library",
+              "prop": "Two matching versions"
+            },
+            {
+              "text": "A later delivery increased the number of meals, so the coordinator sent another verified update. Bea corrected the program’s notice instead of leaving the first estimate floating around. Rook helped mark the new time on the board. Volunteers received only the details needed for their assigned deliveries and returned their lists afterward. The kitchen stayed busy without turning gratitude or need into a public performance.",
+              "scene": "Rook updates a community notice with the coordinator’s new serving time while volunteers receive limited delivery details and Bea prepares a corrected broadcast.",
+              "focus": "route",
+              "setting": "market",
+              "prop": "A verified update"
+            },
+            {
+              "text": "By evening the shared tables were full, with private deliveries arranged through the agreed contact. Rook ate beside Bea and a volunteer whose name he had permission to include. He wrote a story about checked news and a meal, leaving out the recipients’ addresses. Nobody needed to become the subject of his journal to have supper. The lantern on the table lit people’s plates, not their private records.",
+              "scene": "Neighbors share supper beneath a table lantern while Bea and Rook keep the delivery records closed and the public notice shows only serving information.",
+              "focus": "lantern",
+              "setting": "market",
+              "prop": "A meal without a spotlight"
+            }
+          ]
+        },
+        {
+          "id": "dragon-at-gate",
+          "title": "The dragon at the gate",
+          "theme": "A keeper’s fear should not become everyone’s burden",
+          "summary": "A fictional dragon asks for too much information, and the town chooses a better crossing rule.",
+          "pages": [
+            {
+              "text": "A dragon named Flint kept a town footbridge and feared that visitors might damage it. He began demanding a story of every traveler’s family before opening the gate. Some turned away rather than answer. Rook arrived with Jo and refused to tell another person’s private history. Instead they asked where the bridge’s agreed rules were posted and who was responsible for reviewing them.",
+              "scene": "Flint, a fictional gatekeeping dragon, blocks a town footbridge while Rook and Jo ask for the agreed public rules without revealing travelers’ private histories.",
+              "focus": "dragon",
+              "setting": "river",
+              "prop": "An overreaching gate"
+            },
+            {
+              "text": "The town’s bridge committee met with Flint and the affected travelers in the public hall. Flint admitted that he was afraid of being blamed for any damage. Ada explained the inspection and maintenance responsibilities already in place. Families described how his new demand had stopped ordinary journeys. Rook listened and added his own experience, leaving everyone else to choose what to say for themselves.",
+              "scene": "Flint joins a public bridge review with Ada, the committee, and affected travelers while Rook contributes only his own experience at the meeting table.",
+              "focus": "friend",
+              "setting": "library",
+              "prop": "A public review"
+            },
+            {
+              "text": "The committee restored the agreed access rules and arranged support for the bridge keeper’s real maintenance concerns. Flint apologized without asking people to comfort him first. He removed his private-history book from the gate and left the public safety notices clear. Rook crossed only after the responsible keeper confirmed the bridge was open. A fairer rule did not mean ignoring the crossing’s actual condition.",
+              "scene": "Flint removes his unnecessary private-history ledger from the gate while the committee posts agreed access rules and Ada reviews the actual safety notice.",
+              "focus": "bridge",
+              "setting": "river",
+              "prop": "A fairer public rule"
+            },
+            {
+              "text": "The next week Flint greeted travelers with directions instead of intrusive questions. He reported a damaged rail through the proper process and temporarily closed the crossing when instructed, with a marked alternate route. People could distinguish that needed closure from his earlier demand. Rook wrote no tale of slaying a monster. He wrote about a burden removed, an apology made, and a keeper learning the limits of his job.",
+              "scene": "Flint gives ordinary directions beside the footbridge and a clearly marked maintenance detour while Rook records the corrected rule and apology in his atlas.",
+              "focus": "book",
+              "setting": "river",
+              "prop": "The limits of a keeper’s job"
+            }
+          ]
+        },
+        {
+          "id": "courier-without-labels",
+          "title": "The courier without labels",
+          "theme": "Let people choose how to introduce themselves",
+          "summary": "A public travelers’ board becomes useful without revealing every arrival.",
+          "pages": [
+            {
+              "text": "Pip sent Rook a cheerful postcard addressed through Jo’s archive. Jo suggested a board where visitors could exchange public travel greetings. Rook almost copied the archive’s arrival list to start it. A traveler named Sam asked why a private booking had become a public introduction. Rook stopped immediately. The board needed volunteers, not names borrowed from people who had come for a different purpose.",
+              "scene": "Rook pauses before copying an arrival list onto Jo’s public travelers’ board as Sam questions the difference between a booking and an introduction.",
+              "focus": "book",
+              "setting": "library",
+              "prop": "A voluntary introduction"
+            },
+            {
+              "text": "They emptied the draft board and invited people to contribute what they wished. Sam chose only a first name and a sketch of a tree. Another traveler used a pen name; Jo explained that the board was for friendly accounts, not identity verification. Rook posted Lantern Harbor’s greeting with its existing permission. Some people chose no entry at all and remained just as welcome in the reading room.",
+              "scene": "Visitors place chosen first names, a pen name, sketches, and permitted greetings on the voluntary board while other readers comfortably leave no entry.",
+              "focus": "friend",
+              "setting": "library",
+              "prop": "A tree and a first name"
+            },
+            {
+              "text": "A child wanted to write a home address so strangers could send surprises. Jo helped the child involve their guardian and choose the archive’s moderated public contact instead. Rook did not use the moment to lecture the whole room. They quietly revised the entry together, and the child kept the colorful drawing. Thoughtful care could be a small conversation rather than a story about someone’s mistake.",
+              "scene": "Jo, Rook, a child, and their guardian quietly revise a travelers’ board entry to use the archive’s moderated contact while preserving the child’s colorful drawing.",
+              "focus": "book",
+              "setting": "library",
+              "prop": "A quieter kind of care"
+            },
+            {
+              "text": "By closing time the board held a forest, a harbor, a paper boat, and several inviting questions. Visitors could remove their entries or request corrections. Sam added a short message thanking the library for asking. Rook photographed only the entries whose makers agreed and left the rest out. A board could connect people without pretending that every traveler belonged on it.",
+              "scene": "The voluntary board displays a varied set of agreed drawings and questions while Sam adds a thank-you message and Rook checks photography permissions.",
+              "focus": "route",
+              "setting": "library",
+              "prop": "Connection by choice"
+            }
+          ]
+        },
+        {
+          "id": "paper-plane-promise",
+          "title": "The paper-plane promise",
+          "theme": "A joyful plan still needs honest limits",
+          "summary": "Rosa’s flight and a grounded paper plane carry different kinds of adventure.",
+          "pages": [
+            {
+              "text": "Rosa, a community pilot, invited Rook to a scheduled passenger flight toward Lantern Harbor’s region. A young visitor wanted to go too, imagining a plane as a magic shortcut to anywhere. Rosa explained the actual route, booking, and conditions, then suggested the airfield’s public exhibition with a guardian. Rook remembered his own first schedule. An exciting vehicle still followed a real plan.",
+              "scene": "Rosa and Rook review a scheduled passenger route at an airfield information desk while a child and guardian look toward the public flight exhibition.",
+              "focus": "route",
+              "setting": "sky",
+              "prop": "An actual flight plan"
+            },
+            {
+              "text": "Weather delayed the flight, and Rosa directed passengers to the official updates. Rook stayed in the approved waiting area, telling the child about the library with wheels. Together they made paper planes for the exhibition’s indoor activity space. The child’s plane looped behind a chair. Rook’s landed at his own feet. They laughed without treating paper wings as practice for operating an aircraft.",
+              "scene": "Rook and the child make paper planes in an approved indoor exhibition activity area during an announced delay while Rosa’s official update remains visible nearby.",
+              "focus": "rook",
+              "setting": "library",
+              "prop": "Paper wings in the waiting room"
+            },
+            {
+              "text": "When the flight was cleared through the responsible process, Rook followed the crew’s directions and secured his satchel. He sent the child a permitted postcard through the exhibition’s chosen contact, with a drawing of the very unsuccessful paper plane. Rosa did not promise an impossible view or an instant arrival. She promised the announcements and procedures that belonged to her actual job, then kept them.",
+              "scene": "Rook boards the cleared passenger aircraft under crew direction with his satchel secured, leaving a permitted paper-plane postcard through the exhibition’s agreed contact.",
+              "focus": "book",
+              "setting": "sky",
+              "prop": "The promise that can be kept"
+            },
+            {
+              "text": "From the window, Rook saw clouds like torn pages over the sea. He could not visit every place beneath them or solve every difficulty he imagined there. He opened his own notebook and wrote that down. The flight was carrying him toward home, not making him master of the sky. His next useful act would be a conversation with the people waiting at its end.",
+              "scene": "Rook looks from a passenger window at clouds above the sea and writes an honest note in his notebook, with the atlas kept safely on his lap.",
+              "focus": "rook",
+              "setting": "sky",
+              "prop": "A traveler, not a master"
+            }
+          ]
+        },
+        {
+          "id": "postcards-across-worlds",
+          "title": "Postcards across the worlds",
+          "theme": "Connect stories without making them identical",
+          "summary": "Jo helps Rook assemble an atlas of invitations from all five worlds.",
+          "pages": [
+            {
+              "text": "Before Rook’s departure, Jo spread his permitted travel accounts across the archive table. Garden paths, a river bridge, a snowy library, and the harbor’s two crossings sat side by side. Rook was tempted to draw one grand road joining every detail. Jo asked which parts had been checked as actual routes. He put the pencil down. A connection between stories was not a transport timetable.",
+              "scene": "Jo and Rook arrange credited accounts from garden, river, snow, and harbor worlds at an archive table while an unverified grand route sketch remains unfinished.",
+              "focus": "book",
+              "setting": "library",
+              "prop": "Stories are not timetables"
+            },
+            {
+              "text": "They made an atlas of invitations instead. Each entry named a public contact its owner had chosen, the date of the account, and the questions Rook still carried. Sima sent a new garden note. Mei sent a correction to a workshop opening time. Dasha sent Bun’s very short poem about staying home. Rook left all three in their makers’ distinct voices.",
+              "scene": "Rook and Jo compile dated invitations with chosen public contacts as new messages from Sima, Mei, and Dasha arrive beside Bun’s original short poem.",
+              "focus": "friend",
+              "setting": "library",
+              "prop": "An atlas of invitations"
+            },
+            {
+              "text": "Lumen’s reply arrived last. The travelers’ shelf in Lantern Harbor had become a regular meeting place, and Moss wanted to discuss Lin’s bridge account with its makers’ permission. Rook asked Lin through Mei rather than assuming that one shared page invited every future use. Lin agreed to a conversation and chose what she would bring. The atlas began connecting people by their own decisions.",
+              "scene": "Rook reads Lumen’s reply and sends a careful invitation to Lin through Mei while Jo checks the makers’ permission notes beside the atlas.",
+              "focus": "route",
+              "setting": "library",
+              "prop": "A conversation offered"
+            },
+            {
+              "text": "Jo kept an agreed copy of the atlas and gave Rook the traveling one. Neither claimed to be complete. The last page named the people whose contributions had made it useful, with room for corrections and withdrawals. Rook thanked Jo for helping him resist a magnificent but false line. His worlds belonged together as neighbors in a book, each with its own doors, weather, work, and stories.",
+              "scene": "Jo and Rook exchange agreed copies of the invitation atlas, opening the final credits and corrections page beneath the archive’s warm reading light.",
+              "focus": "book",
+              "setting": "library",
+              "prop": "Neighbors in a book"
+            }
+          ]
+        },
+        {
+          "id": "book-left-open",
+          "title": "The book left open",
+          "theme": "A homecoming can make room for the next traveler",
+          "summary": "Rook returns the atlas to its shelf and leaves its next page for someone else.",
+          "pages": [
+            {
+              "text": "A local ferry carried Rook from the airfield’s coastal town toward Lantern Harbor. Pip waited at the quay with a lantern he had learned to maintain himself. Moss had a list of questions, and Fern brought mint from the garden. Rook laughed before he could explain a thing. The harbor had kept living while he traveled, and its friends had stories he had not been there to see.",
+              "scene": "Pip, Moss, and Fern greet Rook beside a local ferry at Lantern Harbor, carrying a cared-for lantern, questions, and mint from the garden.",
+              "focus": "friend",
+              "setting": "harbor",
+              "prop": "Home kept living"
+            },
+            {
+              "text": "At the library, Lumen opened the old atlas beside its traveling copy. Rook found the tiny ink feather still in the margin. It no longer felt like a command to fill every blank. He placed the agreed invitations in the pocket and returned the first loose leaf. “I brought more questions than I took,” he said. Lumen moved a chair closer. “Then we had better make room.”",
+              "scene": "Lumen and Rook open the original atlas beside the travel copy, with the ink feather and a pocket of agreed invitations visible on the library table.",
+              "focus": "book",
+              "setting": "library",
+              "prop": "More questions come home"
+            },
+            {
+              "text": "The friends chose one chapter to hear that evening. Rook read Sima’s courtyard welcome and stopped at its ending, letting the room decide whether to discuss it or hear another. Pip asked about the courier; Fern asked about the water. Moss waited for Lin’s promised conversation instead of copying a bridge from the picture. The story had opened a door without pulling everyone through it.",
+              "scene": "Friends listen to one chosen chapter at the library as Rook stops at its ending, with separate questions about the courtyard, water, and bridge set on the table.",
+              "focus": "book",
+              "setting": "library",
+              "prop": "The reader chooses what follows"
+            },
+            {
+              "text": "After closing, Rook left the atlas open beside a blank notebook on the travelers’ shelf. Outside, a new visitor studied the quay sign, unsure of the next turn. Rook took his ordinary brass lantern and asked whether directions would help. The visitor said yes. He walked alongside, not ahead. Behind them the book kept its open page, ready for a story neither of them yet knew.",
+              "scene": "Rook carries his ordinary lantern alongside a new visitor at the harbor while the library’s travelers’ shelf holds an open atlas and a blank notebook behind them.",
+              "focus": "lantern",
+              "setting": "harbor",
+              "prop": "A page for the next traveler"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
