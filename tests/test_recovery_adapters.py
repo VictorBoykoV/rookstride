@@ -51,6 +51,11 @@ class NativeRecoveryAdaptersTests(unittest.TestCase):
   mapping={'runtime/pki/ca.crt':'ca.pem','runtime/pki/private/ca.key':'ca.key','runtime/pki/issued/server.crt':'server.pem','runtime/pki/private/server.key':'server.key','runtime/pki/issued/bridge.crt':'bridge.pem','runtime/pki/private/bridge.key':'bridge.key','runtime/pki/crl.pem':'crl.pem','runtime/pki/index.txt':'index.txt','runtime/pki/index.txt.attr':'index.txt.attr','runtime/pki/serial':'serial'}
   data={name:(root/source).read_bytes() for name,source in mapping.items()};data['runtime/tls-crypt.key']=('-----BEGIN OpenVPN Static key V1-----\n'+('a'*32+'\n')*16+'-----END OpenVPN Static key V1-----\n').encode()
   return data
+ def revoke_openvpn_bridge(self,data):
+  root=Path(self.temp.name)
+  for command in (['ca','-config','ca.conf','-revoke','bridge.pem'],['ca','-config','ca.conf','-gencrl','-out','crl.pem']):
+   subprocess.run(['openssl',*command],cwd=root,check=True,capture_output=True)
+  return {**data,'runtime/pki/crl.pem':(root/'crl.pem').read_bytes(),'runtime/pki/index.txt':(root/'index.txt').read_bytes()}
  def test_openvpn_identity_keeps_authority_accounts_and_native_profile_without_invented_files(self):
   value=state('openvpn');data=self.openvpn_identity();identity=encoded(data)
   self.assertNotIn('runtime/pki/crlnumber',identity);adapters.validate(value,'exit',identity)
@@ -63,11 +68,55 @@ class NativeRecoveryAdaptersTests(unittest.TestCase):
   bad=copy.deepcopy(data);bad['runtime/pki/issued/bridge.crt']=data['runtime/pki/issued/server.crt'];bad['runtime/pki/private/bridge.key']=data['runtime/pki/private/server.key']
   with self.assertRaisesRegex(ValueError,'account identity'):adapters.validate(value,'exit',encoded(bad))
  def test_enabled_openvpn_user_with_revoked_certificate_cannot_pass_rehearsal(self):
-  value=state('openvpn');data=self.openvpn_identity();root=Path(self.temp.name)
-  for command in (['ca','-config','ca.conf','-revoke','bridge.pem'],['ca','-config','ca.conf','-gencrl','-out','crl.pem']):subprocess.run(['openssl',*command],cwd=root,check=True,capture_output=True)
-  data['runtime/pki/crl.pem']=(root/'crl.pem').read_bytes();data['runtime/pki/index.txt']=(root/'index.txt').read_bytes()
+  value=state('openvpn');data=self.revoke_openvpn_bridge(self.openvpn_identity())
   with self.assertRaisesRegex(ValueError,'did not verify'):adapters.validate(value,'exit',encoded(data))
   value['users'][0]['enabled']=False;adapters.validate(value,'exit',encoded(data))
+ def test_awg_openvpn_pair_rehearsal_keeps_owner_profile_and_rejects_stale_bridge(self):
+  value=archive()
+  entry,exit_node=(value['nodes'][role] for role in ('entry','exit'))
+  for role,node in value['nodes'].items():
+   node.update(schema=2,adapter=node['state']['protocol']+'-identity-v1',identity_files={})
+   node['plan']=pair.plan({**node['plan'],'role':role,'exit_protocol':'openvpn','tunnel_port':1194})
+  exit_state=state('openvpn')
+  exit_state['port']=1194
+  identity=encoded(self.openvpn_identity())
+  exit_node.update(state=exit_state,adapter='openvpn-identity-v1',identity_files=identity,
+                   initial_user={'login':'bridge','password':'fixture-password-123'})
+  bridge=adapters.client_profile(exit_state,'bridge',identity)
+  entry['transport'].update(protocol='openvpn',profile={'format':'openvpn','content':bridge})
+  plans={role:copy.deepcopy(node['plan']) for role,node in value['nodes'].items()}
+  original=copy.deepcopy(value)
+  owner=adapters.client_profile(entry['state'],'phone',entry['identity_files'])
+  with patch.object(native_pair.runtime,'save') as save,patch.object(native_pair,'command') as command:
+   self.assertEqual(recovery.validate_pair(value,plans),{
+    'readiness_schema':2,'verified':True,'deployment':value['deployment'],
+    'entry_users':1,'exit_users':1,'live_restore_tested':False,
+   })
+   replacement=adapters.restore_state(entry,{**entry['state'],'instance':'c'*32})
+   self.assertEqual(replacement['instance'],'c'*32)
+   self.assertEqual(adapters.client_profile(replacement,'phone',entry['identity_files']),owner)
+   self.assertEqual(value,original)
+
+   # A separately issued certificate for the same name is valid on the exit
+   # in isolation. Its private key and certificate differ from the saved bridge.
+   other=self.openvpn_identity()
+   self.assertNotEqual(other['runtime/pki/issued/bridge.crt'],base64.b64decode(identity['runtime/pki/issued/bridge.crt']['content']))
+   changed=copy.deepcopy(original)
+   changed['nodes']['exit']['identity_files']=encoded(other)
+   recovery.validate(changed['nodes']['exit'])
+   with self.assertRaisesRegex(ValueError,'bridge credentials'):
+    recovery.validate_pair(changed,plans)
+
+   changed['nodes']['entry']['transport']['profile']['content']=adapters.client_profile(exit_state,'bridge',encoded(other))
+   self.assertTrue(recovery.validate_pair(changed,plans)['verified'])
+   changed['nodes']['exit']['identity_files']=encoded(self.revoke_openvpn_bridge(other))
+   with self.assertRaisesRegex(ValueError,'did not verify'):
+    recovery.validate_pair(changed,plans)
+   changed['nodes']['exit']['state']['users'][0]['enabled']=False
+   with self.assertRaisesRegex(ValueError,'enabled exit bridge'):
+    recovery.validate_pair(changed,plans)
+   save.assert_not_called()
+   command.assert_not_called()
  def test_real_worker_exports_retain_account_and_ca(self):
   for protocol in adapters.WORKERS:
    with self.subTest(protocol=protocol):

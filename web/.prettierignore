@@ -1,0 +1,4 @@
+node_modules/
+.next/
+.private/
+src/app/(payload)/admin/importMap.js

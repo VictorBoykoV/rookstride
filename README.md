@@ -6,12 +6,12 @@
 
 <p align="center">
   Deploy your VPN. Share access. Keep moving.<br>
-  An independent Android app for your own VPS, powered by strongSwan and AdGuard Home.
+  An open-source VPN manager for Ubuntu servers you rent.
 </p>
 
 <p align="center">
-  <a href="https://github.com/VictorBoykoV/rookstride/releases/tag/v0.2.0-alpha4"><img src="https://img.shields.io/badge/release-0.2.0--alpha4-ee3038?style=flat-square" alt="0.2.0-alpha4"></a>
-  <img src="https://img.shields.io/badge/languages-EN%20RU%20FA%20AR%20ZH--Hans-7058d9?style=flat-square" alt="Five interface languages">
+  <a href="https://github.com/VictorBoykoV/rookstride/releases/tag/v0.4.0-alpha6"><img src="https://img.shields.io/badge/prerelease-0.4.0--alpha6-ee3038?style=flat-square" alt="0.4.0-alpha6 prerelease"></a>
+  <img src="https://img.shields.io/badge/interface-English-7058d9?style=flat-square" alt="English interface">
   <img src="https://img.shields.io/badge/Android-8%2B-3ddc84?style=flat-square" alt="Android 8 and later">
   <img src="https://img.shields.io/badge/server-Ubuntu%2024.04-e95420?style=flat-square" alt="Ubuntu 24.04">
   <img src="https://img.shields.io/badge/VPN-strongSwan%20IKEv2-7058d9?style=flat-square" alt="strongSwan IKEv2">
@@ -30,23 +30,29 @@
   <a href="SECURITY.md">Security</a>
 </p>
 
-An Android app for deploying and managing a personal IKEv2 VPN on your own VPS. The admin can connect in Rookstride; invited users import a profile into the official strongSwan Android app. Country and hosting provider independent.
+Rookstride sets up and manages a VPN on your own Ubuntu VPS. The Android app
+includes ten connection methods, account management and experimental Double VPN.
+See the [device guide](https://rookstride.com/connect) for supported clients and
+profile formats. The [website](https://rookstride.com) also offers a browser demo,
+an invitation-only VPN workspace and [assistant setup](https://rookstride.com/agents).
 
-**Early alpha.** Download the signed APK and complete corresponding source from [Releases](https://github.com/VictorBoykoV/rookstride/releases). See [test status](docs/TESTING.md) before relying on a release. Requires Android 8 or later and a fresh Ubuntu 24.04 VPS for installation. A phone Internet connection and reachable SSH are required; the app bundles its installation code, while the VPS downloads Ubuntu packages and AdGuard Home.
+**Android 0.4.0-alpha6.** Download the [signed universal APK](https://github.com/VictorBoykoV/rookstride/releases/download/v0.4.0-alpha6/rookstride-0.4.0-alpha6-universal.apk).
+The [release includes checksums, ARM64 and corresponding source](https://github.com/VictorBoykoV/rookstride/releases/tag/v0.4.0-alpha6).
+The app requires Android 8 or later. Check [Ubuntu compatibility](docs/UBUNTU-COMPATIBILITY.md)
+for your chosen method and [test status](docs/TESTING.md) for the evidence available.
 
 > [!IMPORTANT]
 > **Earlier 0.1.0-alpha2 passed three consecutive reset → reinstall → real VPN cycles** on Android 8, 9 and 16, including recovery after a VPS reboot. Physical-device, network-handoff and sustained-load checks remain. The [test report](docs/TESTING.md) records the exact scope and the two regression fixes.
 
-## Private administration and OS replacement development
+## Server administration and recovery
 
-The 0.4 development branch introduces a task-focused management interface,
+The 0.4 prerelease includes a management interface,
 reviewed SSH identity replacement, scoped administrator invitations, owner
 recovery, coordinated paired rebuilds and AWG pair member replacement. See
 [maintenance and recovery](docs/MAINTENANCE-AND-RECOVERY.md) for the exact supported
-adapters and retained-data boundaries. This is private development; it does not
-change the historical public release badge or announce general availability.
+adapters and retained-data boundaries.
 
-The private app can manage servers with a VPN off or with another VPN client
+The app can manage servers with a VPN off or with another VPN client
 active, subject to that client's Android routing/lockdown rules. Double VPN
 checks direct SSH access and can automatically use the reachable node as a
 verified relay. Manually chosen VPN passwords use advisory strength warnings;
@@ -57,22 +63,19 @@ generated passwords remain15 random characters.
 their system disk with a reviewed Ubuntu22.04/24.04/26.04 image. The app verifies
 the planned replacement SSH identity and the returned OS before completion.
 Unsupported layouts still need provider rebuild tools. Future Ubuntu eligibility
-is not deployment certification. See [server management](docs/SERVER-MANAGEMENT.md).
-This describes private development, not the historical public download below.
+varies by provider and disk layout. See [server management](docs/SERVER-MANAGEMENT.md).
 
-## Private reusable sign-in development
+## Reusable sign-in
 
-The current private app adds ordinary address/username/password sign-in for
+The app offers address, username and password sign-in for
 IKEv2, OpenVPN, Hysteria 2, TrustTunnel and NaïveProxy, including supported
 Double VPN entries. New app installations prefer this mode; existing private
 profiles keep their explicit migration boundary. See [reusable sign-in](docs/REUSABLE-SIGN-IN.md)
 for server trust, IP/domain setup, sharing, reinstall continuity and limitations.
-This section describes development functionality, not a public release.
 
-## Private alpha18 development
+## Connection methods
 
-The private development edition adds six embedded connection choices to the
-original AWG 3.1, IKEv2, OpenVPN and VLESS TCP/REALITY methods:
+The app includes AmneziaWG 3.1, IKEv2, OpenVPN and VLESS TCP/REALITY as well as
 **VLESS XHTTP/REALITY, Hysteria 2, Outline/WSS, Shadowsocks/v2ray-plugin WSS,
 TrustTunnel HTTP/2 and NaïveProxy HTTP/2.** Single-server and Double VPN setup
 use the phone's pinned SSH connection. No extra client app is required.
@@ -85,17 +88,14 @@ to the new methods. Setup normally asks for the server address and administrator
 password, with `root` as the default administrator. This development edition is
 English; the earlier translation catalogs remain retained.
 
-The release badge and older walkthrough below describe the historical public
-alpha4. They do not announce publication of the private alpha18 candidate.
-
 ## What it does
 
 | Capability | In the app |
 |---|---|
-| Two servers | Experimental IKEv2 → AWG 3.1 recipe; two fresh Ubuntu nodes, exit-side DNS, staged activation. |
-| Deploy | Install strongSwan IKEv2/EAP-MSCHAPv2, AdGuard Home and Unbound over pinned SSH. |
-| Connect | Use the embedded strongSwan engine on the administrator's phone. |
-| Share | Export password-free `.sswan` profiles for other Android users. |
+| Two servers | Experimental Double VPN with a separate entry and exit, exit-side DNS and staged activation. |
+| Deploy | Install a selected protocol and filtering over pinned SSH. |
+| Connect | Use the app's embedded clients on Android. |
+| Share | Export a compatible profile or reusable sign-in, depending on the method. |
 | Manage access | Organize gateways, people, shared accounts and separate device logins. |
 | See connections | Inspect sessions, observed endpoints, VPN addresses and counters; disconnect or revoke access. |
 | Track usage | Optionally collect daily and monthly estimates with a small local SQLite service. |
@@ -181,13 +181,15 @@ The optional collector samples every 30 seconds and consumes disconnect/rekey ev
 
 The original Android administration code and branding are GPL-3.0-or-later. The embedded strongSwan code retains its upstream GPL-2.0-or-later notices; the combined app is distributed under GPL version 3 or later. Gateway scripts retain their MIT license. No affiliation with strongSwan, AdGuard, OnePlus or Amnezia is implied.
 
-## Two-server gateway · experimental
+## Two-server gateway – experimental
 
-[**Download 0.2.0-alpha4 APK**](https://github.com/VictorBoykoV/rookstride/releases/download/v0.2.0-alpha4/rookstride-0.2.0-alpha4.apk) · [Complete corresponding source and checksums](https://github.com/VictorBoykoV/rookstride/releases/tag/v0.2.0-alpha4)
+Use the [Android pair guide](docs/PAIR-MODE.md) or the standalone
+[two-server Ubuntu scripts](https://github.com/VictorBoykoV/two-hop-vpn-gateway).
 
 The earlier provider-tested `0.2.0-alpha2` recipe is: **IKEv2 entry → AmneziaWG 3.1 exit** with independently pinned SSH, detached recoverable jobs, exit-side AdGuard Home and staged activation. Choose **Add a two-server gateway** in the experimental app. Reviewed **Reset both VPN nodes** and **Swap entry and exit** controls allow fresh redeployment from the phone. An optional native SSH relay manages one node through the other while retaining both physical-node identity pins.
 
-The private **0.3.0-alpha16** candidate adds a guided **Double VPN** setup with IKEv2 or AmneziaWG as the phone-facing protocol and AmneziaWG, IKEv2, OpenVPN or Xray VLESS/REALITY between servers. See [route contracts and limitations](docs/PAIR-MODE.md); new route acceptance is separate from earlier provider evidence. Both nodes must be free of existing VPN setups. This does not change the public download above.
+The Android setup offers ten methods on each leg. Use dedicated test servers
+and check the evidence for the route you choose. [Route contracts and test scope](docs/PAIR-MODE.md)
 
 Read the [pair guide](docs/PAIR-MODE.md), [real-provider test report](docs/PAIR-PROVIDER-TESTING.md) and [historical local alpha1 tests](docs/PAIR-TESTING.md). The same signed 0.2.0-alpha2 APK configured both real-provider nodes repeatedly, with clean phone resets and reversed roles. Embedded Android and isolated provider-side Linux clients verified IKE/EAP, exit IPv4, filtering and bridge-outage blocking/recovery. The report identifies each client network: one route from the test computer lost UDP replies, while its provider-side client passed. Android 16's coordinator/VPN passed; its emulator's screen navigation remains incomplete because of System UI startup hangs.
 
@@ -244,13 +246,19 @@ deterministic voice events rather than an audible voice performance.
 
 ## Languages and future platforms
 
-The everyday Android controls and offline beginner guide use five shared catalogs: English, Russian, Persian, Arabic and Simplified Chinese. The app follows a supported phone language by default; change it using **Language**. Android 13+ also exposes the supported languages in system app settings. Technical inputs, host fingerprints and typed `DELETE VPN` / `DELETE PAIR` confirmations retain their original characters.
+The current Android setup and management interface is in English. The source
+retains the earlier English, Russian, Persian, Arabic and Simplified Chinese
+translation catalogs. Technical inputs and typed confirmations are unchanged
+within a translation.
 
 The local website includes translated home, setup, architecture, routes, download, open source, Rook, worlds overview and plans pages. Distinct URLs and an explicit language menu avoid forced language redirects. The fifty stories, images and detailed engineering documents remain English and are labeled accordingly.
 
 [Translation workflow](i18n/README.md) · [Platform and language research](docs/PLATFORMS-AND-LANGUAGES.md) · [Localization test scope](docs/LOCALIZATION-TESTING.md)
 
-Browser planning/native handoff, a private web connector, iPhone and Telegram/Weixin assistants are researched backlog items, not available clients. A public web page cannot use ordinary raw SSH, and the public website never asks for root credentials. Each future platform has its own permissions, credential boundary and real-device gates.
+The [browser workspace and local operator connector](web/README.md) provide
+additional setup and management routes. The [public assistant endpoint](https://rookstride.com/mcp)
+offers read-only examples. The invitation-only workspace has a separate origin
+for approved gateway administration.
 
 <p><img src="brand/screenshots/alpha4/persian-user-values.png" width="240" alt="Signed alpha4 Persian user view with the original fictional Phone labels"><img src="brand/screenshots/alpha4/persian-installation-fixture.png" width="240" alt="Signed alpha4 Persian installation status with an explicitly fictional transport fixture"></p>
 

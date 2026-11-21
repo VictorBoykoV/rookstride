@@ -1,0 +1,29 @@
+Assistant marks: third-party trademarks, separate from original Rookstride artwork.
+
+Codex: listing icon supplied by OpenAI for the Visual Studio Marketplace
+extension openai.chatgpt, version 26.51111.21308, retrieved 2026-11-19.
+Listing: https://marketplace.visualstudio.com/items?itemName=openai.chatgpt
+Source PNG SHA-256: 2ce1c57dd3b312417106a487815ab1235bddce17e1fa9b32a2f048bd71ee25d3
+Local lossless WebP: /brand/assistants/codex.webp
+
+Claude Code: listing icon supplied by Anthropic for the Visual Studio Marketplace
+extension anthropic.claude-code, version 2.1.328, retrieved 2026-11-19.
+Listing: https://marketplace.visualstudio.com/items?itemName=anthropic.claude-code
+Source PNG SHA-256: 7241633e5a39b44a947c7b9a821637f30d6e86716e7a8c847136d91f9c3f6ba1
+Local lossless WebP: /brand/assistants/claude-code.webp
+
+Cursor: unmodified General Logos/Cube/SVG/CUBE_2D_LIGHT.svg from the
+brand kit linked by https://cursor.com/brand on2026-11-17.
+Bundle: https://ptht05hbb1ssoooe.public.blob.vercel-storage.com/assets/brand/cursor-brand-assets.zip
+Local: /brand/assistants/cursor-cube.svg
+
+Gemini CLI: unmodified monochrome light-background icon from
+https://geminicli.com/brandassets/gemini-cli-icon_monotone_on_light.svg
+Kit: https://geminicli.com/brand-kit/ on2026-11-17.
+Guidelines: https://geminicli.com/brandassets/gemini_cli_logo_icon_guidelines.pdf
+Local: /brand/assistants/gemini-cli.svg
+
+These marks identify the corresponding third-party assistant choices. They do not
+state affiliation or endorsement. They retain their owners' trademark rights and
+are not relicensed as original GPL Rookstride artwork. Preserve supplied artwork,
+proportions and clear space.

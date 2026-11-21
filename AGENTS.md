@@ -7,3 +7,7 @@ Preserve the gateway's fresh-install guard. Existing gateways may be inspected; 
 Traffic totals are operational estimates, not billing records. Retain separate counters per daemon boot and CHILD_SA generation, record gaps, and test reconnects, rekeys, restarts, and shared logins. Never infer a physical device from its public IP address.
 
 The Android app embeds strongSwan and must preserve source availability and upstream license notices. Mark release gates honestly: an APK build, emulator UI test, Linux integration test, and real-device VPN test are different checks.
+
+Use en dashes in website prose and title separators. Prefix the home title with
+Rookstride and use a descriptive page title followed by “– Rookstride” elsewhere.
+Use the canonical Rook head for the browser tab icon.

@@ -86,6 +86,11 @@ fi
 packages=(ca-certificates curl dnsutils iproute2 iptables \
   libcharon-extra-plugins libstrongswan-extra-plugins openssl strongswan-starter strongswan-pki)
 [[ $PAIR_ENTRY == YES ]] || packages+=(python3-bcrypt unbound)
+# Ubuntu ships charon's local VICI plugin with the swanctl CLI. The browser
+# enables it for targeted guest revocation while retaining the starter daemon.
+if [[ ${ROOKSTRIDE_REQUIRE_SESSION_CONTROL:-NO} == YES ]]; then
+  packages+=(strongswan-swanctl)
+fi
 # Select the ipsec.conf daemon explicitly: newer Ubuntu metapackages default to
 # swanctl. Only a previously owned inactive daemon may be switched, after a
 # bounded package-plan and unchanged-configuration check.

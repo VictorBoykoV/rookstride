@@ -42,6 +42,21 @@ class RouteMethods(unittest.TestCase):
    if protocol=='naive':
     self.assertEqual('transport',config['outbounds'][0]['detour']);self.assertEqual('endpoint-only',config['outbounds'][1]['type']);self.assertEqual('@private-protector',config['outbounds'][1]['protect_path'])
    else:self.assertEqual('@private-protector',config['outbounds'][0]['protect_path'])
+ def test_naive_verification_can_use_only_the_advertised_endpoint_after_loopback(self):
+  self.authority()
+  self.state['users']=[dict(login='phone',password='fixture-password')]
+  with patch.object(routes,'worker',return_value=Path('/verified/rook-routes')), \
+       patch.object(routes.socket,'socket') as reserve, \
+       patch.object(routes.socket,'create_connection'), \
+       patch.object(routes.subprocess,'Popen') as start, \
+       patch.object(routes,'client_config',wraps=routes.client_config) as configure, \
+       patch.object(runtime,'socks_https_ready',side_effect=[False,False,True]):
+   reserve.return_value.__enter__.return_value.getsockname.return_value=('127.0.0.1',19000)
+   start.return_value.poll.return_value=None
+   routes.verify_connection(self.state,runtime)
+   self.assertEqual([call.kwargs['server'] for call in configure.call_args_list],
+                    ['127.0.0.1',self.state['server']])
+   self.assertEqual(2,start.return_value.terminate.call_count)
  def test_manual_passwords_survive_export_validation_and_encrypted_outbound_creation(self):
   certificate=self.authority()
   for protocol in ('hysteria2','trusttunnel','naive'):

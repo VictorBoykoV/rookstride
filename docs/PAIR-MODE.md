@@ -1,16 +1,18 @@
-# Two-server VPN · experimental private candidate
+# Two-server VPN – experimental
 
-The private **0.3.0-alpha17** candidate adds a guided **Double VPN** setup.
-This is also called a two-hop VPN or a two-server gateway. The public release and
-older provider reports describe earlier builds; they do not certify new routes.
+The Android **0.4.0-alpha6** prerelease offers guided **Double VPN** setup.
+You can select any of the ten Android methods for either leg. Live connection
+and recovery results apply to the exact paths and builds in the test reports.
+The standalone [two-server Ubuntu scripts](https://github.com/VictorBoykoV/two-hop-vpn-gateway)
+document their own setup and scope.
 
-| Phone → first VPS | First → exit VPS | Implementation |
-| --- | --- | --- |
-| IKEv2 | AmneziaWG 3.1 | Established kernel-module recipe |
-| AmneziaWG 3.1, OpenVPN or Xray | AmneziaWG 3.1 | Pinned userspace bridge |
-| Any of the four entry protocols | IKEv2 | Pinned certificate + Linux IPsec/XFRM bridge |
-| Any of the four entry protocols | OpenVPN | Certificate-authenticated TCP bridge |
-| Any of the four entry protocols | Xray VLESS / REALITY | Pinned Xray TUN + authenticated TCP/UDP proxy |
+| Exit method | First VPS → exit VPS |
+| --- | --- |
+| AmneziaWG 3.1 | Pinned userspace tunnel |
+| IKEv2 | Pinned certificate and Linux IPsec |
+| OpenVPN | Certificate-authenticated TCP tunnel |
+| VLESS TCP or XHTTP with REALITY | Authenticated Xray TCP/UDP proxy |
+| Hysteria 2, Outline, Shadowsocks, TrustTunnel or NaïveProxy | Authenticated transport using the selected method |
 
 The exit protocol is the encrypted connection **between servers**. Your phone
 uses only the first protocol inside Rookstride. OpenVPN entry uses a dedicated routed client pool without standalone NAT. Xray
@@ -163,7 +165,7 @@ Root SSH access does not grant a hosting-provider account API. See
 ## Sources and evidence
 
 The original MIT backend is pinned under [twohop](../twohop/SOURCE.json); its
-[standalone repository](https://github.com/VictorBoykoV/beget-vpn-gateway) retains
+[standalone repository](https://github.com/VictorBoykoV/two-hop-vpn-gateway) retains
 the CLI workflow. New coordinators/adapters are part of Rookstride's GPL source.
 Native dependency identities are in [engine pins](../android/engines/pins.json).
 [AmneziaWG documentation](https://docs.amnezia.org/documentation/amnezia-wg/)

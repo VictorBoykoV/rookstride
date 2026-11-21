@@ -312,23 +312,46 @@ def validate_profile(profile):
 
 def verify_connection(state,runtime):
     user=next(u for u in state['users'] if u.get('enabled',True));export=json.loads(profile(state,user,runtime)['content'])
-    with socket.socket() as reserve:reserve.bind(('127.0.0.1',0));listen=reserve.getsockname()[1]
-    # Test the local listener without requiring the VPS to hairpin through its
-    # public address. The expected TLS identity remains the advertised name.
-    config=client_config(export,listen,server='127.0.0.1')
-    with tempfile.TemporaryDirectory(prefix='verify-',dir=runtime.directory(state['protocol'])) as folder:
-        path=Path(folder)/'client.json';runtime.atomic(path,json.dumps(config));process=subprocess.Popen([str(worker()),'run',str(path)],stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL)
+    # Start at the local listener so routed public addresses do not require
+    # hairpin support. Cronet can insist on dialing the advertised endpoint
+    # rather than the loopback address. Its fallback keeps the same TLS trust
+    # and permits only that exact endpoint through the transport guard.
+    endpoints = ["127.0.0.1"]
+    if state["protocol"] == "naive" and export["server"] != endpoints[0]:
+        endpoints.append(export["server"])
+    binary = worker()
+    for endpoint in endpoints:
+        with socket.socket() as reserve:
+            reserve.bind(("127.0.0.1", 0))
+            listen = reserve.getsockname()[1]
         try:
-            deadline=time.monotonic()+10
-            while process.poll() is None and time.monotonic()<deadline:
+            config = client_config(export, listen, server=endpoint)
+        except socket.gaierror:
+            continue
+        with tempfile.TemporaryDirectory(prefix="verify-", dir=runtime.directory(state["protocol"])) as folder:
+            path = Path(folder) / "client.json"
+            runtime.atomic(path, json.dumps(config))
+            process = subprocess.Popen([str(binary), "run", str(path)], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+            try:
+                deadline = time.monotonic() + 10
+                while process.poll() is None and time.monotonic() < deadline:
+                    try:
+                        with socket.create_connection(("127.0.0.1", listen), timeout=.3):
+                            break
+                    except OSError:
+                        time.sleep(.1)
+                if process.poll() is None and any(
+                    runtime.socks_https_ready(listen, host) for host in ("example.com", "www.cloudflare.com")
+                ):
+                    return
+            finally:
+                process.terminate()
                 try:
-                    with socket.create_connection(('127.0.0.1',listen),timeout=.3):break
-                except OSError:time.sleep(.1)
-            if process.poll() is not None or not any(runtime.socks_https_ready(listen,host) for host in ('example.com','www.cloudflare.com')):raise ValueError('The encrypted VPN connection check failed on the server')
-        finally:
-            process.terminate()
-            try:process.wait(timeout=6)
-            except subprocess.TimeoutExpired:process.kill();process.wait(timeout=3)
+                    process.wait(timeout=6)
+                except subprocess.TimeoutExpired:
+                    process.kill()
+                    process.wait(timeout=3)
+    raise ValueError("The encrypted VPN connection check failed on the server")
 
 def statistics(state):
     endpoint='http://127.0.0.1:'+str(state['trust_metrics_port'])+'/clients' if state['protocol']=='trusttunnel' else 'http://127.0.0.1:'+str(state['metrics_port'])+'/statistics'

@@ -270,7 +270,7 @@ def structured(path, base):
         entries.append({"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":items})
     return '\n'.join('<script type="application/ld+json">'+json.dumps(e,ensure_ascii=False).replace('</','<\\/')+'</script>' for e in entries)
 
-def build(base,output=None):
+def build(base,output=None,*,export_legacy_android=False):
     dist=(output or ROOT/'dist').resolve()
     dist.mkdir(parents=True,exist_ok=True)
     if dist!=(ROOT/'dist').resolve():
@@ -439,7 +439,10 @@ Rook: Original red bird mascot. Fictional Lantern Harbor, brass lantern, folded 
 ''')
     with (dist/'llms.txt').open('a') as file:file.write('\n## Rook’s expanded original fiction\n- [Five worlds, fifty complete chapters]('+pre+'/worlds/): Each chapter has four narrated story pages and a static readable URL. Optional device narration advances pages within a chapter and stops at its end.\n- [Rook’s origin and values]('+pre+'/rook/): The original project ambassador, his story and guiding values.\n- [Cultural source notes]('+pre+'/worlds/notes/): Real-world inspiration separated from original fiction.\n- [Story source manifest]('+pre+'/data/worlds.json): Complete world, chapter, scene and narration data.\n')
     with (dist/'llms.txt').open('a') as file:file.write('\n## Languages and platform plans\n- Main pages: English, Russian (/ru/), Persian (/fa/), Arabic (/ar/), Simplified Chinese (/zh-hans/). Detailed engineering documents and story narratives remain English.\n- [Platform plans]('+pre+'/plans/): Browser planner, private connector, iPhone and messenger research. No public SSH credential form.\n- [Machine-readable languages]('+pre+'/data/languages.json)\n- [Platform backlog]('+pre+'/data/platform-plans.json)\n')
-    build_offline(dist)
+    # This historical export restores retired Android story assets. Website
+    # development must not change the accepted native application implicitly.
+    if export_legacy_android:
+        build_offline(dist)
     print(f'Built {len(PAGES)+len(additions)+len(language_urls)} static pages in {dist}')
     print('Publication metadata: '+base if base else 'Local edition: no invented canonical domain or public sitemap.')
 
@@ -447,10 +450,12 @@ if __name__=='__main__':
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--base-url',default='',help='Actual public HTTPS origin, when publishing; omit for local preview.')
     parser.add_argument('--output',type=Path,help='Optional separate destination for a publication build.')
+    parser.add_argument('--export-legacy-android',action='store_true',
+                        help='Explicit historical story export; not part of ordinary website builds.')
     args=parser.parse_args()
     base=args.base_url.rstrip('/')
     if base:
         u=urlparse(base)
         if u.scheme!='https' or not u.netloc or u.path or u.query or u.fragment or u.username:
             parser.error('--base-url must be an HTTPS origin, without a path, credentials, query or fragment.')
-    build(base,args.output)
+    build(base,args.output,export_legacy_android=args.export_legacy_android)

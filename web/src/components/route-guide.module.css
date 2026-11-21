@@ -1,0 +1,303 @@
+.map {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-auto-rows: 1fr;
+  margin-block-start: 0.65rem;
+}
+.wideLines,
+.compactLines {
+  position: absolute;
+  inset: 0;
+  inline-size: 100%;
+  block-size: 100%;
+  pointer-events: none;
+  z-index: -1;
+}
+.compactLines {
+  display: none;
+}
+.map path[data-leg] {
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  vector-effect: non-scaling-stroke;
+}
+.direct,
+.intended {
+  stroke: var(--muted);
+  stroke-width: 1.5;
+}
+.intended {
+  stroke-dasharray: 1 4;
+}
+.vpn {
+  stroke: var(--signal);
+  stroke-width: 2.5;
+}
+.firstArrow,
+.bridgeArrow,
+.lastArrow {
+  --angle: 45deg;
+  position: absolute;
+  pointer-events: none;
+  width: 7px;
+  height: 7px;
+  border: solid var(--signal);
+  border-width: 2px 2px 0 0;
+  transform: translate(-50%, -50%) rotate(var(--angle));
+  z-index: -1;
+}
+.firstArrow {
+  left: 25%;
+  top: 25%;
+}
+.bridgeArrow {
+  left: 50%;
+  top: 25%;
+}
+.lastArrow {
+  left: 87.5%;
+  top: 50%;
+  --angle: 135deg;
+}
+
+.node {
+  place-self: center;
+  display: grid;
+  justify-items: center;
+  align-content: center;
+  gap: 0.15rem;
+  min-inline-size: 44px;
+  min-block-size: 44px;
+  max-inline-size: calc(100% - 1rem);
+  margin-block: 0.625rem;
+  padding: 0.45rem 0.55rem;
+  border: 1px solid var(--border);
+  border-radius: 0.55rem;
+  background: var(--surface);
+  color: var(--text);
+  font: inherit;
+  text-align: center;
+  cursor: pointer;
+  overflow-wrap: anywhere;
+}
+.node[aria-hidden="true"] {
+  visibility: hidden;
+  pointer-events: none;
+}
+.node[data-slot="device"] {
+  grid-area: 2 / 1;
+}
+.node[data-slot="entry"] {
+  grid-area: 1 / 2;
+}
+.node[data-slot="exit"] {
+  grid-area: 1 / 3;
+}
+.node[data-slot="filter"] {
+  grid-area: 2 / 2 / 3 / 4;
+}
+.node[data-slot="internet"] {
+  grid-area: 2 / 4;
+}
+.node[data-slot="single"] {
+  grid-area: 1 / 2 / 2 / 4;
+}
+.node:focus-visible {
+  outline: 2px solid var(--action);
+  outline-offset: 2px;
+}
+@media (hover: hover) {
+  .node:hover {
+    border-color: var(--action);
+  }
+}
+.glyph {
+  width: 1.6rem;
+  height: 1.6rem;
+  margin-block-end: 0.1rem;
+}
+.name {
+  font-size: 0.9375rem;
+  line-height: 1.2;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+}
+.note {
+  font-size: 0.8125rem;
+  line-height: 1.3;
+  font-weight: 400;
+  color: var(--muted);
+}
+.activitySymbols {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  color: var(--muted);
+}
+.activitySymbols svg {
+  width: 0.95rem;
+  height: 0.95rem;
+}
+@container route-map (max-width: 33rem) {
+  .map {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .wideLines {
+    display: none;
+  }
+  .compactLines {
+    display: block;
+  }
+  .node[data-slot="device"] {
+    grid-area: 1 / 1;
+  }
+  .node[data-slot="filter"] {
+    grid-area: 2 / 1;
+  }
+  .node[data-slot="internet"] {
+    grid-area: 3 / 1;
+  }
+  .node[data-slot="entry"] {
+    grid-area: 1 / 2;
+  }
+  .node[data-slot="exit"] {
+    grid-area: 3 / 2;
+  }
+  .node[data-slot="single"] {
+    grid-area: 2 / 2;
+  }
+  .firstArrow {
+    left: 50%;
+    top: 16.667%;
+  }
+  .bridgeArrow {
+    left: 75%;
+    top: 50%;
+    --angle: 135deg;
+  }
+  .lastArrow {
+    left: 50%;
+    top: 83.333%;
+    --angle: 225deg;
+  }
+}
+.pointDialog {
+  inline-size: min(27rem, calc(100% - 2rem));
+  max-block-size: calc(100dvh - 2rem);
+  overflow-y: auto;
+  padding: 0;
+  margin: auto;
+  background: var(--surface);
+  color: var(--text);
+  border: 1px solid var(--control-border);
+  border-radius: 14px;
+  box-shadow: 0 16px 64px rgb(20 20 24 / 18%);
+}
+.pointDialog::backdrop {
+  background: rgb(20 20 24 / 35%);
+}
+.pointCard {
+  padding: 1rem 1.25rem 1.4rem;
+}
+.pointHeading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.pointHeading h3 {
+  margin: 0;
+  font-size: 1.4rem;
+  line-height: 1.2;
+}
+.pointCard > p {
+  margin: 0.6rem 0 0;
+  color: var(--muted);
+  line-height: 1.55;
+}
+.close {
+  min-block-size: 44px;
+  min-inline-size: 44px;
+  border: 0;
+  border-radius: 5px;
+  background: transparent;
+  color: var(--action);
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+.devicePicker {
+  border: 0;
+  padding: 0;
+  margin: 1.3rem 0 0;
+  min-inline-size: 0;
+}
+.devicePicker legend {
+  padding: 0;
+  margin-block-end: 0.55rem;
+  font-weight: 600;
+}
+.devicePicker > div {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.4rem;
+}
+.devicePicker label {
+  position: relative;
+  display: grid;
+  gap: 0.45rem;
+  justify-items: center;
+  min-block-size: 48px;
+  padding: 0.75rem 0.25rem;
+  border-radius: 7px;
+  border: 1px solid var(--control-border);
+  overflow-wrap: anywhere;
+  font-size: 0.875rem;
+  cursor: pointer;
+}
+.devicePicker input {
+  position: absolute;
+  inset-inline-start: 0.3rem;
+  inset-block-start: 0.3rem;
+  margin: 0;
+  accent-color: var(--action);
+}
+.devicePicker label:has(input:checked) {
+  border-color: var(--action);
+  box-shadow: inset 0 0 0 1px var(--action);
+  font-weight: 650;
+}
+.devicePicker label:has(input:focus-visible),
+.close:focus-visible {
+  outline: 2px solid var(--text);
+  outline-offset: 2px;
+}
+.activities {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem 1.15rem;
+  margin: 1rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+.activities li {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+.activities svg {
+  flex-shrink: 0;
+  color: var(--action);
+}
+@media (max-width: 600px) {
+  .pointDialog {
+    margin: auto auto 0;
+    inline-size: 100%;
+    max-inline-size: 100%;
+    border-radius: 14px 14px 0 0;
+    padding-block-end: env(safe-area-inset-bottom);
+  }
+}

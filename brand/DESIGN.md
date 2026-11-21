@@ -125,3 +125,41 @@ continues to share the .sswan profile. These refinements do not restyle the webs
 On a keyboard viewport below240dp, collapse native dialog titles temporarily and
 restore them on keyboard close. Allocate the scroll body from visible chrome;
 keep native actions outside it so password eye targets remain reachable.
+
+## Website schematics and product purpose — 17 November 2026
+
+Keep web explanations within the established brand: white, cool canvas #F5F6F8,
+charcoal #141418, muted #5C616B, signal red #EE3038 and readable action red #BF2637.
+Use a contrasting burgundy focus ring. Neutral control boundaries need adequate
+contrast; decorative borders can be lighter. Red identifies Rook, primary action,
+current choice and the whole selected illustrated route. Do not introduce green
+success roads/servers, blue people, vendor-colored assistant tiles or a separate
+pastel scenery palette. Availability is a textual state, not a successful check.
+Keep established wardrobe/prop colors in original character artwork.
+
+Keep explanatory labels in normal layout cells and connectors in separate gaps
+for each responsive layout (HTML flow replaces the earlier compressed SVG). A direct-access example ends at a stop symbol. The selected
+route connects device → rented entry → optional rented exit → open internet.
+Learning/conversation/creation labels live within the destination. Invited people
+belong to the source device group. Rook is a helper, never a network hop. Shape, labels and line
+style distinguish roles; color alone is insufficient. A depicted route does not
+prove real reachability or universal circumvention.
+
+The product motto is **Your gateway. Keep moving.** Its expanded tagline is
+**Deploy your VPN. Share access. Keep moving.** Rook's separate character line,
+**A good route leaves the next traveler a choice**, supports that purpose rather
+than replacing it. The destination should communicate a more open internet and
+people's opportunities to learn, create and connect, alongside concrete ownership
+and accessible setup. These web rules do not recolor or rebuild native assets.
+
+
+## Connected web illustration — 17 November2026 refinement
+
+Decision088 supersedes the visible HTML card sequence: retain a single cohesive
+original route drawing, using separately planned wide/compact SVG geometry and
+accessible text equivalents. Labels must remain outside the paths in each layout.
+The whole selected route is red; rented servers, direct filtering stop and open
+internet remain clear. Opportunity icons sit with the endpoint, not across lines.
+Preserve Rook's single supervisor role above the scene. Phone-based VPN ownership,
+sharing and ongoing control are the provider proposition; free software and paid
+infrastructure have separate roles. No native/story asset changes follow.

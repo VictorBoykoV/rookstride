@@ -1,0 +1,325 @@
+.workspace {
+  max-inline-size: 48rem;
+  padding: clamp(1.125rem, 3vw, 2.5rem);
+  margin-inline: auto;
+}
+.workspace h2 {
+  margin-bottom: 0.75rem;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+}
+
+.workspace fieldset {
+  min-width: 0;
+  padding: 0;
+  margin: 1.25rem 0 0;
+  border: 0;
+}
+
+.workspace label {
+  display: grid;
+  align-content: start;
+  gap: 0.375rem;
+  margin: 0 0 1rem;
+  font-size: 0.9375rem;
+  font-weight: 550;
+}
+
+.workspace input:not([type="checkbox"]),
+.workspace select {
+  width: 100%;
+  min-width: 0;
+  padding: 0.625rem 0.75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--text);
+  background: var(--surface);
+  border: 1px solid var(--control-border);
+  border-radius: 5px;
+}
+
+.workspace legend {
+  margin-block-end: 0.75rem;
+  font-weight: 650;
+}
+
+.workspace :disabled {
+  cursor: wait;
+}
+
+.addressRow {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(6rem, 0.7fr);
+  gap: 1rem;
+}
+
+.workspace label.check {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  margin: 1.25rem 0;
+}
+
+.check input {
+  flex: 0 0 auto;
+  width: 1.125rem;
+  height: 1.125rem;
+  margin: 0.1875rem 0 0;
+  accent-color: var(--action);
+}
+
+.plan {
+  padding-left: 1.375rem;
+  color: var(--muted);
+}
+
+.plan li + li {
+  margin-top: 0.375rem;
+}
+
+.hint {
+  margin-top: -0.65rem;
+  font-size: 0.875rem;
+}
+
+.savedServerHint {
+  margin-block-start: 0.75rem;
+  font-size: 0.875rem;
+}
+
+.notice {
+  margin: 1rem 0 0;
+  font-weight: 500;
+  color: var(--text);
+}
+
+.notice:empty {
+  margin: 0;
+}
+
+.fingerprint {
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 400px) {
+  .addressRow {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0;
+  }
+}
+
+.guests {
+  border-block: 1px solid var(--border);
+  padding-block: 1.25rem;
+  margin-block: 1.5rem;
+}
+.guests h3,
+.guests h4 {
+  margin: 0 0 0.5rem;
+}
+.owner {
+  margin-block: 1rem 0.5rem;
+}
+.owner strong {
+  margin-left: 0.375rem;
+}
+.guestList {
+  list-style: none;
+  padding: 0;
+}
+.guestList li {
+  padding-block: 0.75rem;
+  border-top: 1px solid var(--border);
+  overflow-wrap: anywhere;
+}
+.guestList li > strong {
+  display: block;
+  margin-bottom: 0.375rem;
+}
+.guestList li p {
+  margin-bottom: 0.5rem;
+}
+.guests form {
+  margin-block: 1rem 0;
+}
+
+.pairManagementPanel {
+  margin-block-start: 1.25rem;
+  border-block-start: 1px solid var(--border);
+  padding-block-start: 0.75rem;
+}
+
+.pairManagementPanel summary {
+  width: fit-content;
+  font-weight: 650;
+  cursor: pointer;
+}
+
+.pairManagementPanel summary + p,
+.pairManagementPanel form + form {
+  margin-block-start: 1rem;
+}
+
+.workspace .archiveDrop,
+.archiveCodeOutput {
+  margin-block: 1rem;
+  border: 1px solid var(--border);
+  border-radius: 0.5rem;
+  padding: 1rem;
+}
+
+.workspace .archiveDrop:has(input[type="file"]) {
+  border-style: dashed;
+}
+
+.archiveCode {
+  inline-size: 100%;
+  min-inline-size: 0;
+  padding: 0.625rem 0.75rem;
+  border: 1px solid var(--control-border);
+  border-radius: 5px;
+  background: var(--surface);
+  color: var(--text);
+  font: 0.875rem monospace;
+  resize: vertical;
+}
+
+.rebuildReceipt {
+  margin-block: 1.25rem;
+  padding-block: 1rem;
+  border-block: 1px solid var(--border);
+  overflow-wrap: anywhere;
+}
+
+.rebuildRows {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
+  gap: 1rem;
+}
+
+.rebuildRows section {
+  padding: 0.875rem;
+  border: 1px solid var(--border);
+  border-radius: 0.5rem;
+}
+
+.rebuildRows dl {
+  margin-block: 0.75rem 0;
+}
+
+.rebuildRows dt {
+  color: var(--muted);
+}
+
+.rebuildRows dd {
+  margin: 0 0 0.75rem;
+}
+
+.practiceGuide {
+  display: grid;
+  justify-items: start;
+  gap: 0.75rem;
+  padding-block-end: 1.25rem;
+  margin-block-end: 1.5rem;
+  border-block-end: 1px solid var(--border);
+}
+
+.practiceGuide p {
+  margin: 0;
+}
+
+.practiceToolbar {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.625rem;
+  inline-size: 100%;
+}
+
+.practiceToolbar nav {
+  margin: 0;
+}
+
+.practiceGuide button[aria-current="step"] {
+  color: var(--action);
+  background: var(--canvas);
+  border-color: var(--action);
+}
+
+.vpnDetails {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.375rem 1.5rem;
+  margin-block: 0.75rem;
+}
+
+.vpnDetails dt {
+  color: var(--muted);
+  font-size: 0.875rem;
+}
+
+.vpnDetails dd {
+  margin: 0;
+  font-weight: 600;
+}
+
+.manageLinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.375rem;
+  margin-block: 0.75rem;
+}
+
+.scenario {
+  margin-block: 0.25rem 1rem;
+}
+
+.scenario summary {
+  color: var(--muted);
+  cursor: pointer;
+}
+
+.scenario label {
+  margin-block-start: 0.5rem;
+}
+
+.practiceStatus {
+  display: flex;
+  align-items: center;
+  gap: clamp(0.625rem, 3vw, 1.25rem);
+  margin-block-end: 0.75rem;
+}
+
+.practiceStatus p {
+  margin: 0;
+}
+
+.stageRook {
+  flex: 0 0 clamp(4rem, 15vw, 6rem);
+  line-height: 0;
+}
+
+.stageRook svg {
+  inline-size: 100%;
+  block-size: auto;
+}
+
+.practiceProgress ol {
+  padding-inline-start: 1.75rem;
+  margin-block: 0.5rem 1rem;
+}
+
+.practiceProgress li {
+  padding-block: 0.375rem;
+}
+
+.practiceProgress li span {
+  display: inline-block;
+  margin-inline-start: 0.625rem;
+  color: var(--muted);
+  font-size: 0.875rem;
+}
+
+.practiceProgress li[aria-current="step"] {
+  font-weight: 600;
+}

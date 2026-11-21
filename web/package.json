@@ -1,0 +1,36 @@
+{
+  "name": "rookstride-local-web",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=24.22.1"
+  },
+  "scripts": {
+    "dev": "node scripts/run.mjs dev",
+    "build": "node scripts/run.mjs build",
+    "start": "node scripts/run.mjs start",
+    "check": "node scripts/run.mjs check"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "1.32.2",
+    "@payloadcms/db-sqlite": "3.93.0",
+    "@payloadcms/next": "3.93.0",
+    "geist": "1.9.2",
+    "graphql": "16.11.0",
+    "next": "16.4.6",
+    "payload": "3.93.0",
+    "react": "19.3.1",
+    "react-dom": "19.3.1",
+    "sharp": "0.35.5",
+    "ssh2": "1.17.0",
+    "zod": "4.6.7"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "prettier": "^3.0.0",
+    "typescript": "^5.9.0"
+  }
+}
