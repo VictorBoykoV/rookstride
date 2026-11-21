@@ -1,0 +1,11 @@
+FROM alpine:3.23@sha256:85fe1e81d6758c208f3e1eed4338a1997e19d4be002d4dd32d3100c9a8c010a0 AS trust
+FROM ubuntu:24.04@sha256:68ee22004a9109b44973313b02ff7b1de250f1de0f5ecb628d73f579aaff33ac
+# Bootstrap HTTPS with the pinned image's public roots, then install Ubuntu's roots.
+COPY --from=trust /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/ca-certificates.crt
+RUN sed -i 's|http://|https://|g' /etc/apt/sources.list.d/ubuntu.sources && apt-get -o APT::Update::Error-Mode=any -o Acquire::Retries=3 update && DEBIAN_FRONTEND=noninteractive apt-get -o Acquire::Retries=3 install -y --no-install-recommends openvpn easy-rsa iptables iproute2 ca-certificates python3 && rm -rf /var/lib/apt/lists/*
+ENV EASYRSA_BATCH=1 EASYRSA_PKI=/vpn/pki
+COPY openvpn-admin.sh /usr/local/bin/rookstride-openvpn-admin
+COPY access.py /usr/local/lib/rookstride/access.py
+COPY openvpn-password.py /usr/local/bin/rookstride-openvpn-password
+RUN chmod 755 /usr/local/bin/rookstride-openvpn-password
+ENTRYPOINT ["/bin/bash", "/usr/local/bin/rookstride-openvpn-admin"]

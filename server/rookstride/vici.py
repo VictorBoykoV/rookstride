@@ -163,6 +163,10 @@ def connections(messages, include_deleted=False):
         for name, ike in message.items():
             if not isinstance(ike, dict):
                 continue
+            # A Double VPN entry may share its daemon with this outbound bridge.
+            # Its server-to-server counters are not an additional phone/user.
+            if name=='route-exit':
+                continue
             user = ike.get("remote-eap-id") or ike.get("remote-id", "unknown")
             children = []
             for child in ike.get("child-sas", {}).values():

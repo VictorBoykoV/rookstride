@@ -1,11 +1,12 @@
 #!/usr/bin/env python3
-"""Detached, inspectable installation jobs for fresh Ubuntu 24.04 gateways."""
+"""Detached, inspectable installation jobs for eligible Ubuntu gateways."""
 import contextlib
 import fcntl
 import json
 import os
 import re
 import shutil
+import signal
 import subprocess
 import sys
 import time
@@ -14,6 +15,9 @@ from pathlib import Path
 
 sys.path.insert(0,str(Path(__file__).resolve().parent))
 from rookstride.admin import atomic, username, label
+from rookstride.passwords import validate as vpn_password
+sys.path.insert(0,str(Path(__file__).resolve().parent.parent/'gateway/scripts'))
+from ubuntu_support import require as require_ubuntu
 
 ROOT=Path('/opt/rookstride')
 STATE=Path('/var/lib/rookstride')
@@ -27,9 +31,7 @@ def state(job,value):
 
 def validate(req,enroll=False):
     if os.geteuid()!=0: raise ValueError('Root or passwordless sudo access is required')
-    osrelease=dict(l.split('=',1) for l in Path('/etc/os-release').read_text().splitlines() if '=' in l)
-    if osrelease.get('ID','').strip('"')!='ubuntu' or osrelease.get('VERSION_ID','').strip('"')!='24.04':
-        raise ValueError('This version supports Ubuntu 24.04')
+    require_ubuntu()
     if enroll:
         if not Path('/etc/single-vps-vpn/network.env').exists():
             raise ValueError('Existing server is not a supported single VPS gateway')
@@ -38,11 +40,14 @@ def validate(req,enroll=False):
             if Path(p).exists(): raise ValueError('Existing VPN/DNS configuration detected. Use enrollment for a compatible gateway or a fresh VPS.')
         username(req.get('login'))
         password=req.get('password','')
-        if not isinstance(password,str) or not 16<=len(password)<=512 or any(c in password for c in ('\n','\r','\0')):
-            raise ValueError('VPN password must be a single line of 16–512 characters')
+        vpn_password(password)
         address=req.get('server','')
         if not isinstance(address,str) or not re.fullmatch(r'[A-Za-z0-9.-]{1,253}',address):
             raise ValueError('Invalid VPN server address')
+    import ike_public
+    if req.get('access_mode','auto') not in ('auto','profile','password'):raise ValueError('Invalid sign-in mode')
+    if req.get('access_mode')=='password' and not ike_public.eligible(req.get('server')):raise ValueError('Username/password sign-in needs a public IP address or domain')
+    ike_public.aliases(req.get('aliases',[]))
     if not isinstance(req.get('statistics',False),bool): raise ValueError('Invalid statistics option')
 
 
@@ -53,7 +58,7 @@ def start(req):
     JOBS.mkdir(mode=0o700,parents=True,exist_ok=True)
     with Path('/run/rookstride-management.lock').open('a') as lock:
         fcntl.flock(lock,fcntl.LOCK_EX)
-        for p in JOBS.glob('*/status.json'):
+        for p in list(JOBS.glob('*/status.json'))+list(Path('/var/lib/rookstride-single/jobs').glob('*/status.json')):
             previous=json.loads(p.read_text())
             if previous.get('state') in ('starting','running'):
                 raise ValueError('An installation is already recorded as running. Check its status first.')
@@ -84,6 +89,44 @@ def start(req):
         return {'job':ident,'state':'starting'}
 
 
+def public_certificate(log,aliases=()):
+    command=['/usr/bin/python3',str(ROOT/'server/ike_public.py'),'enable']
+    import ike_public
+    for name in ike_public.aliases(list(aliases)):command+=['--alias',name]
+    worker=subprocess.Popen(command,stdout=log,stderr=log,start_new_session=True)
+    try:
+        code=worker.wait(timeout=1200)
+        if code:raise subprocess.CalledProcessError(code,command)
+    except subprocess.TimeoutExpired:
+        # Stop the entire ACME process group: no child may activate an identity
+        # after the deployment has already reported its fallback result.
+        with contextlib.suppress(ProcessLookupError):os.killpg(worker.pid,signal.SIGTERM)
+        try:worker.wait(timeout=15)
+        except subprocess.TimeoutExpired:
+            with contextlib.suppress(ProcessLookupError):os.killpg(worker.pid,signal.SIGKILL)
+            worker.wait(timeout=15)
+        raise
+
+
+def verify_gateway(source,log):
+    """Keep diagnostic output private and return only known, actionable errors."""
+    try:
+        result=subprocess.run(['bash',str(source/'gateway/scripts/verify.sh')],
+                              capture_output=True,text=True,timeout=360)
+    except subprocess.TimeoutExpired as exc:
+        raise ValueError('VPN and DNS checks timed out. The existing setup is retained; check this server before installing again.') from exc
+    log.write(result.stdout or '')
+    log.write(result.stderr or '')
+    log.flush()
+    if result.returncode:
+        output=(result.stdout or '')+'\n'+(result.stderr or '')
+        if 'The ad-block list did not finish downloading.' in output or 'The ad-block list could not be downloaded.' in output:
+            raise ValueError('Ad blocking did not finish downloading its list. The VPN setup is retained. Check the server’s internet access before trying again.')
+        if 'AdGuard did not finish loading its block list.' in output:
+            raise ValueError('Ad blocking could not finish loading. The VPN setup is retained. Check the server’s DNS and internet access before trying again.')
+        raise ValueError('The VPN or DNS checks did not pass. The existing setup is retained; inspect this server before installing again.')
+
+
 def execute(ident):
     if not re.fullmatch(r'[a-f0-9]{32}',ident): raise ValueError('Invalid job identifier')
     job=JOBS/ident
@@ -94,16 +137,34 @@ def execute(ident):
             if req['mode']=='install':
                 state(job,{'state':'running','phase':'Installing StrongSwan, DNS and AdGuard Home','job':ident})
                 atomic(job/'vpn-password',req['password']+'\n')
-                env=dict(os.environ,SERVER_ID=req['server'],VPN_USER=req['login'],VPN_PASSWORD_FILE=str(job/'vpn-password'))
+                env=dict(os.environ,SERVER_ID=req['server'],VPN_USER=req['login'],VPN_PASSWORD_FILE=str(job/'vpn-password'),ROOKSTRIDE_VERIFY_SEPARATELY='YES')
                 subprocess.run(['bash',str(source/'gateway/scripts/install.sh')],env=env,
                                stdout=log,stderr=log,check=True,timeout=1800)
+                state(job,{'state':'running','phase':'Checking VPN, DNS and ad blocking','job':ident})
+                verify_gateway(source,log)
             state(job,{'state':'running','phase':'Adding management and monitoring','job':ident})
             env=dict(os.environ,ROOKSTRIDE_STATS=str(req.get('statistics',False)).lower())
             subprocess.run(['bash',str(source/'server/enroll.sh')],env=env,
                            stdout=log,stderr=log,check=True,timeout=600)
-        state(job,{'state':'complete','phase':'Gateway ready','job':ident})
-    except (OSError,subprocess.SubprocessError) as exc:
-        state(job,{'state':'failed','phase':'Installation stopped. Open the installation guide before retrying.',
+        public_ready=False
+        if req.get('access_mode')=='password' or req['mode']=='install' and req.get('access_mode')!='profile':
+            import ike_public
+            if ike_public.eligible(req['server']):
+                state(job,{'state':'running','phase':'Preparing trusted IKEv2 sign-in','job':ident})
+                with (job/'install.log').open('a') as log:
+                    try:
+                        names=list(req.get('aliases') or [])
+                        if req['mode']=='enroll':
+                            try:__import__('ipaddress').ip_address(req['server'])
+                            except ValueError:names.append(req['server'])
+                        public_certificate(log,names)
+                        public_ready=True
+                    except (OSError,subprocess.SubprocessError):
+                        if req.get('access_mode')=='password':raise ValueError('Trusted sign-in could not be prepared. Check the domain DNS and that HTTP port 80 is reachable, then use Enable username/password sign-in to retry. Your VPN users are retained.')
+                        log.write('Public certificate unavailable. Secure pinned-profile sign-in remains available.\n')
+        state(job,{'state':'complete','phase':'Gateway ready','job':ident,'public_certificate':public_ready})
+    except (ValueError,OSError,subprocess.SubprocessError) as exc:
+        state(job,{'state':'failed','phase':str(exc) if isinstance(exc,ValueError) else 'Installation stopped. Open the installation guide before retrying.',
                    'error':type(exc).__name__,'job':ident})
     finally:
         (job/'config.json').unlink(missing_ok=True)

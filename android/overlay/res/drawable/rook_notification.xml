@@ -1,0 +1,14 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="180"
+    android:viewportHeight="180">
+  <!-- Existing Rook silhouette and pupil geometry, framed for a status icon.
+       The pupil is an alpha cutout; Android supplies the notification tint. -->
+  <group android:translateX="-37" android:translateY="-28">
+    <path
+        android:fillColor="#FFFFFFFF"
+        android:fillType="evenOdd"
+        android:pathData="M68 78 C55 89 46 109 46 130 C46 168 73 193 110 193 C145 193 170 169 175 145 L209 129 L174 114 C168 91 147 72 122 67 C107 47 89 40 65 43 L79 69 C75 72 71 75 68 78 Z M144 108 A9 13 0 1 1 126 108 A9 13 0 1 1 144 108 Z"/>
+  </group>
+</vector>

@@ -53,6 +53,9 @@ def removal_path(path):
 def inspect(req):
     expected=pair.plan(req)
     m=pair.load_manifest()
+    if m and m.get('version')==2:
+        import native_pair_reset
+        return native_pair_reset.inspect(req)
     if not m:
         pair.fresh(expected)
         return {'role':expected['role'],'pair':expected['pair'],'already_fresh':True,'files':[],
@@ -93,12 +96,20 @@ def inspect(req):
 def review_path(req):return REVIEWS/(pair.ident(req['pair'])+'-'+pair.plan(req)['role']+'.json')
 
 def plan(req):
+    m=pair.load_manifest()
+    if m and m.get('version')==2:
+        import native_pair_reset
+        return native_pair_reset.plan(req)
     value=inspect(req);pair.protected(REVIEWS);REVIEWS.mkdir(mode=0o700,parents=True,exist_ok=True)
     record={'token':secrets.token_hex(32),'expires':time.time()+300,'plan':value}
     pair.atomic(review_path(req),json.dumps(record))
     return dict(value,token=record['token'],expires=record['expires'])
 
 def apply(req):
+    m=pair.load_manifest()
+    if m and m.get('version')==2:
+        import native_pair_reset
+        return native_pair_reset.apply(req)
     from reset import execute
     if req.get('confirmation')!='DELETE PAIR':raise ValueError('Type DELETE PAIR to confirm removal')
     record=json.loads(review_path(req).read_text());token=req.get('token')

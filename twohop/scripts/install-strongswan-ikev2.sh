@@ -64,8 +64,8 @@ else
   read -r -s -p "Initial VPN password: " VPN_PASSWORD
   printf '\n'
 fi
-[[ ${#VPN_PASSWORD} -ge 12 ]] || { echo "Use a VPN password of at least 12 characters." >&2; exit 1; }
-[[ "$VPN_PASSWORD" != *$'\n'* && "$VPN_PASSWORD" != *$'\r'* ]] || { echo "The password must be one line." >&2; exit 1; }
+password_validator="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)/server/rookstride/passwords.py"
+printf %s "$VPN_PASSWORD" | python3 "$password_validator"
 
 UPLINK_INTERFACE="${UPLINK_INTERFACE:-$(ip -4 route show default | awk 'NR==1 {print $5}')}"
 [[ "$UPLINK_INTERFACE" =~ ^[A-Za-z0-9_.:-]{1,15}$ ]] || { echo "Invalid uplink interface." >&2; exit 1; }

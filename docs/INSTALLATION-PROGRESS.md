@@ -6,16 +6,25 @@ Rookstride keeps the chosen recipe visible throughout setup:
 | --- | ---: |
 | Fresh single-server IKEv2 gateway | 5 |
 | Enroll compatible gateway management | 4 |
-| IKEv2 entry → AmneziaWG exit pair | 8 |
+| Standalone native method, including private ad blocking | 7 |
+| Add filtering to a compatible existing native VPN | 5 |
+| Double VPN, for the selected entry and exit methods | 10 |
+
+These counts come from `InstallationProgress.java`. Double VPN includes explicit
+exit ad-blocking and available connection-monitoring checks. Private TLS names,
+keys and certificate renewal are configured within the selected method's stages;
+they do not add user forms.
 
 The bar counts completed checkpoints. It does not invent package-download percentages.
 The current phase comes from the actual coordinator/server job. Planning ranges are
 broad, unbenchmarked estimates; package mirrors, kernel preparation, SSH availability,
-and a reboot can take longer. Elapsed time is shown separately.
+and a reboot can take longer. Elapsed time is shown separately and freezes when
+setup completes. A resumed job uses its valid server completion timestamp; a
+missing timestamp never invents a historical duration.
 
 ## Browse while the work continues
 
-Stories, Guide, People, Sessions, and Gateways remain reachable. Server-changing
+Stories, Help and the VPN list remain reachable. Server-changing
 controls stay disabled during an installation. Tap the progress shortcut on any tab,
 or the installation notification, to reopen the step view. Rook changes roles from
 map-reader to bridge-builder, lantern-guide, and celebration; his motion respects
@@ -32,8 +41,9 @@ Force-stop, process death, Android's foreground-service budget, or an OEM policy
 end phone polling. Detached VPS jobs continue subject to their own server lifecycle.
 The next launch labels saved running progress as needing inspection; it never silently
 starts a fresh install. Resume uses the recorded job/owner, independent SSH pins, and
-the original fresh-install protections. Existing two-hop pairs still require an explicit
-upgrade if their installer bundle differs. The UI changes do not alter that bundle.
+the original fresh-install protections. Changed server inventory requires inspection.
+An inactive failed setup can be dismissed from tracking; this does not undo server
+changes. Use reviewed removal to clean up a partial owned installation before reuse.
 
 ## Reading and narration
 
@@ -63,3 +73,12 @@ Tests distinguish the real background service with bounded transport fixtures, t
 real offline WebView with deterministic voice events, an available browser voice,
 and previous provider deployment evidence. A fixture is not a fresh VPS deployment
 or an audible physical-device test.
+
+## Completion and short operations
+
+The completed progress body becomes a clear success screen.
+Open VPN and Done stay in a fixed action row outside the scrolling content.
+A result notification opens that screen. Completion while reading does
+not force a page change; an acknowledged result stops repeating its shortcut.
+Short SSH reads/reviews/removals use a separate prominent waiting/result panel
+with indeterminate progress, without inventing installation checkpoints.

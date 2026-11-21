@@ -1,0 +1,89 @@
+package org.strongswan.android.rookstride;
+import java.io.*;import java.net.*;import java.util.*;import org.json.*;
+/** Stage a second entry with retained client identity; endpoint movement is explicit. */
+public final class EntryMigrationController {
+ private EntryMigrationController(){}
+ private static JSONObject call(Ssh ssh,PairController.Bundle bundle,JSONObject request)throws Exception{try(InputStream in=bundle.open()){return ssh.entryMigration(in,request);}}
+ private static JSONObject recovery(Ssh ssh,PairController.Bundle bundle,JSONObject request)throws Exception{try(InputStream in=bundle.open()){return ssh.recovery(in,request);}}
+ public static JSONObject preview(Gateway pair,Gateway candidate,boolean endpointTransfer)throws Exception{return preview(pair,candidate,endpointTransfer,false);}
+ public static JSONObject preview(Gateway pair,Gateway candidate,boolean endpointTransfer,boolean newAddress)throws Exception{
+  String endpoint=pair.get("vpnServer").isEmpty()?pair.get("host"):pair.get("vpnServer");boolean literal=endpoint.matches("[0-9.]+")||endpoint.contains(":");
+  boolean protocol=pair.isPair()&&PairController.modern(pair),identity=!candidate.get("fingerprint").isEmpty(),preserves=!literal||endpointTransfer,certificateReady=newAddress||!pair.get("accessMode").equals("password");
+  String reason=!certificateReady?"Choose a new address for this public-certificate entry. Keeping the same domain before DNS transfer needs certificate staging.":!protocol?"Use an owned native Double VPN":!preserves&&!newAddress?"Saved clients use a literal IP. Transfer that exact IP or issue new profiles; changing an unrelated DNS name cannot preserve them":!identity?"Verify the candidate SSH identity first":newAddress?"The new address needs updated VPN connections. Accounts and server trust are retained where applicable; users must import or enter the new endpoint.":"The endpoint must be transferred to the verified candidate; existing internet sessions may reconnect";
+  return new JSONObject().put("supported",protocol&&(preserves||newAddress)&&identity&&certificateReady).put("preserves_profiles",protocol&&preserves&&!newAddress).put("client_update_required",newAddress||!preserves).put("requires_endpoint_switch",!newAddress).put("endpoint",newAddress?candidate.get("host"):endpoint).put("reason",reason);
+ }
+ public static JSONObject stage(Gateway pair,Gateway candidate,boolean endpointTransfer,PairController.Bundle bundle,PairController.Progress progress,OsReinstall.Saved saved)throws Exception{return stage(pair,candidate,endpointTransfer,false,bundle,progress,saved);}
+ public static JSONObject stage(Gateway pair,Gateway candidate,boolean endpointTransfer,boolean newAddress,PairController.Bundle bundle,PairController.Progress progress,OsReinstall.Saved saved)throws Exception{
+  JSONObject review=preview(pair,candidate,endpointTransfer,newAddress);if(!review.getBoolean("supported"))throw new IOException(review.getString("reason"));
+  if(PairNodes.same(pair,candidate)||PairNodes.same(pair.exit,candidate))throw new IOException("Choose a distinct replacement entry machine");
+  JSONObject operation=pair.data.optJSONObject("entryMigration");
+  if(operation==null){
+   JSONObject inventory=LifecycleController.inspect(pair,bundle,progress);if(inventory.optBoolean("read_only"))throw new IOException("The installed pair must pass its ownership checks first");
+   operation=new JSONObject().put("operation",PairController.newId()).put("deployment",pair.get("pairId")).put("expected_revision",inventory.getInt("revision")).put("snapshot_schema",1).put("candidate",LifecycleSnapshots.copy(candidate)).put("previous",LifecycleSnapshots.copy(pair)).put("endpoint_transfer",endpointTransfer).put("new_address",newAddress).put("state","preparing");pair.data.put("entryMigration",operation);saved.save();
+  }else if(operation.optBoolean("new_address")!=newAddress||operation.optBoolean("endpoint_transfer")!=endpointTransfer)throw new IOException("Resume the recorded endpoint choice before changing migration mode");
+  else if(!operation.getJSONObject("candidate").optString("host").equals(candidate.get("host")))throw new IOException("Resume the recorded entry replacement before choosing another machine");
+  Gateway draft=PairNodes.copy(candidate);draft.exit=pair.exit;for(String key:new String[]{"pairId","pairEngine","pairEntryProtocol","pairExitProtocol","vpnServer","exitEndpoint","accessMode"})draft.set(key,pair.get(key));for(String key:new String[]{"vpnPort","tunnelPort","pairStatistics"})if(pair.data.has(key))draft.data.put(key,pair.data.get(key));draft.set("vpnServer",review.getString("endpoint"));draft.set("sshRoute","auto");
+  try(PairSsh current=PairSsh.connect(pair,progress);PairSsh replacement=PairSsh.connect(draft,progress)){
+   JSONObject original=current.entry.probe(),next=replacement.entry.probe(),exit=current.exit.probe();if(next.optString("machine").isEmpty()||next.optString("machine").equals(original.optString("machine"))||next.optString("machine").equals(exit.optString("machine")))throw new IOException("The replacement must be a separate pinned machine");UbuntuCompatibility.require(next,true);candidate.set("machine",next.getString("machine"));operation.getJSONObject("previous").put("machine",original.getString("machine"));
+   if(!operation.has("original_public_ip")){String address=current.entry.execute("curl -4 --curves X25519 --connect-timeout 10 --max-time 30 -fsS https://api.ipify.org",null).trim();if(!address.matches("[0-9.]+"))throw new IOException("Original entry public address could not be verified");operation.put("original_public_ip",address);saved.save();}
+   JSONObject request=new JSONObject().put("action","prepare").put("operation",operation.getString("operation")).put("deployment",pair.get("pairId")).put("expected_revision",operation.getInt("expected_revision")).put("candidate",candidate.get("host")).put("candidate_fingerprint",candidate.get("fingerprint")).put("endpoint_transfer",endpointTransfer).put("new_address",newAddress).put("confirmation","REPLACE ENTRY AND PRESERVE VPN IDENTITY");call(current.entry,bundle,request);
+   JSONObject snapshot=operation.optJSONObject("snapshot");if(snapshot==null){snapshot=recovery(current.entry,bundle,new JSONObject().put("action","export"));operation.put("snapshot",snapshot);saved.save();}
+   JSONObject initial=snapshot.getJSONObject("initial_user");draft.set("vpnLogin",initial.getString("login"));draft.vpnPassword=initial.getString("password");
+   progress.stage(0,"Preparing the replacement entry with its own pinned management identity");try(InputStream in=bundle.open()){replacement.entry.pairStart(in,PairController.request(draft,"entry").put("command","preflight"));}
+   PairController.step(replacement.entry,draft,PairController.bootstrapRequest(draft,"entry"),next.optBoolean("pair_helper"),bundle,progress,true);
+   JSONObject transport=recovery(current.exit,bundle,new JSONObject().put("action","entry-bridge").put("deployment",pair.get("pairId")).put("operation",operation.getString("operation")));
+   progress.stage(1,"Connecting an independent bridge; the current entry remains unchanged");PairController.step(replacement.entry,draft,PairController.request(draft,"entry").put("action","configure").put("transport",transport),true,bundle,progress,true);
+   progress.stage(2,"Restoring the reviewed entry identity and accounts");JSONObject restore=new JSONObject().put("action","restore").put("snapshot",snapshot).put("confirmation","RESTORE REVIEWED VPN IDENTITY");if(newAddress)restore.put("new_endpoint",review.getString("endpoint")).put("endpoint_confirmation","ISSUE UPDATED CLIENT CONNECTIONS");recovery(replacement.entry,bundle,restore);
+   JSONObject policy=recovery(current.exit,bundle,new JSONObject().put("action","filter-policy"));String expected=current.exit.pair(new JSONObject().put("command","overview").put("pair",pair.get("pairId"))).getString("exit_ip");
+   progress.stage(3,"Verifying the candidate route, private DNS and filtering");for(String action:new String[]{"verify","activate"})PairController.step(replacement.entry,draft,PairController.request(draft,"entry").put("action",action).put("expected_exit_ip",expected).put("filtering_enabled",policy.getBoolean("enabled")).put("repeat",true),true,bundle,progress,true);
+   String address=replacement.entry.execute("curl -4 --curves X25519 --connect-timeout 10 --max-time 30 -fsS https://api.ipify.org",null).trim();if(!address.matches("[0-9.]+"))throw new IOException("Candidate public address could not be verified");
+   if(newAddress){String protocol=pair.get("pairEntryProtocol");JSONArray users=snapshot.getJSONObject("state").getJSONArray("users");JSONObject account=null;for(int i=0;i<users.length();i++){JSONObject user=users.getJSONObject(i);if(user.optBoolean("enabled")&&(account==null||user.optString("login").equals(pair.get("vpnLogin"))))account=user;}if(account!=null){String login=account.getString("login"),secret=account.optString("password","");JSONObject profile=protocol.equals("ikev2")?replacement.entry.admin(new JSONObject().put("action","profile").put("login",login).put("server",draft.get("vpnServer"))):replacement.entry.single(new JSONObject().put("action","profile").put("protocol",protocol).put("login",login));operation.put("updated_profile",PasswordSignIn.withKnownPassword(profile,login,secret));}}
+   operation.put("candidate_public_ip",address).put("expected_exit_ip",expected).put("filtering_enabled",policy.getBoolean("enabled")).put("candidate",operation.optInt("snapshot_schema")==1?LifecycleSnapshots.copy(candidate):candidate.persisted()).put("state","awaiting-endpoint-switch");saved.save();
+   call(current.entry,bundle,new JSONObject().put("action","candidate-ready").put("operation",operation.getString("operation")).put("deployment",pair.get("pairId")));return new JSONObject().put("state","awaiting-endpoint-switch").put("endpoint",review.getString("endpoint")).put("candidate_public_ip",address).put("retained_profiles",!newAddress).put("client_update_required",newAddress).put("message",newAddress?"The new entry is ready. Share an updated connection and test it before retiring the original entry.":"Transfer the reviewed endpoint to the replacement and verify an unchanged saved client, then finish the replacement. The old entry remains available for rollback.");
+  }
+ }
+ /** A local receipt accompanies the same durable endpoint commit. Cached owner
+  * authority belongs to a physical server, not to the portable VPN identity. */
+ static void reconcileAuthority(Gateway pair,Gateway selected,Gateway previous,JSONObject operation,boolean rollback)throws Exception{
+  String phase=rollback?"rolled-back":"accepted",machine=selected.get("machine"),pin=selected.get("fingerprint"),id=operation.getString("operation");
+  if(machine.isEmpty()||pin.isEmpty())throw new IOException("Verify the selected physical server before reconciling administrator access");
+  JSONObject done=operation.optJSONObject("authorityReconciliation");
+  if(done!=null&&done.optInt("schema")==1&&done.optString("operation").equals(id)&&done.optString("state").equals(phase)&&done.optString("machine").equals(machine)&&done.optString("fingerprint").equals(pin)&&samePhysical(pair,selected))return;
+  boolean staysOnPrevious=rollback&&samePhysical(pair,previous);
+  if(!staysOnPrevious){
+   JSONObject restore=null;
+   // A legacy cache that already identifies a different pin is not the original
+   // server's authority, even if carried inside its saved Gateway record.
+   if(rollback&&(previous.get("adminIdentityFingerprint").isEmpty()||previous.get("adminIdentityFingerprint").equals(previous.get("fingerprint"))))restore=new JSONObject(previous.data.toString());
+   ArrayList<String> keys=new ArrayList<>();for(Iterator<String> it=pair.data.keys();it.hasNext();){String key=it.next();if(authorityKey(key))keys.add(key);}for(String key:keys)pair.data.remove(key);
+   if(restore!=null)for(Iterator<String> it=restore.keys();it.hasNext();){String key=it.next();if(authorityKey(key))pair.data.put(key,restore.get(key));}
+  }
+  pair.data.remove("deploymentInventory");
+  operation.put("authorityReconciliation",new JSONObject().put("schema",1).put("operation",id).put("state",phase).put("machine",machine).put("fingerprint",pin));
+ }
+ private static boolean authorityKey(String key){return key.startsWith("admin")&&!key.equals("admin");}
+ private static boolean samePhysical(Gateway a,Gateway b){return !a.get("machine").isEmpty()&&!a.get("fingerprint").isEmpty()&&a.get("machine").equals(b.get("machine"))&&a.get("fingerprint").equals(b.get("fingerprint"));}
+ public static JSONObject finish(Gateway pair,boolean rollback,PairController.Bundle bundle,PairController.Progress progress,OsReinstall.Saved saved)throws Exception{return finish(pair,rollback,null,bundle,progress,saved);}
+ public static JSONObject finish(Gateway pair,boolean rollback,Gateway liveCandidate,PairController.Bundle bundle,PairController.Progress progress,OsReinstall.Saved saved)throws Exception{
+  JSONObject operation=pair.data.optJSONObject("entryMigration");if(operation==null)operation=pair.data.optJSONObject("lastEntryMigration");if(operation==null)throw new IOException("No recorded entry replacement");
+  Gateway previous=new Gateway(operation.getJSONObject("previous")),candidate=new Gateway(operation.getJSONObject("candidate"));boolean newAddress=operation.optBoolean("new_address");String endpoint=!rollback&&newAddress?candidate.get("host"):previous.get("vpnServer").isEmpty()?previous.get("host"):previous.get("vpnServer");
+  if(previous.get("host").equals(pair.get("host"))&&previous.get("fingerprint").equals(pair.get("fingerprint"))){previous.sshPassword=pair.sshPassword;previous.privateKey=pair.privateKey;}
+  if(liveCandidate!=null&&candidate.get("host").equals(liveCandidate.get("host"))&&candidate.get("fingerprint").equals(liveCandidate.get("fingerprint"))){candidate.sshPassword=liveCandidate.sshPassword;candidate.privateKey=liveCandidate.privateKey;}
+  String expectedEndpoint=operation.getString(rollback?"original_public_ip":"candidate_public_ip");boolean matches=false;for(InetAddress resolved:InetAddress.getAllByName(endpoint))if(resolved.getHostAddress().equals(expectedEndpoint))matches=true;
+  // Equal public egress can mean shared NAT. It never proves endpoint ownership.
+  Gateway endpointNode=PairNodes.copy(rollback?previous:candidate);endpointNode.set("host",endpoint);String expectedMachine=(rollback?previous:candidate).get("machine");
+  try(Ssh proof=PairSsh.connectNode(endpointNode,previous.exit,progress)){boolean reached=proof.probe().optString("machine").equals(expectedMachine)&&!expectedMachine.isEmpty();matches=reached&&(matches||operation.optBoolean("endpoint_transfer"));}catch(Exception failure){throw new IOException(rollback?"The original endpoint has not returned to its pinned original server":"The saved client endpoint has not reached the pinned replacement server. Transfer its DNS or reviewed IP before finishing",failure);}
+  if(!matches)throw new IOException(rollback?"Restore the original endpoint before rolling back":"The saved client endpoint still resolves elsewhere. Transfer its DNS or reviewed IP and verify the saved client before finishing");
+  if(previous.get("host").equalsIgnoreCase(endpoint)&&!previous.get("host").matches("[0-9.]+"))previous.set("host",operation.getString("original_public_ip"));
+  try(Ssh old=PairSsh.connectNode(previous,previous.exit,progress);Ssh next=PairSsh.connectNode(candidate,previous.exit,progress)){
+   JSONObject req=new JSONObject().put("action",rollback?"rollback":"commit").put("operation",operation.getString("operation")).put("deployment",operation.getString("deployment"));
+   req.put("confirmation",rollback?"ORIGINAL ENDPOINT RESTORED":newAddress?"NEW ENDPOINT CLIENT VERIFIED":"ENDPOINT AND SAVED CLIENT VERIFIED").put("expected_exit_ip",operation.getString("expected_exit_ip")).put("filtering_enabled",operation.optBoolean("filtering_enabled",true));
+   if(!rollback){progress.update("Rechecking the replacement entry route, DNS and ad blocking before retiring the original");call(next,bundle,new JSONObject().put("action","verify-candidate").put("deployment",operation.getString("deployment")).put("expected_exit_ip",operation.getString("expected_exit_ip")).put("filtering_enabled",operation.optBoolean("filtering_enabled",true)));}
+   JSONObject result=call(old,bundle,req);
+   if(rollback)next.pair(new JSONObject().put("command","pause").put("pair",operation.getString("deployment")));
+   if(!rollback){JSONObject revision=new JSONObject().put("action","record-revision").put("deployment",operation.getString("deployment")).put("operation",operation.getString("operation")).put("revision",operation.getInt("expected_revision")+1).put("entry_endpoint",endpoint);call(next,bundle,revision);Gateway topology=PairNodes.copy(candidate);topology.exit=previous.exit;topology.set("sshRoute","auto");try(PairSsh members=PairSsh.connect(topology,progress)){call(members.exit,bundle,revision);}}
+   Gateway selected=rollback?previous:candidate;reconcileAuthority(pair,selected,previous,operation,rollback);for(String key:new String[]{"host","admin","fingerprint","sshKeyType","machine"})pair.set(key,selected.get(key));pair.data.put("port",selected.port()).put("remember",selected.remember()).put("physicalServerId",selected.get("id")).put("deploymentRevision",operation.getInt("expected_revision")+(rollback?0:1));pair.sshPassword=selected.sshPassword;pair.privateKey=selected.privateKey;pair.set("vpnServer",endpoint);pair.set("sshRoute","auto");pair.set("resolvedSshRoute","");pair.configureRelay();
+   operation.put("state",rollback?"rolled-back":"accepted");operation.remove("snapshot");pair.data.put("lastEntryMigration",operation);pair.data.remove("entryMigration");saved.save();return result;
+  }
+ }
+}

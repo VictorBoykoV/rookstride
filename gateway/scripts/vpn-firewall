@@ -22,6 +22,14 @@ iptables -A SINGLEVPN_INPUT -s "$CLIENT_POOL" -d "$DNS_IP" -p tcp --dport 3000 \
   -m policy --dir in --pol ipsec --proto esp -j ACCEPT
 ensure_jump iptables filter INPUT SINGLEVPN_INPUT
 
+if [[ ${VPN_PORT:-500} != 500 && ${VPN_PORT:-500} != 4500 ]]; then
+  iptables -t nat -N SINGLEVPN_ALT 2>/dev/null || true
+  iptables -t nat -F SINGLEVPN_ALT
+  iptables -t nat -A SINGLEVPN_ALT -p udp --dport "$VPN_PORT" -j REDIRECT --to-ports 4500
+  ensure_jump iptables nat PREROUTING SINGLEVPN_ALT
+fi
+
+if [[ ${PAIR_ENTRY:-NO} != YES ]]; then
 iptables -N SINGLEVPN_FWD 2>/dev/null || true
 iptables -F SINGLEVPN_FWD
 iptables -A SINGLEVPN_FWD -s "$CLIENT_POOL" -o "$UPLINK" \
@@ -38,6 +46,7 @@ iptables -t nat -F SINGLEVPN_NAT
 iptables -t nat -A SINGLEVPN_NAT -s "$CLIENT_POOL" -o "$UPLINK" \
   -m policy --dir out --pol none -j MASQUERADE
 ensure_jump iptables nat POSTROUTING SINGLEVPN_NAT
+fi
 
 ip6tables -N SINGLEVPN_V6_SINK 2>/dev/null || true
 ip6tables -F SINGLEVPN_V6_SINK

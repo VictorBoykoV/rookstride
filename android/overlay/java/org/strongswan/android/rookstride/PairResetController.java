@@ -15,7 +15,8 @@ public final class PairResetController {
  }
  public static JSONObject review(Gateway entry,PairController.Bundle bundle) throws Exception {
   entry.configureRelay();
-  try(Ssh a=open(entry);Ssh b=open(entry.exit)) {
+  try(PairSsh sessions=PairSsh.connect(entry,phase->{})) {
+   Ssh a=sessions.entry,b=sessions.exit;
    String machine=a.probe().getString("machine");
    if(machine.equals(b.probe().getString("machine")))throw new IOException("Reset requires two distinct nodes");
    return new JSONObject().put("entry",action(a,entry,"entry","pair-plan",bundle,null)).put("exit",action(b,entry,"exit","pair-plan",bundle,null));
@@ -24,7 +25,8 @@ public final class PairResetController {
  public static JSONObject apply(Gateway entry,JSONObject review,String confirmation,PairController.Bundle bundle,PairController.Progress progress) throws Exception {
   if(!"DELETE PAIR".equals(confirmation))throw new IOException("Type DELETE PAIR to confirm removal");
   entry.configureRelay();
-  try(Ssh a=open(entry);Ssh b=open(entry.exit)) {
+  try(PairSsh sessions=PairSsh.connect(entry,phase->{})) {
+   Ssh a=sessions.entry,b=sessions.exit;
    if(a.probe().getString("machine").equals(b.probe().getString("machine")))throw new IOException("Reset requires two distinct nodes");
    progress.update("Closing and removing the entry VPN");
    JSONObject first=action(a,entry,"entry","pair-apply",bundle,review.getJSONObject("entry"));

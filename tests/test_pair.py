@@ -20,6 +20,11 @@ class PairValidation(unittest.TestCase):
             self.assertEqual(role,p['role']);self.assertEqual(15500,p['vpn_port'])
         for field,value in [('vpn_port',True),('tunnel_port',0),('route_table',2**31),('role','other'),('exit_host','host; id'),('server','-bad'),('pair','../x')]:
             with self.assertRaises(ValueError):pair.plan(dict(BASE,**{field:value}))
+    def test_explicit_modern_default_route_preserves_legacy_manifest(self):
+        legacy=pair.plan(BASE);modern=pair.plan(dict(BASE,engine='native-v2'))
+        self.assertFalse(pair.native_plan(legacy));self.assertNotIn('engine',legacy)
+        self.assertTrue(pair.native_plan(modern));self.assertEqual('ikev2',modern['entry_protocol']);self.assertEqual('awg',modern['exit_protocol']);self.assertEqual('10.66.0.0/24',modern['client_pool'])
+        with self.assertRaises(ValueError):pair.plan(dict(BASE,engine='unsupported'))
     def test_overlapping_ranges_and_network_endpoints_are_refused(self):
         for changes in [{'client_pool':'10.253.0.0/24'},{'test_ip':'10.250.0.8'},{'entry_address':'10.253.0.0/30'},{'exit_address':'10.253.0.2/30'},{'entry_address':'fd00::2/64'},{'client_pool':'10.250.0.7/16'}]:
             with self.assertRaises(ValueError):pair.plan(dict(BASE,**changes))

@@ -558,6 +558,8 @@
     <string name="rs_m_2e1a4c07ce94" formatted="false">"Strict"</string>
     <string name="rs_m_85a39ab345d6" formatted="false">"Yes"</string>
     <string name="rs_m_1ea442a134b2" formatted="false">"No"</string>
+    <string name="rs_app_vpn_pending" formatted="false">"Android may show a VPN icon while the encrypted tunnel is still connecting. This does not yet confirm Internet access through the gateway. Open the log to see the connection details."</string>
+    <string name="rs_app_vpn_port_hint" formatted="false">"500 uses the standard VPN negotiation. 4500 starts directly with NAT-T. Other ports require matching server settings. Changing a port does not hide the VPN protocol. Reconnect after changing this setting."</string>
     <plurals name="rs_checkpoints_remaining">
         <item quantity="one">"%1$d checkpoint remaining"</item>
         <item quantity="other">"%1$d checkpoints remaining"</item>

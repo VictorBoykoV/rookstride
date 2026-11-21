@@ -109,6 +109,12 @@ Account models differ: IKEv2 EAP users, WireGuard/AWG public-key peers, OpenVPN 
 
 Reset should use an ownership manifest and a preview for **one node or the pair**. Close client forwarding before removing the exit. Refuse unknown/shared peers and extra services. Initially use a dedicated exit per pair; sharing one exit across pairs complicates reset ownership. Deleting the Ubuntu OS and unrelated files remains a provider rebuild, not an SSH “wipe everything” action.
 
+**November follow-through:** the original provider-only OS proposal above is
+superseded by the separate reviewed SSH reinstall adapter on compatible full VMs.
+Ownership-based VPN reset still keeps the OS and unrelated software. Provider
+connectors remain needed for unsupported layouts; see
+[server management](SERVER-MANAGEMENT.md).
+
 ## Implementation sequence and acceptance gates
 
 | Stage | Deliverable | Gate |

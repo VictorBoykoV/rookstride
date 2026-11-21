@@ -555,5 +555,7 @@
   "m_30a04fdcb6bb": "Strong",
   "m_2e1a4c07ce94": "Strict",
   "m_85a39ab345d6": "Yes",
-  "m_1ea442a134b2": "No"
+  "m_1ea442a134b2": "No",
+  "app.vpn_pending": "Android may show a VPN icon while the encrypted tunnel is still connecting. This does not yet confirm Internet access through the gateway. Open the log to see the connection details.",
+  "app.vpn_port_hint": "500 uses the standard VPN negotiation. 4500 starts directly with NAT-T. Other ports require matching server settings. Changing a port does not hide the VPN protocol. Reconnect after changing this setting."
 }

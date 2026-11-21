@@ -43,5 +43,6 @@ def convert(source,target):
     target.write_text('<?xml version="1.0" encoding="utf-8"?>\n<!-- Original Rookstride helper; GPL-3.0-or-later. Generated from '+source.relative_to(ROOT).as_posix()+'. -->\n'+E.tostring(vector,encoding='unicode')+'\n')
 
 if __name__=='__main__':
-    for source in (ROOT/'website/brand/poses').glob('rook-*.svg'):convert(source,ROOT/'android/overlay/res/drawable'/source.name.replace('-','_').replace('.svg','.xml'))
-    print('Prepared six original Rook helper drawables')
+    sources=sorted((ROOT/'website/brand/poses').glob('rook-*.svg'))+sorted((ROOT/'brand/installation').glob('rook-stage-*.svg'))
+    for source in sources:convert(source,ROOT/'android/overlay/res/drawable'/source.name.replace('-','_').replace('.svg','.xml'))
+    print(f'Prepared {len(sources)} original Rook helper drawables')

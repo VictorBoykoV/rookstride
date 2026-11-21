@@ -1,0 +1,26 @@
+{
+  "branch": "v3.24",
+  "source": "https://alpinelinux.org/downloads/",
+  "architectures": {
+    "x86_64": {
+      "url": "https://dl-cdn.alpinelinux.org/alpine/v3.24/releases/x86_64/alpine-netboot-3.24.3-x86_64.tar.gz",
+      "sha256": "0228553464c9588ffeb63ec04d26abb5f79405006b74574034394199af47dab4",
+      "bytes": 393207435,
+      "dhcpcd": {
+        "url": "https://dl-cdn.alpinelinux.org/alpine/v3.24/main/x86_64/dhcpcd-10.5.2-r1.apk",
+        "sha256": "b9564759b064e9e08979fe06b9b9bee75585ce42e07ae41d0c22b5fdd3dea336",
+        "bytes": 172006
+      }
+    },
+    "aarch64": {
+      "url": "https://dl-cdn.alpinelinux.org/alpine/v3.24/releases/aarch64/alpine-netboot-3.24.3-aarch64.tar.gz",
+      "sha256": "0ac085f19648562d33deb8bfdc339d747e40f456a49a43385d468ea46a888147",
+      "bytes": 432911233,
+      "dhcpcd": {
+        "url": "https://dl-cdn.alpinelinux.org/alpine/v3.24/main/aarch64/dhcpcd-10.5.2-r1.apk",
+        "sha256": "d34859827aba22a224f0c5624f7ea8c62ec5c80c5db302c1fc32289c9ad243fe",
+        "bytes": 172439
+      }
+    }
+  }
+}

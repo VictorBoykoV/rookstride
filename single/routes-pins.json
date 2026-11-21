@@ -1,0 +1,45 @@
+{
+  "schema": 1,
+  "runtime": "rookstride-routes-1",
+  "assets": {
+    "x86_64": {
+      "sha256": "5f8b30040f00d001c14f087f384296a0165021e5740def0153c70982cc755ddf",
+      "bytes": 26697957,
+      "archive_sha256": "afc20de68fe69edb88489f134f3b56488036b4f745457d36f917608bd29c591c",
+      "archive_bytes": 14210534,
+      "library_sha256": "23109c55b08829bb1a68682a61a64852b1bbf243753b153cbd8f6e4ea2c05294",
+      "library_bytes": 11915768
+    },
+    "aarch64": {
+      "sha256": "3caf059ddb8cc41ca4afbc63e55cdf10bf84f9183a572fa077e482b695f58df8",
+      "bytes": 24838373,
+      "archive_sha256": "334bbbc9cff8b9007f42c7f2ab5753f4b8bddf7e8c3eed1797e04b0bb33b1112",
+      "archive_bytes": 13294305,
+      "library_sha256": "3c1fcfcb56261a4b318ffb6d2227b9726782edb5a894e74db2b534406db62498",
+      "library_bytes": 12381208
+    }
+  },
+  "trusttunnel": {
+    "version": "v1.1.0",
+    "assets": {
+      "x86_64": {
+        "url": "https://github.com/TrustTunnel/TrustTunnel/releases/download/v1.1.0/trusttunnel-v1.1.0-linux-x86_64.tar.gz",
+        "sha256": "91c2ea3db7416a01b5258a4c047ec22890490bc55e1b194206031aa75144f0e7",
+        "bytes": 10608905
+      },
+      "aarch64": {
+        "url": "https://github.com/TrustTunnel/TrustTunnel/releases/download/v1.1.0/trusttunnel-v1.1.0-linux-aarch64.tar.gz",
+        "sha256": "c2aee17a1ced349283cba4775202e2baba053b8ea835d4cc23dc67d16c6b9686",
+        "bytes": 9614818
+      }
+    },
+    "source": {
+      "url": "https://codeload.github.com/TrustTunnel/TrustTunnel/tar.gz/fab5b8353a19332f935fa30869307d37d4a898d1",
+      "commit": "fab5b8353a19332f935fa30869307d37d4a898d1",
+      "sha256": "24be5fd781329445d9341d53f8159a3f7dfbfd8cd5d45cdbe3ee63447c68360d",
+      "bytes": 301902
+    }
+  },
+  "source_sha256": "b3fb77551abe7fa8818639521efc81dd7da444112a51bdfb59844c2b85397cc1",
+  "linux_build_tags": "with_quic,with_naive_outbound,with_utls,with_purego,with_gvisor"
+}

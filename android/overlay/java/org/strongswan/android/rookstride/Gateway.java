@@ -24,8 +24,9 @@ public final class Gateway {
         sshRelay=null;
         if(exit==null)return;
         exit.sshRelay=null;
-        if(get("sshRoute").equals("entry-via-exit"))sshRelay=exit;
-        else if(get("sshRoute").equals("exit-via-entry"))exit.sshRelay=this;
+        String route=get("sshRoute").equals("auto")||get("sshRoute").isEmpty()?get("resolvedSshRoute"):get("sshRoute");
+        if(route.equals("entry-via-exit"))sshRelay=exit;
+        else if(route.equals("exit-via-entry"))exit.sshRelay=this;
     }
     public String get(String name) { return data.optString(name); }
     public void set(String name, String value) { try { data.put(name,value); } catch(JSONException e) { throw new IllegalStateException(e); } }
@@ -40,6 +41,7 @@ public final class Gateway {
         if (remember()) {
             copy.put("sshPassword",sshPassword); copy.put("vpnPassword",vpnPassword); copy.put("privateKey",privateKey);
         }
+        if(data.optBoolean("rememberVpn",false))copy.put("vpnPassword",vpnPassword);
         return copy;
     }
     public Gateway swapped() throws Exception {
@@ -48,10 +50,11 @@ public final class Gateway {
         String route=get("sshRoute"),name=get("name"),login=get("vpnLogin");
         next.exit=this;exit=null;sshRelay=null;next.sshRelay=null;
         next.set("name",name);set("name",name+" · exit");
-        next.set("pairId",PairController.newId());next.set("vpnLogin",login);next.vpnPassword=vpnPassword;
+        next.set("accessMode",get("accessMode"));set("accessMode","");next.set("pairId",PairController.newId());next.set("pairEngine",get("pairEngine"));next.set("vpnLogin",login);next.vpnPassword=vpnPassword;
+        next.set("pairEntryProtocol",get("pairEntryProtocol"));next.set("pairExitProtocol",get("pairExitProtocol"));next.set("protocol",get("pairEntryProtocol"));set("protocol",get("pairExitProtocol"));
         next.set("vpnServer",next.get("host"));next.set("exitEndpoint",get("host"));
         next.data.put("vpnPort",data.optInt("vpnPort",500));next.data.put("tunnelPort",data.optInt("tunnelPort",443));next.data.put("pairStatistics",data.optBoolean("pairStatistics",true));
-        next.set("sshRoute",route.equals("entry-via-exit")?"exit-via-entry":route.equals("exit-via-entry")?"entry-via-exit":"direct");
+        next.set("sshRoute",route.equals("entry-via-exit")?"exit-via-entry":route.equals("exit-via-entry")?"entry-via-exit":route.equals("auto")?"auto":"direct");
         set("sshRoute","direct");next.configureRelay();next.set("pairPhase","Fresh nodes · roles swapped");return next;
     }
 }

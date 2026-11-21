@@ -2,6 +2,7 @@
 import base64
 import contextlib
 import fcntl
+import hashlib
 import json
 import ipaddress
 import os
@@ -14,13 +15,16 @@ import time
 import urllib.request
 import urllib.parse
 import uuid
+import ike_public
 from pathlib import Path
 from . import VERSION
+from .passwords import validate as vpn_password
 from .vici import Vici, sessions, connections
 from .usage import Ledger
 
 ROOT=Path('/opt/rookstride')
 STATE=Path('/var/lib/rookstride')
+PAIR_ROOT=Path('/etc/rookstride-pair')
 SECRETS=Path('/etc/ipsec.secrets')
 USERNAME=re.compile(r'[A-Za-z0-9_.@-]{1,64}')
 
@@ -81,12 +85,28 @@ def health():
     service={s:subprocess.run(['systemctl','is-active','--quiet',s]).returncode==0
              for s in ('strongswan-starter','adguardhome','unbound','rookstride-stats')}
     result={'version':VERSION,'services':service,'monitoring_available':Path('/var/run/charon.vici').exists(),
-            'users':user_inventory(),'statistics_enabled':service['rookstride-stats']}
+            'users':user_inventory(),'statistics_enabled':service['rookstride-stats'],'edit_users':True,
+            'account_updates':{'schema':1,'metadata':'live','add':'live','revoke':'targeted','password':'live','restart_fallback':False},
+            'password_policy':{'minimum':1,'maximum_utf8_bytes':127,'recommended_minimum':8,'generated_length':15,'composition_required':False,'advisory':True}}
+    marker=Path('/etc/rookstride-pair/manifest.json')
+    if marker.is_file():
+        manifest=json.loads(marker.read_text())
+        if manifest.get('version')==2 and manifest['plan']['role']=='entry':
+            service['adguardhome']=None;service['unbound']=None
+            result['filtering']={'installed':True,'remote':True,'running':None,'scope':'exit server'}
     try:
         result['connections']=connections(sessions()) if result['monitoring_available'] else []
     except (OSError,ValueError,RuntimeError):
         result['connections']=[]; result['monitoring_available']=False
         result['monitoring_error']='The local VPN monitoring interface is unavailable'
+    cert=Path('/etc/ipsec.d/certs/single-vps-server-cert.pem')
+    public=ike_public.status()
+    if public:
+        result['instance']='public-'+public['instance']
+        result['certificate']={'trust':'public','manual_sign_in':True,'identity':public['identity'],'expires':public['expires'],'aliases':public.get('aliases',[]),'previous_instance':public.get('previous_instance','')}
+    elif cert.is_file():
+        result['instance']=hashlib.sha256(cert.read_bytes()).hexdigest()
+        result['certificate']={'trust':'pinned','manual_sign_in':False}
     if (STATE/'usage.db').exists():
         ledger=Ledger(STATE/'usage.db')
         try:
@@ -97,8 +117,28 @@ def health():
     return result
 
 
+def edit_user(req):
+    login=username(req.get('login'))
+    if login not in [user['login'] for user in user_inventory()]:raise ValueError('User does not exist')
+    updates={key:label(req[key]) for key in ('person','device') if key in req}
+    if 'password' in req:
+        # update_user validates the complete replacement before writing either
+        # file and retains this account's existing metadata/provenance.
+        return {**update_user({**req,'replace':True}),'edited':True}
+    if not updates:return {'edited':False,'login':login,'listener_restarted':False,'update':'live'}
+    info=catalog();info[login]={**info.get(login,{}),**updates}
+    atomic(STATE/'users.json',json.dumps(info))
+    return {'edited':True,'login':login,'listener_restarted':False,'update':'live'}
+
+
 def update_user(req,remove=False):
     login=username(req.get('login'))
+    pair_root=PAIR_ROOT
+    if (pair_root/'manifest.json').is_file():
+        manifest=json.loads((pair_root/'manifest.json').read_text());plan=manifest['plan']
+        if manifest.get('version')==2 and plan['role']=='entry' and plan.get('entry_protocol')=='ikev2' and plan.get('exit_protocol')=='ikev2':
+            bridge=json.loads((pair_root/'transport.json').read_text())['profile']['login']
+            if login==bridge:raise ValueError('This login is reserved for the server connection. Choose another user name.')
     if not SECRETS.exists(): raise ValueError('No compatible VPN configuration found')
     lines=SECRETS.read_text().splitlines()
     def is_user(line):
@@ -110,15 +150,16 @@ def update_user(req,remove=False):
     if remove and not exists: raise ValueError('User does not exist')
     if not remove:
         pw=req.get('password','')
-        if not isinstance(pw,str) or not 16<=len(pw)<=512 or '\n' in pw or '\r' in pw or '\0' in pw:
-            raise ValueError('Use a single-line password of 16–512 characters')
+        vpn_password(pw)
         if exists and not req.get('replace'): raise ValueError('Login already exists')
     info=catalog()
     if remove: info.pop(login,None)
     else:
-        person=label(req.get('person',login)); device=label(req.get('device','Shared login'))
-        if req.get('kind','shared') not in ('shared','device'): raise ValueError('Invalid login kind')
-        info[login]={'person':person,'device':device,'kind':req.get('kind','shared')}
+        old=info.get(login,{}) if exists else {}
+        person=label(req.get('person',old.get('person',login))); device=label(req.get('device',old.get('device','Shared login')))
+        kind=req.get('kind',old.get('kind','shared'))
+        if kind not in ('shared','device'): raise ValueError('Invalid login kind')
+        info[login]={**old,'person':person,'device':device,'kind':kind}
     new=[l for l in lines if not is_user(l)]
     if not remove:
         quoted=pw.replace('\\','\\\\').replace('"','\\"')
@@ -141,7 +182,7 @@ def update_user(req,remove=False):
                         disconnected+=1
                     except (OSError,RuntimeError): failures+=1
         except (OSError,RuntimeError): failures+=1
-    return {'login':login,'removed':remove,'disconnected':disconnected,
+    return {'login':login,'removed':remove,'disconnected':disconnected,'listener_restarted':False,'update':'targeted' if remove else 'live',
             'warning':'Login revoked; check Sessions because an active connection could not be closed' if failures else ''}
 
 
@@ -157,12 +198,21 @@ def profile(req):
     cert=ssl.PEM_cert_to_DER_cert((Path('/etc/ipsec.d/certs')/certmatch.group(1)).read_text())
     mtu=req.get('mtu',1280)
     if not isinstance(mtu,int) or not 1280<=mtu<=1500: raise ValueError('MTU must be 1280–1500')
-    remote={'addr':identity,'id':identity,'cert':base64.b64encode(cert).decode(),'certreq':False}
+    remote={'addr':identity,'id':identity,'certreq':False}
+    public=ike_public.status()
+    preferred=req.get('server',identity)
+    if public and preferred in [identity,*public.get('aliases',[])]:remote['addr']=preferred
+    if public and public['identity']==identity:remote.pop('id',None)  # Normal address-bound certificate validation, without an explicit IKE ID hint.
+    if not public or public['identity']!=identity:remote['cert']=base64.b64encode(cert).decode()
     pair=Path('/etc/rookstride-pair/manifest.json')
     if pair.exists():
-        pair_plan=json.loads(pair.read_text())['plan']
-        if pair_plan['role']!='entry':raise ValueError('Export profiles from the entry node')
-        if pair_plan.get('vpn_port',500)!=500:remote['port']=pair_plan['vpn_port']
+        manifest=json.loads(pair.read_text());pair_plan=manifest['plan']
+        if pair_plan['role']=='entry' and pair_plan.get('vpn_port',500)!=500:remote['port']=pair_plan['vpn_port']
+        if manifest.get('version')!=2 and pair_plan['role']!='entry':raise ValueError('Export profiles from the entry node')
+    if 'port' in req:
+        port=req['port']
+        if type(port) is not int or not 1<=port<=65535:raise ValueError('Invalid phone VPN port')
+        if port!=500:remote['port']=port
     return {'uuid':str(uuid.uuid4()),'name':label(req.get('name','Rookstride VPN')),'type':'ikev2-eap',
             'remote':remote,
             'local':{'eap_id':login},'mtu':mtu,
@@ -177,7 +227,9 @@ FILTERS={
 
 def adguard(req):
     # Only the private gateway dashboard is accessed, with credentials never returned to the app.
-    login=Path('/root/rookstride-pair/adguard-login.txt') if Path('/etc/rookstride-pair/manifest.json').exists() else Path('/root/single-vps-vpn/adguard-login.txt')
+    pair_manifest=Path('/etc/rookstride-pair/manifest.json')
+    legacy_pair=pair_manifest.exists() and json.loads(pair_manifest.read_text()).get('version')!=2
+    login=Path('/root/rookstride-pair/adguard-login.txt') if legacy_pair else Path('/root/single-vps-vpn/adguard-login.txt')
     if not login.exists(): raise ValueError('AdGuard login file is missing; this gateway needs manual enrollment')
     creds=dict(l.split(': ',1) for l in login.read_text().splitlines() if ': ' in l)
     address=creds['Dashboard']
@@ -218,8 +270,12 @@ def adguard(req):
 
 def dispatch(req):
     action=req.get('action')
+    if action not in ('status','profile') and not (action=='adguard' and not req.get('level')):
+        from .engine_guard import require_idle
+        require_idle()
     if action=='status': return health()
     if action=='add-user': return update_user(req)
+    if action=='edit-user': return edit_user(req)
     if action=='remove-user': return update_user(req,remove=True)
     if action=='profile': return profile(req)
     if action=='adguard': return adguard(req)

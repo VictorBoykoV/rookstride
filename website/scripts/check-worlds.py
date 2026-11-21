@@ -7,7 +7,7 @@ from pathlib import Path
 from world_reader import image_size
 ROOT=Path(__file__).resolve().parents[1]
 
-def check(allow_art=False):
+def check(allow_art=False,website_only=False):
     d=json.loads((ROOT/'content/worlds.json').read_text());errors=[];ready=0;word_count=0;all_text=[]
     def require(ok,message):
         if not ok:errors.append(message)
@@ -24,7 +24,7 @@ def check(allow_art=False):
                 require(p['focus'] in ('rook','lantern','bridge','book','tower','dragon','friend','route'),c['id']+': invalid focus')
                 require(not re.search(r'\b(?:TODO|TBD|placeholder|coming soon)\b',p['text'],re.I),c['id']+': draft text')
             site=ROOT/'dist/worlds'/w['id']/c['id']/'index.html';offline=ROOT.parent/'android/overlay/assets/stories/worlds'/w['id']/c['id']/'index.html'
-            for file in (site,offline):
+            for file in ((site,) if website_only else (site,offline)):
                 require(file.is_file(),str(file)+': missing static chapter')
                 if file.is_file():
                     raw=file.read_text();require(raw.count('class="narration"')==4,c['id']+': narration missing from static edition')
@@ -44,7 +44,7 @@ def check(allow_art=False):
             except (ValueError,OSError):require(False,c['id']+': incomplete WebP');continue
             ready+=1;require(image.stat().st_size<=180*1024,c['id']+': reader asset exceeds 180 KiB');require(master.is_file(),c['id']+': missing original master')
     offline_root=ROOT.parent/'android/overlay/assets/stories'
-    for file in offline_root.rglob('*.html'):
+    for file in (() if website_only else offline_root.rglob('*.html')):
         raw=file.read_text();doc=Document();doc.feed(raw)
         require('Content-Security-Policy' in raw,str(file)+': missing asset-only policy')
         for tag,key,ref in doc.refs:
@@ -59,7 +59,7 @@ def check(allow_art=False):
     require(len(set(all_text))==200,'Narration texts should be unique')
     require([c.get('legacyChapter') for c in d['worlds'][0]['chapters'][:5]]==[1,2,3,4,5],'Original five comic references changed')
     if not allow_art:require(ready==45,'Expected forty-five new complete comic artworks')
-    report={'status':'FAIL' if errors else 'ART IN PROGRESS' if allow_art and ready!=45 else 'PASS','worlds':5,'chapters':50,'story_pages':len(all_text),'narration_words':word_count,'new_comic_artworks':ready,'retained_strip_comics':5,'errors':errors}
+    report={'status':'FAIL' if errors else 'ART IN PROGRESS' if allow_art and ready!=45 else 'PASS','worlds':5,'chapters':50,'story_pages':len(all_text),'narration_words':word_count,'new_comic_artworks':ready,'retained_strip_comics':5,'offline_reader_checked':not website_only,'errors':errors}
     print(json.dumps(report,indent=2));return bool(errors)
 if __name__=='__main__':
-    p=argparse.ArgumentParser();p.add_argument('--allow-art-in-progress',action='store_true');args=p.parse_args();raise SystemExit(check(args.allow_art_in_progress))
+    p=argparse.ArgumentParser();p.add_argument('--allow-art-in-progress',action='store_true');p.add_argument('--website-only',action='store_true',help='Check historical website stories without requiring their retired Android edition');args=p.parse_args();raise SystemExit(check(args.allow_art_in_progress,args.website_only))

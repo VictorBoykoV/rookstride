@@ -18,21 +18,39 @@ if not APP.exists(): raise SystemExit('Prepare pinned strongSwan sources first; 
 import subprocess
 subprocess.run(['python3',str(ROOT/'scripts/prepare-rook-poses.py')],check=True)
 subprocess.run(['python3',str(ROOT/'scripts/compile-locales.py')],check=True)
+# Journal has no published endpoint yet. Keep authoring masters in source; do not
+# embed the historical comic reader or its images in this app edition.
+packed_stories=ROOT/'android/overlay/assets/stories'
+if packed_stories.exists():shutil.rmtree(packed_stories)
 overlay=ROOT/'android/overlay'
 main=APP/'src/main'
+# A previous website build may have packed historical worlds. The app has its own edition.
+if (main/'assets/stories').exists(): shutil.rmtree(main/'assets/stories')
+legacy_voice=main/'java/org/strongswan/android/rookstride/StoryVoice.java'
+if legacy_voice.exists(): legacy_voice.unlink()
 for src,dest in [('java','java'),('res','res'),('assets','assets')]:
     shutil.copytree(overlay/src,main/dest,dirs_exist_ok=True)
-license_files=[ROOT/'NOTICE.md',ROOT/'LICENSE']+sorted((ROOT/'licenses').glob('*'))+[ROOT/'gateway/LICENSE',ROOT/'twohop/LICENSE']
-license_html='<html><meta name="viewport" content="width=device-width, initial-scale=1"><style>body{font:14px sans-serif;padding:18px}pre{white-space:pre-wrap;word-break:break-word}</style><h1>Rookstride licenses</h1><a href="rookstride:guide">Back to guide</a>'
-for p in license_files:
-    license_html+='<h2>'+html.escape(p.name)+'</h2><pre>'+html.escape(p.read_text())+'</pre>'
-write_text(main/'assets/licenses.html',license_html+'</html>')
+from license_page import render as render_licenses
+write_text(main/'assets/licenses.html',render_licenses(ROOT))
 
 with zipfile.ZipFile(main/'assets/gateway_bundle.zip','w',zipfile.ZIP_DEFLATED) as z:
-    for folder in ('gateway','server','twohop'):
+    for folder in ('gateway','server','twohop','single'):
         for p in sorted((ROOT/folder).rglob('*')):
             if p.is_file() and '__pycache__' not in p.parts and p.suffix not in ('.pyc','.log'):
                 z.write(p,p.relative_to(ROOT))
+
+# Single adapters include the exact owned IKEv2 reset helper for whole-server VPN cleanup.
+with zipfile.ZipFile(main/'assets/single_bundle.zip','w',zipfile.ZIP_DEFLATED) as z:
+    for p in sorted((ROOT/'single').rglob('*')):
+        if p.is_file() and '__pycache__' not in p.parts and p.suffix!='.pyc':z.write(p,p.relative_to(ROOT))
+
+    z.write(ROOT/'server/reset.py','server/reset.py')
+    z.write(ROOT/'server/ike_packages.py','server/ike_packages.py')
+
+# OS replacement is a separate, explicitly destructive adapter.
+with zipfile.ZipFile(main/'assets/reinstall_bundle.zip','w',zipfile.ZIP_DEFLATED) as z:
+    for p in sorted((ROOT/'reinstall').rglob('*')):
+        if p.is_file() and '__pycache__' not in p.parts and p.suffix!='.pyc':z.write(p,p.relative_to(ROOT))
 
 # Check the exact real installer, including nested file ordering, in the JVM suite.
 import importlib.util
@@ -76,13 +94,31 @@ dependencies {
     androidTestImplementation 'androidx.test:runner:1.7.0'
     androidTestImplementation 'androidx.test.ext:junit:1.3.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.7.0'
+    androidTestImplementation 'androidx.test.uiautomator:uiautomator:2.3.0'
 }
 '''
+if 'androidx.test.uiautomator:uiautomator:' not in text:
+    text+="\ndependencies { androidTestImplementation 'androidx.test.uiautomator:uiautomator:2.3.0' }\n"
+if 'rookstride-test-build-type' not in text:
+    text+='\n// rookstride-test-build-type: opt in to tests against the signed release.\nandroid { testBuildType providers.gradleProperty("rookstrideTestBuildType").getOrElse("debug") }\n'
 write_text(gradle,text)
+gradle_properties=SOURCE/'gradle.properties'
+properties=gradle_properties.read_text()
+if 'org.gradle.jvmargs=' not in properties:write_text(gradle_properties,properties+'\norg.gradle.jvmargs=-Xmx2048m -XX:MaxMetaspaceSize=512m\norg.gradle.workers.max=2\n')
+# English-only app edition. Shared website catalogs are retained independently.
+if 'rookstride-english-only' not in text:
+    text+='\n// rookstride-english-only\nandroid { defaultConfig { resourceConfigurations += ["en"] } }\n'
+write_text(gradle,text)
+write_text(main/'res/xml/rookstride_locales.xml','<?xml version="1.0" encoding="utf-8"?>\n<locale-config xmlns:android="http://schemas.android.com/apk/res/android"><locale android:name="en"/></locale-config>\n')
 nativemk=main/'jni/Android.mk'
 native=nativemk.read_text().replace('openssl/include','openssl/$(TARGET_ARCH_ABI)/include')
 if '-DHAVE_SIGWAITINFO' not in native:
     native=native.replace('-DHAVE_PRCTL', '-DHAVE_SIGWAITINFO \\\n\t-DHAVE_PRCTL')
+shutil.copytree(overlay/'jni/rook-files',main/'jni/rook-files',dirs_exist_ok=True)
+if '\trook-files \\\n' not in native:
+    anchor='strongswan_BUILD := \\\n'
+    if native.count(anchor)!=1:raise SystemExit('Upstream native module list changed')
+    native=native.replace(anchor,anchor+'\trook-files \\\n',1)
 write_text(nativemk,native)
 appmk=main/'jni/Application.mk'
 application=appmk.read_text().replace('android-21','android-26')
@@ -110,16 +146,40 @@ if '.ui.RookstrideActivity' not in text:
         <activity\n''',1)
 write_text(manifest,text)
 
+# Rookstride diagnostics must not preaddress private logs to upstream support.
+log_activity=main/'java/org/strongswan/android/ui/LogActivity.java'
+log_source=log_activity.read_text()
+log_source=re.sub(r'^\s*intent\.putExtra\(Intent\.EXTRA_EMAIL, new String\[\]\{MainActivity\.CONTACT_EMAIL\}\);\n','\n',log_source,flags=re.M)
+write_text(log_activity,log_source)
+
+# Return imported VPNs to Rookstride rather than the upstream profile list.
+import_activity=main/'java/org/strongswan/android/ui/VpnProfileImportActivity.java'
+import_source=import_activity.read_text().replace('new Intent(this, MainActivity.class)', 'new Intent(this, RookstrideActivity.class)')
+write_text(import_activity,import_source)
+
 # Separate, user-started installation polling, not the VPN foreground service.
 text=manifest.read_text()
-if 'android.permission.FOREGROUND_SERVICE_DATA_SYNC' not in text:
-    text=text.replace('<application', '<uses-permission android:name="android.permission.FOREGROUND_SERVICE_DATA_SYNC"/>\n    <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>\n    <application',1)
+for permission in ('FOREGROUND_SERVICE_DATA_SYNC','POST_NOTIFICATIONS'):
+    if 'android.permission.'+permission not in text:
+        text=text.replace('<application','<uses-permission android:name="android.permission.'+permission+'"/>\n    <application',1)
+# Older preparation runs may have inserted this upstream permission twice.
+seen_notifications=False
+for match in list(re.finditer(r'<uses-permission\s+android:name="android.permission.POST_NOTIFICATIONS"\s*/>',text))[::-1]:
+    if seen_notifications:text=text[:match.start()]+text[match.end():]
+    seen_notifications=True
 if 'android.permission.WAKE_LOCK' not in text:
     text=text.replace('<application', '<uses-permission android:name="android.permission.WAKE_LOCK"/>\n    <application',1)
 if '.rookstride.DeploymentService' not in text:
     text=text.replace('</application>', '<service android:name=".rookstride.DeploymentService" android:exported="false" android:foregroundServiceType="dataSync"/>\n    </application>')
 if '<queries>' not in text:
-    text=text.replace('<application','<queries><intent><action android:name="android.intent.action.TTS_SERVICE"/></intent></queries>\n    <application',1)
+    text=text.replace('<application','<queries></queries>\n    <application',1)
+# The current story reader has no audio/narration feature.
+text=re.sub(r'<intent><action android:name="android.intent.action.TTS_SERVICE"\s*/></intent>', '', text)
+for package in ('org.amnezia.awg','com.v2ray.ang','de.blinkt.openvpn'):
+    query='<package android:name="'+package+'"/>'
+    if query not in text:text=text.replace('</queries>',query+'</queries>')
+if '.rookstride.ProfileExportProvider' not in text:
+    text=text.replace('</application>', '<provider android:name=".rookstride.ProfileExportProvider" android:authorities="${applicationId}.profiles" android:exported="false" android:grantUriPermissions="true"/></application>')
 # Native Android 13 language settings and AppCompat persistence on Android 8–12.
 if 'android:localeConfig=' not in text:text=text.replace('<application', '<application android:localeConfig="@xml/rookstride_locales" android:supportsRtl="true"',1)
 if 'androidx.appcompat.app.AppLocalesMetadataHolderService' not in text:
@@ -161,4 +221,63 @@ for p in (main/'java').rglob('*.java'):
 for src in ('test','androidTest'):
     if (ROOT/'android'/src).exists(): shutil.copytree(ROOT/'android'/src,APP/'src'/src,dirs_exist_ok=True)
 write_text(SOURCE/'local.properties','sdk.dir='+str(Path(os.environ.get('ROOKSTRIDE_SDK', str(ROOT/'.tools/sdk'))).resolve())+'\n')
+application_source=main/'java/org/strongswan/android/logic/StrongSwanApplication.java'
+application_text=application_source.read_text()
+if 'AdminSocketFactory.install' not in application_text:
+    application_text=application_text.replace('super.onCreate();','super.onCreate();\n        org.strongswan.android.rookstride.engine.AdminSocketFactory.install(this);',1)
+write_text(application_source,application_text)
+if 'RuntimeComponents.install' not in application_text:
+    application_text=application_text.replace('super.onCreate();','super.onCreate();\n        org.strongswan.android.rookstride.RuntimeComponents.install(this);',1)
+write_text(application_source,application_text)
+
+# Source-built protocol engines; each Go runtime stays in its own service process.
+subprocess.run(['python3',str(ROOT/'scripts/prepare-engines.py')],check=True)
+text=gradle.read_text()
+if 'rookstride-native-engines' not in text:
+    text+="\n// rookstride-native-engines\ndependencies { implementation files('rookstride-libs/libxray.aar'); implementation 'com.google.code.findbugs:jsr305:3.0.2' }\n"
+if 'rookstride-selected-abis' not in text:
+    text+="""
+// rookstride-selected-abis: optional smaller APK from the same app sources.
+android {
+    def requested = providers.gradleProperty('rookstrideAbis').orNull
+    if (requested != null) {
+        def abis = requested.split(',').toList()
+        if (abis.isEmpty() || !['arm64-v8a','armeabi-v7a','x86_64'].containsAll(abis)) throw new GradleException('Unsupported Rookstride ABI')
+        defaultConfig.ndk.abiFilters.clear()
+        defaultConfig.ndk.abiFilters.addAll(abis)
+    }
+}
+"""
+write_text(gradle,text)
+text=gradle.read_text()
+if 'rookstride-executable-worker' not in text:
+    text=text.replace('jniLibs { useLegacyPackaging = true }','jniLibs { useLegacyPackaging = true; keepDebugSymbols += [\"**/librook-routes.so\"] }')
+    text+='\n// rookstride-executable-worker\nandroid { packaging { jniLibs { useLegacyPackaging = true; keepDebugSymbols += ["**/librook-routes.so"] } } }\n'
+text=text.replace('jniLibs { useLegacyPackaging = true }','jniLibs { useLegacyPackaging = true; keepDebugSymbols += [\"**/librook-routes.so\"] }')
+write_text(gradle,text)
+text=manifest.read_text()
+text=re.sub(r'android:extractNativeLibs="false"','android:extractNativeLibs="true"',text)
+if 'android:extractNativeLibs=' not in text:text=text.replace('<application','<application android:extractNativeLibs="true"',1)
+if '.rookstride.engine.ConnectionKeeper' not in text:
+    text=text.replace('</application>','<service android:name=".rookstride.engine.ConnectionKeeper" android:exported="false" android:foregroundServiceType="specialUse"><property android:name="android.app.PROPERTY_SPECIAL_USE_FGS_SUBTYPE" android:value="Keeps a user-started VPN connected"/></service></application>')
+for protocol,service,provider in [('awg','AwgVpnService','Awg'),('xray','XrayVpnService','Xray'),('openvpn','OpenVpnService','OpenVpn'),('routes','RoutesVpnService','Routes')]:
+    name='.rookstride.engine.'+service
+    if name not in text:
+        entry='<service android:name="'+name+'" android:process=":rook_'+protocol+'" android:exported="false" android:foregroundServiceType="specialUse" android:permission="android.permission.BIND_VPN_SERVICE"><intent-filter><action android:name="android.net.VpnService"/></intent-filter><property android:name="android.app.PROPERTY_SPECIAL_USE_FGS_SUBTYPE" android:value="VPN connection"/><meta-data android:name="android.net.VpnService.SUPPORTS_ALWAYS_ON" android:value="false"/></service>'
+        entry+='<provider android:name=".rookstride.engine.EngineStatusProvider$'+provider+'" android:process=":rook_'+protocol+'" android:authorities="${applicationId}.engine.'+protocol+'" android:exported="false"/>'
+        text=text.replace('</application>',entry+'</application>')
+write_text(manifest,text)
 print('Prepared Rookstride Android overlay and offline gateway bundle')
+
+# Apply the same saved phone routing policy to the embedded IKEv2 client.
+charon=main/'java/org/strongswan/android/logic/CharonVpnService.java'
+text=charon.read_text()
+marker='SelectedAppsHandling appHandling = profile.getSelectedAppsHandling();'
+if '// rookstride-app-routing' not in text:
+    if marker not in text:raise SystemExit('Upstream app-routing boundary changed')
+    text=text.replace(marker,'// rookstride-app-routing\n            if (org.strongswan.android.rookstride.AppRouting.configured(CharonVpnService.this)) {\n                org.strongswan.android.rookstride.AppRouting.Policy policy = org.strongswan.android.rookstride.AppRouting.read(CharonVpnService.this);\n                profile.setSelectedApps(org.strongswan.android.rookstride.AppRouting.installed(CharonVpnService.this, policy));\n                profile.setSelectedAppsHandling(policy.mode.equals("only") ? SelectedAppsHandling.SELECTED_APPS_ONLY : policy.mode.equals("exclude") ? SelectedAppsHandling.SELECTED_APPS_EXCLUDE : SelectedAppsHandling.SELECTED_APPS_DISABLE);\n            }\n            SelectedAppsHandling appHandling = profile.getSelectedAppsHandling();',1)
+write_text(charon,text)
+text=manifest.read_text()
+query='<intent><action android:name="android.intent.action.MAIN"/><category android:name="android.intent.category.LAUNCHER"/></intent>'
+if query not in text:text=text.replace('</queries>',query+'</queries>')
+write_text(manifest,text)

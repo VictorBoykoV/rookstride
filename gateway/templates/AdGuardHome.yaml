@@ -1,4 +1,4 @@
-# Pinned to AdGuard Home v0.107.79; change only while the service is stopped.
+# Pinned to AdGuard Home v0.107.80; change only while the service is stopped.
 http:
   address: __DNS_IP__:3000
   session_ttl: 30d

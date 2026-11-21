@@ -37,6 +37,57 @@ An Android app for deploying and managing a personal IKEv2 VPN on your own VPS. 
 > [!IMPORTANT]
 > **Earlier 0.1.0-alpha2 passed three consecutive reset → reinstall → real VPN cycles** on Android 8, 9 and 16, including recovery after a VPS reboot. Physical-device, network-handoff and sustained-load checks remain. The [test report](docs/TESTING.md) records the exact scope and the two regression fixes.
 
+## Private administration and OS replacement development
+
+The 0.4 development branch introduces a task-focused management interface,
+reviewed SSH identity replacement, scoped administrator invitations, owner
+recovery, coordinated paired rebuilds and AWG pair member replacement. See
+[maintenance and recovery](docs/MAINTENANCE-AND-RECOVERY.md) for the exact supported
+adapters and retained-data boundaries. This is private development; it does not
+change the historical public release badge or announce general availability.
+
+The private app can manage servers with a VPN off or with another VPN client
+active, subject to that client's Android routing/lockdown rules. Double VPN
+checks direct SSH access and can automatically use the reachable node as a
+verified relay. Manually chosen VPN passwords use advisory strength warnings;
+generated passwords remain15 random characters.
+
+**Wipe server & reinstall Ubuntu** is separate from **Remove VPN setups** and
+**Remove server from this phone**. Eligible full virtual machines can replace
+their system disk with a reviewed Ubuntu22.04/24.04/26.04 image. The app verifies
+the planned replacement SSH identity and the returned OS before completion.
+Unsupported layouts still need provider rebuild tools. Future Ubuntu eligibility
+is not deployment certification. See [server management](docs/SERVER-MANAGEMENT.md).
+This describes private development, not the historical public download below.
+
+## Private reusable sign-in development
+
+The current private app adds ordinary address/username/password sign-in for
+IKEv2, OpenVPN, Hysteria 2, TrustTunnel and NaïveProxy, including supported
+Double VPN entries. New app installations prefer this mode; existing private
+profiles keep their explicit migration boundary. See [reusable sign-in](docs/REUSABLE-SIGN-IN.md)
+for server trust, IP/domain setup, sharing, reinstall continuity and limitations.
+This section describes development functionality, not a public release.
+
+## Private alpha18 development
+
+The private development edition adds six embedded connection choices to the
+original AWG 3.1, IKEv2, OpenVPN and VLESS TCP/REALITY methods:
+**VLESS XHTTP/REALITY, Hysteria 2, Outline/WSS, Shadowsocks/v2ray-plugin WSS,
+TrustTunnel HTTP/2 and NaïveProxy HTTP/2.** Single-server and Double VPN setup
+use the phone's pinned SSH connection. No extra client app is required.
+
+See the [connection comparison](docs/CONNECTION-METHODS.md),
+[acceptance report](docs/ADDITIONAL-METHODS-TESTING.md) and
+[embedded-engine contract](docs/EMBEDDED-ENGINES.md). Ad blocking, operational
+traffic estimates, user management, profile sharing and managed removal apply
+to the new methods. Setup normally asks for the server address and administrator
+password, with `root` as the default administrator. This development edition is
+English; the earlier translation catalogs remain retained.
+
+The release badge and older walkthrough below describe the historical public
+alpha4. They do not announce publication of the private alpha18 candidate.
+
 ## What it does
 
 | Capability | In the app |
@@ -134,11 +185,13 @@ The original Android administration code and branding are GPL-3.0-or-later. The 
 
 [**Download 0.2.0-alpha4 APK**](https://github.com/VictorBoykoV/rookstride/releases/download/v0.2.0-alpha4/rookstride-0.2.0-alpha4.apk) · [Complete corresponding source and checksums](https://github.com/VictorBoykoV/rookstride/releases/tag/v0.2.0-alpha4)
 
-The current source retains the provider-tested `0.2.0-alpha2` recipe: **IKEv2 entry → AmneziaWG 3.1 exit** with independently pinned SSH, detached recoverable jobs, exit-side AdGuard Home and staged activation. Choose **Add a two-server gateway** in the experimental app. Reviewed **Reset both VPN nodes** and **Swap entry and exit** controls allow fresh redeployment from the phone. An optional native SSH relay manages one node through the other while retaining both physical-node identity pins.
+The earlier provider-tested `0.2.0-alpha2` recipe is: **IKEv2 entry → AmneziaWG 3.1 exit** with independently pinned SSH, detached recoverable jobs, exit-side AdGuard Home and staged activation. Choose **Add a two-server gateway** in the experimental app. Reviewed **Reset both VPN nodes** and **Swap entry and exit** controls allow fresh redeployment from the phone. An optional native SSH relay manages one node through the other while retaining both physical-node identity pins.
+
+The private **0.3.0-alpha16** candidate adds a guided **Double VPN** setup with IKEv2 or AmneziaWG as the phone-facing protocol and AmneziaWG, IKEv2, OpenVPN or Xray VLESS/REALITY between servers. See [route contracts and limitations](docs/PAIR-MODE.md); new route acceptance is separate from earlier provider evidence. Both nodes must be free of existing VPN setups. This does not change the public download above.
 
 Read the [pair guide](docs/PAIR-MODE.md), [real-provider test report](docs/PAIR-PROVIDER-TESTING.md) and [historical local alpha1 tests](docs/PAIR-TESTING.md). The same signed 0.2.0-alpha2 APK configured both real-provider nodes repeatedly, with clean phone resets and reversed roles. Embedded Android and isolated provider-side Linux clients verified IKE/EAP, exit IPv4, filtering and bridge-outage blocking/recovery. The report identifies each client network: one route from the test computer lost UDP replies, while its provider-side client passed. Android 16's coordinator/VPN passed; its emulator's screen navigation remains incomplete because of System UI startup hangs.
 
-The earlier `0.1.0-alpha2` binary is the single-server release. Pair upgrades/importing arbitrary installations and other engines in the [research note](docs/UNIVERSAL-GATEWAY-RESEARCH.md) remain future work. Reset removes owned gateway data and retains Ubuntu, SSH, packages and unrelated files; an OS factory rebuild belongs in the provider's panel.
+The earlier `0.1.0-alpha2` binary is the single-server release. Pair upgrades/importing arbitrary installations and unimplemented route combinations in the [research note](docs/UNIVERSAL-GATEWAY-RESEARCH.md) remain future work. Reset removes owned gateway data and retains Ubuntu, SSH, packages and unrelated files; whole-OS replacement is a separate reviewed action on eligible VMs, with provider rebuild tools for unsupported layouts.
 
 ## Rook, your guide
 
@@ -202,3 +255,13 @@ Browser planning/native handoff, a private web connector, iPhone and Telegram/We
 <p><img src="brand/screenshots/alpha4/persian-user-values.png" width="240" alt="Signed alpha4 Persian user view with the original fictional Phone labels"><img src="brand/screenshots/alpha4/persian-installation-fixture.png" width="240" alt="Signed alpha4 Persian installation status with an explicitly fictional transport fixture"></p>
 
 Signed alpha4 screens on Android 9. English names and logins in the fixture retain their original spelling. These images show UI tests, not a new server deployment.
+
+## Private development edition: embedded protocol connections
+
+The 0.3.0-alpha2 candidate adds in-app single-server connections for AmneziaWG
+3.1, Xray/VLESS/REALITY and OpenVPN alongside IKEv2. Setup/import/manage tasks
+are English-only in this edition. Select a saved VPN and tap Connect; additional
+VPN applications are not required. [Single-server choices](docs/SINGLE-PROTOCOLS.md),
+[engine architecture](docs/EMBEDDED-ENGINES.md) and [build instructions](docs/BUILD.md)
+describe supported formats and capability boundaries. The public alpha4 links
+above retain their historical release identity.

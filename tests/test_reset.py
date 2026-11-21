@@ -12,6 +12,7 @@ reset=importlib.util.module_from_spec(spec);spec.loader.exec_module(reset)
 
 class ResetTests(unittest.TestCase):
     def setUp(self):
+        marker=patch.object(reset.ike_packages,'remember_owned');marker.start();self.addCleanup(marker.stop)
         self.tmp=tempfile.TemporaryDirectory();self.root=Path(self.tmp.name)
         self.marker=self.root/'network.env';self.marker.write_text('DNS_IP=10.254.0.1\n')
         self.config=self.root/'ipsec.conf';self.config.write_text('conn ikev2-vpn\n  leftid=vpn.example.net\n')
@@ -21,6 +22,15 @@ class ResetTests(unittest.TestCase):
         self.paths.start()
     def tearDown(self):self.paths.stop();self.tmp.cleanup()
     def request(self,p):return {'mode':'apply','token':p['token'],'confirmation':'DELETE VPN'}
+    def test_password_change_invalidates_a_reset_review(self):
+        secrets=self.root/'secrets';secrets.write_text('account one')
+        with patch.object(reset,'SECRETS',secrets):
+            p=reset.plan();secrets.write_text('account two')
+            with patch.object(reset,'execute') as run:
+                with self.assertRaises(ValueError):reset.apply(self.request(p))
+                run.assert_not_called()
+    def test_first_review_is_stable_when_management_directory_was_absent(self):
+        self.state.rmdir();p=reset.plan();self.assertEqual(p['configuration'],reset.inspect()['configuration']);self.assertEqual(p['files'],reset.inspect()['files'])
     def test_unknown_or_additional_vpn_is_refused(self):
         self.marker.unlink()
         with self.assertRaises(ValueError):reset.plan()

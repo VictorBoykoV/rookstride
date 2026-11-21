@@ -30,6 +30,7 @@ public class VpnConnectionTest {
    Thread.sleep(500);
    activity.onActivity(a->{try{
     Method install=RookstrideActivity.class.getDeclaredMethod("installProfile",Gateway.class,JSONObject.class);install.setAccessible(true);install.invoke(a,node,value.getJSONObject("profile"));
+    if(value.optBoolean("omitRemoteId")){VpnProfileDataSource edit=new VpnProfileSource(a);edit.open();try{VpnProfile manual=edit.getVpnProfile(node.get("profileUuid"));manual.setRemoteId(null);edit.updateVpnProfile(manual);}finally{edit.close();}}
     Field vpn=RookstrideActivity.class.getDeclaredField("vpn");vpn.setAccessible(true);service.set((VpnStateService)vpn.get(a));
     Method connect=RookstrideActivity.class.getDeclaredMethod("connectPhone",Gateway.class);connect.setAccessible(true);connect.invoke(a,node);
    }catch(Exception e){throw new AssertionError(e);}});

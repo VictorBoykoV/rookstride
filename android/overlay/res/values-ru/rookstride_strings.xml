@@ -558,6 +558,8 @@
     <string name="rs_m_2e1a4c07ce94" formatted="false">"Строгий"</string>
     <string name="rs_m_85a39ab345d6" formatted="false">"Да"</string>
     <string name="rs_m_1ea442a134b2" formatted="false">"Нет"</string>
+    <string name="rs_app_vpn_pending" formatted="false">"Android может показывать значок VPN, пока зашифрованный туннель ещё подключается. Это ещё не подтверждает доступ в Интернет через шлюз. Откройте журнал, чтобы посмотреть подробности подключения."</string>
+    <string name="rs_app_vpn_port_hint" formatted="false">"Порт 500 используется для стандартного согласования VPN. Порт 4500 начинает подключение сразу через NAT-T. Для других портов нужны соответствующие настройки сервера. Смена порта не скрывает протокол VPN. После изменения переподключитесь."</string>
     <plurals name="rs_checkpoints_remaining">
         <item quantity="one">"Остался %1$d этап"</item>
         <item quantity="few">"Осталось %1$d этапа"</item>

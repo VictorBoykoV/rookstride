@@ -26,7 +26,7 @@ if [[ "$ACTION" == "add" ]]; then
     [[ "$password" == "$password_confirm" ]] || { echo "Passwords do not match." >&2; exit 1; }
     unset password_confirm
   fi
-  [[ ${#password} -ge 16 ]] || { echo "Use a password of at least 16 characters." >&2; exit 1; }
+  printf %s "$password" | python3 "$(dirname "${BASH_SOURCE[0]}")/../../server/rookstride/passwords.py"
   escaped="${password//\\/\\\\}"
   escaped="${escaped//\"/\\\"}"
   printf '%s : EAP "%s"\n' "$VPN_USER" "$escaped" >> "$tmp"

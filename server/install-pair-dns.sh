@@ -5,7 +5,49 @@ export DEBIAN_FRONTEND=noninteractive
 ROOT_DIR="$(cd "$(dirname "$0")/../gateway" && pwd)"
 DNS_IP="${TUNNEL_EXIT_IP:?}"
 : "${CLIENT_POOL:?}" "${TEST_SOURCE_IP:?}"
-apt-get -o DPkg::Lock::Timeout=1200 install -y -qq curl ca-certificates openssl python3-bcrypt
+# Fresh legacy DNS only; a completed older module is never an implicit upgrade.
+for path in /opt/AdGuardHome /var/lib/AdGuardHome /etc/systemd/system/adguardhome.service /etc/unbound/unbound.conf.d/twohop-vpn.conf; do
+  [[ ! -e $path && ! -L $path ]] || { echo 'Existing pair DNS requires review.' >&2; exit 1; }
+done
+if systemctl is-active --quiet adguardhome; then
+  echo 'Existing pair DNS service requires review.' >&2; exit 1
+fi
+# Download tooling only; publish no DNS files until the archive is verified.
+if ! command -v curl >/dev/null || [[ ! -s /etc/ssl/certs/ca-certificates.crt ]]; then
+  apt-get -o DPkg::Lock::Timeout=1200 install -y -qq curl ca-certificates
+fi
+case "$(uname -m)" in
+  x86_64) arch=amd64; checksum=28593bc761d71469abdbc6f39ca42cbed763ec92b63082c729177b037ed51d18; size=12553060; asset=705629752 ;;
+  aarch64) arch=arm64; checksum=d5e17d0d724418ddef8b7723ed8ade7eef4e621ec5b0e43a341859cca71a3d8f; size=11455816; asset=705629749 ;;
+  *) echo 'AdGuard Home is packaged here for x86_64 and aarch64 only.' >&2; exit 1 ;;
+esac
+tmp="$(mktemp -d)"
+trap 'rm -rf "$tmp"' EXIT
+archive="AdGuardHome_linux_${arch}.tar.gz"
+if python3 "$ROOT_DIR/scripts/public-artifact-cache.py" "$checksum" "$size" "$tmp/$archive"; then
+  :
+else
+  cache_status=$?
+  [[ $cache_status == 10 ]] || exit "$cache_status"
+  if ! curl -fL --proto '=https' --proto-redir '=https' --connect-timeout 15 --max-time 45 -o "$tmp/$archive" \
+    "https://github.com/AdguardTeam/AdGuardHome/releases/download/v0.107.80/$archive"; then
+    curl -fL --proto '=https' --proto-redir '=https' --connect-timeout 15 --max-time 45 --retry 1 -H 'Accept: application/octet-stream' \
+      -o "$tmp/$archive" "https://api.github.com/repos/AdguardTeam/AdGuardHome/releases/assets/$asset"
+  fi
+fi
+[[ $(stat -c %s "$tmp/$archive") == "$size" ]] || { echo 'Unexpected AdGuard Home archive size.' >&2; exit 1; }
+printf '%s  %s\n' "$checksum" "$tmp/$archive" | sha256sum -c -
+python3 - "$tmp/$archive" "$tmp/AdGuardHome" <<'PYADGUARD'
+import pathlib,sys,tarfile
+with tarfile.open(sys.argv[1], 'r:gz') as archive:
+    items=[p for p in archive.getmembers() if pathlib.PurePosixPath(p.name)==pathlib.PurePosixPath('AdGuardHome/AdGuardHome')]
+    if len(items)!=1 or not items[0].isfile() or not 0<items[0].size<=100*1024*1024:
+        raise ValueError('Unexpected AdGuard Home binary')
+    binary=archive.extractfile(items[0]).read()
+    if len(binary)!=items[0].size:raise ValueError('Incomplete AdGuard Home binary')
+    pathlib.Path(sys.argv[2]).write_bytes(binary)
+PYADGUARD
+apt-get -o DPkg::Lock::Timeout=1200 install -y -qq openssl python3-bcrypt
 install -d -m 700 /root/rookstride-pair
 install -d -m 755 /opt/AdGuardHome
 cat > /etc/unbound/unbound.conf.d/twohop-vpn.conf <<'EOF'
@@ -23,21 +65,7 @@ server:
     qname-minimisation: yes
     prefetch: yes
 EOF
-systemctl stop adguardhome 2>/dev/null || true
-case "$(uname -m)" in
-  x86_64) arch=amd64; checksum=c48f4a43000665484c5ec28177de11a004759b620dae8f77b2aabefc9ef3687f ;;
-  aarch64) arch=arm64; checksum=3f7893c18e8aaadc456d0452839190561c306ca95175a2254958be80a769c1ae ;;
-  *) echo 'AdGuard Home is packaged here for x86_64 and aarch64 only.' >&2; exit 1 ;;
-esac
-tmp="$(mktemp -d)"
-trap 'rm -rf "$tmp"' EXIT
-archive="AdGuardHome_linux_${arch}.tar.gz"
-curl -fL --retry 3 -o "$tmp/$archive" \
-  "https://github.com/AdguardTeam/AdGuardHome/releases/download/v0.107.79/$archive"
-printf '%s  %s\n' "$checksum" "$tmp/$archive" | sha256sum -c -
-# Verified official archives may prefix member names with ./; extract in the private temp directory.
-tar -xzf "$tmp/$archive" -C "$tmp"
-install -m 755 "$tmp/AdGuardHome/AdGuardHome" /opt/AdGuardHome/AdGuardHome
+install -m 755 "$tmp/AdGuardHome" /opt/AdGuardHome/AdGuardHome
 id adguard >/dev/null 2>&1 || useradd --system --home /var/lib/AdGuardHome --shell /usr/sbin/nologin adguard
 install -d -o adguard -g adguard -m 700 /var/lib/AdGuardHome /var/lib/AdGuardHome/work
 admin_password="$(openssl rand -hex 24)"

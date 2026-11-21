@@ -924,5 +924,7 @@ KEYS.put("m_85a39ab345d6",R.string.rs_m_85a39ab345d6);
 SOURCE.put("Yes",R.string.rs_m_85a39ab345d6);
 KEYS.put("m_1ea442a134b2",R.string.rs_m_1ea442a134b2);
 SOURCE.put("No",R.string.rs_m_1ea442a134b2);
+KEYS.put("app.vpn_pending",R.string.rs_app_vpn_pending);
+KEYS.put("app.vpn_port_hint",R.string.rs_app_vpn_port_hint);
 }
 }

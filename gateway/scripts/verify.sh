@@ -22,6 +22,7 @@ for _ in {1..30}; do
   sleep 1
 done
 [[ $healthy == true ]] || { echo 'VPN or DNS readiness check failed.' >&2; exit 1; }
+python3 "$(dirname "${BASH_SOURCE[0]}")/prepare-adguard.py" "$DNS_IP"
 blocked=false
 for _ in {1..20}; do
   if [[ $(dig +time=3 +tries=1 +short @"$DNS_IP" doubleclick.net A) == 0.0.0.0 ]]; then

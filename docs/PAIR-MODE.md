@@ -1,69 +1,176 @@
-# Two-server gateway · experimental
+# Two-server VPN · experimental private candidate
 
-The `0.2.0-alpha2` source includes one complete recipe in the Android app:
+The private **0.3.0-alpha17** candidate adds a guided **Double VPN** setup.
+This is also called a two-hop VPN or a two-server gateway. The public release and
+older provider reports describe earlier builds; they do not certify new routes.
+
+| Phone → first VPS | First → exit VPS | Implementation |
+| --- | --- | --- |
+| IKEv2 | AmneziaWG 3.1 | Established kernel-module recipe |
+| AmneziaWG 3.1, OpenVPN or Xray | AmneziaWG 3.1 | Pinned userspace bridge |
+| Any of the four entry protocols | IKEv2 | Pinned certificate + Linux IPsec/XFRM bridge |
+| Any of the four entry protocols | OpenVPN | Certificate-authenticated TCP bridge |
+| Any of the four entry protocols | Xray VLESS / REALITY | Pinned Xray TUN + authenticated TCP/UDP proxy |
+
+The exit protocol is the encrypted connection **between servers**. Your phone
+uses only the first protocol inside Rookstride. OpenVPN entry uses a dedicated routed client pool without standalone NAT. Xray
+entry binds every client/DNS outbound to an owned source address, with a closed
+default outbound and a separate local-socket firewall guard. Xray carries TCP/UDP, not arbitrary IP protocols such
+as ICMP. Do not infer regional reachability or performance from a successful lab.
 
 ```mermaid
 flowchart LR
-    Phone[Android / strongSwan] -->|IKEv2 + EAP| Entry[Entry VPS]
-    Entry -->|AmneziaWG 3.1 · MTU 1280| Exit[Exit VPS]
+    Phone[Phone / Rookstride] -->|Selected entry protocol| Entry[Entry VPS]
+    Entry -->|Selected bridge protocol · MTU 1280| Exit[Exit VPS]
     Exit --> Internet
-    Exit --> AdGuard[Private AdGuard Home]
-    AdGuard --> Unbound
-    Admin[Rookstride administrator] -->|Independently pinned SSH| Entry
-    Admin -->|Independently pinned SSH| Exit
+    Exit --> DNS[Private AdGuard Home · recursive or encrypted upstream]
+    Admin[Rookstride administrator] -->|Pinned SSH| Entry
+    Admin -->|Separately pinned SSH| Exit
 ```
-
-The public `0.1.0-alpha2` APK is the earlier single-server release. The `0.2.0` pair builds are experimental. Read the [real-provider test report](PAIR-PROVIDER-TESTING.md); [PAIR-TESTING.md](PAIR-TESTING.md) records the historical alpha1 local-machine tests. WireGuard, OpenVPN and Xray client engines remain proposals.
 
 ## Requirements
 
-- Two distinct, fresh Ubuntu 24.04 machines, x86_64 or arm64, with public IPv4 and Internet access.
-- Independent SSH addresses, ports and root credentials or private keys. Passwordless sudo is also supported.
-- Provider firewall access for entry UDP 500/4500 and exit UDP 443 by default. A custom client or bridge port can be selected before installation.
-- A matching kernel and headers able to build/load the pinned AmneziaWG module. When a kernel change is required, the app offers an owned reboot and then resume.
-- Reachable Ubuntu repositories, the signed AWG package repository and the checksum-pinned AdGuard Home release. The phone needs an Internet connection. If one SSH endpoint is unreachable directly, **Advanced → Manage entry through exit** or **Manage exit through entry** can use the other node as a management relay. Both host keys are independently checked before authenticating to their respective nodes. The relay must permit SSH TCP forwarding and reach the target's SSH port; it is not a VPN transport workaround.
+New native setups assess Ubuntu 22.04+ independently on each node; versions may differ. Saved legacy pairs retain their 24.04 requirement. See [Ubuntu compatibility](UBUNTU-COMPATIBILITY.md).
 
-One physical VPS cannot serve as both roles. The app checks machine IDs before changing either node, refusing aliases of the same machine. Two isolated local VMs can test the coordinator and real tunnel, but a production two-hop route needs two VPSs. Shared-host tests do not certify routing between independent providers.
+Use two distinct dedicated Ubuntu VPSs with public IPv4, reachable package
+repositories and sufficient disk space. A managed reset can prepare previously
+owned nodes; an unknown existing VPN is not silently overwritten. One VPS cannot
+serve both roles: the app checks machine IDs and reviews both nodes before
+installing on either. Provider firewalls must permit the chosen ports:
+
+- New AWG entry: UDP 51820 by default.
+- AWG exit: UDP 443 by default.
+- IKEv2 entry or exit: UDP 500 and 4500; the original entry also supports a selected
+  redirected NAT-T port.
+- OpenVPN entry or exit: TCP 1194 by default.
+- Xray entry or exit: TCP 443 by default.
+- SSH: normally TCP 22. Alternative ports and management relays are optional.
+
+The original IKEv2 → AWG recipe needs the pinned kernel module and compatible
+headers. Native AWG legs use the pinned userspace implementation in
+owned containers, including the AWG bridge; a leftover host kernel module does
+not select their implementation. The phone needs an Internet connection.
 
 ## Install from Android
 
-1. Add a **two-server gateway**. Enter separate entry and exit SSH details. Check each presented fingerprint against its provider console; a changed key stops the operation before authentication.
-2. Set the public entry VPN address and exit tunnel endpoint. These may differ from their management SSH addresses. Create the initial VPN login with the generated strong password or another password of at least 16 characters.
-3. Install. The app first prepares the exit, then the entry under a forwarding guard. Private tunnel keys are generated on each node and never leave it. Shared tunnel authentication material is transferred only through the two verified SSH sessions.
-4. The coordinator configures exit DNS, configures IKEv2 and the bridge, checks a recent handshake, staged exit IPv4 and a real DNS answer, then activates client forwarding. It stops at a failed check.
-5. Use **People → Use on this phone**, or export a password-free `.sswan` profile for the official strongSwan Android app. Share the VPN password separately.
-6. Test the actual phone on Wi-Fi and mobile data: HTTPS, visible exit IPv4, DNS filtering and IPv6 behavior. A successful SSH install cannot establish that the phone’s network permits IKEv2.
+1. Choose **Set up a VPN → Double VPN**. Follow the five steps: phone protocol,
+   exit protocol, first-server access, exit access, and review. Back keeps your
+   entries; rotation retains the draft in memory.
+2. Choose each VPS from **Choose a saved server**, or supply its address and
+   administrator password (root by default). Saved nodes retain their SSH pin and
+   encrypted access; there is no need to delete and add them again.
+   Optional administrator names, ports, keys and relay settings are in Advanced. Saving administrator
+   access is visible and selected by default; it is encrypted on this phone.
+3. If selected nodes already contain recognised Rookstride VPNs, review the
+   removal scope and acknowledge the affected accounts before proceeding. The
+   app closes an old entry before its old exit even when swapping roles.
+   Check each SSH fingerprint against the provider console. A changed key stops
+   authentication. The app verifies both nodes before installation.
+4. Progress includes explicit exit ad-blocking and available entry-monitoring
+   checks. The app prepares the exit and private DNS, guards the entry, configures the
+   bridge, checks the expected exit IPv4 and allowed/blocked DNS, then opens
+   forwarding. You can read Stories while the foreground installation continues.
+5. Connect inside Rookstride. Optional exports use native AmneziaWG `.conf`,
+   IKEv2 `.sswan`, OpenVPN `.ovpn` or a VLESS URI. These contain VPN access, never root credentials.
+6. Test the actual phone on Wi-Fi and mobile data. Server or emulator success
+   cannot prove a particular mobile network permits the selected transport.
 
-AdGuard settings are sent to the exit; accounts, sessions and estimated user traffic are managed at the entry. The dashboard listens on the private exit tunnel address. The embedded client remains IKEv2; this mode does not add an AmneziaWG phone client.
+AWG bridge client material and the IKEv2 pinned certificate/bridge credentials
+travel through the two verified encrypted SSH connections. They are stored in
+root-owned files. Do not publish manifests, exported profiles or install logs.
 
-## Interrupted installation and pause
+## Filtering, users and statistics
 
-Each node stores a root-owned pair manifest and detached systemd jobs. Closing the app or losing SSH does not kill the server job. Reopen the saved pair and choose **Install / resume / verify pair**. The saved plan, peer material and installer digest must match. The app does not silently switch an existing pair to new installer code.
+Ad blocking is on the **exit**, so the complete route uses exit DNS. Settings in
+Rookstride target that exit through its own verified SSH session. Users and
+connection estimates belong to the entry. Standalone native protocols on one VPS
+share one native filtering service; IKEv2 retains its separate existing filter.
+An imported entry record alone cannot manage an absent exit record.
 
-Root-only job state/logs live under `/var/lib/rookstride-pair/JOB/`; ownership and material under `/etc/rookstride-pair/`. Never publish those files. A changed partial IKE configuration or changed owned tunnel configuration stops recovery.
+Fresh native exit filtering queries encrypted Quad9 and Cloudflare DNS in
+parallel, with a bounded upstream timeout. Both resolvers receive queries; existing
+operator preferences are not replaced. This avoids waiting for an unreachable
+primary before trying the other encrypted resolver. IKEv2 exits use the existing Unbound recursive
+resolver. Startup retries an enabled empty blocklist without changing selected
+lists or disabling protection; a failed DNS check still stops setup.
 
-**Pause client forwarding** raises a persistent guard. It does not restore a direct entry route. Resume repeats staged verification before activation. A bridge outage retains a blackhole route for VPN client addresses. Reboots restore the recorded active or paused state before IKE clients can use the gateway.
+Statistics refresh on opening and every five minutes while that screen is visible.
+They are operational estimates, not provider billing or reliable device identities.
+DNS filtering does not remove every ad or control an application's encrypted DNS.
 
-## Current boundaries
+## Interrupted installation and routing protection
 
-- Fresh pair installation, recovery of its owned jobs, reviewed pair data reset and role swapping after reset are supported. Pair upgrades and importing an arbitrary existing pair are not supported. Use a provider rebuild for a whole operating-system wipe.
-- Only one pair per dedicated node. No nested chains, selectable phone engines or mixed protocol recipes.
-- IPv4 Internet routing; IPv6 client Internet traffic is rejected. Always-on Android lockdown is a separate phone setting. The admin app’s management traffic is exempt from its embedded VPN.
-- DNS filtering cannot reliably remove YouTube in-video ads; apps with their own encrypted DNS may bypass domain filtering.
-- Usage is an estimate at the entry, not provider billing. Both VPS providers and the exit’s address reputation still matter.
+Root-owned manifests and detached systemd jobs survive app navigation and SSH
+loss. Reopen the saved pair and resume. Its plan, installer identity and bridge
+material must match; another installer version is refused instead of silently
+replacing a running pair. The first activation timestamp stops elapsed time at
+completion, including a later resume.
 
-## Reset and reverse the route from Android
+Native entries use a dedicated source-routing table, a permanent blackhole
+fallback and forwarding guards. The main host default route and SSH stay separate.
+AWG → IKEv2 uses a dedicated XFRM interface and pinned exit certificate. Entry
+client traffic is rejected at entry-local services. IPv6 Internet forwarding is
+blocked. Neither a stopped bridge nor a missing IPsec SA should fall back to the
+entry's Internet uplink. Owned startup units restore policy before the entry VPN.
+See [strongSwan's route-based VPN design](https://docs.strongswan.org/docs/latest/features/routeBasedVpn.html).
 
-1. Select the saved pair and choose **Reset both VPN nodes**. The app reviews both nodes' ownership and lists the managed files and services.
-2. Type **DELETE PAIR**. The entry VPN stops before its forwarding protection is removed; the exit's tunnel and DNS data are removed afterward. Ubuntu, SSH, installed package binaries and unrelated files are retained. A separately saved root-only recovery archive is outside this reset scope.
-3. The app removes its saved VPN profile and marks the nodes fresh. Choose **Swap entry and exit**, check the VPN address and tunnel endpoint, and install again. Physical-node credentials and SSH pins stay attached to their original servers; the new route gets a new pair identity and new VPN certificates/tunnel keys.
+## Abandon an unfinished setup
 
-Both nodes must be reachable for review. Reset is coordinated across two machines, not an atomic transaction. If interrupted after one node is cleaned, choose Reset again: the already-fresh node is a reviewed no-op, and the remaining owned node is cleaned. Changed ownership/configuration, extra tunnels, unexpected links or an active installation stop the reset. A running installation should finish or be resumed first.
+A failed or interrupted setup offers **Check and resume** and **Abandon setup**.
+Abandon removes its progress notice on this phone. It preserves server records
+and remote job IDs; it does not stop a detached job or remove software. Inspect
+and review server cleanup separately. An actively running phone coordinator
+cannot be dismissed by an old abandon confirmation.
 
-If the client never receives an IKE response, inspect both client and server logs before changing credentials. An SSH management relay cannot repair this path. The optional entry UDP 443 port redirects to strongSwan's NAT-T listener; the exported profile must use that same selected port. Availability depends on the actual client's network and provider firewall. See [strongSwan's custom-port/NAT-T requirements](https://docs.strongswan.org/docs/latest/features/natTraversal.html). Custom-port evidence here covers strongSwan Android/Linux clients; standard-port native clients need their own compatibility checks.
+## Direct VPNs alongside Double VPN
 
-## Source and dependencies
+The new route needs both nodes free of previous VPN setups. The wizard can
+review and remove recognised software on your selected saved nodes first. It does not
+support separate direct-entry, direct-exit and two-hop connections concurrently
+on the same two VPSs. That needs independent address pools and routing policies;
+installing over existing standalone NAT could create an unwanted direct exit.
+Use **Change Double VPN protocols** to reuse both nodes with new choices. This
+reviews replacement, removes the old setup and redeploys; it is not an in-place
+protocol switch and previous VPN accounts/keys are replaced. Standalone mode
+still supports adding more protocols later without an extra server-creation step.
 
-The MIT backend is vendored under [twohop](../twohop/SOURCE.json) with the original repository/commit and exact file hashes. The new SSH coordinator and server job adapter are part of Rookstride’s GPL source. The original [Two-Hop VPN Gateway repository](https://github.com/VictorBoykoV/beget-vpn-gateway) retains its CLI workflow.
+## Reuse a server
 
-Ubuntu 24.04 pair builds pin `amneziawg-tools=1.0.20210914-0~202608130144+ee0f0a9~ubuntu24.04.1` and `amneziawg-dkms=1.0.0-0~202609061402+4569c4c~ubuntu24.04.1`. The loaded parser/module must retain 3.1 parameters and complete a real handshake. Availability of these package versions and support for a provider kernel remain deployment prerequisites. AdGuard Home 0.107.79 archives are SHA-256 verified before extraction.
+**Remove this server's VPN setup** can recover either locally recognised pair
+node without the old phone pair record or a reachable partner. Review and confirm
+the listed owned components. It removes that node's VPN/bridge/accounts/keys and
+owned filtering; the other node remains unchanged and its old route stops working.
+The cleaned node can host a single-server VPN or either two-server role.
+
+**Reset both VPN nodes** reviews both machines and removes the entry before the
+exit. It is coordinated, not atomic; an interrupted reset can be reviewed again.
+Home shows both physical nodes with Entry/Exit badges. After full removal, the
+phone retains two separate reusable server records with
+their original SSH pins/access. Changed ownership, altered service units,
+unexpected links and active jobs stop cleanup for review. File paths are optional
+technical details, not part of a server’s displayed name. Protocol choices and
+non-secret reviews allow Android screenshots; administrator/secret dialogs remain
+protected.
+
+This removes recognised Rookstride configuration and data. Ubuntu, SSH, installed
+package binaries, unrelated files and independently saved recovery archives remain.
+It does not reinstall Ubuntu. **Wipe server & reinstall Ubuntu** is a separate
+reviewed action for eligible full VMs; erasing either node breaks the Double VPN
+and does not erase its partner. Unsupported layouts need provider rebuild tools.
+Root SSH access does not grant a hosting-provider account API. See
+[server management](SERVER-MANAGEMENT.md).
+
+## Sources and evidence
+
+The original MIT backend is pinned under [twohop](../twohop/SOURCE.json); its
+[standalone repository](https://github.com/VictorBoykoV/beget-vpn-gateway) retains
+the CLI workflow. New coordinators/adapters are part of Rookstride's GPL source.
+Native dependency identities are in [engine pins](../android/engines/pins.json).
+[AmneziaWG documentation](https://docs.amnezia.org/documentation/amnezia-wg/)
+describes the upstream protocol; Rookstride is an independent app.
+
+Historical [provider tests](PAIR-PROVIDER-TESTING.md) and
+[local pair tests](PAIR-TESTING.md) apply only to their named builds. Candidate
+acceptance must record exact source/bundle/APK hashes, both-node installation,
+real client egress/DNS, outage/recovery and role reversal. Never equate a successful
+build or SSH installation with physical-phone reachability or regional availability.

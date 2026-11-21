@@ -558,6 +558,8 @@
     <string name="rs_m_2e1a4c07ce94" formatted="false">"سخت‌گیرانه"</string>
     <string name="rs_m_85a39ab345d6" formatted="false">"بله"</string>
     <string name="rs_m_1ea442a134b2" formatted="false">"خیر"</string>
+    <string name="rs_app_vpn_pending" formatted="false">"ممکن است اندروید هنگام برقراری تونل رمزگذاری‌شده، نماد VPN را نشان دهد. این به‌تنهایی تأیید نمی‌کند که دسترسی به اینترنت از طریق دروازه برقرار شده است. برای دیدن جزئیات اتصال، گزارش را باز کنید."</string>
+    <string name="rs_app_vpn_port_hint" formatted="false">"درگاه ۵۰۰ برای مذاکرهٔ استاندارد VPN است. درگاه ۴۵۰۰ اتصال را مستقیماً با NAT-T آغاز می‌کند. درگاه‌های دیگر به تنظیمات هماهنگ در سرور نیاز دارند. تغییر درگاه، پروتکل VPN را پنهان نمی‌کند. پس از تغییر این تنظیم، دوباره متصل شوید."</string>
     <plurals name="rs_checkpoints_remaining">
         <item quantity="one">"%1$d مرحلهٔ بررسی باقی مانده"</item>
         <item quantity="other">"%1$d مرحلهٔ بررسی باقی مانده"</item>

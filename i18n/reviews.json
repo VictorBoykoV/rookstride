@@ -1,14 +1,14 @@
 {
   "_meta": {
     "schema_version": 1,
-    "reviewed_on": "2026-10-14",
+    "reviewed_on": "2026-10-16",
     "status": "model-reviewed",
     "source_catalog": "en.json",
-    "source_catalog_hash": "206aeb0835dbfcc70b5f00f6162b5139f4175f1a2721b105dbf6f5e1609f4220",
+    "source_catalog_hash": "823f2bdb8707729bba56aef1bf17dc11fed69070e5b2d05b3c2ba28db0d8f033",
     "context_catalog": "contexts.json",
-    "context_hash": "4d1ed3ea669a3a8974e79494dbc182d6f37c59f0c1052bfb165ba24465e6e91d",
+    "context_hash": "956af09b9d7ceef91198545e9528c6117521bbe2d81b7ebd60ba3826de0c2bc6",
     "scope": "Shared practical website, native interface, beginner guide, and checkpoint plurals; English story bodies and detailed technical documentation are excluded.",
-    "messages_per_locale": 557,
+    "messages_per_locale": 559,
     "model_review_stages": 2,
     "human_native_review": false,
     "protected_program_strings": [
@@ -42,7 +42,7 @@
         "method": "Compared all 557 messages and plural forms with English, checked composition and qualifiers, requested corrections, and reread final corrected text."
       }
     ],
-    "translation_hash": "c7c089d99c800435a1c587de652d73a470f13019bad216fe71e1b89890835c80",
+    "translation_hash": "9d52d591d1f91a4abcc40e14eab0f44dce42ada5f464f96dd643e5de90a42fec",
     "plural_hash": "cfe28a1da5573c7a24fb8a23bead63dd79ae078ff0b49ef741b219e5cc29209b",
     "source_hashes": {
       "m_9e4635769f0a": "9e4635769f0aaf0d333e7f85b30bae0e16ae96fd3c0ce0efeca2db5ee527219e",
@@ -601,7 +601,9 @@
       "m_30a04fdcb6bb": "30a04fdcb6bb10b03f55db14e88d7c1f5bcc9129d511e9b6b7dadd49bcb1a755",
       "m_2e1a4c07ce94": "2e1a4c07ce94cb0ceb769cc5fd0edc0e53ec37feebeb36b53fa7fed72d619a5b",
       "m_85a39ab345d6": "85a39ab345d672ff8ca9b9c6876f3adcacf45ee7c1e2dbd2408fd338bd55e07e",
-      "m_1ea442a134b2": "1ea442a134b2a184bd5d40104401f2a37fbc09ccf3f4bc9da161c6099be3691d"
+      "m_1ea442a134b2": "1ea442a134b2a184bd5d40104401f2a37fbc09ccf3f4bc9da161c6099be3691d",
+      "app.vpn_pending": "5e729a4258d185c022937b6f98b36cf0d260d3b6fd4c42e63369e54fc4b7ed60",
+      "app.vpn_port_hint": "f95995217f50ba6034b90c7f9b0fc4e374acd21ceba71d7df3d068130a92dc14"
     },
     "plural_source_hashes": {
       "one": "5dc2e83839208ebb19f0cbe7cc5517225c3490245da90498fbfd46fe24658ccf",
@@ -627,7 +629,19 @@
     },
     "unresolved_model_findings": [],
     "remaining_review": "Native-speaking community review and separately recorded rendered UI/physical-device checks.",
-    "plural_source_hash": "24192fd466526d6f2a84dadcde366642a073906a077953822bbfb613057c409a"
+    "plural_source_hash": "24192fd466526d6f2a84dadcde366642a073906a077953822bbfb613057c409a",
+    "supplemental_reviews": [
+      {
+        "date": "2026-10-16",
+        "keys": [
+          "app.vpn_pending",
+          "app.vpn_port_hint"
+        ],
+        "method": "Author model translation and focused reread for negation, VPN-interface versus authenticated-tunnel distinction, Internet-access qualifier and log action. Earlier 557-message reviews remain scoped to their original text. Also reread the port hint for the distinction between SSH and client VPN UDP ports, matching server configuration, reconnect requirement, and no protocol-obfuscation claim.",
+        "independent_review": false,
+        "human_native_review": false
+      }
+    ]
   },
   "zh-Hans": {
     "status": "model-reviewed",
@@ -649,7 +663,7 @@
         "method": "Compared all 557 messages and plural forms with English, checked composition and qualifiers, requested corrections, and reread final corrected text."
       }
     ],
-    "translation_hash": "a17e1921552b68742fea1974546da6ef08c89a237472bccf48edec321ce80f01",
+    "translation_hash": "7afa4f2268e5d4cc358479ff4d49ac6c49406fd046a535b3818b364a66712338",
     "plural_hash": "e228bdfcc07c60cd99b1864cfa7ec81366540dfa07591802efc663a3cc4a1cec",
     "source_hashes": {
       "m_9e4635769f0a": "9e4635769f0aaf0d333e7f85b30bae0e16ae96fd3c0ce0efeca2db5ee527219e",
@@ -1208,7 +1222,9 @@
       "m_30a04fdcb6bb": "30a04fdcb6bb10b03f55db14e88d7c1f5bcc9129d511e9b6b7dadd49bcb1a755",
       "m_2e1a4c07ce94": "2e1a4c07ce94cb0ceb769cc5fd0edc0e53ec37feebeb36b53fa7fed72d619a5b",
       "m_85a39ab345d6": "85a39ab345d672ff8ca9b9c6876f3adcacf45ee7c1e2dbd2408fd338bd55e07e",
-      "m_1ea442a134b2": "1ea442a134b2a184bd5d40104401f2a37fbc09ccf3f4bc9da161c6099be3691d"
+      "m_1ea442a134b2": "1ea442a134b2a184bd5d40104401f2a37fbc09ccf3f4bc9da161c6099be3691d",
+      "app.vpn_pending": "5e729a4258d185c022937b6f98b36cf0d260d3b6fd4c42e63369e54fc4b7ed60",
+      "app.vpn_port_hint": "f95995217f50ba6034b90c7f9b0fc4e374acd21ceba71d7df3d068130a92dc14"
     },
     "plural_source_hashes": {
       "one": "5dc2e83839208ebb19f0cbe7cc5517225c3490245da90498fbfd46fe24658ccf",
@@ -1231,7 +1247,19 @@
     },
     "unresolved_model_findings": [],
     "remaining_review": "Native-speaking community review and separately recorded rendered UI/physical-device checks.",
-    "plural_source_hash": "24192fd466526d6f2a84dadcde366642a073906a077953822bbfb613057c409a"
+    "plural_source_hash": "24192fd466526d6f2a84dadcde366642a073906a077953822bbfb613057c409a",
+    "supplemental_reviews": [
+      {
+        "date": "2026-10-16",
+        "keys": [
+          "app.vpn_pending",
+          "app.vpn_port_hint"
+        ],
+        "method": "Author model translation and focused reread for negation, VPN-interface versus authenticated-tunnel distinction, Internet-access qualifier and log action. Earlier 557-message reviews remain scoped to their original text. Also reread the port hint for the distinction between SSH and client VPN UDP ports, matching server configuration, reconnect requirement, and no protocol-obfuscation claim.",
+        "independent_review": false,
+        "human_native_review": false
+      }
+    ]
   },
   "fa": {
     "status": "model-reviewed",
@@ -1253,7 +1281,7 @@
         "method": "Compared all 557 messages and plural forms with English, checked composition and qualifiers, requested corrections, and reread final corrected text."
       }
     ],
-    "translation_hash": "df68150bbc3b0d04666e38008a4e92c2fdfb7971377dd7b53b10d27b018edf3b",
+    "translation_hash": "743feb84763bd4950369686671f0d3d03d8a91285107127e3dcbd7a46e2b4de6",
     "plural_hash": "d3a587862046cdf5f097c36242ff594c67257e77231fae435eb5651f1e4a5244",
     "source_hashes": {
       "m_9e4635769f0a": "9e4635769f0aaf0d333e7f85b30bae0e16ae96fd3c0ce0efeca2db5ee527219e",
@@ -1812,7 +1840,9 @@
       "m_30a04fdcb6bb": "30a04fdcb6bb10b03f55db14e88d7c1f5bcc9129d511e9b6b7dadd49bcb1a755",
       "m_2e1a4c07ce94": "2e1a4c07ce94cb0ceb769cc5fd0edc0e53ec37feebeb36b53fa7fed72d619a5b",
       "m_85a39ab345d6": "85a39ab345d672ff8ca9b9c6876f3adcacf45ee7c1e2dbd2408fd338bd55e07e",
-      "m_1ea442a134b2": "1ea442a134b2a184bd5d40104401f2a37fbc09ccf3f4bc9da161c6099be3691d"
+      "m_1ea442a134b2": "1ea442a134b2a184bd5d40104401f2a37fbc09ccf3f4bc9da161c6099be3691d",
+      "app.vpn_pending": "5e729a4258d185c022937b6f98b36cf0d260d3b6fd4c42e63369e54fc4b7ed60",
+      "app.vpn_port_hint": "f95995217f50ba6034b90c7f9b0fc4e374acd21ceba71d7df3d068130a92dc14"
     },
     "plural_source_hashes": {
       "one": "5dc2e83839208ebb19f0cbe7cc5517225c3490245da90498fbfd46fe24658ccf",
@@ -1836,7 +1866,19 @@
     },
     "unresolved_model_findings": [],
     "remaining_review": "Native-speaking community review and separately recorded rendered UI/physical-device checks.",
-    "plural_source_hash": "24192fd466526d6f2a84dadcde366642a073906a077953822bbfb613057c409a"
+    "plural_source_hash": "24192fd466526d6f2a84dadcde366642a073906a077953822bbfb613057c409a",
+    "supplemental_reviews": [
+      {
+        "date": "2026-10-16",
+        "keys": [
+          "app.vpn_pending",
+          "app.vpn_port_hint"
+        ],
+        "method": "Author model translation and focused reread for negation, VPN-interface versus authenticated-tunnel distinction, Internet-access qualifier and log action. Earlier 557-message reviews remain scoped to their original text. Also reread the port hint for the distinction between SSH and client VPN UDP ports, matching server configuration, reconnect requirement, and no protocol-obfuscation claim.",
+        "independent_review": false,
+        "human_native_review": false
+      }
+    ]
   },
   "ar": {
     "status": "model-reviewed",
@@ -1858,7 +1900,7 @@
         "method": "Compared all 557 messages and plural forms with English, checked composition and qualifiers, requested corrections, and reread final corrected text."
       }
     ],
-    "translation_hash": "67e20f2e9f72f1188cd78aab71f6c56488a06988eb68cfcb3dbeaa3f8a95a865",
+    "translation_hash": "f8ef7ad47a0c097570a01761d3fc3e99730bcc4ffa90769ac5c144e30f21ba89",
     "plural_hash": "111c8742e14d9ba75649287d0883173bacda6b4238073e3717936ff38940723e",
     "source_hashes": {
       "m_9e4635769f0a": "9e4635769f0aaf0d333e7f85b30bae0e16ae96fd3c0ce0efeca2db5ee527219e",
@@ -2417,7 +2459,9 @@
       "m_30a04fdcb6bb": "30a04fdcb6bb10b03f55db14e88d7c1f5bcc9129d511e9b6b7dadd49bcb1a755",
       "m_2e1a4c07ce94": "2e1a4c07ce94cb0ceb769cc5fd0edc0e53ec37feebeb36b53fa7fed72d619a5b",
       "m_85a39ab345d6": "85a39ab345d672ff8ca9b9c6876f3adcacf45ee7c1e2dbd2408fd338bd55e07e",
-      "m_1ea442a134b2": "1ea442a134b2a184bd5d40104401f2a37fbc09ccf3f4bc9da161c6099be3691d"
+      "m_1ea442a134b2": "1ea442a134b2a184bd5d40104401f2a37fbc09ccf3f4bc9da161c6099be3691d",
+      "app.vpn_pending": "5e729a4258d185c022937b6f98b36cf0d260d3b6fd4c42e63369e54fc4b7ed60",
+      "app.vpn_port_hint": "f95995217f50ba6034b90c7f9b0fc4e374acd21ceba71d7df3d068130a92dc14"
     },
     "plural_source_hashes": {
       "one": "5dc2e83839208ebb19f0cbe7cc5517225c3490245da90498fbfd46fe24658ccf",
@@ -2445,6 +2489,18 @@
     },
     "unresolved_model_findings": [],
     "remaining_review": "Native-speaking community review and separately recorded rendered UI/physical-device checks.",
-    "plural_source_hash": "24192fd466526d6f2a84dadcde366642a073906a077953822bbfb613057c409a"
+    "plural_source_hash": "24192fd466526d6f2a84dadcde366642a073906a077953822bbfb613057c409a",
+    "supplemental_reviews": [
+      {
+        "date": "2026-10-16",
+        "keys": [
+          "app.vpn_pending",
+          "app.vpn_port_hint"
+        ],
+        "method": "Author model translation and focused reread for negation, VPN-interface versus authenticated-tunnel distinction, Internet-access qualifier and log action. Earlier 557-message reviews remain scoped to their original text. Also reread the port hint for the distinction between SSH and client VPN UDP ports, matching server configuration, reconnect requirement, and no protocol-obfuscation claim.",
+        "independent_review": false,
+        "human_native_review": false
+      }
+    ]
   }
 }

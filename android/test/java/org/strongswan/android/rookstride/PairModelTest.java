@@ -4,6 +4,14 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class PairModelTest {
+    @Test public void phonePasswordIsNeverPartOfTheExitBootstrap()throws Exception{Gateway a=pair();a.set("pairEntryProtocol","ikev2");a.set("pairExitProtocol","ikev2");a.set("vpnLogin","phone-user");a.vpnPassword="phone-pass123";JSONObject entry=PairController.bootstrapRequest(a,"entry"),exit=PairController.bootstrapRequest(a,"exit");assertEquals("phone-pass123",entry.getString("password"));assertEquals("phone-user",entry.getString("login"));assertFalse(exit.has("password"));assertFalse(exit.has("login"));assertFalse(exit.toString().contains("phone-pass123"));}
+    @Test public void nativeRouteChoicesSurviveStorageAndPhysicalRoleSwap()throws Exception{Gateway a=pair();a.set("pairEntryProtocol","awg");a.set("pairExitProtocol","ikev2");a.set("protocol","awg");a.exit.set("protocol","ikev2");a.data.put("vpnPort",51820);a.data.put("tunnelPort",500);Gateway loaded=new Gateway(a.persisted());assertEquals("awg",PairController.request(loaded,"entry").getString("entry_protocol"));assertEquals("ikev2",PairController.request(loaded,"exit").getString("exit_protocol"));Gateway swapped=loaded.swapped();assertEquals("awg",swapped.get("protocol"));assertEquals("ikev2",swapped.exit.get("protocol"));assertEquals(51820,PairController.request(swapped,"entry").getInt("vpn_port"));assertEquals(500,PairController.request(swapped,"exit").getInt("tunnel_port"));}
+    @Test public void savedVpnAccessDoesNotRememberAdministratorSecrets() throws Exception {
+        Gateway node=new Gateway();node.sshPassword="administrator-fixture";node.privateKey="key-fixture";node.vpnPassword="vpn-fixture";
+        assertFalse(node.persisted().has("vpnPassword"));node.data.put("rememberVpn",true);
+        Gateway loaded=new Gateway(node.persisted());assertEquals("vpn-fixture",loaded.vpnPassword);assertEquals("",loaded.sshPassword);assertEquals("",loaded.privateKey);assertFalse(loaded.remember());
+        node.data.put("rememberVpn",false);assertFalse(node.persisted().has("vpnPassword"));
+    }
     @Test public void relayPinsAndCredentialsRemainOnTheirOwnNodeAfterSwap() throws Exception {
         Gateway a=pair();a.set("name","My pair");a.set("sshRoute","entry-via-exit");a.configureRelay();
         a.set("fingerprint","SHA256:entry");a.exit.set("fingerprint","SHA256:exit");a.data.put("remember",true);a.exit.data.put("remember",true);a.sshPassword="entry-password";a.exit.sshPassword="exit-password";

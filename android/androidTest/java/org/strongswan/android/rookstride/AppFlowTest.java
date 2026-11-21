@@ -19,16 +19,18 @@ import static org.junit.Assert.*;
 @RunWith(AndroidJUnit4.class)
 public class AppFlowTest {
     @org.junit.Before public void englishFixture(){InstrumentationRegistry.getInstrumentation().runOnMainSync(()->androidx.appcompat.app.AppCompatDelegate.setApplicationLocales(androidx.core.os.LocaleListCompat.forLanguageTags("en")));}
-    @Test public void guideDemoPeopleAndConnectionsAreReachable() {
+    @Test public void importedVpnNeedsNoAdministratorAndHasScopedSettings()throws Exception {
         Context context=InstrumentationRegistry.getInstrumentation().getTargetContext();
-        context.getSharedPreferences("rookstride-ui",Context.MODE_PRIVATE).edit().putBoolean("onboarded",true).commit();
+        org.strongswan.android.data.VpnProfile profile=new org.strongswan.android.data.VpnProfile();profile.setName("Imported phone fixture");profile.setGateway("vpn.example.net");profile.setVpnType(org.strongswan.android.data.VpnType.IKEV2_EAP);profile.setUsername("fixture");
+        org.strongswan.android.data.VpnProfileDataSource source=new org.strongswan.android.data.VpnProfileSource(context);source.open();source.insertProfile(profile);
+        Vault vault=new Vault(context);ArrayList<Gateway> original=vault.read();
         try(ActivityScenario<RookstrideActivity> a=ActivityScenario.launch(RookstrideActivity.class)) {
-            onView(withText("Explore a sample gateway")).perform(scrollTo(),click());
-            onView(withText("Sample data. No server is connected.")).check(matches(isDisplayed()));preview(context,"gateway");
-            onView(withText("People")).perform(click());onView(withText("Alex")).check(matches(isDisplayed()));preview(context,"people");
-            onView(withText("Sessions")).perform(click());onView(withText("Every connection.")).check(matches(isDisplayed()));preview(context,"sessions");
-            onView(withText("Guide")).perform(click());onView(isAssignableFrom(android.webkit.WebView.class)).check(matches(isDisplayed()));
-        }
+            onView(withText("Imported phone fixture")).perform(scrollTo(),click());onView(withText("Connection preferences")).perform(scrollTo(),click());
+            onView(withText("Edit connection")).check(matches(isDisplayed()));onView(withText("Server access")).check(androidx.test.espresso.assertion.ViewAssertions.doesNotExist());
+            preview(context,"imported-settings");onView(withText("Remove VPN")).perform(scrollTo(),click());onView(withText("Continue")).perform(click());
+            assertNull(source.getVpnProfile(profile.getUUID().toString()));onView(withText("Imported phone fixture")).check(androidx.test.espresso.assertion.ViewAssertions.doesNotExist());
+            onView(withContentDescription("App settings")).perform(click());onView(withText("Help & FAQ")).perform(scrollTo(),click());onView(withText("How do I connect?  +")).perform(scrollTo(),click());onView(withText("Read technical guide")).perform(scrollTo(),click());onView(isAssignableFrom(android.webkit.WebView.class)).check(matches(isDisplayed()));
+        }finally{source.deleteVpnProfile(profile);source.close();vault.write(original);}
     }
     private void preview(Context context,String name) {
         InstrumentationRegistry.getInstrumentation().waitForIdleSync();
@@ -45,5 +47,14 @@ public class AppFlowTest {
             assertFalse(new String(data,java.nio.charset.StandardCharsets.UTF_8).contains(g.sshPassword));
             assertEquals(g.sshPassword,v.read().get(0).sshPassword);
         }finally{v.write(original);}
+    }
+    @Test public void savedVpnPasswordSurvivesWithoutRememberingAdministrator()throws Exception{
+        Context context=InstrumentationRegistry.getInstrumentation().getTargetContext();Vault vault=new Vault(context);ArrayList<Gateway> original=vault.read();
+        try{
+            Gateway node=new Gateway();node.data.put("rememberVpn",true);node.vpnPassword="generated-vpn-fixture";node.sshPassword="administrator-fixture";node.privateKey="key-fixture";
+            ArrayList<Gateway> values=new ArrayList<>();values.add(node);vault.write(values);
+            Gateway reloaded=new Vault(context).read().get(0);assertEquals(node.vpnPassword,reloaded.vpnPassword);assertEquals("",reloaded.sshPassword);assertEquals("",reloaded.privateKey);assertFalse(reloaded.remember());
+            byte[] encrypted=Files.readAllBytes(new File(context.getFilesDir(),"gateways.enc").toPath());assertFalse(new String(encrypted,java.nio.charset.StandardCharsets.ISO_8859_1).contains(node.vpnPassword));
+        }finally{vault.write(original);}
     }
 }

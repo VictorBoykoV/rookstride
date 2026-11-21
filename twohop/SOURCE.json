@@ -1,7 +1,7 @@
 {
   "origin": "https://github.com/VictorBoykoV/beget-vpn-gateway",
   "origin_commit": "011bae70227d0a7b815577a183e908a492231de3",
-  "local_changes": "reviewed backend snapshot; privacy-safe provenance check and owned exit input chain for mobile resets",
+  "local_changes": "reviewed backend snapshot; privacy-safe provenance check and owned exit input chain for mobile resets; shared Rookstride printable account-password validator (8\u201315 guidance, manual choices up to127 UTF-8 bytes); alpha16 corrects the bundled IKE entry script to invoke that shared validator",
   "files": {
     "LICENSE": "2374f6a8b3dc2b059e8088d04cc24db429303b57fafe35133d7afc3d937b0638",
     "scripts/activate-ingress.sh": "a78f5d879f5a7ef6e54500f7a3be1f4a59f5530dd9043830cc5cd1938b5b1819",
@@ -14,8 +14,8 @@
     "scripts/generate-android-profile.sh": "5cabd056f641e959d66b57665cbcf4f800cf70c43e47c98ad04af1daeaf2c78f",
     "scripts/generate-apple-profile.sh": "fc23b6aa51c0b03439cba20815ce1cb1f1021586711c6fa6fac0735f7ae47827",
     "scripts/install-amneziawg.sh": "d30d47fd1245e481b53bded63445a37f381251a1d444843a24b182c0831d57dc",
-    "scripts/install-strongswan-ikev2.sh": "4b88ba3ec8d7592f95cb2669c4180f8f516d891b1203aeed6c9f0ec2ae786eb4",
-    "scripts/manage-eap-user.sh": "7c1664a397e3b05d77fa9e9e96e3eed3f65f5d6c1d60bbe0127ab12b8a4f833b",
+    "scripts/install-strongswan-ikev2.sh": "561cdfac0e3d1ee42664e66c7b4ca983f74bbf1d91c1b299c1dff66af5f251b7",
+    "scripts/manage-eap-user.sh": "f9036d4de265d78ff16136e640caa7b09719a0a404ca1ad07f76e295f4ce6730",
     "scripts/remote/twohop-vpn-entry-routing": "0ddcc2744e4c233d0efcdcd99a1d7b8089c87eb57578b2abfc552d55daa02b70",
     "scripts/remote/twohop-vpn-exit-firewall": "13f3a91c98d75c4bc397f39826e72bc4d8ef0b9e7e7a4f201dcd26d08a9f58dc",
     "scripts/remote/twohop-vpn-ikev2-firewall": "364865ead89e680788de90de7d26b0bd0ecdd756d211ee58e971306d8dca10f8",

@@ -1,0 +1,1878 @@
+{
+  "schema": 1,
+  "world": {
+    "id": "persia",
+    "title": "Persia",
+    "subtitle": "An adventure through Iran",
+    "seriesTitle": "Rook and the Atlas of Open Invitations",
+    "description": "A red bird steps from an unfinished atlas into modern Iran. With a maker, a young mapmaker and a very small hoopoe, Rook follows a trail of blue-knot invitations. Every new route begins by listening to the people who live there.",
+    "cast": [
+      {
+        "id": "rook",
+        "name": "Rook",
+        "description": "A curious red traveler with a charcoal scarf, a cream satchel and a lantern. He is learning that a good question can be more useful than a confident answer."
+      },
+      {
+        "id": "mina",
+        "name": "Mina",
+        "description": "An Iranian maker and Navid's aunt. Practical, kind and willing to test a small idea before making a large promise."
+      },
+      {
+        "id": "navid",
+        "name": "Navid",
+        "description": "A twelve-year-old mapmaker from Isfahan. His shortcuts sometimes need corrections. His curiosity rarely does."
+      },
+      {
+        "id": "tip",
+        "name": "Tip",
+        "description": "A tiny hoopoe with a large opinion of his own equipment. He notices details that taller travelers miss."
+      },
+      {
+        "id": "pari",
+        "name": "Pari",
+        "description": "An Isfahan bookbinder who gives unfinished stories another chance—and neighbors somewhere to read them together."
+      }
+    ]
+  },
+  "chapters": [
+    {
+      "id": "margin-door",
+      "number": 1,
+      "title": "The Door in the Margin",
+      "summary": "Rook steps out of a book and into his first useful job: helping books reach a neighborhood reading evening. A closed lane, a gust and two blue doors make the journey less simple than its map.",
+      "lesson": "Knowing a destination is different from having a working route. A VPN server can be online while the path to it fails. Test an alternative instead of assuming it works.",
+      "cliffhanger": "A letter pictures Yazd—and Rook carrying a lantern he has only just received. Who drew the journey before it began?",
+      "pages": [
+        {
+          "panels": [
+            {
+              "scene": "Wide street-height establishing view of modern Isfahan: a lived-in lane opens toward distant shop arcades and tiled domes. Families, bicycles and ordinary shops. Foreground warm bookbinding workshop window; Mina carries a small carton inside, Navid follows with green backpack. No readable signage.",
+              "narration": "In Isfahan, a book was waiting to be finished. It had not expected to finish itself.",
+              "dialogue": [],
+              "alt": "Mina and Navid enter a bookbinding workshop in a busy Isfahan neighborhood.",
+              "id": "c01-p01-f01"
+            },
+            {
+              "scene": "Overhead workshop table. Pari in plum repairs the indigo atlas binding with thread. Tiny red bird drawing on a cream margin. Mina places an unlit brass lantern beside the book; Navid leans in. Tip perches on the open window frame. No lettering.",
+              "narration": "Pari could mend a loose page. A missing beginning was trickier.",
+              "dialogue": [
+                {
+                  "speaker": "Pari",
+                  "text": "Who draws a traveler and forgets to give him a road?"
+                }
+              ],
+              "alt": "Pari repairs an atlas whose margin contains a tiny red bird.",
+              "id": "c01-p01-f02"
+            },
+            {
+              "scene": "Tight action insert: a gust lifts a curtain; Tip hops aside. A tiny uncapped maintenance-oil bottle tips and one drop touches the margin bird. Mina reaches for bottle. The brass lantern remains unlit; no flames, smoke or explosion.",
+              "narration": "Then the window breathed in.",
+              "dialogue": [
+                {
+                  "speaker": "Tip",
+                  "text": "That was the wind. I was being extremely still."
+                }
+              ],
+              "alt": "A gust tips a small oil bottle, dropping oil onto the atlas drawing.",
+              "id": "c01-p01-f03"
+            },
+            {
+              "scene": "Macro magical-realist detail: the flat red bird's scarlet-red beak rises slightly from the page, casting an impossible small shadow. Ink-like feathers gain volume. Quiet intimate surprise, no lasers or technology effects; indigo book edge visible.",
+              "narration": "One small drop reached one unfinished bird.",
+              "dialogue": [
+                {
+                  "speaker": "Rook",
+                  "text": "Oh. There is an outside."
+                }
+              ],
+              "alt": "The red bird's beak lifts out of the flat atlas page.",
+              "id": "c01-p01-f04"
+            },
+            {
+              "scene": "Table-height action: three-dimensional Rook tumbles softly onto a folded cream dust cloth beside the open atlas. His scarf and cream satchel emerge with him. Mina catches oil bottle; Navid steadies book; Pari lifts her glasses. No lantern carried by Rook yet.",
+              "narration": "The outside was considerably less flat.",
+              "dialogue": [
+                {
+                  "speaker": "Navid",
+                  "text": "I've got the book!"
+                },
+                {
+                  "speaker": "Mina",
+                  "text": "I've got the bottle!"
+                }
+              ],
+              "alt": "Rook tumbles onto a cloth as Mina and Navid steady the workshop objects.",
+              "id": "c01-p01-f05"
+            },
+            {
+              "scene": "Close three-way reaction: Rook upright on cloth, rumpled swept crest and startled scarlet-red beak. Navid crouches face-to-face, delighted; Pari's kind face behind. Tip leans upside-down from upper corner. Distinct expressions, clear warm eye contact.",
+              "narration": "Nobody had caught the bird's dignity.",
+              "dialogue": [
+                {
+                  "speaker": "Rook",
+                  "text": "Has anyone got my balance?"
+                },
+                {
+                  "speaker": "Navid",
+                  "text": "Not yet. I'm Navid."
+                }
+              ],
+              "alt": "Navid meets the startled bird while Tip peers upside-down at them.",
+              "id": "c01-p01-f06"
+            }
+          ],
+          "number": 1,
+          "image": "art/ch01-p01.webp"
+        },
+        {
+          "panels": [
+            {
+              "scene": "Low view beside atlas: Rook makes a small fluttering hop from table to a stable stool placed by Mina. Mina guides with open palm without grabbing. Navid holds stool steady. Rook cannot take off; safe short drop, no extended flight.",
+              "narration": "His wings were excellent for waving. Flying would need a different design.",
+              "dialogue": [
+                {
+                  "speaker": "Mina",
+                  "text": "One step at a time."
+                },
+                {
+                  "speaker": "Rook",
+                  "text": "A very generous number of steps, apparently."
+                }
+              ],
+              "alt": "Mina and Navid help Rook make a safe hop down to a stool.",
+              "id": "c01-p02-f01"
+            },
+            {
+              "scene": "Eye-level introductions: Mina kneels beside Navid, Pari seated behind, Tip on chair back. Rook straightens charcoal scarf and politely offers feathered wingtip. Warm ensemble staging; tiny hoopoe clearly separate from red bird.",
+              "narration": "Mina made things. Navid asked questions. Pari kept stories together.",
+              "dialogue": [
+                {
+                  "speaker": "Rook",
+                  "text": "I think I shall be Rook."
+                },
+                {
+                  "speaker": "Tip",
+                  "text": "And I am Tip. Considerably easier to spell."
+                }
+              ],
+              "alt": "The workshop friends introduce themselves to Rook.",
+              "id": "c01-p02-f02"
+            },
+            {
+              "scene": "Close-up of closed indigo atlas tilted by Pari: brass corner guards and an empty circular brass recess with five petal slots. Short cobalt-blue spine loop. Rook touches only recess rim; Navid holds magnifier near it. No complete wheel present.",
+              "narration": "The atlas had arrived without a return address—or the wheel that fitted its cover.",
+              "dialogue": [
+                {
+                  "speaker": "Pari",
+                  "text": "An index wheel, perhaps. I know the binding, not its owner."
+                }
+              ],
+              "alt": "Pari shows Rook the atlas cover's empty five-petal wheel recess.",
+              "id": "c01-p02-f03"
+            },
+            {
+              "scene": "Rook viewpoint across table: Mina inserts a battery tea light in the old brass lantern. Navid points to its small switch. Warm light on Rook's feathered wing. No flame or fuel. Indigo atlas closed at edge of table.",
+              "narration": "Mina had repaired the lantern's hinge. Its new light came from a little battery.",
+              "dialogue": [
+                {
+                  "speaker": "Mina",
+                  "text": "Nothing mysterious here. Try the switch."
+                },
+                {
+                  "speaker": "Rook",
+                  "text": "A mystery I can understand!"
+                }
+              ],
+              "alt": "Mina fits an ordinary battery light into the repaired brass lantern.",
+              "id": "c01-p02-f04"
+            },
+            {
+              "scene": "Medium comic beat: Rook cradles brass lantern grandly with feathered wing ends. Tip holds a tiny loose feather in beak as if displaying equally important equipment. Navid grins; Mina securely adjusts cream satchel strap.",
+              "narration": "A traveler needed equipment. Tip believed this applied to him too.",
+              "dialogue": [
+                {
+                  "speaker": "Tip",
+                  "text": "Lightweight. All-weather. Mine."
+                },
+                {
+                  "speaker": "Rook",
+                  "text": "Your feather has excellent specifications."
+                }
+              ],
+              "alt": "Rook admires his lantern while Tip proudly displays a feather.",
+              "id": "c01-p02-f05"
+            },
+            {
+              "scene": "Wide workshop window view: Pari offers cream diamond-fold envelope with cobalt double-loop knot beside picture books. Mina and Navid look toward a low handcart outside. Rook pockets envelope in satchel. Modern lane visible; no royal or fantasy palace elements.",
+              "narration": "The blue-knot letter had come with the atlas. But tonight's reading courtyard needed books first.",
+              "dialogue": [
+                {
+                  "speaker": "Rook",
+                  "text": "First a useful job. Then a very interesting envelope."
+                }
+              ],
+              "alt": "Pari gives Rook the atlas's blue-knot envelope before the group collects books.",
+              "id": "c01-p02-f06"
+            }
+          ],
+          "number": 2,
+          "image": "art/ch01-p02.webp"
+        },
+        {
+          "panels": [
+            {
+              "scene": "Overhead route planning: Mina spreads a simple neighborhood sketch with picture symbols for workshop, arcade, a plain blue-gate courtyard and paths. The courtyard symbol has no tree yet. Navid points to pickup. Rook views map upside down; Tip peeks over crest. No text or street names.",
+              "narration": "Navid had drawn the route himself.",
+              "dialogue": [
+                {
+                  "speaker": "Navid",
+                  "text": "The books are here. Then through this lane."
+                },
+                {
+                  "speaker": "Rook",
+                  "text": "I was wondering why the tree was walking on its head."
+                }
+              ],
+              "alt": "Navid explains his picture map while Rook holds it upside down.",
+              "id": "c01-p03-f01"
+            },
+            {
+              "scene": "Broad street exit: Pari waves from workshop doorway. Mina pushes empty low handcart. Navid leads on sidewalk; Rook walks beside him, brass lantern clipped securely to satchel. Tip flies just above the sidewalk. Ordinary safe city movement.",
+              "narration": "Pari would walk ahead to open the courtyard while they collected the books.",
+              "dialogue": [
+                {
+                  "speaker": "Pari",
+                  "text": "See you at the courtyard. Bring the books—and yourselves."
+                },
+                {
+                  "speaker": "Tip",
+                  "text": "I am exceptionally portable."
+                }
+              ],
+              "alt": "The four travelers leave Pari's workshop with an empty book cart.",
+              "id": "c01-p03-f02"
+            },
+            {
+              "scene": "Wide respectful public-square exterior inspired by Naqsh-e Jahan: tiled monumental architecture and two-storey shop arcades, trees and grass, contemporary families. Group follows arcade in small foreground silhouettes. No event staged inside religious buildings.",
+              "narration": "The square was larger than any margin Rook had imagined.",
+              "dialogue": [
+                {
+                  "speaker": "Rook",
+                  "text": "How do you fit it all on a page?"
+                },
+                {
+                  "speaker": "Mina",
+                  "text": "You don't. That's why we look up."
+                }
+              ],
+              "alt": "Modern families share Isfahan's broad square beneath tiled buildings and arcades.",
+              "id": "c01-p03-f03"
+            },
+            {
+              "scene": "Low medium comic shot: Rook takes three determined short steps for Mina's one stride. Navid slows to walk alongside him. Tip takes grand little strides on arcade ledge, imitating Rook. Gentle character humor, not local caricature.",
+              "narration": "Navid quietly changed the group's speed.",
+              "dialogue": [
+                {
+                  "speaker": "Navid",
+                  "text": "The courtyard isn't running away."
+                },
+                {
+                  "speaker": "Rook",
+                  "text": "Excellent. My feet would like that in writing."
+                }
+              ],
+              "alt": "Navid slows down so Rook can keep up beneath the arcade.",
+              "id": "c01-p03-f04"
+            },
+            {
+              "scene": "Medium arcade bookshop pickup: adult courier in brown jacket presents three closed cardboard cartons beside low handcart. Navid checks a picture list. Mina tests brake and secure cart arrangement. Rook watches; satchel envelope remains closed.",
+              "narration": "Three cartons. One evening. Many waiting stories.",
+              "dialogue": [
+                {
+                  "speaker": "Mina",
+                  "text": "Heavy ones below. Nothing balanced on top."
+                },
+                {
+                  "speaker": "Rook",
+                  "text": "A very sensible way to stack an adventure."
+                }
+              ],
+              "alt": "Mina and Navid load three book cartons securely onto the cart.",
+              "id": "c01-p03-f05"
+            },
+            {
+              "scene": "Foreground route surprise: waist-high work barrier blocks planned lane. Adult paving worker behind barrier gestures to open side passage. Mina brakes cart. Navid compares map with barrier. Rook lifts crest. Books secure; nobody enters work area.",
+              "narration": "The lane on Navid's map had become a lane they could not use.",
+              "dialogue": [
+                {
+                  "speaker": "Navid",
+                  "text": "That wasn't there yesterday."
+                }
+              ],
+              "alt": "A paving barrier blocks the route shown on Navid's map.",
+              "id": "c01-p03-f06"
+            }
+          ],
+          "number": 3,
+          "image": "art/ch01-p03.webp"
+        },
+        {
+          "panels": [
+            {
+              "scene": "Over-shoulder from Rook facing safe barrier and work area. He raises map with a clear path drawn across blocked section, brow puzzled. Mina crouches beside him; worker waits beyond barrier. Focus on difference between paper and place.",
+              "narration": "Rook looked from the line to the barrier. The line refused to explain itself.",
+              "dialogue": [
+                {
+                  "speaker": "Rook",
+                  "text": "But the map says we can."
+                },
+                {
+                  "speaker": "Mina",
+                  "text": "The street gets the final vote."
+                }
+              ],
+              "alt": "Rook compares the old route sketch with the real barrier.",
+              "id": "c01-p04-f01"
+            },
+            {
+              "scene": "Medium eye-level: Navid asks adult paving worker a question from public sidewalk. Worker points at wide open passage. Mina and Rook listen; cart safely braked behind. Worker is capable friendly local, not comic obstruction.",
+              "narration": "Navid asked the person who knew what had changed.",
+              "dialogue": [
+                {
+                  "speaker": "Navid",
+                  "text": "Which open lane takes the cart through?"
+                },
+                {
+                  "speaker": "Worker",
+                  "text": "Past the bakery. Stay on this side of the paving."
+                }
+              ],
+              "alt": "Navid asks a paving worker for the safe open route.",
+              "id": "c01-p04-f02"
+            },
+            {
+              "scene": "Macro hands-and-map insert: Navid draws a detour around barrier with pencil, retaining old route as crossed-out dashed line. Mina points at small bakery picture; Rook feathered wing holds paper steady. No readable words or letters.",
+              "narration": "A crossed-out line was not a ruined map. It was a better map.",
+              "dialogue": [
+                {
+                  "speaker": "Rook",
+                  "text": "Should we hide the mistake?"
+                },
+                {
+                  "speaker": "Navid",
+                  "text": "Then the next person would make it again."
+                }
+              ],
+              "alt": "Navid marks the closed lane and adds the worker's suggested detour.",
+              "id": "c01-p04-f03"
+            },
+            {
+              "scene": "Broad street scene: group follows safe bakery-side passage, Mina pushes cart. Rook pauses at bread-shop window where a round bread resembles his face; shopkeeper smiles. Tip studies bread from ledge. Modern storefront without readable signage.",
+              "narration": "The new route had an unexpected advantage.",
+              "dialogue": [
+                {
+                  "speaker": "Tip",
+                  "text": "Your portrait is in the window."
+                },
+                {
+                  "speaker": "Rook",
+                  "text": "I look deliciously well rested."
+                }
+              ],
+              "alt": "Rook and Tip notice a round loaf in the bakery window on their detour.",
+              "id": "c01-p04-f04"
+            },
+            {
+              "scene": "Reverse angle looking back down passage: Navid checks the safe open pavement and a bakery-side bench against the new route. Mina checks cart wheel; Rook watches public route. Background pedestrians use unblocked walkway, architecture lived-in.",
+              "narration": "They checked the next turn before rolling on.",
+              "dialogue": [
+                {
+                  "speaker": "Mina",
+                  "text": "A suggested way isn't a checked way yet."
+                },
+                {
+                  "speaker": "Navid",
+                  "text": "Bakery behind. Wide pavement ahead. This bit works."
+                }
+              ],
+              "alt": "The group checks landmarks and pavement along the new route.",
+              "id": "c01-p04-f05"
+            },
+            {
+              "scene": "Close low-angle action at Rook's satchel side: gust lifts loose illustrated reading cards from outer pocket of Navid's backpack. One flutters up, one skims cart, Tip opens wings. Book cartons remain closed and stable. Safe public passage, no traffic.",
+              "narration": "Then the wind decided to borrow some reading material.",
+              "dialogue": [
+                {
+                  "speaker": "Navid",
+                  "text": "The story cards!"
+                }
+              ],
+              "alt": "A gust lifts loose reading cards from Navid's backpack pocket.",
+              "id": "c01-p04-f06"
+            }
+          ],
+          "number": 4,
+          "image": "art/ch01-p04.webp"
+        },
+        {
+          "panels": [
+            {
+              "scene": "Wide active passage view: Mina immediately brakes cart against stable wall. Navid kneels to secure backpack pocket, Rook reaches for one fluttering card at ground level. Tip follows another overhead. No reckless road chase or climbing.",
+              "narration": "Nobody chased until the cart was safe.",
+              "dialogue": [
+                {
+                  "speaker": "Mina",
+                  "text": "Brake first. Then one job each."
+                },
+                {
+                  "speaker": "Rook",
+                  "text": "I shall handle the low-flying stories."
+                }
+              ],
+              "alt": "Mina secures the cart while the others gather windblown cards.",
+              "id": "c01-p05-f01"
+            },
+            {
+              "scene": "Bird's-eye small action: Tip lands beside a reading card caught on an empty chair in arcade. His tiny claws grip chair, not fragile artwork. Card shows simple camel picture, no words. Background Rook is small and distant.",
+              "narration": "Tip caught a camel. A small paper one, but he saw no need to mention that.",
+              "dialogue": [
+                {
+                  "speaker": "Tip",
+                  "text": "Considerably heavier than a feather."
+                }
+              ],
+              "alt": "Tip retrieves an illustrated camel card from an arcade chair.",
+              "id": "c01-p05-f02"
+            },
+            {
+              "scene": "Close ground comic beat: Rook crouches, one card has landed over his swept crest like a broad paper hat. He looks sideways at Navid, who holds two recovered cards and smiles. No obscure anatomy, feathered wing ends clear.",
+              "narration": "One story caught Rook instead.",
+              "dialogue": [
+                {
+                  "speaker": "Navid",
+                  "text": "You missed one."
+                },
+                {
+                  "speaker": "Rook",
+                  "text": "No. This one has chosen a reader."
+                }
+              ],
+              "alt": "A windblown card sits like a hat on Rook's head.",
+              "id": "c01-p05-f03"
+            },
+            {
+              "scene": "Medium local cooperation: adult passerby with shopping bag returns last illustrated card to Mina. A young local girl steadies a fallen empty reading-card sleeve with her foot. Mina thanks them; no gratitude pose implying outsider savior.",
+              "narration": "Two neighbors supplied the ending they were missing.",
+              "dialogue": [
+                {
+                  "speaker": "Mina",
+                  "text": "Thank you. We're taking these to the reading courtyard."
+                },
+                {
+                  "speaker": "Neighbor",
+                  "text": "Then we'll follow your books there."
+                }
+              ],
+              "alt": "Neighbors return the last cards and ask about the reading evening.",
+              "id": "c01-p05-f04"
+            },
+            {
+              "scene": "Overhead practical insert: Navid counts complete set of picture cards, tucks them into closed fabric pouch, clips pouch inside green backpack. Rook points at his own secure satchel flap. Cart cartons stay unchanged.",
+              "narration": "This time, the pictures traveled in a closed pocket.",
+              "dialogue": [
+                {
+                  "speaker": "Navid",
+                  "text": "All here. And no more flying."
+                },
+                {
+                  "speaker": "Tip",
+                  "text": "I object to the wording, but support the plan."
+                }
+              ],
+              "alt": "Navid secures all recovered cards inside his backpack.",
+              "id": "c01-p05-f05"
+            },
+            {
+              "scene": "Wide reveal: at end of lane two separate blue-tiled doorways visible from safe junction, one near a small plant pot and one under distant plane-tree branches. Navid lifts sketch; Rook faces two similar destinations with puzzled crest. Golden late-afternoon light.",
+              "narration": "At the next turn, the map's single blue door became two.",
+              "dialogue": [
+                {
+                  "speaker": "Rook",
+                  "text": "Is either of them the correct sort of blue?"
+                }
+              ],
+              "alt": "The group finds two similar blue doorways where the map shows one.",
+              "id": "c01-p05-f06"
+            }
+          ],
+          "number": 5,
+          "image": "art/ch01-p05.webp"
+        },
+        {
+          "panels": [
+            {
+              "scene": "Medium doorway view: Mina politely knocks at nearer blue door; cart parked clear of path. Rook waits behind threshold with Navid. Tip perches on gate edge. A calm adult resident opens, ordinary plant-filled private courtyard partly visible.",
+              "narration": "They did not treat an open door as an invitation.",
+              "dialogue": [
+                {
+                  "speaker": "Mina",
+                  "text": "Excuse us. Is the reading evening here?"
+                },
+                {
+                  "speaker": "Resident",
+                  "text": "Not this courtyard. We do have a very sleepy cat."
+                }
+              ],
+              "alt": "Mina asks permission at the first blue doorway.",
+              "id": "c01-p06-f01"
+            },
+            {
+              "scene": "Close comic point-of-view through doorway: large sleepy cat on cushion, half-open eye fixed on tiny Tip visible in foreground. Rook and Navid reflected softly in window; no chase. Quiet absurdity after busy page.",
+              "narration": "The cat appeared to prefer a quiet chapter.",
+              "dialogue": [
+                {
+                  "speaker": "Tip",
+                  "text": "We should respect the cat's schedule."
+                }
+              ],
+              "alt": "A sleepy cat surveys Tip from inside the wrong courtyard.",
+              "id": "c01-p06-f02"
+            },
+            {
+              "scene": "Eye-level emotion: Navid leans against safe wall, lowers map, disappointed. Rook sits on low doorstep alongside, matching rather than towering. Mina listens with no scolding. Background plain lane gives feeling room.",
+              "narration": "Navid's clever shortcut had become a long way round.",
+              "dialogue": [
+                {
+                  "speaker": "Navid",
+                  "text": "I drew it. I should have known."
+                },
+                {
+                  "speaker": "Rook",
+                  "text": "I was born today. I am available for shared embarrassment."
+                }
+              ],
+              "alt": "Rook sits beside a disappointed Navid outside the wrong door.",
+              "id": "c01-p06-f03"
+            },
+            {
+              "scene": "Tight two-shot Mina and Navid over map: Mina points to indistinct blue-gate sketch, not boy. Navid looks up as realization replaces shame. Rook holds lantern at side; no magical glow indicates correct answer.",
+              "narration": "Mina pointed at the missing detail, not at the person who missed it.",
+              "dialogue": [
+                {
+                  "speaker": "Mina",
+                  "text": "We need a better clue, not a more worried mapmaker."
+                }
+              ],
+              "alt": "Mina helps Navid identify the route sketch's missing landmark.",
+              "id": "c01-p06-f04"
+            },
+            {
+              "scene": "Medium profile Mina calls Pari on ordinary phone, simple abstract screen with no legible interface. Navid records picture details. Rook faces actual plane-tree branches. Tip observes from shoulder-height wall.",
+              "narration": "A short call reached someone already at the destination.",
+              "dialogue": [
+                {
+                  "speaker": "Pari",
+                  "text": "The blue gate under the plane tree. The side entrance opens wide."
+                },
+                {
+                  "speaker": "Navid",
+                  "text": "A tree AND a gate. Got it."
+                }
+              ],
+              "alt": "Pari confirms the correct courtyard by phone while Navid updates the map.",
+              "id": "c01-p06-f05"
+            },
+            {
+              "scene": "Low forward-looking route view: group turns toward second blue gate beneath broad plane tree. Long soft shadows stretch ahead; visible safe broad sidewalk. Rook's scarf points behind in breeze. Cart remains upright, book boxes secure.",
+              "narration": "This time, they had something they could actually check.",
+              "dialogue": [
+                {
+                  "speaker": "Rook",
+                  "text": "One blue gate. One very helpful tree."
+                }
+              ],
+              "alt": "The travelers head toward the blue gate beneath the plane tree.",
+              "id": "c01-p06-f06"
+            }
+          ],
+          "number": 6,
+          "image": "art/ch01-p06.webp"
+        },
+        {
+          "panels": [
+            {
+              "scene": "Overhead view of map and real courtyard entrance in same composition: Navid matches branching tree silhouette to gate, draws distinct tree next to blue doorway symbol. Rook holds edge. Old blocked lane stays crossed out; new path preserved.",
+              "narration": "The map began to look less tidy and much more useful.",
+              "dialogue": [
+                {
+                  "speaker": "Navid",
+                  "text": "We should show the closed lane too."
+                },
+                {
+                  "speaker": "Rook",
+                  "text": "A good route leaves the next traveler a choice."
+                }
+              ],
+              "alt": "Navid records the correct gate and retains the checked detour.",
+              "id": "c01-p07-f01"
+            },
+            {
+              "scene": "Wide exterior courtyard gate: Pari appears smiling under plane tree. She opens narrow pedestrian door, then notices loaded cart cannot fit. Mina stops without forcing. Nearby sidegate has visible broad latch; Rook peers around safely.",
+              "narration": "The right destination still had one small practical objection.",
+              "dialogue": [
+                {
+                  "speaker": "Pari",
+                  "text": "You found us!"
+                },
+                {
+                  "speaker": "Mina",
+                  "text": "All of us except the cart, so far."
+                }
+              ],
+              "alt": "The group reaches Pari, but the loaded cart cannot fit the small doorway.",
+              "id": "c01-p07-f02"
+            },
+            {
+              "scene": "Close low view: Navid notices broad sidegate latch beside wall, points upward. Rook stands on ground below handle, looks from too-high latch to Mina with amused acceptance. No climbing; no tools used on strangers' gates.",
+              "narration": "Rook considered jumping. Then considered the very tall friend beside him.",
+              "dialogue": [
+                {
+                  "speaker": "Rook",
+                  "text": "Mina, may I borrow your height?"
+                },
+                {
+                  "speaker": "Mina",
+                  "text": "Of course. I wasn't using all of it."
+                }
+              ],
+              "alt": "Rook asks Mina to open the high sidegate latch.",
+              "id": "c01-p07-f03"
+            },
+            {
+              "scene": "Medium cooperation shot: Pari holds gate authorization position, Mina opens broad sidegate outward safely, Navid checks threshold, Rook and Tip wait outside swing. Courtyard families prepare mats and low book tables beyond; no ceremonial setting.",
+              "narration": "Pari knew the gate. Mina had the reach. Navid checked the wheels.",
+              "dialogue": [
+                {
+                  "speaker": "Pari",
+                  "text": "This is the entrance I meant."
+                },
+                {
+                  "speaker": "Navid",
+                  "text": "And the one the next map will show."
+                }
+              ],
+              "alt": "Pari and Mina open the broad sidegate while Navid checks the path.",
+              "id": "c01-p07-f04"
+            },
+            {
+              "scene": "Cart wheel detail: small low step at threshold; Mina and adult courtyard helper guide each cart wheel slowly over portable wooden threshold board already owned by workshop. Rook steadies light closed carton; Navid stands clear. No heritage modification.",
+              "narration": "A careful minute saved a very messy second.",
+              "dialogue": [
+                {
+                  "speaker": "Mina",
+                  "text": "Slowly. Both wheels together."
+                }
+              ],
+              "alt": "Adults guide the book cart over a portable threshold board.",
+              "id": "c01-p07-f05"
+            },
+            {
+              "scene": "Wide warm courtyard reveal: plane-tree canopy, simple string lights, mats, book tables, modern families including older people and children. Three cartons arrive safely. Rook pauses at threshold in wonder; own lantern small among many lights.",
+              "narration": "They had reached the courtyard. But the evening had not quite begun.",
+              "dialogue": [
+                {
+                  "speaker": "Child",
+                  "text": "Are those the books?"
+                },
+                {
+                  "speaker": "Rook",
+                  "text": "They brought us with them."
+                }
+              ],
+              "alt": "The books and travelers arrive in a courtyard ready for neighborhood readers.",
+              "id": "c01-p07-f06"
+            }
+          ],
+          "number": 7,
+          "image": "art/ch01-p07.webp"
+        },
+        {
+          "panels": [
+            {
+              "scene": "Top-down book table: cartons open, colorful picture-book covers with shapes and illustrations but no print. Navid and local children sort by size; Pari arranges repair cloth; Mina parks empty cart. Rook carefully lifts one small book.",
+              "narration": "Everyone had a job, including the people who had been waiting.",
+              "dialogue": [
+                {
+                  "speaker": "Pari",
+                  "text": "Small books here. Large imaginations everywhere."
+                }
+              ],
+              "alt": "Children and adults unpack the books together.",
+              "id": "c01-p08-f01"
+            },
+            {
+              "scene": "Close expressive Rook opening picture book to an ordinary red bird illustration distinct from him, no clothes. Rook studies it, eyebrow/crest thoughtful. Young local reader beside him points at drawn wings. No readable text.",
+              "narration": "Rook found another bird, who seemed to have arrived by a simpler method.",
+              "dialogue": [
+                {
+                  "speaker": "Rook",
+                  "text": "Do all books do this?"
+                },
+                {
+                  "speaker": "Child",
+                  "text": "Only when you read them very carefully."
+                }
+              ],
+              "alt": "Rook and a child share a bird picture book.",
+              "id": "c01-p08-f02"
+            },
+            {
+              "scene": "Medium outside gate: two late neighbors with a small child hesitate at junction, looking toward wrong blue door. Navid at courtyard gate notices them before they turn; he raises hand and corrected map. Rook follows gaze.",
+              "narration": "Then Navid saw someone about to make their first mistake for the second time.",
+              "dialogue": [
+                {
+                  "speaker": "Navid",
+                  "text": "Wait! The tree gate, over here!"
+                }
+              ],
+              "alt": "Navid spots late visitors heading toward the wrong blue doorway.",
+              "id": "c01-p08-f03"
+            },
+            {
+              "scene": "Close map-on-board insert: with Pari's permission Navid clips corrected picture route onto freestanding courtyard notice stand. Mina steadies board; Rook points at broad entrance symbol. No adhesive on heritage walls, no generated words.",
+              "narration": "They put the checked route where a stranger could use it.",
+              "dialogue": [
+                {
+                  "speaker": "Rook",
+                  "text": "Now our long way round can be someone else's easy way in."
+                }
+              ],
+              "alt": "Navid clips the corrected route to a movable notice stand outside the courtyard.",
+              "id": "c01-p08-f04"
+            },
+            {
+              "scene": "Broad sequence-like street view within one panel: late family follows tree landmark and broad sidegate, passes cart safely, greeted by neighbor who returned cards earlier. Navid watches with quiet satisfaction, Rook aside not center. Sunset turns warm.",
+              "narration": "The new map passed its first real test.",
+              "dialogue": [
+                {
+                  "speaker": "Neighbor",
+                  "text": "We followed your books after all."
+                },
+                {
+                  "speaker": "Navid",
+                  "text": "And the tree helped."
+                }
+              ],
+              "alt": "Late visitors follow Navid's corrected route into the reading courtyard.",
+              "id": "c01-p08-f05"
+            },
+            {
+              "scene": "Intimate two-shot at low table: Rook and Navid sit with corrected map between them. Navid smiles, Rook no longer worries. Background readers choose books; active community not cheering heroes. Brass lantern resting stable away from paper edges.",
+              "narration": "Navid smoothed a page full of corrections.",
+              "dialogue": [
+                {
+                  "speaker": "Navid",
+                  "text": "It isn't the map I started with."
+                },
+                {
+                  "speaker": "Rook",
+                  "text": "Neither am I."
+                }
+              ],
+              "alt": "Rook and Navid reflect quietly beside the corrected map.",
+              "id": "c01-p08-f06"
+            }
+          ],
+          "number": 8,
+          "image": "art/ch01-p08.webp"
+        },
+        {
+          "panels": [
+            {
+              "scene": "Wide evening reading courtyard: Pari tells story to mixed family circle, children choose books, Mina listens from low stool, Rook and Tip beside Navid. Warm simple lights and tree branches; no royal pageant or national symbols.",
+              "narration": "The books arrived before dusk. The courtyard had more beginnings than anyone could count.",
+              "dialogue": [],
+              "alt": "Families read together beneath the courtyard's plane tree.",
+              "id": "c01-p09-f01"
+            },
+            {
+              "scene": "Close Navid fingertip traces route sketch on lap, closed lane and safe detour visible. Rook watches with curious expression; beyond them Mina checks a plain phone with abstract server-and-route diagram only, no logos/text.",
+              "narration": "Rook had been certain a drawn road was a working road.",
+              "dialogue": [
+                {
+                  "speaker": "Rook",
+                  "text": "Knowing the place wasn't enough."
+                },
+                {
+                  "speaker": "Mina",
+                  "text": "We also needed a route that worked today."
+                }
+              ],
+              "alt": "Rook and Mina compare knowing a destination with checking a usable route.",
+              "id": "c01-p09-f02"
+            },
+            {
+              "scene": "Medium quiet explanatory trio: Mina shows simple phone drawing of two endpoint dots linked by route, Navid points at broken middle segment, Rook listens. Context warm community event; no magical effects or shields suggesting absolute security.",
+              "narration": "Phones need working routes too.",
+              "dialogue": [
+                {
+                  "speaker": "Mina",
+                  "text": "A VPN server can be online while the path to it fails."
+                },
+                {
+                  "speaker": "Navid",
+                  "text": "So we check what actually gets through."
+                }
+              ],
+              "alt": "Mina uses a simple phone diagram to explain a working VPN route.",
+              "id": "c01-p09-f03"
+            },
+            {
+              "scene": "Low side comic detail: Tip stands on corrected map like a proud guide, one tiny toe obscures the new courtyard tree icon. Navid gently lifts map away rather than bird; Rook offers perch edge. No same-pose repetition.",
+              "narration": "Tip offered to become a permanent landmark.",
+              "dialogue": [
+                {
+                  "speaker": "Tip",
+                  "text": "Just draw me here."
+                },
+                {
+                  "speaker": "Navid",
+                  "text": "Then nobody would know where the map had flown off to."
+                }
+              ],
+              "alt": "Tip poses on the map as a proposed moving landmark.",
+              "id": "c01-p09-f04"
+            },
+            {
+              "scene": "Close gentle emotional beat: Pari rests indigo atlas on low table before Rook, brass recess visible. Mina and Navid nearby. Rook touches page edge, no glow. Children's reading continues behind, local goal plainly resolved.",
+              "narration": "Pari set the atlas beside its first traveler.",
+              "dialogue": [
+                {
+                  "speaker": "Pari",
+                  "text": "You don't need to know your whole story to do one good thing in it."
+                }
+              ],
+              "alt": "Pari returns the atlas to Rook after the successful reading evening.",
+              "id": "c01-p09-f05"
+            },
+            {
+              "scene": "Satchel close-up: Rook opens cream flap and remembers blue-knot diamond envelope still safe inside. Warm brass lantern in background illuminates folded cord, no mystical beam. Navid leans into edge of frame, anticipatory smile.",
+              "narration": "Only then did Rook remember the beginning they had put aside.",
+              "dialogue": [
+                {
+                  "speaker": "Rook",
+                  "text": "Now for a very interesting envelope."
+                }
+              ],
+              "alt": "Rook takes the still-closed blue-knot envelope from his satchel.",
+              "id": "c01-p09-f06"
+            }
+          ],
+          "number": 9,
+          "image": "art/ch01-p09.webp"
+        },
+        {
+          "panels": [
+            {
+              "scene": "Overhead quiet table: Rook carefully loosens cobalt double-loop knot without tearing cream envelope. Navid places a small pebble on corner to prevent another gust. Mina smiles at this learned precaution; Tip peers over atlas edge.",
+              "narration": "This time, Navid remembered the wind before the wind remembered them.",
+              "dialogue": [
+                {
+                  "speaker": "Navid",
+                  "text": "One stone. No flying clues."
+                },
+                {
+                  "speaker": "Tip",
+                  "text": "Again with the wording."
+                }
+              ],
+              "alt": "The friends open the envelope, holding its paper steady with a pebble.",
+              "id": "c01-p10-f01"
+            },
+            {
+              "scene": "Macro paper reveal: hand-drawn picture of Yazd-like earthen rooftops and tall windcatchers, cobalt knot symbol and a five-petal wheel silhouette. No complete physical wheel or legible print. Rook's red wingtip and Navid's finger frame illustration.",
+              "narration": "The first picture was a city full of towers that caught the wind.",
+              "dialogue": [
+                {
+                  "speaker": "Mina",
+                  "text": "Yazd. I have a workshop contact there."
+                }
+              ],
+              "alt": "The invitation reveals a drawing of Yazd's windcatchers and the missing wheel.",
+              "id": "c01-p10-f02"
+            },
+            {
+              "scene": "Medium trio reaction: Navid recognizes destination on map while Mina holds ordinary phone to arrange contact; Rook faces open invitation, uncertain but eager. Pari seated behind. Ordinary preparation, no instant portal.",
+              "narration": "A real journey needed more than a mysterious picture.",
+              "dialogue": [
+                {
+                  "speaker": "Mina",
+                  "text": "I'll ask before we visit. We'll take the bus."
+                },
+                {
+                  "speaker": "Navid",
+                  "text": "And a map with more than one blue door."
+                }
+              ],
+              "alt": "Mina plans an ordinary bus visit and contacts a workshop in Yazd.",
+              "id": "c01-p10-f03"
+            },
+            {
+              "scene": "Tight picture-within-picture: Navid lifts second fold in invitation to reveal tiny ink drawing of red Rook in charcoal scarf carrying brass lantern, recognizable face and cream satchel. Generated drawing itself no readable marks. Actual lantern nearby for visual echo.",
+              "narration": "Then Navid unfolded a smaller corner.",
+              "dialogue": [
+                {
+                  "speaker": "Navid",
+                  "text": "Rook. Look at this."
+                }
+              ],
+              "alt": "A hidden fold reveals a small drawing of Rook carrying his lantern.",
+              "id": "c01-p10-f04"
+            },
+            {
+              "scene": "Close Rook emotional profile: he looks from lantern in wing to drawn lantern and himself on paper. Curiosity and small shiver, not terror. Courtyard happy glow beyond. Tip leans toward picture with tilted crest; no real second bird.",
+              "narration": "Someone had imagined this traveler before he had taken his first step.",
+              "dialogue": [
+                {
+                  "speaker": "Rook",
+                  "text": "That lantern... I only got it today."
+                }
+              ],
+              "alt": "Rook compares his new lantern with the one already drawn in the invitation.",
+              "id": "c01-p10-f05"
+            },
+            {
+              "scene": "Wide final cinematic table-to-night view: indigo atlas and unfolded windcatcher invitation in foreground, Rook's small silhouette between Navid and Mina under plane tree, distant modern Isfahan lights. The group looks together toward the drawing, not through a portal. Friendly strong mystery.",
+              "narration": "The books had found their readers. Now a drawing was looking for its bird.",
+              "dialogue": [
+                {
+                  "speaker": "Rook",
+                  "text": "Who is expecting us in Yazd?"
+                }
+              ],
+              "alt": "The friends face a new mystery together after the courtyard's happy evening.",
+              "id": "c01-p10-f06"
+            }
+          ],
+          "number": 10,
+          "image": "art/ch01-p10.webp"
+        }
+      ]
+    },
+    {
+      "id": "wind-address",
+      "number": 2,
+      "title": "The Wind Has an Address",
+      "summary": "In Yazd, a familiar-looking tower leads to the wrong courtyard. The friends join a wind-and-paper workshop, where a tumbling mobile and a confusing directory need a better test.",
+      "lesson": "DNS helps turn a website's name into an address. If that lookup fails, a VPN can be switched on while websites still fail to load. A connection indicator and a successful web request are different checks.",
+      "cliffhanger": "A new invitation leads to a Shiraz garden and the missing wheel. Beside a drawing of Rook is an unfinished space for someone they have not met.",
+      "pages": [
+        {
+          "panels": [
+            {
+              "scene": "Wide contemporary intercity bus interior in daylight. Mina and Navid sit together; Rook on a stable seat cushion with satchel and lantern secured. Tip perches safely on seat back. Out window modern road, distant dry hills and town edges; no fantasy caravan.",
+              "narration": "Two days later, the atlas traveled to Yazd by a much more ordinary sort of page-turning.",
+              "dialogue": [
+                {
+                  "speaker": "Navid",
+                  "text": "Next stop: the city in the letter."
+                },
+                {
+                  "speaker": "Rook",
+                  "text": "I approve of seats. A remarkable invention."
+                }
+              ],
+              "alt": "The four friends travel from Isfahan toward Yazd on an ordinary bus.",
+              "id": "c02-p01-f01"
+            },
+            {
+              "scene": "Close bus-seat comic shot: Tip spreads tiny wings over a whole seat as if reserving it, Rook politely squeezes feet onto cushion, Navid gives bird amused look. Mina checks trip details on ordinary phone with abstract unreadable interface.",
+              "narration": "Tip had strong opinions about legroom.",
+              "dialogue": [
+                {
+                  "speaker": "Tip",
+                  "text": "My knees are exceptionally important."
+                },
+                {
+                  "speaker": "Navid",
+                  "text": "Where do you keep them?"
+                }
+              ],
+              "alt": "Tip claims far more bus-seat space than his tiny body needs.",
+              "id": "c02-p01-f02"
+            },
+            {
+              "scene": "Overhead lap view: indigo atlas and blue-knot windcatcher drawing rest on Mina's lap. Navid puts corrected Isfahan map inside its back pocket. Missing wheel recess visible on closed cover edge; no wheel present. Rook feathered wing holds edge.",
+              "narration": "Their first checked route stayed with them.",
+              "dialogue": [
+                {
+                  "speaker": "Rook",
+                  "text": "We should keep the mistakes too."
+                },
+                {
+                  "speaker": "Navid",
+                  "text": "Already packed."
+                }
+              ],
+              "alt": "Navid keeps the corrected Isfahan route with the atlas.",
+              "id": "c02-p01-f03"
+            },
+            {
+              "scene": "Wide modern Yazd arrival scene: public bus stop with shade, ordinary cars and families, earthen old-city skyline and windcatcher distant. Mina leads group along safe pavement carrying atlas; Navid green backpack. Heat shown as bright clear light, not barren ruin.",
+              "narration": "Yazd was not a picture waiting for visitors. It was a city getting on with its day.",
+              "dialogue": [],
+              "alt": "The group arrives among modern residents and traffic in Yazd.",
+              "id": "c02-p01-f04"
+            },
+            {
+              "scene": "Medium side view at shaded bench: Mina shares water bottle cups, Navid adjusts green backpack, Rook enjoys shade of his own small lantern handle cast oddly on beak. Tip perched under bench slat. No unsafe drinking-source assumption.",
+              "narration": "They started with the most useful local discovery: shade.",
+              "dialogue": [
+                {
+                  "speaker": "Mina",
+                  "text": "Water first. Mystery second."
+                },
+                {
+                  "speaker": "Rook",
+                  "text": "I am becoming very fond of your order of operations."
+                }
+              ],
+              "alt": "Mina makes sure the travelers rest and drink water in the shade.",
+              "id": "c02-p01-f05"
+            },
+            {
+              "scene": "Upward establishing viewpoint from shaded earthen lane: several distinct windcatchers rise over occupied courtyard homes. Group tiny at bottom, Rook holds invitation picture comparing multiple towers. Contemporary life visible through ordinary doors, no rooftop access.",
+              "narration": "The letter showed a house with a windcatcher. There was one problem.",
+              "dialogue": [
+                {
+                  "speaker": "Navid",
+                  "text": "Which one?"
+                }
+              ],
+              "alt": "Several windcatchers resemble the one pictured in the invitation.",
+              "id": "c02-p01-f06"
+            }
+          ],
+          "number": 1,
+          "image": "art/ch02-p01.webp"
+        },
+        {
+          "panels": [
+            {
+              "scene": "Wide ground-level old-city lane with sunlit earthen walls and deep shade, small shop, people carrying shopping and bicycle parked safely. Mina and Navid compare invitation with skyline. Rook studies old wall without touching or climbing; Tip perches on modern sign bracket without lettering.",
+              "narration": "The same shape could be a wonderful landmark and a very poor address.",
+              "dialogue": [
+                {
+                  "speaker": "Rook",
+                  "text": "Perhaps they are all the right house."
+                },
+                {
+                  "speaker": "Mina",
+                  "text": "That would make a very long visit."
+                }
+              ],
+              "alt": "The friends search a lived-in Yazd lane without assuming every tower marks their destination.",
+              "id": "c02-p02-f01"
+            },
+            {
+              "scene": "Medium low angle: Tip returns from short scout flight, landing on Mina's open hand; points beak toward three visible roofs. Rook waits from ground. No aerial map magical overlay. Human courtyard rooftops private, bird does not intrude indoors.",
+              "narration": "Tip returned with a carefully counted report.",
+              "dialogue": [
+                {
+                  "speaker": "Tip",
+                  "text": "Three more roofs. Four more towers. One extremely rude pigeon."
+                }
+              ],
+              "alt": "Tip reports that his short flight found still more windcatchers.",
+              "id": "c02-p02-f02"
+            },
+            {
+              "scene": "Close invitation on map: only tower drawing and blue-knot symbol visible, no street number. Navid tries matching picture with repeated tower shapes on printed tourist map represented by plain geometry. Frustrated face at frame edge, not all cast repeated.",
+              "narration": "The letter gave them a name: the House of Wind. It did not give them one particular door.",
+              "dialogue": [
+                {
+                  "speaker": "Navid",
+                  "text": "A good name. Not enough information."
+                }
+              ],
+              "alt": "Navid finds that the invitation's picture does not identify a unique doorway.",
+              "id": "c02-p02-f03"
+            },
+            {
+              "scene": "Polite threshold composition: Mina stands outside inviting courtyard tea-shop entrance and asks resident shopkeeper. Navid and Rook wait clear of threshold. Shopkeeper in ordinary modern clothing holds tray, gestures inside only after question. No real shop brand.",
+              "narration": "They tried the nearest courtyard—and asked before entering.",
+              "dialogue": [
+                {
+                  "speaker": "Mina",
+                  "text": "We're looking for the neighborhood workshop."
+                },
+                {
+                  "speaker": "Shopkeeper",
+                  "text": "Here, we mostly workshop tea."
+                }
+              ],
+              "alt": "Mina asks a courtyard shopkeeper whether they have found the workshop.",
+              "id": "c02-p02-f04"
+            },
+            {
+              "scene": "Close tea tray and small stool: Tip inspects a cup nearly his own height from safe dry side; Rook politely waves off offered seat for now. Background shopkeeper laughs kindly, not exaggerated local caricature.",
+              "narration": "Tip considered a career change.",
+              "dialogue": [
+                {
+                  "speaker": "Tip",
+                  "text": "Excellent equipment."
+                },
+                {
+                  "speaker": "Rook",
+                  "text": "We must find the other workshop before you take an apprenticeship."
+                }
+              ],
+              "alt": "Tip is impressed by a cup of tea while the group keeps looking for the workshop.",
+              "id": "c02-p02-f05"
+            },
+            {
+              "scene": "Medium helpful shopkeeper points along shaded route; Mina shows phone contact saved before trip, Navid listens. Rook stands beside, not leading. A blue-knot envelope remains on atlas, visible not lost. Ambient neighborhood active.",
+              "narration": "The shopkeeper knew which question to ask next.",
+              "dialogue": [
+                {
+                  "speaker": "Shopkeeper",
+                  "text": "Who invited you? Call the host. Our courtyard names repeat."
+                },
+                {
+                  "speaker": "Mina",
+                  "text": "We should have started there."
+                }
+              ],
+              "alt": "The shopkeeper suggests calling the actual workshop host for a current address.",
+              "id": "c02-p02-f06"
+            }
+          ],
+          "number": 2,
+          "image": "art/ch02-p02.webp"
+        },
+        {
+          "panels": [
+            {
+              "scene": "Close Mina on ordinary phone under shade, with Navid drawing a small gate symbol and Rook listening. Abstract phone interface, no numbers or text. Earthen wall backdrop, public safe location; no surveillance imagery.",
+              "narration": "Mina called the contact who had agreed to their visit.",
+              "dialogue": [
+                {
+                  "speaker": "Host",
+                  "text": "The gate has three little book tiles. I'll meet you outside."
+                },
+                {
+                  "speaker": "Mina",
+                  "text": "Thank you. That is a much better address."
+                }
+              ],
+              "alt": "The host confirms the specific gate and offers to meet the group there.",
+              "id": "c02-p03-f01"
+            },
+            {
+              "scene": "Object insert: Navid draws three open-book shapes beside a gate on pocket notebook, while actual small three-book tile motif visible far background. No readable print. Rook feathered wing steadies paper with pebble, learning from wind.",
+              "narration": "A description became something they could match.",
+              "dialogue": [
+                {
+                  "speaker": "Navid",
+                  "text": "Not just a tower. This gate."
+                },
+                {
+                  "speaker": "Rook",
+                  "text": "And this little stone, in case the paper gets ambitious."
+                }
+              ],
+              "alt": "Navid records the gate's distinctive three-book motif.",
+              "id": "c02-p03-f02"
+            },
+            {
+              "scene": "Wide welcoming exterior: unnamed local adult host in slate-blue work apron over light shirt and muted gray scarf waits by fictional gate with three book-shaped tiles. Mina greets at eye level; Navid and Rook approach. No atlas magic or heritage-site identification.",
+              "narration": "The right address had a person at the end of it.",
+              "dialogue": [
+                {
+                  "speaker": "Host",
+                  "text": "Mina? Welcome. We've left room at the making table."
+                }
+              ],
+              "alt": "The Yazd workshop host welcomes the travelers at the correct gate.",
+              "id": "c02-p03-f03"
+            },
+            {
+              "scene": "Wide over-shoulder from gate into fictional active courtyard workshop: children and adults around low worktables with paper, safe blunt scissors, short strings, wooden frames; tree and potted plants. Existing windcatcher rises in distant background, untouched. Modern building details visible.",
+              "narration": "Inside, the afternoon was already full of small experiments.",
+              "dialogue": [
+                {
+                  "speaker": "Navid",
+                  "text": "What are you making?"
+                },
+                {
+                  "speaker": "Host",
+                  "text": "Something that can move in the wind without leaving with it."
+                }
+              ],
+              "alt": "Neighbors work together on small paper-and-wind projects in the courtyard.",
+              "id": "c02-p03-f04"
+            },
+            {
+              "scene": "Medium table detail: host shows simple tabletop mobile prototype, low base, short crossbar and three paper sails. Children hold different picture note cards. Navid inspects broad shape enthusiastically; Rook crouches to see from below. No electrical components.",
+              "narration": "Their mobile would carry little invitations around a shared table.",
+              "dialogue": [
+                {
+                  "speaker": "Host",
+                  "text": "It turns. It carries notes. It occasionally gets ideas above its station."
+                }
+              ],
+              "alt": "The host demonstrates a small wind mobile for the community table.",
+              "id": "c02-p03-f05"
+            },
+            {
+              "scene": "Tight curiosity shot: Rook notices cobalt loop tied around a rolled cream envelope hanging high on modern removable courtyard notice stand, not heritage wall. Beside envelope simple drawing of atlas five-petal recess. Rook points; host's apron edge foreground.",
+              "narration": "On the notice stand, Rook spotted a familiar knot.",
+              "dialogue": [
+                {
+                  "speaker": "Rook",
+                  "text": "Was that waiting for us?"
+                }
+              ],
+              "alt": "Rook notices another blue-knot envelope beside an atlas-like symbol.",
+              "id": "c02-p03-f06"
+            }
+          ],
+          "number": 3,
+          "image": "art/ch02-p03.webp"
+        },
+        {
+          "panels": [
+            {
+              "scene": "Medium host hands Rook envelope from removable stand; Rook holds it gently. Mina beside them, children at table continue their work. No withheld prize posture; welcoming sharing. Atlas indigo corner visible from Mina's bag.",
+              "narration": "The host had been asked to pass it to visitors carrying an unfinished atlas.",
+              "dialogue": [
+                {
+                  "speaker": "Host",
+                  "text": "It's yours. The sender hoped you'd leave one useful idea before hurrying on."
+                }
+              ],
+              "alt": "The host freely gives the waiting invitation to Rook.",
+              "id": "c02-p04-f01"
+            },
+            {
+              "scene": "Close Rook tucks unopened envelope safely into satchel after glancing at children struggling with mobile; Navid already examining paper sail with one child. Rook chooses to help first, curious but not coerced.",
+              "narration": "Rook looked at the knot, then at the table.",
+              "dialogue": [
+                {
+                  "speaker": "Rook",
+                  "text": "The next mystery can wait ten minutes."
+                },
+                {
+                  "speaker": "Tip",
+                  "text": "I shall supervise the ten minutes."
+                }
+              ],
+              "alt": "Rook chooses to join the workshop before opening the next invitation.",
+              "id": "c02-p04-f02"
+            },
+            {
+              "scene": "Low eye-level mobile frame and Navid: he holds a thin paper sail, host has wider heavier base nearby. Mina watches rather than taking tool away. Rook at table edge; one small child tests paper with hand fan. Safe short sticks with rounded ends.",
+              "narration": "Navid had an idea: make everything lighter.",
+              "dialogue": [
+                {
+                  "speaker": "Navid",
+                  "text": "Less weight. More movement."
+                },
+                {
+                  "speaker": "Host",
+                  "text": "Let's test one, before we make three."
+                }
+              ],
+              "alt": "Navid proposes a lighter paper sail while the host suggests a small test.",
+              "id": "c02-p04-f03"
+            },
+            {
+              "scene": "Close experimental detail: one paper sail swings nicely on short thread as a child gently fans from a distance. Navid smiling at first success, Rook's eye at table level follows it. No powerful motor or impractical mechanism.",
+              "narration": "With a little breeze, the idea looked excellent.",
+              "dialogue": [
+                {
+                  "speaker": "Rook",
+                  "text": "It is doing a very graceful turn."
+                },
+                {
+                  "speaker": "Navid",
+                  "text": "See?"
+                }
+              ],
+              "alt": "Navid's light paper sail turns smoothly in a gentle test.",
+              "id": "c02-p04-f04"
+            },
+            {
+              "scene": "Wide shift: open courtyard doorway admits natural stronger gust; paper sails begin twisting and thin base tilts. Host catches frame before it falls; Mina reaches to secure loose materials. Navid startled. Windcatcher untouched in background, not source of artificial blast.",
+              "narration": "Then the courtyard supplied a bigger test.",
+              "dialogue": [
+                {
+                  "speaker": "Host",
+                  "text": "Hold the frame!"
+                },
+                {
+                  "speaker": "Mina",
+                  "text": "Loose papers down!"
+                }
+              ],
+              "alt": "A stronger gust twists the mobile while adults steady its frame.",
+              "id": "c02-p04-f05"
+            },
+            {
+              "scene": "Dynamic object close-up: three short strings twist together, two folded paper notes slip from loose loops. One plain card lands on table, one blue-edged workshop sketch lifts toward courtyard gate. No sacred texts or precious historical objects.",
+              "narration": "The mobile kept moving. Its messages chose their own destinations.",
+              "dialogue": [
+                {
+                  "speaker": "Navid",
+                  "text": "Oh. That was not part of the design."
+                }
+              ],
+              "alt": "A loose note and workshop sketch escape the twisting mobile.",
+              "id": "c02-p04-f06"
+            }
+          ],
+          "number": 4,
+          "image": "art/ch02-p04.webp"
+        },
+        {
+          "panels": [
+            {
+              "scene": "Wide controlled response: host holds mobile securely on table, Mina presses paper pile flat, Navid closes box of loose cards. Rook follows blue-edged sketch only to open courtyard threshold. Tip safely scouts beyond, no children running into street.",
+              "narration": "They saved the table before chasing the paper.",
+              "dialogue": [
+                {
+                  "speaker": "Mina",
+                  "text": "Navid, stay with the frame. I'll go with Rook."
+                },
+                {
+                  "speaker": "Tip",
+                  "text": "The lightest assistant is already on the job."
+                }
+              ],
+              "alt": "The group divides tasks safely after the gust.",
+              "id": "c02-p05-f01"
+            },
+            {
+              "scene": "Bird-level street view: Tip follows blue-edged paper caught in ordinary bicycle basket on a parked bicycle. Adult rider beside it buys fruit; no moving vehicle chase. Shaded public lane, contemporary shops. Rook and Mina distant at gate.",
+              "narration": "Tip found the runaway sketch in a basket with much better transport.",
+              "dialogue": [
+                {
+                  "speaker": "Tip",
+                  "text": "Stop that bicycle! Although it is, admirably, already stopped."
+                }
+              ],
+              "alt": "Tip finds the escaped sketch in a parked bicycle basket.",
+              "id": "c02-p05-f02"
+            },
+            {
+              "scene": "Polite medium encounter: Mina asks adult bicycle rider before touching basket; rider lifts blue-edged sheet and offers it back. Rook waits on sidewalk, Tip on empty bracket. Local rider has agency and understated friendly expression.",
+              "narration": "The rider had noticed a paper passenger.",
+              "dialogue": [
+                {
+                  "speaker": "Mina",
+                  "text": "May we have our wandering design back?"
+                },
+                {
+                  "speaker": "Rider",
+                  "text": "It hasn't paid for the ride."
+                }
+              ],
+              "alt": "A bicycle rider returns the escaped workshop sketch.",
+              "id": "c02-p05-f03"
+            },
+            {
+              "scene": "Macro returned fold-out sketch now opened wider in Rook's red feathered wings: three repeated identical gate pictures, each attached to different note destination, no readable text. Rook's expression seen at top edge shifts to realization. Blue-knot mystery envelope still secured separately in satchel.",
+              "narration": "Unfolded, the sketch showed a second problem.",
+              "dialogue": [
+                {
+                  "speaker": "Rook",
+                  "text": "These three destinations all look the same."
+                }
+              ],
+              "alt": "Rook notices that several different destinations share the same gate symbol.",
+              "id": "c02-p05-f04"
+            },
+            {
+              "scene": "Reverse over-shoulder Rook and Mina reenter fictional workshop, returned sheet visible. Navid at table carefully untangles short strings with host; children help hold sails still. Rook proud to have useful observation, not just heroic retrieval.",
+              "narration": "A returned page was useful. A noticed problem was better.",
+              "dialogue": [
+                {
+                  "speaker": "Rook",
+                  "text": "We found the sketch. And perhaps why the notes were confused before they flew."
+                }
+              ],
+              "alt": "Rook brings back the sketch and explains the repeated destination symbols.",
+              "id": "c02-p05-f05"
+            },
+            {
+              "scene": "Close emotional Navid by tangled mobile, holding original thin base; he exhales then listens as host places broad weighted base beside it. Rook returns sheet to his elbow. No blame, no scolding.",
+              "narration": "Navid looked at his elegant little experiment.",
+              "dialogue": [
+                {
+                  "speaker": "Navid",
+                  "text": "It worked for the tiny wind."
+                },
+                {
+                  "speaker": "Host",
+                  "text": "Then the tiny test taught us the next question."
+                }
+              ],
+              "alt": "The host helps Navid treat the failed gust test as useful information.",
+              "id": "c02-p05-f06"
+            }
+          ],
+          "number": 5,
+          "image": "art/ch02-p05.webp"
+        },
+        {
+          "panels": [
+            {
+              "scene": "Wide ground-level courtyard pause under shade: host points up toward distant existing windcatcher, Mina and children look without climbing. Rook tiny against tall structure. No drawing that suggests modifying heritage or underground entry.",
+              "narration": "Before rebuilding, their host invited them to look at what Yazd's builders had already learned.",
+              "dialogue": [
+                {
+                  "speaker": "Host",
+                  "text": "A windcatcher helps bring air through a building. Its form matters."
+                }
+              ],
+              "alt": "The host explains the windcatcher from the safety of the courtyard.",
+              "id": "c02-p06-f01"
+            },
+            {
+              "scene": "Medium simple tabletop demonstration: host holds two plain folded paper channels, child fans one gently, light scrap at outlet moves. Mina supports channel, Navid observes. This is a toy demonstration of airflow, not a technical cutaway or model of every windcatcher design.",
+              "narration": "They tried a small model, not an experiment on the old building.",
+              "dialogue": [
+                {
+                  "speaker": "Mina",
+                  "text": "We can learn from a shape without touching the real tower."
+                }
+              ],
+              "alt": "The group demonstrates airflow with a small paper model.",
+              "id": "c02-p06-f02"
+            },
+            {
+              "scene": "Macro hands rebuilding: Navid sets broader weighted wooden base on table, Mina steadies short crossbar, local child clips paper sail. Rook holds soft clip in feathered wing; Tip carries one tiny scrap safely. Clear material continuity from previous thin version.",
+              "narration": "The second mobile was less delicate and much less dramatic.",
+              "dialogue": [
+                {
+                  "speaker": "Navid",
+                  "text": "Broad base. Short strings."
+                },
+                {
+                  "speaker": "Rook",
+                  "text": "And no ambition to become a kite."
+                }
+              ],
+              "alt": "The group builds a steadier mobile with a broad base and short strings.",
+              "id": "c02-p06-f03"
+            },
+            {
+              "scene": "Close three different illustrated destination cards: tree bench, open-book table, potted-plant corner. Navid draws distinct picture icons; host checks actual courtyard spots; Rook marks each matching folded note with a removable picture tab. No generated letters.",
+              "narration": "Every destination got a different picture.",
+              "dialogue": [
+                {
+                  "speaker": "Rook",
+                  "text": "One name for three doors was our trouble too."
+                },
+                {
+                  "speaker": "Navid",
+                  "text": "Let's make these impossible to mix up."
+                }
+              ],
+              "alt": "Navid creates distinct picture labels for three places in the courtyard.",
+              "id": "c02-p06-f04"
+            },
+            {
+              "scene": "Overhead miniature directory on portable board: matching picture pairs, one for destination name-symbol and one location sketch, connected by short lines. Host checks each against real spot, Mina asks a local child to identify destination. No literal letters or numbers in art.",
+              "narration": "Then they checked the directory with someone who had not drawn it.",
+              "dialogue": [
+                {
+                  "speaker": "Mina",
+                  "text": "Where would this one send you?"
+                },
+                {
+                  "speaker": "Child",
+                  "text": "The table with the open books."
+                }
+              ],
+              "alt": "A child tests the new picture directory against the real courtyard.",
+              "id": "c02-p06-f05"
+            },
+            {
+              "scene": "Low active mobile restart: broad base stable, clipped folded notes under paper sails, Tip leans forward with crest to inspect. Child holds hand fan ready, Navid waits for host nod. Last-panel suspense before test, no crisis.",
+              "narration": "The new design was ready. Its opinion of the wind remained unknown.",
+              "dialogue": [
+                {
+                  "speaker": "Host",
+                  "text": "Shall we ask it?"
+                }
+              ],
+              "alt": "The workshop prepares to test the improved mobile.",
+              "id": "c02-p06-f06"
+            }
+          ],
+          "number": 6,
+          "image": "art/ch02-p06.webp"
+        },
+        {
+          "panels": [
+            {
+              "scene": "Side close action: gentle fan moves revised mobile; broad base stays flat, clipped folded notes remain secure, short strings separate. Navid watches marker sail turn; Mina behind observes without interfering. No false perfect machine gleam.",
+              "narration": "First, a small breeze.",
+              "dialogue": [
+                {
+                  "speaker": "Navid",
+                  "text": "Turning. Not tipping."
+                },
+                {
+                  "speaker": "Rook",
+                  "text": "My favorite combination."
+                }
+              ],
+              "alt": "The improved mobile turns without tipping in its first test.",
+              "id": "c02-p07-f01"
+            },
+            {
+              "scene": "Wide courtyard local child increases hand fan force modestly while host steadies loose unused papers. Revised mobile stays on table with visible slight movement; Tip grips his own perch comically. No storm, no damage.",
+              "narration": "Then, a slightly bigger one.",
+              "dialogue": [
+                {
+                  "speaker": "Tip",
+                  "text": "A completely unnecessary quantity of weather."
+                },
+                {
+                  "speaker": "Host",
+                  "text": "Enough for today's test. We stop before it gets silly."
+                }
+              ],
+              "alt": "The group checks a stronger breeze under the host's supervision.",
+              "id": "c02-p07-f02"
+            },
+            {
+              "scene": "Overhead distribution test: one folded note with open-book picture tab removed from mobile by local child, matching directory leads to actual book table. Rook follows pointing eyes, Navid records success in sketchbook. No readable note text.",
+              "narration": "One note went to the book table.",
+              "dialogue": [
+                {
+                  "speaker": "Child",
+                  "text": "It says this picture."
+                },
+                {
+                  "speaker": "Navid",
+                  "text": "And this is the matching place."
+                }
+              ],
+              "alt": "A child uses the new picture tab and directory to find the book table.",
+              "id": "c02-p07-f03"
+            },
+            {
+              "scene": "Reverse medium: second child carries tree-bench-tab note toward adult at courtyard bench, who smiles and waves confirmation. Rook not in panel; Mina and host background allow local action center stage. Short safe courtyard distance.",
+              "narration": "A second reached the tree bench. Nobody had to guess which blue door it meant.",
+              "dialogue": [],
+              "alt": "Another child delivers a note to the correctly matched courtyard bench.",
+              "id": "c02-p07-f04"
+            },
+            {
+              "scene": "Tight Tip comic beat perched beside third destination card featuring potted plant. His crest obscures pot in sightline, Navid gently shifts stand a few centimeters for clear view. Tip thinks he is assisting; warmth not ridicule.",
+              "narration": "One final adjustment improved the directory.",
+              "dialogue": [
+                {
+                  "speaker": "Navid",
+                  "text": "Tip, you're hiding the destination."
+                },
+                {
+                  "speaker": "Tip",
+                  "text": "I thought I was making it more distinguished."
+                }
+              ],
+              "alt": "Navid moves a destination card so Tip no longer blocks its picture.",
+              "id": "c02-p07-f05"
+            },
+            {
+              "scene": "Medium host asks a newly arrived local family to use directory; visitor immediately locates making table while children show mobile. Rook sees success from side, not central hero. Modern ordinary clothing and varied ages, welcoming atmosphere.",
+              "narration": "Then a new visitor used it without any help from its makers.",
+              "dialogue": [
+                {
+                  "speaker": "Visitor",
+                  "text": "The making table is this way?"
+                },
+                {
+                  "speaker": "Host",
+                  "text": "You found it."
+                }
+              ],
+              "alt": "A new visitor follows the checked directory to the workshop table.",
+              "id": "c02-p07-f06"
+            }
+          ],
+          "number": 7,
+          "image": "art/ch02-p07.webp"
+        },
+        {
+          "panels": [
+            {
+              "scene": "Wide late-afternoon workshop display, small tested mobiles on independent tables, neighbors talking and choosing books. Existing windcatcher distant. Mina and host share tools, children demonstrate own work; Rook listens to local child explanation.",
+              "narration": "The workshop kept the design. The children kept the experiment. The wind kept its reputation.",
+              "dialogue": [
+                {
+                  "speaker": "Child",
+                  "text": "Ours needs a wider base."
+                },
+                {
+                  "speaker": "Navid",
+                  "text": "We have excellent evidence for that."
+                }
+              ],
+              "alt": "The successful workshop continues with neighbors sharing their tested designs.",
+              "id": "c02-p08-f01"
+            },
+            {
+              "scene": "Intimate side shot Rook sits at book table holding unused blank paper, nearby directory with distinct symbols. Mina shows ordinary phone with simple name-dot to address-dot diagram, no legible text or branded UI. Navid listens, clear learning pause not lecture.",
+              "narration": "Rook thought about the first courtyard, and the name that had sent them nowhere useful.",
+              "dialogue": [
+                {
+                  "speaker": "Rook",
+                  "text": "A familiar name isn't always a complete address."
+                }
+              ],
+              "alt": "Rook connects their ambiguous courtyard name with the new directory.",
+              "id": "c02-p08-f02"
+            },
+            {
+              "scene": "Close Mina and Navid around phone abstract two-dot diagram, Rook attentive. Background real workshop active. No digital magic line leaking into world. Grounded explanation of DNS as address finding, not guarantee or encryption.",
+              "narration": "On the internet, DNS helps turn a website's name into an address.",
+              "dialogue": [
+                {
+                  "speaker": "Mina",
+                  "text": "If that lookup fails, the VPN can be on while a website still won't open."
+                }
+              ],
+              "alt": "Mina explains that a DNS lookup can fail even when a VPN is switched on.",
+              "id": "c02-p08-f03"
+            },
+            {
+              "scene": "Medium Rook poses as solemn gatekeeper at portable picture-directory stand, Tip perches in center trying to direct two child readers at once and gestures opposite ways with wings. Navid laughs lightly while children know route correctly.",
+              "narration": "Tip offered to replace the directory. The directory politely declined.",
+              "dialogue": [
+                {
+                  "speaker": "Tip",
+                  "text": "I am much more conversational."
+                },
+                {
+                  "speaker": "Rook",
+                  "text": "And occasionally less specific."
+                }
+              ],
+              "alt": "Tip jokingly offers conflicting directions beside the successful directory.",
+              "id": "c02-p08-f04"
+            },
+            {
+              "scene": "Close host hands Navid blank route card and pencil; Navid sketches courtyard gate, three-book motif and safe shade route. Mina holds atlas open to blank cream leaf; Rook looks touched. Neighbors retain their own original directory.",
+              "narration": "The host asked for a copy for tomorrow's visitors, not just today's.",
+              "dialogue": [
+                {
+                  "speaker": "Host",
+                  "text": "Leave one here. Take one with you."
+                },
+                {
+                  "speaker": "Navid",
+                  "text": "A route can belong to more than one person."
+                }
+              ],
+              "alt": "Navid makes copies of the checked courtyard route for the host and atlas.",
+              "id": "c02-p08-f05"
+            },
+            {
+              "scene": "Overhead indigo atlas spread: corrected Isfahan route and new Yazd route occupy separate leaves with distinct tree and windcatcher picture symbols. Blue spine loop and brass cover corner visible. Rook red wing holds new page, no wheel present.",
+              "narration": "The atlas had gained a second route, drawn by people who had actually walked it.",
+              "dialogue": [
+                {
+                  "speaker": "Rook",
+                  "text": "It is starting to sound less like one author."
+                }
+              ],
+              "alt": "The atlas now holds both checked local routes.",
+              "id": "c02-p08-f06"
+            }
+          ],
+          "number": 8,
+          "image": "art/ch02-p08.webp"
+        },
+        {
+          "panels": [
+            {
+              "scene": "Soft evening courtyard farewell: host stands beside finished stable mobile, neighbors still using book table. Mina thanks host, Navid holds green backpack, Rook adjusts satchel with unopened blue-knot invitation visible. Tip cleans wingtip fastidiously.",
+              "narration": "The local problem was solved. The unanswered envelope was still very much itself.",
+              "dialogue": [
+                {
+                  "speaker": "Host",
+                  "text": "Come back when you have another useful mistake."
+                },
+                {
+                  "speaker": "Navid",
+                  "text": "I expect to have several."
+                }
+              ],
+              "alt": "The travelers thank their host after the successful workshop.",
+              "id": "c02-p09-f01"
+            },
+            {
+              "scene": "Close practical packing: Mina places small revised mobile's illustrated plans in atlas pocket rather than taking community prototype. Rook touches invitation; Tip tries slipping large loose paper sail into tiny gap and cannot fit. No stolen props.",
+              "narration": "They took a copy of the plan and left the working model with its makers.",
+              "dialogue": [
+                {
+                  "speaker": "Rook",
+                  "text": "We can share the idea without carrying the whole table."
+                },
+                {
+                  "speaker": "Tip",
+                  "text": "A disappointing but sound limitation."
+                }
+              ],
+              "alt": "The friends pack only a copy of the mobile design, leaving the model behind.",
+              "id": "c02-p09-f02"
+            },
+            {
+              "scene": "Wide quiet shaded bench outside workshop, allowed public place; Mina, Navid and Rook settle with lantern battery light on table, Tip on backrest. Indigo atlas on lap. Blue-knot envelope placed center, no ominous watching figures.",
+              "narration": "This time, the mystery did not need to compete with a deadline.",
+              "dialogue": [
+                {
+                  "speaker": "Rook",
+                  "text": "Ready?"
+                },
+                {
+                  "speaker": "Navid",
+                  "text": "Stone ready. Wind warned."
+                }
+              ],
+              "alt": "The group sits together to open the next invitation.",
+              "id": "c02-p09-f03"
+            },
+            {
+              "scene": "Macro blue-knot being untied by Rook feathered wing ends while Navid weights corner with pebble. Envelope unfolds into picture of a garden gate and five-petal brass wheel silhouette, no lettering or real monument claims. Actual complete wheel absent.",
+              "narration": "Behind the knot was a garden gate. Behind the gate, the wheel.",
+              "dialogue": [
+                {
+                  "speaker": "Mina",
+                  "text": "The host said the next maker lives in Shiraz."
+                }
+              ],
+              "alt": "The new invitation pictures the missing wheel behind a garden gate.",
+              "id": "c02-p09-f04"
+            },
+            {
+              "scene": "Close puzzled Rook points at illustrated gate with no drawn handle, Navid looks at atlas empty cover recess beside it; Mina thoughtful. Gentle wonder, no threat to child. Nearby Tip's tiny crest tilted in curiosity.",
+              "narration": "There was one very noticeable omission.",
+              "dialogue": [
+                {
+                  "speaker": "Navid",
+                  "text": "How do you open a gate with no handle?"
+                },
+                {
+                  "speaker": "Rook",
+                  "text": "I suspect that is our next question."
+                }
+              ],
+              "alt": "Rook and Navid notice that the pictured garden gate has no handle.",
+              "id": "c02-p09-f05"
+            },
+            {
+              "scene": "Tight action at smaller paper fold: Tip pecks lightly at a loose folded corner, revealing partial second picture only. Rook notices; Navid steadies paper to avoid tear. No beak carrying huge sheet, no new live character shown.",
+              "narration": "Tip found something even smaller than a missing handle.",
+              "dialogue": [
+                {
+                  "speaker": "Tip",
+                  "text": "A corner with a secret. My specialty."
+                }
+              ],
+              "alt": "Tip discovers another folded corner in the invitation.",
+              "id": "c02-p09-f06"
+            }
+          ],
+          "number": 9,
+          "image": "art/ch02-p09.webp"
+        },
+        {
+          "panels": [
+            {
+              "scene": "Overhead paper reveal: main garden-and-wheel picture left; second unfolded insert shows ink drawing of Rook with lantern and an adjacent unfilled simple companion outline, not identifiable as any real person. All drawn marks nonletter symbols. Actual friends' fingers frame page.",
+              "narration": "Beside the drawn wheel stood a drawn Rook. Beside Rook, an unfinished space.",
+              "dialogue": [],
+              "alt": "The invitation includes a drawing of Rook beside an unfinished companion outline.",
+              "id": "c02-p10-f01"
+            },
+            {
+              "scene": "Close Rook face lit by the ordinary lantern; worried, not frightened, crest slightly low. He looks toward the two friends beside him. The indigo atlas cover and empty recess are visible in the foreground. No magical glow or threatening shadow.",
+              "narration": "For a moment, Rook remembered being only a mark in a margin.",
+              "dialogue": [
+                {
+                  "speaker": "Rook",
+                  "text": "What if the next page already knows what I'm supposed to do?"
+                }
+              ],
+              "alt": "Rook wonders whether the old drawing has already decided his future.",
+              "id": "c02-p10-f02"
+            },
+            {
+              "scene": "Warm eye-level view: Navid and Mina meet Rook's gaze. Navid holds the atlas page with its corrected route; Mina gestures toward the actual workshop behind them. The companion outline remains on the table, unchanged. Clear cooperative reassurance.",
+              "narration": "Navid turned back to a page they knew.",
+              "dialogue": [
+                {
+                  "speaker": "Navid",
+                  "text": "The old map didn't know the closed lane."
+                },
+                {
+                  "speaker": "Mina",
+                  "text": "The people walking it got to choose."
+                }
+              ],
+              "alt": "Mina and Navid remind Rook that they chose how to solve the earlier route.",
+              "id": "c02-p10-f03"
+            },
+            {
+              "scene": "Comic close view: Tip stands very tall beside the unfilled companion outline, crest fully raised and wings tucked grandly. His tiny size contrasts with the much larger outlined space. Rook half-smiles; Navid chuckles at the frame edge. No text inside art.",
+              "narration": "Tip inspected the empty space with professional interest.",
+              "dialogue": [
+                {
+                  "speaker": "Tip",
+                  "text": "An obvious omission. The artist has forgotten me."
+                },
+                {
+                  "speaker": "Rook",
+                  "text": "You may need a smaller mystery."
+                }
+              ],
+              "alt": "Tip poses beside the oversized companion outline as if it must be his portrait.",
+              "id": "c02-p10-f04"
+            },
+            {
+              "scene": "Medium view: Rook carefully returns the invitation to the atlas; its empty cover recess remains visible. Navid ties the blue cord around the separate paper insert; Mina checks onward travel details on her phone. Fictional workshop gate behind, ordinary planning, battery lantern.",
+              "narration": "They would ask the next maker. They would check the next route. They would decide together.",
+              "dialogue": [
+                {
+                  "speaker": "Rook",
+                  "text": "Shiraz, then. But we take our own questions."
+                }
+              ],
+              "alt": "The friends secure the new clues and plan an ordinary onward visit.",
+              "id": "c02-p10-f05"
+            },
+            {
+              "scene": "Cinematic final wide view along a lived-in Yazd lane at blue hour: warm workshop light behind, earthen roofs and windcatcher silhouettes above. Rook, Mina, Navid and Tip walk along safe pavement. The clue is safely tucked in the closed indigo atlas under Mina's arm, its short blue spine loop visible. Rook carries the small brass lantern. Hopeful mystery, no live second bird.",
+              "narration": "The wind had an address. The atlas still had a blank beside its bird.",
+              "dialogue": [
+                {
+                  "speaker": "Rook",
+                  "text": "Who is the next invitation for?"
+                }
+              ],
+              "alt": "The travelers leave Yazd with a checked route and a mystery about an unfinished companion.",
+              "id": "c02-p10-f06"
+            }
+          ],
+          "number": 10,
+          "image": "art/ch02-p10.webp"
+        }
+      ]
+    }
+  ]
+}

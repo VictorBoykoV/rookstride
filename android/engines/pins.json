@@ -1,0 +1,29 @@
+{
+  "go_toolchain": "go1.26.8",
+  "sources": [
+    {
+      "name": "awg-android",
+      "url": "https://codeload.github.com/amnezia-vpn/amneziawg-android/tar.gz/5c16489e2cd9ed3a0a7a27c7445bba5238132f86",
+      "sha256": "5194f819a28822bb27bf4efdb4a67acfa4d87618ed0a9ac67b30dbced91e959e",
+      "commit": "5c16489e2cd9ed3a0a7a27c7445bba5238132f86"
+    },
+    {
+      "name": "libxray",
+      "url": "https://codeload.github.com/amnezia-vpn/amnezia-libxray/tar.gz/e8cc06d7427251fa549093e7cc32c28b0f5fbafa",
+      "sha256": "062fccf67500b3fe660dcad83d698ef8e9ec16426a53f08122189e15eaf7b4e0",
+      "commit": "e8cc06d7427251fa549093e7cc32c28b0f5fbafa"
+    },
+    {
+      "name": "ovpn3",
+      "url": "https://codeload.github.com/OpenVPN/openvpn3/tar.gz/4d84c5990c028a1bf39825f6177a648fc52b2739",
+      "sha256": "0a82a836ba09085fe275d4de4cc8c4ff91a2d0722467986d5c88c17f7e74c667",
+      "commit": "4d84c5990c028a1bf39825f6177a648fc52b2739"
+    },
+    {
+      "name": "asio",
+      "url": "https://codeload.github.com/chriskohlhoff/asio/tar.gz/231cb29bab30f82712fcd54faaea42424cc6e710",
+      "sha256": "5def09efbd4be199dd6ddca53a2c99b9eef696f6b430910d896594b04ff59108",
+      "commit": "231cb29bab30f82712fcd54faaea42424cc6e710"
+    }
+  ]
+}

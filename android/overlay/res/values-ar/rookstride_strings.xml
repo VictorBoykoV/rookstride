@@ -558,6 +558,8 @@
     <string name="rs_m_2e1a4c07ce94" formatted="false">"صارم"</string>
     <string name="rs_m_85a39ab345d6" formatted="false">"نعم"</string>
     <string name="rs_m_1ea442a134b2" formatted="false">"لا"</string>
+    <string name="rs_app_vpn_pending" formatted="false">"قد يعرض أندرويد رمز VPN بينما لا يزال النفق المشفّر قيد الاتصال. لا يؤكد ذلك بعدُ توفّر الوصول إلى الإنترنت عبر البوابة. افتح السجل للاطّلاع على تفاصيل الاتصال."</string>
+    <string name="rs_app_vpn_port_hint" formatted="false">"يستخدم المنفذ 500 التفاوض القياسي لاتصال VPN. ويبدأ المنفذ 4500 الاتصال مباشرةً باستخدام NAT-T. تتطلب المنافذ الأخرى إعدادات مطابقة على الخادم. تغيير المنفذ لا يخفي بروتوكول VPN. أعِد الاتصال بعد تغيير هذا الإعداد."</string>
     <plurals name="rs_checkpoints_remaining">
         <item quantity="zero">"لا توجد نقاط تحقق متبقية (%1$d)"</item>
         <item quantity="one">"نقطة تحقق واحدة متبقية (%1$d)"</item>

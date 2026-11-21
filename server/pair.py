@@ -18,6 +18,7 @@ from pathlib import Path
 
 sys.path.insert(0,str(Path(__file__).resolve().parent))
 from rookstride.admin import atomic, username
+from rookstride.passwords import validate as vpn_password
 
 OWN=Path('/etc/rookstride-pair')
 STATE=Path('/var/lib/rookstride-pair')
@@ -44,10 +45,38 @@ def key(value):
     return value
 
 
+def native_plan(p):
+    return p.get('engine')=='native-v2' or p.get('entry_protocol','ikev2')!='ikev2' or p.get('exit_protocol','awg')!='awg'
+
+def initial_user(p,req):
+    if p['role']=='exit':
+        return {'login':'bridge-'+p['pair'][:12],'password':secrets.token_urlsafe(12)[:15],'statistics':False}
+    login=username(req.get('login'));password=vpn_password(req.get('password'))
+    if p.get('entry_protocol')=='ikev2' and p.get('exit_protocol')=='ikev2' and login=='bridge-'+p['pair'][:12]:raise ValueError('This login is reserved for the server connection')
+    return {'login':login,'password':password,'statistics':req.get('statistics',False)}
+
 def plan(req):
     if not isinstance(req,dict): raise ValueError('Expected a JSON object')
     result={k:req.get(k,v) for k,v in DEFAULTS.items()}
     result.update(pair=ident(req.get('pair')),role=req.get('role'),server=host(req.get('server')),exit_host=host(req.get('exit_host')))
+    if 'engine' in req:
+        if req['engine']!='native-v2':raise ValueError('Unsupported pair engine')
+        result['engine']='native-v2'
+    if 'entry_protocol' in req or 'exit_protocol' in req or req.get('engine')=='native-v2':
+        result.update(entry_protocol=req.get('entry_protocol','ikev2'),exit_protocol=req.get('exit_protocol','awg'))
+        supported=('ikev2','awg','openvpn','xray','xhttp','hysteria2','outline','shadowsocks','trusttunnel','naive')
+        if result['entry_protocol'] not in supported or result['exit_protocol'] not in supported:raise ValueError('This entry/exit combination is not available yet')
+        if 'access_mode' in req:
+            sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'single'))
+            import access
+            result['access_mode']=access.mode({'protocol':result['entry_protocol'],'access_mode':req['access_mode']})
+            if req.get('engine')!='native-v2':raise ValueError('Create a modern route for reusable username/password sign-in')
+        if native_plan(result) and 'client_pool' not in req:result['client_pool']='10.66.0.0/24'
+        if 'vpn_port' not in req:result['vpn_port']={'awg':51820,'ikev2':500,'openvpn':1194}.get(result['entry_protocol'],443)
+        if result['exit_protocol']=='ikev2' and 'tunnel_port' not in req:result['tunnel_port']=500
+        if result['exit_protocol']=='openvpn' and 'tunnel_port' not in req:result['tunnel_port']=1194
+        if native_plan(result) and result['client_pool']!='10.66.0.0/24':raise ValueError('Use the reserved native-entry client pool')
+        if result['exit_protocol']=='ikev2' and result['tunnel_port']!=500:raise ValueError('The IKEv2 exit uses standard UDP 500 and 4500')
     if result['role'] not in ('entry','exit'): raise ValueError('Invalid node role')
     for k in ('tunnel_port','vpn_port','route_table'):
         n=result[k]
@@ -83,17 +112,33 @@ def require_owner(p):
 
 
 def fresh(p):
-    d=dict(l.split('=',1) for l in Path('/etc/os-release').read_text().splitlines() if '=' in l)
-    if d.get('ID','').strip('"')!='ubuntu' or d.get('VERSION_ID','').strip('"')!='24.04': raise ValueError('Use fresh Ubuntu 24.04')
-    for name in ('/etc/ipsec.conf','/etc/ipsec.secrets','/etc/single-vps-vpn','/etc/twohop-vpn','/etc/amnezia','/etc/wireguard','/opt/AdGuardHome','/var/lib/AdGuardHome'):
-        if Path(name).exists(): raise ValueError('Existing VPN/DNS configuration detected; use a fresh node')
+    if native_plan(p):
+        sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'single'))
+        from ubuntu_support import require
+        require()
+    else:
+        d=dict(l.split('=',1) for l in Path('/etc/os-release').read_text().splitlines() if '=' in l)
+        if d.get('ID','').strip('"')!='ubuntu' or d.get('VERSION_ID','').strip('"')!='24.04':raise ValueError('This legacy pair requires Ubuntu 24.04; create a modern pair for mixed versions')
+    for name in ('/etc/ipsec.conf','/etc/ipsec.secrets','/etc/single-vps-vpn','/etc/twohop-vpn','/etc/amnezia','/etc/wireguard','/opt/AdGuardHome','/var/lib/AdGuardHome','/var/lib/rookstride-single/awg','/var/lib/rookstride-single/openvpn','/var/lib/rookstride-single/xray','/var/lib/rookstride-single/xhttp','/var/lib/rookstride-single/hysteria2','/var/lib/rookstride-single/outline','/var/lib/rookstride-single/shadowsocks','/var/lib/rookstride-single/trusttunnel','/var/lib/rookstride-single/naive','/var/lib/rookstride-dns','/opt/rookstride-dns'):
+        path=Path(name)
+        # wireguard-tools creates this empty directory on otherwise clean hosts.
+        # A real configuration or link still requires an explicit owner review.
+        if name=='/etc/wireguard' and not path.is_symlink() and path.is_dir() and not any(path.iterdir()):continue
+        if path.exists() or path.is_symlink(): raise ValueError('Existing VPN/DNS configuration at '+name+'. Remove the recognized VPN setups on this server first.')
     for route in json.loads(command_output(['ip','-j','-4','route','show','table','main'])):
         destination=route.get('dst','default')
         if destination!='default':
             network=ipaddress.ip_network(destination,strict=False)
             if network.overlaps(ipaddress.ip_network(p['client_pool'])) or network.overlaps(ipaddress.ip_interface(p['entry_address']).network):raise ValueError('Proposed pools overlap an existing host route')
-    for name in ('strongswan-starter','adguardhome','unbound'):
+    for name in ('strongswan-starter','strongswan','adguardhome','unbound'):
         if subprocess.run(['systemctl','is-active','--quiet',name],capture_output=True).returncode==0: raise ValueError('Existing VPN/DNS service detected')
+    if Path('/etc/swanctl/rookstride-pair').exists():raise ValueError('Existing owned IKEv2 bridge credentials need reviewed removal first')
+    sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'single'))
+    from inspect_server import listeners
+    protocol=p.get('entry_protocol','ikev2') if p['role']=='entry' else p.get('exit_protocol','awg')
+    reserved={500,4500,p['vpn_port']} if protocol=='ikev2' and p['role']=='entry' else {500,4500} if protocol=='ikev2' else {p['vpn_port'] if p['role']=='entry' else p['tunnel_port']}
+    transport='udp' if protocol in ('awg','ikev2','hysteria2') else 'tcp'
+    if any(v['transport']==transport and v['port'] in reserved for v in listeners()):raise ValueError('A required VPN port is already used on this node; review its services or choose another port in Advanced')
 
 
 def write_manifest(m): atomic(OWN/'manifest.json',json.dumps(m))
@@ -101,13 +146,15 @@ def write_manifest(m): atomic(OWN/'manifest.json',json.dumps(m))
 
 def job_state(job,**values):
     old=json.loads((job/'status.json').read_text()) if (job/'status.json').exists() else {}
+    if values.get('state') in ('starting','running','complete'):
+        old.pop('error',None);old.pop('detail',None)
     old.update(values,updated=time.time(),job=job.name)
     atomic(job/'status.json',json.dumps(old))
 
 
 def source_digest(source):
     h=hashlib.sha256()
-    for folder in ('server','twohop','gateway'):
+    for folder in ('server','twohop','gateway','single'):
         for path in sorted((source/folder).rglob('*'),key=lambda path:path.relative_to(source).as_posix()):
             if path.is_symlink(): raise ValueError('Bundle contains a symbolic link')
             if path.is_file() and '__pycache__' not in path.parts and path.suffix!='.pyc':
@@ -131,25 +178,32 @@ def start(req):
         if p['role']=='entry':
             username(req.get('login'))
             pw=req.get('password')
-            if not isinstance(pw,str) or not 16<=len(pw)<=512 or any(c in pw for c in '\n\r\0'): raise ValueError('Use a single-line VPN password of 16–512 characters')
+            vpn_password(pw)
             if type(req.get('statistics',False)) is not bool: raise ValueError('Invalid history setting')
+        user=initial_user(p,req) if p['role']=='entry' or native_plan(p) else None
         for directory in (OWN,STATE,RELEASE): protected(directory);directory.mkdir(mode=0o700,parents=True,exist_ok=True)
         # The checked source is immutable for this pair; jobs and boot recovery use it.
-        for folder in ('server','twohop','gateway'):
+        for folder in ('server','twohop','gateway','single'):
             shutil.copytree(source/folder,RELEASE/folder,dirs_exist_ok=True)
         for script in RELEASE.rglob('*.sh'): script.chmod(0o700)
-        m={'plan':p,'bundle':digest,'jobs':{},'configured':False,'verified':False,'activated':False,'version':1}
+        m={'plan':p,'bundle':digest,'jobs':{},'configured':False,'verified':False,'activated':False,'version':2 if native_plan(p) else 1}
         write_manifest(m)
-        if p['role']=='entry': atomic(OWN/'initial-user.json',json.dumps({'login':req['login'],'password':req['password'],'statistics':req.get('statistics',False)}))
+        if user is not None:atomic(OWN/'initial-user.json',json.dumps(user))
     protected(STATE)
     previous=m['jobs'].get(action)
     for recorded in m['jobs'].values():
         if recorded!=previous and status(recorded)['state'] in ('starting','running','awaiting-reboot'):
             raise ValueError('Finish or resume the recorded job before another step')
     if action=='configure':
-        key(req.get('peer_key'))
-        if p['role']=='entry':validate_shared(req.get('shared'))
-        config_hash=hashlib.sha256(json.dumps({'peer':req['peer_key'],'shared':req.get('shared')},sort_keys=True).encode()).hexdigest()
+        if m['version']==2:
+            import native_pair
+            native_pair.validate_material(p,req.get('transport'))
+            material={'transport':req.get('transport')}
+        else:
+            key(req.get('peer_key'))
+            if p['role']=='entry':validate_shared(req.get('shared'))
+            material={'peer':req['peer_key'],'shared':req.get('shared')}
+        config_hash=hashlib.sha256(json.dumps(material,sort_keys=True).encode()).hexdigest()
         if m.get('configure_digest') and m['configure_digest']!=config_hash:raise ValueError('Peer configuration changed')
         m['configure_digest']=config_hash;write_manifest(m)
     if previous and status(previous)['state']=='complete' and action in ('verify','activate') and req.get('repeat') is True:
@@ -164,8 +218,9 @@ def start(req):
     else:
         if action!='bootstrap' and not m['jobs'].get('bootstrap'): raise ValueError('Bootstrap is required')
         if action=='configure':
-            key(req.get('peer_key'))
-            if p['role']=='entry': validate_shared(req.get('shared'))
+            if m['version']!=2:
+                key(req.get('peer_key'))
+                if p['role']=='entry': validate_shared(req.get('shared'))
         if action in ('verify','activate') and (p['role']!='entry' or not m['configured']): raise ValueError('Configure the entry first')
         if action=='activate' and not m['verified']: raise ValueError('A successful staged verification is required')
         ident_=uuid.uuid4().hex; job=STATE/ident_;job.mkdir(mode=0o700)
@@ -222,6 +277,9 @@ def prepare_guard(p):
 
 
 def bootstrap(p,job,log):
+    if native_plan(p):
+        import native_pair
+        return native_pair.bootstrap(p,job,log)
     if p['role']=='entry': prepare_guard(p)
     result=subprocess.run(['bash','scripts/install-amneziawg.sh','ingress' if p['role']=='entry' else 'egress'],cwd=RELEASE/'twohop',stdout=log,stderr=log,timeout=1800,env=dict(os.environ,DEBIAN_FRONTEND='noninteractive'))
     if result.returncode==194:
@@ -261,6 +319,9 @@ def check_partial_ike():
 
 
 def configure(p,req,job,log):
+    if native_plan(p):
+        import native_pair
+        return native_pair.configure(p,req,job,log)
     m=require_owner(p)
     if m['configured']:
         if hashlib.sha256(Path('/etc/amnezia/amneziawg/awg-exit.conf').read_bytes()).hexdigest()!=m['awg_hash']:raise ValueError('Owned tunnel configuration changed')
@@ -306,6 +367,13 @@ def execute(jobid):
             if action=='bootstrap' and not bootstrap(p,job,log): return
             if action=='configure': configure(p,req,job,log)
             if action in ('verify','activate'):
+                if m.get('version')==2:
+                    import native_pair
+                    native_pair.verify(p,req,activate=action=='activate')
+                    job_state(job,state='complete',phase=action.capitalize()+' complete')
+                    (job/'request.json').unlink(missing_ok=True)
+                    run(['systemctl','disable','rookstride-pair-job-'+jobid],stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL)
+                    return
                 if hashlib.sha256(Path('/etc/amnezia/amneziawg/awg-exit.conf').read_bytes()).hexdigest()!=m['awg_hash']:raise ValueError('Owned tunnel configuration changed')
                 expected=ipaddress.ip_address(req.get('expected_exit_ip',''))
                 if expected.version!=4: raise ValueError('Expected an IPv4 exit address')
@@ -314,11 +382,15 @@ def execute(jobid):
                 m=require_owner(p);m['verified']=True;write_manifest(m)
                 if action=='activate':
                     run(['bash','scripts/activate-ingress.sh','apply'],cwd=RELEASE/'twohop',stdout=log,stderr=log)
-                    m['activated']=True;write_manifest(m)
+                    m['activated']=True;m.setdefault('first_activated_at',time.time());write_manifest(m)
         job_state(job,state='complete',phase=action.capitalize()+' complete')
         (job/'request.json').unlink(missing_ok=True)
         run(['systemctl','disable','rookstride-pair-job-'+jobid],stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL)
     except Exception as exc:
+        if native_plan(p) and p['role']=='entry':
+            import native_pair
+            try:native_pair.network('quiesce')
+            except Exception:pass  # Preserve the original failure and durable failed state.
         if p['role']=='entry' and Path('/usr/local/sbin/twohop-vpn-entry-routing').exists():
             subprocess.run(['/usr/local/sbin/twohop-vpn-entry-routing','quiesce'],capture_output=True)
         job_state(job,state='failed',phase='Step stopped; forwarding stays closed. Review and resume.',error=type(exc).__name__,detail=str(exc) if isinstance(exc,ValueError) else 'Server command failed; the private job log stays on this node')
@@ -340,14 +412,29 @@ def status(jobid):
 
 def dispatch(req):
     action=req.get('command')
+    if action in ('start','reboot'):
+        # A reviewed engine change retains configuration and binaries for
+        # rollback. Do not let another pair job invalidate that snapshot.
+        # Inspection and a conservative pause remain available for recovery.
+        sys.path.insert(0,str(Path(__file__).resolve().parent.parent/'single'))
+        from user_updates import ensure_no_runtime_update
+        ensure_no_runtime_update(destructive=True)
+    if action=='preflight':
+        p=plan(req)
+        if load_manifest():require_owner(p)
+        else:fresh(p)
+        return {'ready':True,'role':p['role']}
     if action=='start': return start(req)
     if action=='status': return status(req.get('job'))
     m=load_manifest()
     if not m or ident(req.get('pair'))!=m['plan']['pair']: raise ValueError('Unknown pair owner')
+    if m.get('version')==2:
+        import native_pair
+        return native_pair.dispatch(req,m)
     if action=='material':
         v=json.loads((OWN/'material.json').read_text());return {k:v[k] for k in ('public_key','shared') if k in v}
     if action=='overview':
-        return {'role':m['plan']['role'],'configured':m['configured'],'activated':Path('/etc/twohop-vpn/activation').read_text().strip()=='active' if Path('/etc/twohop-vpn/activation').exists() else False,'jobs':{k:status(v) for k,v in m['jobs'].items()},'exit_ip':command_output(['curl','-4','--connect-timeout','10','--max-time','20','-fsS','https://api.ipify.org']) if m['plan']['role']=='exit' and m['configured'] else ''}
+        return {'role':m['plan']['role'],'configured':m['configured'],'activated':Path('/etc/twohop-vpn/activation').read_text().strip()=='active' if Path('/etc/twohop-vpn/activation').exists() else False,'completed_at':m.get('first_activated_at',0),'jobs':{k:status(v) for k,v in m['jobs'].items()},'exit_ip':command_output(['curl','-4','--connect-timeout','10','--max-time','20','-fsS','https://api.ipify.org']) if m['plan']['role']=='exit' and m['configured'] else ''}
     if action=='pause' and m['plan']['role']=='entry':
         if any(status(j)['state'] in ('starting','running') for j in m['jobs'].values()):raise ValueError('Wait for the installation step before pausing')
         run(['/usr/local/sbin/twohop-vpn-entry-routing','quiesce']);return {'paused':True}

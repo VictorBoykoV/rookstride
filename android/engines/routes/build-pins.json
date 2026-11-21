@@ -1,0 +1,48 @@
+{
+  "schema": 1,
+  "go": "go1.26.8",
+  "ndk": "30.0.16248370",
+  "host_sdks": {
+    "darwin-amd64": {
+      "url": "https://go.dev/dl/go1.26.8.darwin-amd64.tar.gz",
+      "sha256": "186be014105aa6542b767d2c6ed5cca10a0214bdff809ef1724022a8c7894150",
+      "bytes": 67759394
+    },
+    "darwin-arm64": {
+      "url": "https://go.dev/dl/go1.26.8.darwin-arm64.tar.gz",
+      "sha256": "a012b25b571bd0138a03dcd25375ceba866fe5ca822f426d2c66a4de56fd3f4b",
+      "bytes": 64626620
+    },
+    "linux-amd64": {
+      "url": "https://go.dev/dl/go1.26.8.linux-amd64.tar.gz",
+      "sha256": "d0f743b33e8d8945e6b1f432edd15785c70507121d6e2a723b21285eddf8b57b",
+      "bytes": 66897291
+    },
+    "linux-arm64": {
+      "url": "https://go.dev/dl/go1.26.8.linux-arm64.tar.gz",
+      "sha256": "211ffced9dcb9633a55eac6364816ec0ddd951389a740e88fa8b3337971bdda0",
+      "bytes": 63811405
+    }
+  },
+  "supplemental_sources": [
+    {
+      "path": "go-source.tar.gz",
+      "url": "https://go.dev/dl/go1.26.8.src.tar.gz",
+      "sha256": "4e39b98e42f946fa05ac8bc5b71877df97dbdb7cbb1a777b541667ad7117fd2e",
+      "bytes": 34150120
+    },
+    {
+      "path": "naiveproxy-source.tar.gz",
+      "url": "https://codeload.github.com/SagerNet/naiveproxy/tar.gz/72a06c9fca0e2d228588c7f3074bf7efff3ff686",
+      "sha256": "396d4ad6f5bf8ff812f915f0e21281748d7009773fa1bf182cd765f130fd9b19",
+      "bytes": 53625507
+    }
+  ],
+  "cronet": {
+    "version": "150.0.7871.63",
+    "bindings_commit": "0d28acc44093",
+    "library_commit": "c10c03c318db",
+    "naiveproxy_commit": "72a06c9fca0e2d228588c7f3074bf7efff3ff686",
+    "build": "upstream-prebuilt"
+  }
+}

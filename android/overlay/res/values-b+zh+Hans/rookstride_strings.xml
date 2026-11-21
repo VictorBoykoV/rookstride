@@ -558,6 +558,8 @@
     <string name="rs_m_2e1a4c07ce94" formatted="false">"严格"</string>
     <string name="rs_m_85a39ab345d6" formatted="false">"是"</string>
     <string name="rs_m_1ea442a134b2" formatted="false">"否"</string>
+    <string name="rs_app_vpn_pending" formatted="false">"加密隧道仍在连接时，Android 可能已经显示 VPN 图标。这并不表示已经能够通过网关访问互联网。请打开日志查看连接详情。"</string>
+    <string name="rs_app_vpn_port_hint" formatted="false">"500 端口使用标准 VPN 协商。4500 端口直接使用 NAT-T。其他端口需要服务器端有对应配置。更改端口不会隐藏 VPN 协议。更改后请重新连接。"</string>
     <plurals name="rs_checkpoints_remaining">
         <item quantity="other">"还剩 %1$d 个检查点"</item>
     </plurals>

@@ -11,22 +11,29 @@ import subprocess
 import sys
 import time
 from pathlib import Path
+sys.path.insert(0,str(Path(__file__).resolve().parent))
+import ike_packages
 
 MARKER=Path('/etc/single-vps-vpn/network.env')
 CONFIG=Path('/etc/ipsec.conf')
+SECRETS=Path('/etc/ipsec.secrets')
 STATE=Path('/var/lib/rookstride')
 PATHS=tuple(Path(p) for p in (
  '/etc/ipsec.conf','/etc/ipsec.secrets','/etc/single-vps-vpn','/root/single-vps-vpn',
  '/etc/ipsec.d/cacerts/single-vps-ca.pem','/etc/ipsec.d/certs/single-vps-server-cert.pem',
+ '/etc/ipsec.d/cacerts/single-vps-public-issuer-0.pem','/etc/ipsec.d/cacerts/single-vps-public-issuer-1.pem',
+ '/etc/ipsec.d/cacerts/single-vps-public-issuer-2.pem','/etc/ipsec.d/cacerts/single-vps-public-issuer-3.pem',
+ '/etc/systemd/system/rookstride-ike-cert-renew.service','/etc/systemd/system/rookstride-ike-cert-renew.timer',
  '/etc/ipsec.d/private/single-vps-server-key.pem','/etc/unbound/unbound.conf.d/single-vps-vpn.conf',
  '/etc/sysctl.d/90-single-vps-vpn.conf','/etc/systemd/system/single-vps-vpn-dns-address.service',
  '/etc/systemd/system/single-vps-vpn-firewall.service','/etc/systemd/system/adguardhome.service',
  '/etc/systemd/system/rookstride-stats.service','/usr/local/sbin/single-vps-vpn-firewall',
  '/usr/local/sbin/rookstride-admin','/var/lib/AdGuardHome','/opt/AdGuardHome',
  '/opt/rookstride','/var/lib/rookstride','/run/charon.vici'))
-SERVICES=('rookstride-stats','strongswan-starter','adguardhome','unbound',
+SERVICES=('rookstride-ike-cert-renew.timer','rookstride-ike-cert-renew.service','rookstride-stats','strongswan-starter','adguardhome','unbound',
           'single-vps-vpn-firewall','single-vps-vpn-dns-address')
 CHAINS=(('iptables','filter','INPUT','SINGLEVPN_INPUT'),
+        ('iptables','nat','PREROUTING','SINGLEVPN_ALT'),
         ('iptables','filter','FORWARD','SINGLEVPN_FWD'),
         ('iptables','nat','POSTROUTING','SINGLEVPN_NAT'),
         ('ip6tables','filter','FORWARD','SINGLEVPN_V6_SINK'))
@@ -45,12 +52,12 @@ def inspect():
         raise ValueError('Additional VPN configuration detected; review it manually before removing this gateway')
     if any(p.is_symlink() for p in PATHS): raise ValueError('Unexpected symbolic link in managed paths; manual review required')
     # Stable configuration identity; active counters/logs may change during review.
-    digest=hashlib.sha256(MARKER.read_bytes()+config.read_bytes()).hexdigest()
+    digest=hashlib.sha256(MARKER.read_bytes()+config.read_bytes()+(SECRETS.read_bytes() if SECRETS.is_file() else b'')).hexdigest()
     return {'files':[str(p) for p in PATHS if p.exists()], 'services':list(SERVICES),
             'configuration':digest,'scope':'VPN accounts, certificates, DNS filtering data, managed firewall rules and usage history. Ubuntu and SSH remain installed.'}
 
 def plan():
-    value=inspect();STATE.mkdir(mode=0o700,parents=True,exist_ok=True)
+    inspect();STATE.mkdir(mode=0o700,parents=True,exist_ok=True);value=inspect()
     token=secrets.token_hex(32)
     record={'token':token,'expires':time.time()+300,'plan':value}
     temporary=STATE/'reset-plan.tmp'
@@ -58,6 +65,9 @@ def plan():
     return dict(value,token=token,expires=record['expires'])
 
 def apply(req):
+    sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'single'))
+    import user_updates
+    user_updates.ensure_no_runtime_update(destructive=True)
     if req.get('confirmation')!='DELETE VPN': raise ValueError('Type DELETE VPN to confirm removal')
     record=json.loads((STATE/'reset-plan.json').read_text())
     if not isinstance(req.get('token'),str) or not re.fullmatch(r'[a-f0-9]{64}',req['token']) or not secrets.compare_digest(req['token'],record['token']) or time.time()>record['expires']:
@@ -69,6 +79,7 @@ def apply(req):
     for p in (STATE/'jobs').glob('*/status.json'):
         if json.loads(p.read_text()).get('state') in ('starting','running'):
             raise ValueError('An installation is recorded as running; check it before resetting')
+    ike_packages.remember_owned('starter')
     for service in SERVICES:
         execute(['systemctl','disable','--now',service],check=False)
         if execute(['systemctl','is-active','--quiet',service],check=False)==0:
@@ -98,11 +109,24 @@ def main():
         if len(raw)>65536: raise ValueError('Request is too large')
         req=json.loads(raw)
         if not isinstance(req,dict): raise ValueError('Expected an object')
-        if req.get('mode') in ('pair-plan','pair-apply'):
+        if req.get('mode') in ('pair-apply','node-apply'):
+            sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'single'))
+            import user_updates
+            user_updates.ensure_no_runtime_update(destructive=True)
+        if req.get('mode') in ('pair-plan','pair-apply','node-plan','node-apply'):
             import pair_reset
             with Path('/run/rookstride-pair.lock').open('a') as lock:
                 fcntl.flock(lock,fcntl.LOCK_EX)
-                result=pair_reset.plan(req) if req['mode']=='pair-plan' else pair_reset.apply(req)
+                if req['mode'].startswith('node-'):
+                    manifest=pair_reset.pair.load_manifest()
+                    if not manifest:raise ValueError('No recognized two-server setup found on this node')
+                    # Recover the locally owned plan; a missing phone pair is not a
+                    # reason to bypass the same ownership, review and idle checks.
+                    local=dict(manifest['plan'],token=req.get('token'),confirmation=req.get('confirmation'))
+                    result=pair_reset.plan(local) if req['mode']=='node-plan' else pair_reset.apply(local)
+                    owned_protocol=manifest['plan'].get('entry_protocol','ikev2') if manifest['plan']['role']=='entry' else manifest['plan'].get('exit_protocol','awg')
+                    result.update(node_only=True,protocols=[owned_protocol],filtering=manifest['plan']['role']=='exit')
+                else:result=pair_reset.plan(req) if req['mode']=='pair-plan' else pair_reset.apply(req)
             print(json.dumps({'ok':True,'result':result}));return
         # Separate lock remains outside the directory being removed.
         with Path('/run/rookstride-management.lock').open('a') as lock:

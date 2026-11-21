@@ -1,0 +1,97 @@
+{
+  "schema": 1,
+  "redirect_hosts": [
+    "github.com",
+    "api.github.com",
+    "release-assets.githubusercontent.com"
+  ],
+  "artifacts": {
+    "adguard": {
+      "version": "v0.107.80",
+      "assets": {
+        "x86_64": {
+          "bytes": 12553060,
+          "sha256": "28593bc761d71469abdbc6f39ca42cbed763ec92b63082c729177b037ed51d18",
+          "sources": [
+            {
+              "url": "https://github.com/AdguardTeam/AdGuardHome/releases/download/v0.107.80/AdGuardHome_linux_amd64.tar.gz",
+              "headers": {}
+            },
+            {
+              "url": "https://api.github.com/repos/AdguardTeam/AdGuardHome/releases/assets/705629752",
+              "headers": {
+                "Accept": "application/octet-stream"
+              }
+            }
+          ]
+        },
+        "aarch64": {
+          "bytes": 11455816,
+          "sha256": "d5e17d0d724418ddef8b7723ed8ade7eef4e621ec5b0e43a341859cca71a3d8f",
+          "sources": [
+            {
+              "url": "https://github.com/AdguardTeam/AdGuardHome/releases/download/v0.107.80/AdGuardHome_linux_arm64.tar.gz",
+              "headers": {}
+            },
+            {
+              "url": "https://api.github.com/repos/AdguardTeam/AdGuardHome/releases/assets/705629749",
+              "headers": {
+                "Accept": "application/octet-stream"
+              }
+            }
+          ]
+        }
+      }
+    },
+    "xray": {
+      "version": "v26.3.27",
+      "assets": {
+        "x86_64": {
+          "bytes": 21136402,
+          "sha256": "23cd9af937744d97776ee35ecad4972cf4b2109d1e0fe6be9930467608f7c8ae",
+          "sources": [
+            {
+              "url": "https://github.com/XTLS/Xray-core/releases/download/v26.3.27/Xray-linux-64.zip",
+              "headers": {}
+            }
+          ]
+        },
+        "aarch64": {
+          "bytes": 19716427,
+          "sha256": "4d30283ae614e3057f730f67cd088a42be6fdf91f8639d82cb69e48cde80413c",
+          "sources": [
+            {
+              "url": "https://github.com/XTLS/Xray-core/releases/download/v26.3.27/Xray-linux-arm64-v8a.zip",
+              "headers": {}
+            }
+          ]
+        }
+      }
+    },
+    "trusttunnel": {
+      "version": "v1.1.0",
+      "assets": {
+        "x86_64": {
+          "bytes": 10608905,
+          "sha256": "91c2ea3db7416a01b5258a4c047ec22890490bc55e1b194206031aa75144f0e7",
+          "sources": [
+            {
+              "url": "https://github.com/TrustTunnel/TrustTunnel/releases/download/v1.1.0/trusttunnel-v1.1.0-linux-x86_64.tar.gz",
+              "headers": {}
+            }
+          ]
+        },
+        "aarch64": {
+          "bytes": 9614818,
+          "sha256": "c2aee17a1ced349283cba4775202e2baba053b8ea835d4cc23dc67d16c6b9686",
+          "sources": [
+            {
+              "url": "https://github.com/TrustTunnel/TrustTunnel/releases/download/v1.1.0/trusttunnel-v1.1.0-linux-aarch64.tar.gz",
+              "headers": {}
+            }
+          ]
+        }
+      }
+    }
+  }
+}

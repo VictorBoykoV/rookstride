@@ -3339,5 +3339,13 @@
   "m_1ea442a134b2": {
     "surface": "Android display-only labels / server phase",
     "note": "Translate the display. Do not alter machine identifiers or commands."
+  },
+  "app.vpn_pending": {
+    "area": "Android VPN connection status",
+    "context": "Shown only for the selected profile while the VPN engine reports CONNECTING. Distinguishes a local blocking VPN interface from an authenticated working tunnel. Log viewing is a local user action."
+  },
+  "app.vpn_port_hint": {
+    "area": "Gateway settings",
+    "context": "Single-server client destination UDP port. Existing server listens on 500 and 4500. Other ports need deliberate server configuration; no evasion guarantee."
   }
 }

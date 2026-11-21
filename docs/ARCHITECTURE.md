@@ -17,7 +17,10 @@ flowchart LR
 
 ## Phone
 
-Native Java administration screens wrap strongSwan's maintained Android VPN engine. API 26 is the minimum. No hosted control plane, analytics or remote crash-upload service is added. The guide and installer bundle are local assets; installation still needs network access and the VPS downloads packages.
+Native Java administration screens use strongSwan for IKEv2. The private
+0.3.0-alpha2 candidate also embeds AmneziaWG 3.1, VLESS/TCP/REALITY and OpenVPN
+clients in separate private service processes; see [engine architecture](EMBEDDED-ENGINES.md).
+The diagram above describes the existing IKEv2/AdGuard route. API 26 is the minimum. No hosted control plane, analytics or remote crash-upload service is added. The guide and installer bundle are local assets; installation still needs network access and the VPS downloads packages.
 
 Optional saved credentials are AES-256-GCM encrypted using an Android Keystore key. Without the remember option they remain in app memory and must be entered after a process restart. The SSH fingerprint, labels and server snapshots are also stored in the encrypted vault. VPN profile passwords are excluded from strongSwan's profile database. Shared profiles contain a pinned certificate and login, without a password or administrator secret.
 

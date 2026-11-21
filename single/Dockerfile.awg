@@ -1,0 +1,6 @@
+FROM amneziavpn/amneziawg-go@sha256:cbafc02b8373a83f428272db6d8001b37bc02e6211cbd8c0cb4e2e3759b12b72 AS upstream
+FROM alpine:3.23@sha256:85fe1e81d6758c208f3e1eed4338a1997e19d4be002d4dd32d3100c9a8c010a0
+RUN apk add --no-cache bash iproute2 iptables
+COPY --from=upstream /usr/bin/awg /usr/bin/awg
+COPY --from=upstream /usr/bin/awg-quick /usr/bin/awg-quick
+COPY --from=upstream /usr/bin/amneziawg-go /usr/bin/amneziawg-go

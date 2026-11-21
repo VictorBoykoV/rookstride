@@ -114,7 +114,7 @@ class ManagementTests(unittest.TestCase):
             with self.assertRaises(ValueError): admin.username(value)
         with self.assertRaises(ValueError): admin.label('a\nname')
     def test_password_quotes_and_slashes_roundtrip(self):
-        pw='A-long-password-"\\withquotes'
+        pw='Letters-"\\123'
         with patch.object(admin,'run'):
             admin.update_user({'login':'bob','password':pw,'person':'Bob','device':'Phone','kind':'device'})
         row=next(x for x in self.secrets.read_text().splitlines() if x.startswith('bob '))
@@ -125,11 +125,11 @@ class ManagementTests(unittest.TestCase):
         original=self.secrets.read_text()
         with patch.object(admin,'run',side_effect=[RuntimeError('failure'),None]):
             with self.assertRaises(RuntimeError):
-                admin.update_user({'login':'bob','password':'a-valid-password-long'})
+                admin.update_user({'login':'bob','password':'valid-pass-123'})
         self.assertEqual(self.secrets.read_text(),original)
     def test_duplicate_login_cannot_silently_overwrite(self):
         with self.assertRaises(ValueError):
-            admin.update_user({'login':'alice','password':'a-valid-password-long'})
+            admin.update_user({'login':'alice','password':'valid-pass-123'})
     def test_request_dispatch_rejects_unknown_commands(self):
         with self.assertRaises(ValueError): admin.dispatch({'action':'run-shell','command':'id'})
 
