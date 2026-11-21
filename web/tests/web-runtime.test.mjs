@@ -312,10 +312,10 @@ test("hosted pair invitations reserve both roles exclusively and refuse standalo
     ...options,
     async review(input) {
       reviews++;
-      return { login: input.login, entry: { address: entry.address, ubuntu: "24.04" },
+      return { login: input.login, exitProtocol: input.exitProtocol, entry: { address: entry.address, ubuntu: "24.04" },
         exit: { address: exit.address, ubuntu: "26.04" } };
     },
-  }));
+  }), { allowMixedExits: true });
   const nodes = [entry, exit].map(({ version, ...node }) => ({ ...node, password: "test-fixture-only" }));
   const request = (body, token, invitation = invite) => handleHostedGateway(new Request(new URL("/vpn/api", origin), {
     method: body ? "POST" : "GET",
@@ -323,19 +323,25 @@ test("hosted pair invitations reserve both roles exclusively and refuse standalo
       ...(body && { "Content-Type": "application/json" }),
       ...(token && { Authorization: `Bearer ${token}` }) },
     ...(body && { body: JSON.stringify(body) }),
-  }), origin, [{ ...enrollment, service }]);
+  }), origin, [{ ...enrollment, service, pairExitChoices: true }]);
   const admission = await request();
   assert.equal(admission.status, 204);
   assert.equal(admission.headers.get("X-Rookstride-Pair"), "1");
-  assert.equal((await request(undefined, undefined, "x".repeat(43))).status, 401);
-  const review = { action: "pairReview", login: "fixture-entry", entry: nodes[0], exit: nodes[1] };
+  assert.equal(admission.headers.get("X-Rookstride-Pair-Exit-Choices"), "1");
+  assert.equal(admission.headers.get("X-Rookstride-Pair-Rebuild"), null);
+  const refused = await request(undefined, undefined, "x".repeat(43));
+  assert.equal(refused.status, 401);
+  assert.equal(refused.headers.get("X-Rookstride-Pair-Exit-Choices"), null);
+  const review = { action: "pairReview", login: "fixture-entry", entry: nodes[0], exit: nodes[1], exitProtocol: "xray" };
   assert.equal((await request({ action: "inspect", ...nodes[0] })).status, 400);
   assert.equal((await request({ ...review, entry: nodes[1], exit: nodes[0] })).status, 400);
   assert.equal((await request({ ...review, exit: { ...nodes[1], fingerprint: entry.fingerprint } })).status, 400);
+  assert.equal((await request({ action: "pairRebuildStatus" })).status, 400);
   assert.equal(reviews, 0);
   const opened = await request(review);
   assert.equal(opened.status, 200);
-  const { session } = await opened.json();
+  const { session, pair } = await opened.json();
+  assert.equal(pair.exitProtocol, "xray");
   assert.equal((await request({ action: "pairStatus" }, session)).status, 200);
   assert.equal((await request({ action: "pairStatus" }, session, "x".repeat(43))).status, 401);
   assert.equal((await request({ action: "pairProfile" }, "x".repeat(43))).status, 401);

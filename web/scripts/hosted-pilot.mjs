@@ -14,6 +14,7 @@ import {
   configuredPilotMethods,
   createEnrolledPairService,
   handleHostedGateway,
+  isolatedPairEnrollment,
   isolatedPairRebuild,
   parsePilotEnrollments,
 } from "../src/lib/pilot-access.mjs";
@@ -29,6 +30,8 @@ const inviteHash = process.env.ROOKSTRIDE_PILOT_INVITE_HASH;
 const enrollmentsFile = process.env.ROOKSTRIDE_PILOT_ENROLLMENTS_FILE;
 const stateDirectory = process.env.ROOKSTRIDE_PILOT_REINSTALL_STATE;
 const pairRebuildDirectory = process.env.ROOKSTRIDE_PILOT_PAIR_REBUILD_STATE_DIR;
+const pairExitSetting = process.env.ROOKSTRIDE_PILOT_PAIR_EXIT_CHOICES;
+const pairExitChoices = pairExitSetting === "1" || pairRebuildDirectory !== undefined;
 const port = Number(process.env.ROOKSTRIDE_PILOT_PORT ?? "3102");
 const availableMethods = configuredPilotMethods(
   process.env.ROOKSTRIDE_PILOT_EXTRA_METHODS,
@@ -38,6 +41,7 @@ if (
   process.getuid?.() === 0 ||
   !origin ||
   !availableMethods ||
+  (pairExitSetting !== undefined && pairExitSetting !== "1") ||
   !Number.isInteger(port) || port < 1024 || port > 65535 ||
   (pairRebuildDirectory !== undefined && enrollmentsFile === undefined) ||
   (enrollmentsFile !== undefined &&
@@ -67,11 +71,15 @@ const admissions = parsePilotEnrollments(
 );
 if (!isolatedPairRebuild(admissions, pairRebuildDirectory))
   throw new Error("Paired rebuild needs an isolated enrollment and an absolute private state directory.");
+if (pairExitChoices && !isolatedPairEnrollment(admissions))
+  throw new Error("Paired exit choices need an isolated enrollment.");
 const enrollments = admissions.map((enrollment) => {
   if (enrollment.pair) return {
     ...enrollment,
     pairRebuild: pairRebuildDirectory !== undefined,
+    pairExitChoices,
     service: createEnrolledPairService(enrollment.pair, undefined, {
+      allowMixedExits: pairExitChoices,
       rebuildDirectory: pairRebuildDirectory,
       openPairWorker: (pairRebuild) => startWorker({ dir, reinstall: true, pairRebuild }),
     }),

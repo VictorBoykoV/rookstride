@@ -107,9 +107,11 @@ async function checkProgress(
 export function PairInspection({
   invite,
   pairRebuild = false,
+  pairExitChoices = false,
 }: {
   invite?: string;
   pairRebuild?: boolean;
+  pairExitChoices?: boolean;
 }) {
   const copy = useMessages("manage");
   const text = copy.pair;
@@ -137,7 +139,7 @@ export function PairInspection({
   const [reconnectEpoch, setReconnectEpoch] = useState(0);
   const [rebuildView, resetRebuildView] = useState(0);
   const rebuildActive = rebuildState !== "idle";
-  const canChooseExit = !invite || pairRebuild;
+  const canChooseExit = !invite || pairExitChoices || pairRebuild;
   const request = useRef<AbortController | null>(null);
   const reviewHeading = useRef<HTMLHeadingElement>(null);
 

@@ -331,6 +331,8 @@ without exposing private archive contents to the assistant.
 The local browser and MCP connector support an AmneziaWG entry with an
 AmneziaWG, OpenVPN certificate, IKEv2 or VLESS TCP/REALITY exit. The client
 profile is always AmneziaWG. Rebuild and recovery have per-route test scope.
+An isolated hosted worker with one pair enrollment can offer these choices with
+`ROOKSTRIDE_PILOT_PAIR_EXIT_CHOICES=1`. Disk replacement is separately enabled.
 For a reviewed Ubuntu rebuild and identity restore, set
 `ROOKSTRIDE_MCP_PAIR_REBUILD=1` and set
 `ROOKSTRIDE_MCP_PAIR_REBUILD_STATE_DIR` to an absolute path to a dedicated,

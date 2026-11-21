@@ -15,6 +15,7 @@ export function HostedSetup() {
     ecdsa: boolean;
     pair: boolean;
     pairRebuild: boolean;
+    pairExitChoices: boolean;
   } | null>(null);
   const [notice, setNotice] = useState("");
   const [busy, setBusy] = useState(false);
@@ -49,6 +50,8 @@ export function HostedSetup() {
           pair: response.headers.get("X-Rookstride-Pair") === "1",
           pairRebuild:
             response.headers.get("X-Rookstride-Pair-Rebuild") === "1",
+          pairExitChoices:
+            response.headers.get("X-Rookstride-Pair-Exit-Choices") === "1",
         });
       } else
         setNotice(response.status === 401 ? copy.rejected : copy.unavailable);
@@ -66,6 +69,7 @@ export function HostedSetup() {
           <PairInspection
             invite={admission.invite}
             pairRebuild={admission.pairRebuild}
+            pairExitChoices={admission.pairExitChoices}
           />
         ) : (
           <ServerSetup

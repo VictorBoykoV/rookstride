@@ -40,9 +40,13 @@ export function parsePilotEnrollments(records, eligibleTarget) {
   });
 }
 
+export function isolatedPairEnrollment(enrollments) {
+  return enrollments.length === 1 && Boolean(enrollments[0].pair);
+}
+
 export function isolatedPairRebuild(enrollments, directory) {
   return directory === undefined ||
-    Boolean(typeof directory === "string" && isAbsolute(directory) && enrollments.length === 1 && enrollments[0].pair);
+    (typeof directory === "string" && isAbsolute(directory) && isolatedPairEnrollment(enrollments));
 }
 
 function enrolledReviewMatches(server, node) {
@@ -55,6 +59,7 @@ export function createEnrolledPairService(pair, factory = createWorkbenchPair, {
   rebuildDirectory,
   openPairWorker,
   createRebuild = createPairRebuild,
+  allowMixedExits = rebuildDirectory !== undefined,
 } = {}) {
   const eligible = (address) => roles.some((role) => pair[role].address === address);
   let rebuild;
@@ -84,6 +89,7 @@ export function createEnrolledPairService(pair, factory = createWorkbenchPair, {
     pairFactory: (options) => factory({
       ...options,
       ...(rebuild && { rebuild }),
+      allowMixedExits,
       validateOriginalNode: (node, role) =>
         options.validateNode(node) && hostedServerMatches(pair[role], node),
       validateNode(node, role) {
@@ -119,6 +125,7 @@ export function handleHostedGateway(request, origin, enrollments) {
         ...(status === 204 && enrollment?.hostedUbuntu && { "X-Rookstride-Ubuntu-Reinstall": "1" }),
         ...(status === 204 && enrollment?.server?.keyType && { "X-Rookstride-ECDSA": "1" }),
         ...(status === 204 && enrollment?.pair && { "X-Rookstride-Pair": "1" }),
+        ...(status === 204 && enrollment?.pair && enrollment?.pairExitChoices && { "X-Rookstride-Pair-Exit-Choices": "1" }),
         ...(status === 204 && enrollment?.pairRebuild && { "X-Rookstride-Pair-Rebuild": "1" }),
       },
     });
