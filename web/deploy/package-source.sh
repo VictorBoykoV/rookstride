@@ -26,6 +26,7 @@ standalone=.next/standalone
 release="$workspace/release"
 cp -R "$standalone/server.js" "$standalone/package.json" "$standalone/node_modules" "$standalone/.next" "$release/"
 cp -R public "$release/"
+node deploy/stage-android-apk.mjs "$release/public"
 cp -R .next/static "$release/.next/"
 mkdir "$release/deploy"
 cp -R deploy/migrations deploy/cms-state.mjs deploy/serve.mjs deploy/rookstride-web.service "$release/deploy/"

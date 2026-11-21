@@ -5,6 +5,7 @@ import gzip
 from copy import deepcopy
 import hashlib
 import io
+import re
 import sys
 import importlib.util
 import json
@@ -25,13 +26,24 @@ pair_spec.loader.exec_module(pair_remote)
 
 
 class PairWrapperGuards(unittest.TestCase):
-    def envelope(self, exit_protocol="openvpn", role="exit"):
-        return {"pair": "a" * 32, "role": role, "server": "192.0.2.17", "exit_host": "198.51.100.18",
-                "engine": "native-v2", "entry_protocol": "awg", "exit_protocol": exit_protocol,
-                "vpn_port": 51820, "tunnel_port": {"awg": 443, "openvpn": 1194,
-                                                 "ikev2": 500, "xray": 443}[exit_protocol]}
+    ports = {"awg": 51820, "ikev2": 500, "openvpn": 1194, "xray": 443, "xhttp": 443,
+             "hysteria2": 443, "outline": 443, "shadowsocks": 443, "trusttunnel": 443, "naive": 443}
 
-    def test_fresh_pair_uses_only_the_four_exact_reviewed_topologies(self):
+    def envelope(self, exit_protocol="openvpn", role="exit", entry_protocol="awg"):
+        return {"pair": "a" * 32, "role": role, "server": "192.0.2.17", "exit_host": "198.51.100.18",
+                "engine": "native-v2", "entry_protocol": entry_protocol, "exit_protocol": exit_protocol,
+                "vpn_port": self.ports[entry_protocol],
+                "tunnel_port": 443 if exit_protocol == "awg" else self.ports[exit_protocol]}
+
+    def test_fresh_pair_envelopes_match_all_android_default_topologies(self):
+        path = WEB.parent / "android/overlay/java/org/strongswan/android/rookstride/SingleProtocols.java"
+        android_ports = {name: int(port) for name, port in re.findall(
+            r'^\s*[A-Z][A-Z0-9_]*\("([a-z0-9]+)","[^"]+",(\d+),', path.read_text(), re.M
+        )}
+        self.assertEqual(android_ports, self.ports)
+        self.assertEqual(gateway.PAIR_ENTRY_PORTS, android_ports)
+        self.assertEqual(gateway.PAIR_EXIT_PORTS, {**android_ports, "awg": 443})
+
         def request(fields):
             payload = {"mode": "recipe", "bundle": "b" * 64,
                        "request": {"command": "preflight", **fields}}
@@ -42,20 +54,22 @@ class PairWrapperGuards(unittest.TestCase):
              patch.object(pair_remote, "owned", return_value=None), \
              patch.object(pair_remote, "unpack") as unpack, \
              patch.object(pair_remote, "execute", return_value={"ready": True}) as execute:
-            for supported in (self.envelope(method) for method in ("awg", "openvpn", "ikev2", "xray")):
-                self.assertEqual(request(supported), {"ready": True})
-                self.assertEqual(execute.call_args.args[1:], ("server/pair.py", {"command": "preflight", **supported}))
+            for entry in android_ports:
+                for exit_protocol in android_ports:
+                    supported = self.envelope(exit_protocol, entry_protocol=entry)
+                    self.assertEqual(request(supported), {"ready": True})
+                    self.assertEqual(execute.call_args.args[1:], ("server/pair.py", {"command": "preflight", **supported}))
             for invalid in ({"tunnel_port": 443}, {"tunnel_port": 1194.0}, {"vpn_port": 1194},
                             {"entry_protocol": "openvpn"}, {"exit_protocol": "ikev2"},
-                            {"exit_protocol": "xhttp", "tunnel_port": 443},
+                            {"exit_protocol": "unknown", "tunnel_port": 443}, {"entry_protocol": []},
                             {"access_mode": "password"}, {"route_table": 513},
                             {"exit_host": mixed["server"]}, {"server": ["invalid"]}):
                 with self.subTest(invalid=invalid), self.assertRaises(pair_remote.PairRejected):
                     request({**mixed, **invalid})
-            self.assertEqual(unpack.call_count, 4)
-            self.assertEqual(execute.call_count, 4)
+            self.assertEqual(unpack.call_count, 100)
+            self.assertEqual(execute.call_count, 100)
 
-    def test_probe_only_adds_exit_protocol_to_the_mixed_manifest(self):
+    def test_probe_adds_nondefault_methods_and_only_recognized_architectures(self):
         def contents(path, _maximum):
             if path == "/etc/machine-id":
                 return b"a" * 32 + b"\n"
@@ -63,12 +77,20 @@ class PairWrapperGuards(unittest.TestCase):
 
         awg = self.envelope("awg")
         manifest = {"version": 2, "bundle": "b" * 64, "plan": pair_remote.supported_plan(awg)}
-        with patch.object(pair_remote, "read", side_effect=contents), patch.object(pair_remote, "owned", return_value=manifest):
+        with (
+            patch.object(pair_remote, "read", side_effect=contents),
+            patch.object(pair_remote, "owned", return_value=manifest),
+            patch.object(pair_remote.platform, "machine", return_value="aarch64") as machine,
+        ):
             old = {"pairId": awg["pair"], "bundle": manifest["bundle"], "role": "exit", "resetting": False}
             self.assertEqual(pair_remote.probe()["owner"], old)
-            for method in ("openvpn", "ikev2", "xray"):
-                manifest["plan"] = pair_remote.supported_plan(self.envelope(method))
-                self.assertEqual(pair_remote.probe()["owner"], {**old, "exitProtocol": method})
+            for method in ("openvpn", "ikev2", "xray", "hysteria2"):
+                manifest["plan"] = pair_remote.supported_plan(self.envelope(method, entry_protocol="naive"))
+                proof = pair_remote.probe()
+                self.assertEqual(proof["owner"], {**old, "entryProtocol": "naive", "exitProtocol": method})
+                self.assertEqual(proof["runtimeArchitecture"], "aarch64")
+            machine.return_value = "unexpected"
+            self.assertNotIn("runtimeArchitecture", pair_remote.probe())
             manifest["plan"]["tunnel_port"] = 500
             with self.assertRaises(pair_remote.PairRejected):
                 pair_remote.probe()
@@ -93,6 +115,108 @@ class PairWrapperGuards(unittest.TestCase):
             state["access_mode"] = "password"
             with self.assertRaises(pair_remote.PairRejected):
                 pair_remote.managed_node(manifest, request, expected)
+
+    def test_entry_accounts_use_the_selected_native_recipe_and_ike_requires_explicit_password(self):
+        single = SimpleNamespace(action=Mock(return_value={"ok": True}))
+        admin_profile = {"type": "ikev2-eap", "local": {"eap_id": "guest"}, "remote": {"cert": "fixture"}}
+        admin = SimpleNamespace(profile=Mock(return_value=admin_profile), dispatch=Mock())
+        with patch.dict(sys.modules, {"rookstride": SimpleNamespace(admin=admin)}):
+            for method in self.ports.keys() - {"ikev2"}:
+                for action, native_action in (("grant", "add-user"), ("revoke", "remove-user"), ("profile", "profile")):
+                    result = pair_remote.account_action(method, action, "guest", {}, single)
+                    self.assertEqual(result, {"ok": True})
+                    single.action.assert_called_with({"protocol": method, "login": "guest", "action": native_action})
+            single.action.reset_mock()
+            password = "fixture-vpn-password"
+            pair_remote.account_action("ikev2", "grant", "guest", {"password": password}, single)
+            admin.dispatch.assert_called_with({"action": "add-user", "login": "guest", "password": password})
+            pair_remote.account_action("ikev2", "revoke", "guest", {}, single)
+            admin.dispatch.assert_called_with({"action": "remove-user", "login": "guest"})
+            profile = pair_remote.account_action("ikev2", "profile", "guest", {}, single)
+            self.assertEqual(profile["format"], "ikev2")
+            self.assertEqual(profile["name"], "rookstride-guest.sswan")
+            self.assertEqual(json.loads(profile["content"]), admin_profile)
+            admin.profile.assert_called_once_with({"login": "guest"})
+            admin.dispatch.reset_mock()
+            for method, action, fields in (("ikev2", "grant", {}), ("ikev2", "revoke", {"password": password}),
+                                           ("xhttp", "grant", {"password": password})):
+                with self.assertRaisesRegex(ValueError, "account password"):
+                    pair_remote.account_action(method, action, "guest", fields, single)
+            single.action.assert_not_called()
+            admin.dispatch.assert_not_called()
+
+    def test_only_verified_runtime_assets_stage_for_the_correct_pair_member(self):
+        source = (WEB.parent / "single/routes-pins.json").read_bytes()
+        self.assertEqual(hashlib.sha256(source).hexdigest(), gateway.PAIR_ROUTE_PINS_SHA256)
+        assets = json.loads(source)["assets"]
+        topology = self.envelope("openvpn", role="entry", entry_protocol="hysteria2")
+        request = {"action": "pairRuntime", "address": topology["server"], "topology": topology,
+                   "runtimeArchitecture": "aarch64", "routesPins": base64.b64encode(source).decode()}
+        stream = io.BytesIO(b"fixture verified by the actual runtime installer")
+        with (
+            patch.object(gateway, "eligible_version", return_value="24.04"),
+            patch.object(gateway, "resume_reinstall", return_value=None),
+            patch.object(gateway, "valid_address", return_value=True),
+            patch.object(gateway.platform, "machine", return_value="aarch64"),
+            patch.object(gateway.os.path, "lexists", return_value=False),
+            patch.object(gateway, "exclusive_pair_reinstall", contextlib.nullcontext),
+            patch.object(gateway, "runtime_ready", return_value=True),
+            patch.object(gateway, "install_route_runtime") as install,
+        ):
+            self.assertEqual(gateway.dispatch(request, stream), {"ready": True})
+            install.assert_called_once_with(gateway.PAIR_ROUTE_WORKER_ROOT, assets["aarch64"], stream)
+            install.reset_mock()
+            check = {**request, "action": "pairRuntimeCheck"}
+            self.assertEqual(gateway.dispatch(check), {"ready": True})
+            with patch.object(gateway, "runtime_ready", return_value=False):
+                self.assertEqual(gateway.dispatch(check), {"ready": False})
+            with self.assertRaises(gateway.GuardError):
+                gateway.dispatch(check, stream)
+            unused_exit = {**request, "address": topology["exit_host"], "topology": {**topology, "role": "exit"}}
+            for change in ({"address": topology["exit_host"]}, {"runtimeArchitecture": "x86_64"},
+                           {"routesPins": base64.b64encode(source + b" ").decode()},
+                           {"topology": {**topology, "tunnel_port": 443}}):
+                with self.subTest(change=change.keys()), self.assertRaises(gateway.GuardError):
+                    gateway.dispatch({**request, **change}, stream)
+            with self.assertRaisesRegex(gateway.GuardError, "does not require"):
+                gateway.dispatch(unused_exit, stream)
+            with self.assertRaises(gateway.GuardError):
+                gateway.dispatch(request, None)
+            install.assert_not_called()
+
+            worker_exit = self.envelope("trusttunnel", role="exit", entry_protocol="xhttp")
+            for role in ("entry", "exit"):
+                candidate = {**worker_exit, "role": role}
+                address = candidate["server" if role == "entry" else "exit_host"]
+                self.assertEqual(gateway.dispatch({**request, "address": address, "topology": candidate}, stream),
+                                 {"ready": True})
+            self.assertEqual(install.call_count, 2)
+
+    def test_staging_rejects_mismatched_owned_pairs_and_never_repairs_a_live_changed_runtime(self):
+        install = Mock()
+        topology = self.envelope("trusttunnel", role="exit", entry_protocol="xhttp")
+        source = (WEB.parent / "single/routes-pins.json").read_bytes()
+        request = {"action": "pairRuntime", "address": topology["exit_host"], "topology": topology,
+                   "runtimeArchitecture": "x86_64", "routesPins": base64.b64encode(source).decode()}
+        original = {**topology, **gateway.PAIR_ROUTE_FIELDS}
+        manifest = {"configured": False, "plan": original}
+        with (
+            patch.object(gateway, "valid_address", return_value=True),
+            patch.object(gateway.platform, "machine", return_value="x86_64"),
+            patch.object(gateway.os.path, "lexists", return_value=True),
+            patch.object(gateway, "exclusive_pair_reinstall", contextlib.nullcontext),
+            patch.object(gateway, "read_pair_manifest", return_value=(b"manifest", manifest)),
+            patch.object(gateway, "runtime_ready", return_value=False),
+            patch.object(gateway, "install_route_runtime", install),
+        ):
+            for different in ({"pair": "c" * 32}, {"entry_protocol": "xray"}):
+                manifest["plan"] = {**original, **different}
+                with self.assertRaises(gateway.Conflict):
+                    gateway.stage_pair_runtime(request, io.BytesIO())
+            manifest.update(configured=True, plan=original)
+            with self.assertRaisesRegex(gateway.Conflict, "configured Double VPN runtime"):
+                gateway.stage_pair_runtime(request, io.BytesIO())
+            install.assert_not_called()
 
     def test_ike_health_uses_the_native_services_and_rejects_a_public_exit_state(self):
         request = self.envelope("ikev2")
@@ -340,6 +464,10 @@ class GatewayGuards(unittest.TestCase):
                 topology = {**manifest["plan"], "exit_protocol": protocol, "tunnel_port": port}
                 raw = json.dumps({**manifest, "plan": topology}).encode()
                 self.assertEqual(gateway.require_pair_for_reinstall(request), (hashlib.sha256(raw).hexdigest(), topology))
+            topology = {**manifest["plan"], "entry_protocol": "ikev2", "vpn_port": 500,
+                        "exit_protocol": "trusttunnel", "tunnel_port": 443}
+            raw = json.dumps({**manifest, "plan": topology}).encode()
+            self.assertEqual(gateway.require_pair_for_reinstall(request), (hashlib.sha256(raw).hexdigest(), topology))
             for drift in ({"tunnel_port": 443}, {"access_mode": "password"}, {"exit_protocol": "ikev2"}):
                 raw = json.dumps({**manifest, "plan": {**mixed_plan, **drift}}).encode()
                 with self.subTest(drift=drift), self.assertRaises(gateway.Conflict):

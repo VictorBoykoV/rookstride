@@ -3,7 +3,7 @@ import { readFile } from "node:fs/promises";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { gzipSync } from "node:zlib";
-import { executeJson, executeJsonWithLimit } from "./gateway-ssh.mjs";
+import { executeGateway, executeJson, executeJsonWithLimit } from "./gateway-ssh.mjs";
 
 const maxArchiveBytes = 4 * 1024 * 1024;
 const maxSourceBytes = 8 * 1024 * 1024;
@@ -35,6 +35,7 @@ export async function loadPairRecipe() {
   const hash = createHash("sha256");
   const files = [];
   let size = 0;
+  let routePins;
   for (const name of paths) {
     if (
       typeof name !== "string" ||
@@ -46,15 +47,26 @@ export async function loadPairRecipe() {
     if (size > maxSourceBytes) throw new Error("pair recipe");
     hash.update(name).update(bytes);
     files.push([name, bytes.toString("base64")]);
+    if (name === "single/routes-pins.json") routePins = bytes;
   }
   const source = Buffer.from(JSON.stringify(files));
   const archive = gzipSync(source);
   if (
-    hash.digest("hex") !== digest ||
+    hash.digest("hex") !== digest || !routePins ||
     source.length > maxSourceBytes ||
     archive.length > maxArchiveBytes
   ) throw new Error("pair recipe");
-  return { digest, archive };
+  return { digest, archive, routePins };
+}
+
+export async function executePairRuntime(client, { topology, architecture, routePins, archive }) {
+  if (!Buffer.isBuffer(routePins) || (archive !== undefined && !Buffer.isBuffer(archive)))
+    throw new Error("pair runtime");
+  const address = topology.role === "entry" ? topology.server : topology.exit_host;
+  return executeGateway(client, {
+    action: archive === undefined ? "pairRuntimeCheck" : "pairRuntime", address, topology,
+    runtimeArchitecture: architecture, routesPins: routePins.toString("base64"),
+  }, archive);
 }
 
 export async function executePairRequest(client, { mode = "recipe", bundle, request, archive }) {

@@ -1,10 +1,40 @@
 # Testing and release gates
 
-> **Experimental pair build:** `0.2.0-alpha1` adds IKEv2 → AmneziaWG on two fresh nodes. Its separate [pair test report](PAIR-TESTING.md) records the exact binary, fresh lab cycles and remaining provider/device gates. The alpha2 results below describe the earlier single-server release.
+## Android 0.4.0-alpha6
 
-Current release: **0.1.0-alpha2**, tested 13 October 2026. Earlier alpha1 checks are identified separately below.
+The [signed 0.4.0-alpha6 prerelease](https://github.com/VictorBoykoV/rookstride/releases/tag/v0.4.0-alpha6)
+has version code 44. The tested universal APK has SHA-256
+`4282cec0a6b2df18689de94689e332559b4fee2c2499f2fe11df88ceb2f9280a`.
+The signed ARM64 APK has SHA-256
+`fb75fcde8b6ba21f54ced592f9fd039939836c6669a8c9456280db9c35b32bce`.
 
-## Three consecutive final-release cycles
+| Check | Verified scope |
+|---|---|
+| Release build | Both APKs passed signer, non-debuggable package and native library alignment checks. The release-source JVM suite passed 438 tests. |
+| Signed upgrade | Android 8 / API 26 retained the imported IKEv2 profile after a direct upgrade from the signed public 0.2.0-alpha4 build. |
+| Signed UI | Android 8 / API 26 covered setup checks, saved VPNs, usage, larger text and foreground-service navigation with example transport data. |
+| Live Android Double VPN | Android 16 / API 36 on x86_64 installed AmneziaWG on two Ubuntu VPSs. A separate Android app confirmed the intended exit IPv4, certificate-verified HTTPS, filtered DNS, and bridge-outage blocking and recovery. The trial also created, exported and removed a VPN user. |
+
+The README's three [alpha6 screenshots](../brand/screenshots/alpha6) are
+captures from the exact signed API 26 UI run. They show a saved AmneziaWG
+connection, Double VPN preflight and IKEv2 usage. They use documented example
+hostnames, users and counters from
+[`SetupUsageFeedbackUiTest`](../android/androidTest/java/org/strongswan/android/rookstride/SetupUsageFeedbackUiTest.java).
+The live Double VPN traffic trial above ran separately.
+
+Physical-device and OEM behavior, network handoff and sustained-load
+qualification remain separate. Available methods and tested pairs are listed
+in the [pair guide](PAIR-MODE.md). See the
+[web architecture](WEB-ARCHITECTURE.md#current-availability) for browser and
+MCP scope.
+
+## Historical 0.1.0-alpha2 single-server tests
+
+These tests used the signed 0.1.0-alpha2 APK on 13 October 2026. The earlier
+[0.2.0-alpha1 pair report](PAIR-TESTING.md) and
+[provider pair report](PAIR-PROVIDER-TESTING.md) record their own signed builds.
+
+### Three consecutive final-release cycles
 
 All three runs used the **same signed, non-debuggable release APK**. Its installed checksum was matched against the build; testing did not substitute a debug app. The VPS was explicitly authorized for repeated gateway resets.
 
@@ -25,7 +55,7 @@ Certificates differed across all three installations. Cycle 3 retained its certi
 
 [Sanitized machine-readable results](test-results/alpha2.json) contain no deployment address, credentials or certificate fingerprints.
 
-### Regression fixes verified
+#### Regression fixes verified
 
 - **Cold installation and stale control socket:** a socket inode could survive a reset while the newly installed VICI plugin had not loaded. Checking only the socket file could incorrectly report readiness. Reset now removes the stopped daemon's socket, and enrollment requires an actual successful VICI `version` exchange, restarting and waiting when needed. The deliberately injected socket in cycle 1 verified this fix.
 - **Modern Android native alignment:** NDK r27's flexible-page option supplied `max-page-size` but left RELRO aligned to 4 KiB. The build now also supplies `common-page-size=16384`. ZIP alignment and LOAD/RELRO alignment pass for all 24 native libraries across the three ABIs. This follows [official Android guidance](https://developer.android.com/guide/practices/page-sizes); a native 16-KiB runtime/device test remains a gate.
@@ -34,7 +64,7 @@ Early failed candidate runs are not counted as passes. Android 16's initial emul
 
 VPN consent, battery exemption and notification permission were pregranted **only in disposable emulators** for automation. Physical phones still show normal Android permission dialogs; OEM behavior remains a separate test.
 
-## Completed
+### Completed
 
 - 25 Python tests pass: baseline/reset handling, shared accounts, reconnect/rekey generations, collector restart persistence, retention, malformed VICI messages, management input validation, credential quoting, reload rollback, reviewed gateway removal and removal of a real closed Unix socket.
 - 86 Android JVM unit tests pass, including upstream parsing/range tests and administration input/secret persistence checks.
@@ -48,7 +78,7 @@ VPN consent, battery exemption and notification permission were pregranted **onl
 - Pinned strongSwan/OpenSSL source archives are checksum verified. The Android-native crypto smoke test confirms MD4 and DES support required for EAP-MSCHAPv2.
 - Gateway repository checks pass. The live deployment exposed and fixed AdGuard archive member prefixes, ZIP executable permissions and readiness-check SIGPIPE/connection inspection.
 
-## Remaining compatibility and stable-release gates
+### Remaining compatibility and stable-release gates
 
 - Rookstride APK on API 26 and API 36 physical devices, including private-key SSH, permission dialogs, rotation, process restart, battery restrictions and ARM/16-KiB runtime behavior.
 - Sustained throughput, many simultaneous shared-login clients and resource measurements on a 1-GB VPS.
@@ -57,13 +87,13 @@ VPN consent, battery exemption and notification permission were pregranted **onl
 
 The phone profile test does not replace testing this new APK on physical devices. This release remains an alpha. Usage counters are operational estimates, not billing records. No claim of leak prevention while the VPN is disconnected is made; Android lockdown is a separate phone setting.
 
-## Local host and server
+### Local host and server
 
 Build host: Intel macOS 15.7, Temurin JDK 17.0.20.1, Android Gradle Plugin 8.13.0, Gradle 8.13, Android SDK 36, NDK 27.3.13750724. Minimum app API is 26; target API is 36. Emulators: Google APIs x86_64 images for APIs 26, 28 and 36, with hardware acceleration and 4-KiB runtime pages.
 
 Server: Ubuntu 24.04.4, Linux 6.8.0-142-generic, packaged strongSwan 5.9.13, AdGuard Home 0.107.79. Embedded Android engine: strongSwan 6.1.0 with OpenSSL 3.5.9.
 
-## Repeat the checks
+### Repeat the historical checks
 
 1. Obtain explicit authorization to reset a disposable Ubuntu 24.04 gateway. Keep fixtures/logs outside Git and independently verify its SSH fingerprint.
 2. Build the signed release and verify the APK as described in [BUILD.md](BUILD.md). For connected tests against a non-debuggable release, sign the instrumentation APK with the same certificate and install it with the release; do not count `connectedDebugAndroidTest` as testing that release binary.

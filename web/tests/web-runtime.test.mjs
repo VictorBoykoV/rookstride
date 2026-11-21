@@ -2,6 +2,7 @@ import assert from "node:assert/strict";
 import { createHash, randomBytes } from "node:crypto";
 import { setImmediate as flush } from "node:timers/promises";
 import test from "node:test";
+import { androidRelease } from "../src/lib/android-release.mjs";
 import {
   configuredPilotMethods,
   createEnrolledPairService,
@@ -90,6 +91,7 @@ test("public reading only permits named pages and single-file asset routes", () 
     "/journal/caf%C3%A9",
     "/manage",
     "/self-hosted-vpn",
+    androidRelease.arm64.sitePath,
     "/brand/rook-bridge-team.webp",
     "/brand/assistants/cursor-cube.svg",
     "/_next/static/chunks/app/(site)/journal/%5Bslug%5D/page-123.js",
@@ -111,6 +113,8 @@ test("public reading only permits named pages and single-file asset routes", () 
     "/api/local-status",
     "/api/preview/inspect",
     "/manage/server",
+    androidRelease.arm64.sitePath.replace("-arm64.apk", "-universal.apk"),
+    "/downloads/other.apk",
     "/.private/cms.sqlite",
     "/_next/static/chunks/page.js.map",
     "/_next/image",

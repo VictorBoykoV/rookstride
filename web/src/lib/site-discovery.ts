@@ -1,12 +1,14 @@
 import type { Metadata } from "next";
+import { androidRelease } from "./android-release.mjs";
 import { publicSiteOrigin } from "./web-runtime.mjs";
 
-const androidRepository = "https://github.com/VictorBoykoV/rookstride";
-const androidTag = "v0.4.0-alpha6";
+const androidRepository = androidRelease.repository;
 export const publicProjectLinks = {
   androidRepository,
-  androidRelease: `${androidRepository}/releases/tag/${androidTag}`,
-  androidApk: `${androidRepository}/releases/download/${androidTag}/rookstride-0.4.0-alpha6-universal.apk`,
+  androidRelease: androidRelease.page,
+  androidApk: androidRelease.arm64.sitePath,
+  androidApkGitHub: androidRelease.arm64.github,
+  androidApkUniversal: androidRelease.universal,
   androidPairGuide: `${androidRepository}/blob/main/docs/PAIR-MODE.md`,
   singleGateway: "https://github.com/VictorBoykoV/single-vps-vpn-gateway",
   doubleGateway: "https://github.com/VictorBoykoV/two-hop-vpn-gateway",

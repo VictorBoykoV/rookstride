@@ -1,13 +1,13 @@
-import { createHash, randomBytes } from "node:crypto";
+import { createHash, randomBytes, X509Certificate } from "node:crypto";
 import { setTimeout as sleep } from "node:timers/promises";
-import { executePairRequest, loadPairRecipe, pairRemoteRejections } from "../../scripts/pair-ssh.mjs";
-import { openSsh } from "../../scripts/gateway-ssh.mjs";
-import { isMixedPairExit, pairExitPorts, readServerRecord, validVpnPassword } from "./gateway-input.mjs";
+import { executePairRequest, executePairRuntime, loadPairRecipe, pairRemoteRejections } from "../../scripts/pair-ssh.mjs";
+import { openSsh, verifiedRouteArchive } from "../../scripts/gateway-ssh.mjs";
+import { isMixedPairEntry, isMixedPairExit, pairEntryPorts, pairExitPorts, pairProfileExtension, readServerRecord, validVpnPassword } from "./gateway-input.mjs";
 import { publicDestination } from "./gateway-service.mjs";
 
 const version = 1;
-const entryPort = 51820;
 const requestTimeoutMs = 42_000;
+const runtimeTimeoutMs = 120_000;
 const deploymentTimeoutMs = 65 * 60_000;
 const restoreTimeoutMs = 105 * 60_000;
 const readTimeoutMs = 100_000;
@@ -19,6 +19,9 @@ const hex64 = /^[a-f0-9]{64}$/;
 const loginPattern = /^[A-Za-z0-9][A-Za-z0-9_-]{0,47}$/;
 const authFields = ["address", "sshPort", "fingerprint", "keyType"];
 const roles = ["entry", "exit"];
+const workerMethods = new Set(["hysteria2", "outline", "shadowsocks", "trusttunnel", "naive"]);
+const workerArchitectures = ["x86_64", "aarch64"];
+const uuid = /^[a-f0-9]{8}(?:-[a-f0-9]{4}){3}-[a-f0-9]{12}$/i;
 export const pairStages = Object.freeze([
   "preflight",
   "exit-bootstrap",
@@ -62,18 +65,23 @@ function target(value, eligibleTarget) {
 }
 
 function envelope(review, role) {
+  const entryProtocol = review.entryProtocol ?? "awg";
   const exitProtocol = review.exitProtocol ?? "awg";
   return {
     pair: review.pairId,
     role,
     engine: "native-v2",
-    entry_protocol: "awg",
+    entry_protocol: entryProtocol,
     exit_protocol: exitProtocol,
     server: review.entry.address,
     exit_host: review.exit.address,
-    vpn_port: entryPort,
+    vpn_port: pairEntryPorts[entryProtocol],
     tunnel_port: pairExitPorts[exitProtocol],
   };
+}
+
+export function pairRequiresRuntime(review, role = "entry") {
+  return workerMethods.has(review.exitProtocol) || (role === "entry" && workerMethods.has(review.entryProtocol));
 }
 
 function validLogin(value) {
@@ -102,7 +110,7 @@ function archiveMatches(archive, review) {
   ) return false;
   for (const role of roles) {
     const node = archive.nodes[role];
-    const protocol = role === "entry" ? "awg" : review.exitProtocol ?? "awg";
+    const protocol = review[role + "Protocol"] ?? "awg";
     const expected = {
       ...envelope(review, role),
       client_pool: "10.66.0.0/24",
@@ -146,12 +154,8 @@ function bounded(task, signal) {
   });
 }
 
-function validProfile(profile, endpoint) {
-  const text = profile?.content;
-  if (
-    profile?.format !== "awg" || typeof text !== "string" ||
-    !text || Buffer.byteLength(text) > 16_384 || /[^\x20-\x7e\n]/.test(text)
-  ) return false;
+function validAwgProfile(text, endpoint) {
+  if (Buffer.byteLength(text) > 16_384 || /[^\x20-\x7e\n]/.test(text)) return false;
   const sections = new Map([
     ["[Interface]", new Set([
       "PrivateKey", "Address", "MTU", "DNS", "Jc", "Jmin", "Jmax", "S1", "S2", "S3", "S4",
@@ -179,10 +183,101 @@ function validProfile(profile, endpoint) {
   return index === 2 && !required.size;
 }
 
+function exactFields(value, fields) {
+  return value !== null && typeof value === "object" && !Array.isArray(value) &&
+    Object.keys(value).length === fields.length && fields.every((field) => Object.hasOwn(value, field));
+}
+
+function validOpenVpnProfile(content, address, port) {
+  const blocks = /^<(ca|cert|key|tls-crypt)>\n[A-Za-z0-9+/=\s:.,()#_-]+\n<\/\1>\n/gm;
+  const directives = [
+    "client", "dev tun", "tun-mtu 1280", "proto tcp-client", `remote ${address} ${port}`,
+    "nobind", "persist-key", "persist-tun", "remote-cert-tls server", "verify-x509-name server name",
+    "tls-version-min 1.2", "data-ciphers AES-256-GCM:CHACHA20-POLY1305:AES-128-GCM",
+    "redirect-gateway def1 ipv6", "block-ipv6", "verb 3",
+  ];
+  const header = directives.join("\n") + "\n";
+  if (!content.startsWith(header)) return false;
+  const body = content.slice(header.length);
+  const tags = [...body.matchAll(blocks)].map((match) => match[1]);
+  return tags.join(",") === "ca,cert,key,tls-crypt" && body.replace(blocks, "") === "";
+}
+
+function validVlessProfile(content, endpoint, method, login) {
+  if (!/^vless:\/\/[^\s]+$/.test(content)) return false;
+  const uri = new URL(content);
+  const common = {
+    encryption: "none", security: "reality", fp: "chrome",
+    type: method === "xray" ? "tcp" : "xhttp",
+    flow: method === "xray" ? "xtls-rprx-vision" : "",
+  };
+  if (method === "xhttp") common.mode = "auto";
+  const keys = [...Object.keys(common), "pbk", "sid", "sni", ...(method === "xhttp" ? ["path"] : [])];
+  const query = Object.fromEntries(uri.searchParams);
+  return uri.host === endpoint && !uri.password && !uri.pathname && uuid.test(uri.username) &&
+    decodeURIComponent(uri.hash.slice(1)) === login && uri.searchParams.size === keys.length &&
+    exactFields(query, keys) && Object.entries(common).every(([key, value]) => query[key] === value) &&
+    /^[A-Za-z0-9_-]{43}$/.test(query.pbk) && /^[a-f0-9]{16}$/.test(query.sid) &&
+    /^[A-Za-z0-9.-]{1,253}$/.test(query.sni) &&
+    (method !== "xhttp" || /^\/[a-f0-9]{48}$/.test(query.path));
+}
+
+function validIkeProfile(content, address, login) {
+  const profile = JSON.parse(content);
+  const { remote, local, mtu } = profile ?? {};
+  const split = profile?.["split-tunneling"];
+  return exactFields(profile, ["uuid", "name", "type", "remote", "local", "mtu", "split-tunneling"]) &&
+    profile.type === "ikev2-eap" && uuid.test(profile.uuid) &&
+    typeof profile.name === "string" && profile.name.length <= 160 &&
+    exactFields(remote, ["addr", "id", "certreq", "cert"]) && remote.addr === address &&
+    remote.id === address && remote.certreq === false &&
+    typeof remote.cert === "string" && remote.cert.length <= 16_000 &&
+    /^[A-Za-z0-9+/]+={0,2}$/.test(remote.cert) &&
+    Boolean(new X509Certificate(Buffer.from(remote.cert, "base64"))) &&
+    exactFields(local, ["eap_id"]) && local.eap_id === login &&
+    Number.isInteger(mtu) && mtu >= 1280 && mtu <= 1500 &&
+    exactFields(split, ["block-ipv4", "block-ipv6"]) && split["block-ipv4"] === true && split["block-ipv6"] === true;
+}
+
+function validWorkerProfile(content, address, port, method, login) {
+  const profile = JSON.parse(content);
+  const keys = ["schema", "protocol", "server", "port", "login", "password", "certificate", "server_name"];
+  if (method === "outline" || method === "shadowsocks") keys.push("method", "path");
+  if (method === "hysteria2") keys.push("obfs");
+  return exactFields(profile, keys) && profile.schema === 1 && profile.protocol === method &&
+    profile.server === address && profile.port === port && profile.login === login &&
+    validVpnPassword(profile.password) &&
+    (profile.server_name === address || (method === "trusttunnel" && /^vpn-[a-f0-9]{32}\.internal$/.test(profile.server_name))) &&
+    typeof profile.certificate === "string" && new X509Certificate(profile.certificate).ca &&
+    (!keys.includes("path") || (profile.method === "chacha20-ietf-poly1305" && /^\/[a-f0-9]{48}$/.test(profile.path))) &&
+    (!keys.includes("obfs") || (typeof profile.obfs === "string" && /^[A-Za-z0-9_-]{16,128}$/.test(profile.obfs)));
+}
+
+function validProfile(profile, review, login) {
+  const method = review.entryProtocol ?? "awg";
+  const address = review.entry.address;
+  const port = pairEntryPorts[method];
+  const endpoint = `${address}:${port}`;
+  const content = profile?.content;
+  if (profile?.format !== method || typeof content !== "string" || !content ||
+      Buffer.byteLength(content) > 24_000 || /[\x00\r]/.test(content)) return false;
+  try {
+    if (method === "awg") return validAwgProfile(content, endpoint);
+    if (method === "openvpn") return validOpenVpnProfile(content, address, port);
+    if (method === "xray" || method === "xhttp") return validVlessProfile(content, endpoint, method, login);
+    if (method === "ikev2") return validIkeProfile(content, address, login);
+    return workerMethods.has(method) && validWorkerProfile(content, address, port, method, login);
+  } catch {
+    return false;
+  }
+}
+
 export function createPairRuntime({
   connect = openSsh,
   request = executePairRequest,
   loadRecipe = loadPairRecipe,
+  loadRuntime = verifiedRouteArchive,
+  transferRuntime = executePairRuntime,
   eligibleTarget = publicDestination,
   wait = (signal) => sleep(2000, undefined, { signal }),
 } = {}) {
@@ -197,6 +292,7 @@ export function createPairRuntime({
         review?.version !== version ||
         !hex32.test(review.pairId ?? "") ||
         !hex64.test(review.bundle ?? "") ||
+        (review.entryProtocol !== undefined && !isMixedPairEntry(review.entryProtocol)) ||
         (review.exitProtocol !== undefined && !isMixedPairExit(review.exitProtocol)) ||
         typeof review.login !== "string" ||
         !loginPattern.test(review.login) ||
@@ -251,6 +347,22 @@ export function createPairRuntime({
           fail(args.request?.command === "preflight" ? "preflight-rejected" : "step-rejected");
         }
       };
+      const uploadRuntime = async (role, topology, architecture, archive) => {
+        const deadline = AbortSignal.any([signal, AbortSignal.timeout(runtimeTimeoutMs)]);
+        deadline.throwIfAborted();
+        try {
+          const request = { topology, architecture, routePins: recipe.routePins };
+          const cached = await bounded(transferRuntime(clients[role], request), deadline);
+          if (cached?.ready === true) return;
+          if (cached?.ready === false) {
+            const installed = await bounded(transferRuntime(clients[role], { ...request, archive }), deadline);
+            if (installed?.ready === true) return;
+          }
+        } catch {
+          if (signal.aborted) fail("interrupted");
+        }
+        fail("runtime-transfer-unconfirmed");
+      };
       const [a, b] = await Promise.all([
         send("entry", { mode: "probe" }),
         send("exit", { mode: "probe" }),
@@ -263,7 +375,7 @@ export function createPairRuntime({
       }
       if (a.machine === b.machine) fail("same-node");
       return await operation({
-        probes, recipe, send, fail, setStage, signal,
+        probes, recipe, send, uploadRuntime, fail, setStage, signal,
         nodes: { entry, exit },
         beginMutation: () => { uncertain = true; },
       });
@@ -293,7 +405,8 @@ export function createPairRuntime({
       const owner = probes[role].owner;
       if (owner !== null && (
         owner?.pairId !== review.pairId || owner.bundle !== review.bundle ||
-        owner.role !== role || owner.resetting || owner.exitProtocol !== review.exitProtocol
+        owner.role !== role || owner.resetting || owner.entryProtocol !== review.entryProtocol ||
+        owner.exitProtocol !== review.exitProtocol
       )) fail("ownership-mismatch");
     }
   }
@@ -315,6 +428,32 @@ export function createPairRuntime({
     );
     if (reports.some((report, index) => report.ready !== true ||
       report.role !== ["entry", "exit"][index])) context.fail("preflight-rejected");
+  }
+
+  async function checkedRuntimeArchives(context, review) {
+    const assets = new Map();
+    return Promise.all(roles.filter((role) => pairRequiresRuntime(review, role)).map(async (role) => {
+      const architecture = context.probes[role].runtimeArchitecture;
+      if (!workerArchitectures.includes(architecture) || !Buffer.isBuffer(context.recipe.routePins))
+        context.fail("runtime-unavailable");
+      if (!assets.has(architecture)) assets.set(architecture, Promise.resolve().then(() => loadRuntime(architecture)));
+      const archive = await assets.get(architecture).catch(() => context.fail("runtime-unavailable"));
+      if (!Buffer.isBuffer(archive) || !archive.length) context.fail("runtime-unavailable");
+      return { role, architecture, archive };
+    }));
+  }
+
+  async function prepareRuntime(context, review, transfers) {
+    await Promise.all(transfers.map(({ role, architecture, archive }) =>
+      context.uploadRuntime(role, envelope(review, role), architecture, archive)));
+  }
+
+  async function reviewPairRestoreRuntime(options) {
+    const { review } = options;
+    return withNodes(options, readTimeoutMs, async (context) => {
+      expectedReview(review, context);
+      await checkedRuntimeArchives(context, review);
+    });
   }
 
   async function finishRecipeStep(context, review, role, action, { resume, knownJob, data = {} }) {
@@ -340,7 +479,9 @@ export function createPairRuntime({
     if (report.state !== "complete") fail("step-failed");
   }
 
-  async function confirmEntryResolver(context, transport) {
+  async function confirmEntryResolver(context, review, transport) {
+    if (transport?.protocol !== (review.exitProtocol ?? "awg") || transport?.endpoint !== review.exit.address)
+      context.fail("exit-route-unavailable");
     const targetResolver = await context.send("entry", {
       mode: "resolver",
       request: { address: transport.dns?.address },
@@ -370,7 +511,9 @@ export function createPairRuntime({
   }
 
   async function reviewPair(options) {
-    if (options.exitProtocol !== undefined && !isMixedPairExit(options.exitProtocol))
+    const { entryProtocol, exitProtocol } = options;
+    if ((entryProtocol !== undefined && entryProtocol !== "awg" && !isMixedPairEntry(entryProtocol)) ||
+        (exitProtocol !== undefined && exitProtocol !== "awg" && !isMixedPairExit(exitProtocol)))
       throw new PairDeploymentError("review-mismatch", "preflight");
     if (typeof options.login !== "string" || !loginPattern.test(options.login))
       throw new PairDeploymentError("invalid-login", "preflight");
@@ -382,25 +525,30 @@ export function createPairRuntime({
         pairId: randomBytes(16).toString("hex"),
         bundle: recipe.digest,
         login: options.login,
-        ...(options.exitProtocol && { exitProtocol: options.exitProtocol }),
+        ...(isMixedPairEntry(entryProtocol) && { entryProtocol }),
+        ...(isMixedPairExit(exitProtocol) && { exitProtocol }),
         entry: reviewNode(probes.entry, nodes.entry),
         exit: reviewNode(probes.exit, nodes.exit),
       };
       await preflight(context, review);
+      await checkedRuntimeArchives(context, review);
       return review;
     });
   }
 
   async function deployPair(options) {
-    const { review, resume = false } = options;
+    const { review, resume = false, password } = options;
     if (typeof resume !== "boolean")
       throw new PairDeploymentError("review-mismatch", "preflight");
+    if (review?.entryProtocol === "ikev2" ? !validVpnPassword(password) : password !== undefined)
+      throw new PairDeploymentError("invalid-password", "preflight");
     return withNodes({ ...options, review }, deploymentTimeoutMs, async (context) => {
       const { probes, fail, setStage } = context;
       expectedReview(review, context);
       if (!resume && (probes.entry.owner || probes.exit.owner)) fail("resume-required");
       if (resume && !probes.exit.owner) fail("ownership-mismatch");
       await preflight(context, review);
+      await prepareRuntime(context, review, await checkedRuntimeArchives(context, review));
 
       const step = (role, action, data) =>
         finishRecipeStep(context, review, role, action, { resume, data });
@@ -414,13 +562,13 @@ export function createPairRuntime({
       setStage("entry-bootstrap");
       await step("entry", "bootstrap", {
         login: review.login,
-        password: randomBytes(24).toString("base64url"),
+        password: password ?? randomBytes(24).toString("base64url"),
         statistics: false,
       });
 
       setStage("exit-configure");
       const transport = await query(context, review, "exit", "material");
-      await confirmEntryResolver(context, transport);
+      await confirmEntryResolver(context, review, transport);
       await step("exit", "configure");
       setStage("entry-configure");
       await step("entry", "configure", { transport });
@@ -447,9 +595,8 @@ export function createPairRuntime({
       const profile = await managedRequest(context, review, "entry", "management", "profile", {
         bridge: snapshot.entry.bridge, login,
       });
-      if (!validProfile(profile, review.entry.address + ":" + entryPort))
-        context.fail("invalid-profile");
-      return { configuration: profile.content, filename: "rookstride-" + login + ".conf" };
+      if (!validProfile(profile, review, login)) context.fail("invalid-profile");
+      return { configuration: profile.content, filename: `rookstride-${login}.${pairProfileExtension(review.entryProtocol)}` };
     });
   }
 
@@ -492,11 +639,14 @@ export function createPairRuntime({
     return withNodes(options, readTimeoutMs, async (context) => {
       const { fail, nodes, probes, recipe } = context;
       const pairId = probes.entry.owner?.pairId;
+      const entryProtocol = probes.entry.owner?.entryProtocol;
       const exitProtocol = probes.entry.owner?.exitProtocol;
-      if (!hex32.test(pairId ?? "") || (exitProtocol !== undefined && !isMixedPairExit(exitProtocol)))
+      if (!hex32.test(pairId ?? "") || (entryProtocol !== undefined && !isMixedPairEntry(entryProtocol)) ||
+          (exitProtocol !== undefined && !isMixedPairExit(exitProtocol)))
         fail("ownership-mismatch");
       const review = {
         version, pairId, bundle: recipe.digest,
+        ...(entryProtocol && { entryProtocol }),
         ...(exitProtocol && { exitProtocol }),
         entry: reviewNode(probes.entry, nodes.entry),
         exit: reviewNode(probes.exit, nodes.exit),
@@ -513,10 +663,12 @@ export function createPairRuntime({
   }
 
   async function changePairAccount(options) {
-    const { review, operation, login, revision } = options;
+    const { review, operation, login, revision, password } = options;
     if (!["grant", "revoke"].includes(operation) || !validLogin(login) ||
         typeof revision !== "string" || !hex64.test(revision))
       throw new PairDeploymentError("invalid-account", "preflight");
+    if (review?.entryProtocol === "ikev2" && operation === "grant" ? !validVpnPassword(password) : password !== undefined)
+      throw new PairDeploymentError("invalid-password", "preflight");
     return withNodes({ ...options, review }, managementTimeoutMs, async (context) => {
       const snapshot = await ownedNodes(context, review);
       if (revision !== snapshot.entry.revision) context.fail("roster-changed");
@@ -524,7 +676,7 @@ export function createPairRuntime({
         context.fail("account-unavailable");
       context.beginMutation();
       const roster = await managedRequest(context, review, "entry", "management", operation, {
-        login, revision, bridge: snapshot.entry.bridge,
+        login, revision, bridge: snapshot.entry.bridge, ...(password !== undefined && { password }),
       });
       if (!validRoster(roster) || roster.owner !== review.login || roster.revision === revision ||
           (operation === "grant") !== roster.users.includes(login))
@@ -616,16 +768,18 @@ export function createPairRuntime({
     const { archive, operation, archiveDigest, expectedBundle, resume = false } = options;
     const owner = archive?.nodes?.entry?.initial_user;
     const filtering = archive?.nodes?.exit?.filter_policy;
+    const archivedEntry = archive?.nodes?.entry?.plan?.entry_protocol;
     const archivedExit = archive?.nodes?.entry?.plan?.exit_protocol;
-    const exitProtocol = archivedExit === "awg" ? undefined : archivedExit;
     const endpoints = {
       pairId: archive?.deployment,
-      ...(exitProtocol && { exitProtocol }),
+      ...(isMixedPairEntry(archivedEntry) && { entryProtocol: archivedEntry }),
+      ...(isMixedPairExit(archivedExit) && { exitProtocol: archivedExit }),
       entry: { address: options.entry?.address },
       exit: { address: options.exit?.address },
     };
     if (
       !hex32.test(operation ?? "") || !hex32.test(endpoints.pairId ?? "") || !hex64.test(archiveDigest ?? "") ||
+      (archivedEntry !== "awg" && !isMixedPairEntry(archivedEntry)) ||
       (archivedExit !== "awg" && !isMixedPairExit(archivedExit)) ||
       typeof resume !== "boolean" || !archiveMatches(archive, endpoints) ||
       !validLogin(owner?.login) || !validVpnPassword(owner.password) ||
@@ -639,8 +793,7 @@ export function createPairRuntime({
       if (expectedBundle !== undefined && recipe.digest !== expectedBundle) fail("review-mismatch");
       const revision = archive.revision + 1;
       const review = {
-        version, pairId: archive.deployment, bundle: recipe.digest, login: owner.login,
-        ...(exitProtocol && { exitProtocol }),
+        ...endpoints, version, bundle: recipe.digest, login: owner.login,
         entry: reviewNode(probes.entry, nodes.entry),
         exit: reviewNode(probes.exit, nodes.exit),
       };
@@ -669,6 +822,7 @@ export function createPairRuntime({
         check.entry_users !== archive.nodes.entry.state.users.length ||
         check.exit_users !== archive.nodes.exit.state.users.length
       ) fail("invalid-recovery");
+      await prepareRuntime(context, review, await checkedRuntimeArchives(context, review));
       const missing = roles.filter((role) => !prior[role].recorded);
       if (missing.length) {
         context.beginMutation();
@@ -704,7 +858,7 @@ export function createPairRuntime({
       });
       setStage("entry-configure");
       const transport = await query(context, review, "exit", "material");
-      await confirmEntryResolver(context, transport);
+      await confirmEntryResolver(context, review, transport);
       await step("entry", "configure", { transport });
       const entryGeneration = await identity("entry");
 
@@ -730,11 +884,11 @@ export function createPairRuntime({
 
   return {
     reviewPair, deployPair, exportPairProfile, adoptPair, readPairManagement, changePairAccount,
-    reviewPairRemoval, removePair, capturePairRecovery, rehearsePairRecovery, restorePair,
+    reviewPairRemoval, removePair, capturePairRecovery, rehearsePairRecovery, reviewPairRestoreRuntime, restorePair,
   };
 }
 
 export const {
   reviewPair, deployPair, exportPairProfile, adoptPair, readPairManagement, changePairAccount,
-  reviewPairRemoval, removePair, capturePairRecovery, rehearsePairRecovery, restorePair,
+  reviewPairRemoval, removePair, capturePairRecovery, rehearsePairRecovery, reviewPairRestoreRuntime, restorePair,
 } = createPairRuntime();

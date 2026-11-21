@@ -12,6 +12,14 @@ bash projects/rookstride/web/deploy/package.sh REVISION /absolute/output/rookstr
 
 Keep the archive and its SHA-256 receipt in the private deployment channel. The archive includes a release manifest, standalone dependencies and the static assets. On the destination, check the receipt against the trusted builder result, verify the manifest platform, architecture, Node version and commit, then unpack under `/opt/rookstride-web/releases/<commit>`. Do not overwrite a release directory. Run `sha256sum -c rookstride-web.tar.gz.sha256` from the receipt's directory before unpacking.
 
+The package downloads the signed ARM64 APK from the public GitHub release and
+verifies its exact size and SHA-256 before including it. To make the direct
+download available in a local preview, run
+`node deploy/stage-android-apk.mjs public` from the web directory. Provide a
+local copy of the released APK as the last argument to use it as the input.
+Update the release metadata in `src/lib/android-release.mjs` when the public
+Android release changes.
+
 ## Install privately
 
 Use Node at `/usr/local/bin/node` or change the unit's `ExecStart` to the verified executable. Set up a non-login `rookstride-web` user and group. The release tree, `/opt/rookstride-web` and its `current` pointer must be operator-owned. Grant the service group read and directory traversal permission on the selected release, with no write permission. Keep `/var/lib/rookstride-web` mode `0700` and owned by the service user.

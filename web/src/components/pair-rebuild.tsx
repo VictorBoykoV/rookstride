@@ -48,11 +48,13 @@ type RebuildStatus = {
   nodeState?: string;
   stage?: string;
   reason?: string;
+  entryProtocol?: MixedExit;
   exitProtocol?: MixedExit;
 };
 
 type Props = {
   installed: boolean;
+  installedEntryProtocol?: MixedExit;
   installedExitProtocol?: MixedExit;
   hasSession: boolean;
   busy: boolean;
@@ -64,9 +66,9 @@ type Props = {
   finish: () => void;
 };
 
-function exitProtocol(value: unknown): MixedExit | undefined {
+function reviewedProtocol(value: unknown): MixedExit | undefined {
   if (value === undefined || isMixedPairExit(value)) return value;
-  throw new Error("rebuild exit protocol");
+  throw new Error("rebuild protocol");
 }
 
 function readReview(value: unknown): Review | undefined {
@@ -105,7 +107,8 @@ async function statusFrom(response: Response): Promise<RebuildStatus> {
   const role = roles.find((value) => value === result.progress?.role);
   return {
     state,
-    exitProtocol: exitProtocol(result.exitProtocol),
+    entryProtocol: reviewedProtocol(result.entryProtocol),
+    exitProtocol: reviewedProtocol(result.exitProtocol),
     operation: result.operation,
     review,
     role,
@@ -138,6 +141,7 @@ function canReadArchive(data: FormData) {
 
 export function PairRebuild({
   installed,
+  installedEntryProtocol,
   installedExitProtocol,
   hasSession,
   busy,
@@ -157,6 +161,7 @@ export function PairRebuild({
   const [source, setSource] = useState<"file" | "code">("file");
   const verifiedRoute = useRef<{
     operation: string;
+    entryProtocol?: MixedExit;
     exitProtocol?: MixedExit;
   } | null>(null);
   const currentOperation = status.operation;
@@ -168,12 +173,13 @@ export function PairRebuild({
         prior &&
         (!next.operation ||
           next.operation !== prior.operation ||
-          (next.review && next.exitProtocol !== prior.exitProtocol))
+          (next.review && (next.entryProtocol !== prior.entryProtocol || next.exitProtocol !== prior.exitProtocol)))
       )
         throw new Error("rebuild route changed");
       if (next.review && next.operation)
         verifiedRoute.current = {
           operation: next.operation,
+          entryProtocol: next.entryProtocol,
           exitProtocol: next.exitProtocol,
         };
       setStatus((current) =>
@@ -181,6 +187,7 @@ export function PairRebuild({
           ? {
               ...next,
               review: current.review,
+              entryProtocol: current.entryProtocol,
               exitProtocol: current.exitProtocol,
             }
           : next,
@@ -380,7 +387,8 @@ export function PairRebuild({
         !rebuildOperation.test(payload.operation) ||
         checked.entry.ubuntu !== entryUbuntu ||
         checked.exit.ubuntu !== exitUbuntu ||
-        exitProtocol(payload.exitProtocol) !== installedExitProtocol
+        reviewedProtocol(payload.entryProtocol) !== installedEntryProtocol ||
+        reviewedProtocol(payload.exitProtocol) !== installedExitProtocol
       )
         throw new Error("rebuild review");
       if (signal.aborted) return;
@@ -389,6 +397,7 @@ export function PairRebuild({
         state: "reviewed",
         operation: payload.operation,
         review: checked,
+        entryProtocol: installedEntryProtocol,
         exitProtocol: installedExitProtocol,
       });
     }, text.reviewUnavailable);
@@ -541,7 +550,7 @@ export function PairRebuild({
                             copy.pair.protocols[
                               role === "exit"
                                 ? (status.exitProtocol ?? "awg")
-                                : "awg"
+                                : (status.entryProtocol ?? "awg")
                             ]
                           }
                         </dd>

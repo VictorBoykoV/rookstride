@@ -1,3 +1,5 @@
+import { androidRelease } from "./android-release.mjs";
+
 export const indexableSitePaths = [
   "/",
   "/agents",
@@ -111,6 +113,7 @@ export function publicReaderRoute(encodedPath, method) {
   if (path.split("/").some((part) => part === "." || part === ".."))
     return false;
   if (publicPages.has(path)) return true;
+  if (encodedPath === androidRelease.arm64.sitePath) return true;
   if (discoveryPaths.has(path)) return Boolean(publicSiteOrigin());
   if (path === "/vpn") return hostedPilotVisible();
   const publication = path.match(/^\/(?:comics|journal)\/([^/]+)$/);

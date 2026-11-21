@@ -92,6 +92,48 @@ test("mixed exits require an explicitly enabled browser workspace", async () => 
   }
 });
 
+test("the expanded workspace binds both methods and scopes IKEv2 passwords to mutations", async () => {
+  const route = { entryProtocol: "ikev2", exitProtocol: "xhttp" };
+  const password = "owner-password-fixture";
+  const guestPassword = "guest-password-fixture";
+  const revision = "e".repeat(64);
+  const api = fixture({
+    allowAllPairMethods: true,
+    allowMixedExits: true,
+    review: async (input) => {
+      assert.equal(input.entryProtocol, route.entryProtocol);
+      assert.equal(input.exitProtocol, route.exitProtocol);
+      return { ...plan, ...route };
+    },
+    deploy: async ({ password: supplied }) => {
+      assert.equal(supplied, password);
+      return { state: "installed", pairId };
+    },
+    account: async ({ operation, login, password: supplied }) => {
+      assert.equal(operation, "grant");
+      assert.equal(login, "guest");
+      assert.equal(supplied, guestPassword);
+      return { users: ["owner", "guest"] };
+    },
+  });
+  await assert.rejects(fixture({ allowMixedExits: true }).post({ ...request, ...route }), { status: 400 });
+  const reviewed = await api.post({ ...request, ...route });
+  const { session } = reviewed;
+  assert.equal(reviewed.pair.entryProtocol, route.entryProtocol);
+  assert.equal(reviewed.pair.exitProtocol, route.exitProtocol);
+  const install = { action: "pairApply", confirmed: true };
+  await assert.rejects(api.post(install, session), { status: 400, message: "invalidInstallDetails" });
+  await assert.rejects(api.post({ ...install, vpnPassword: password }, "foreign"), { status: 401 });
+  await api.post({ ...install, vpnPassword: password }, session);
+  await flush();
+  assert.deepEqual(await api.post({ action: "pairStatus" }, session), { state: "installed", stage: "health" });
+  const guest = { action: "pairAccount", operation: "grant", login: "guest", revision, confirmed: true };
+  await assert.rejects(api.post(guest, session), { status: 400, message: "invalidInstallDetails" });
+  await assert.rejects(api.post({ ...guest, operation: "revoke", vpnPassword: guestPassword }, session), { status: 400 });
+  assert.deepEqual(await api.post({ ...guest, vpnPassword: guestPassword }, session), { users: ["owner", "guest"] });
+  await api.post({ action: "pairClose" }, session);
+});
+
 test("approval is one-time and a job stays reserved past idle expiration", async () => {
   const running = Promise.withResolvers();
   let update;

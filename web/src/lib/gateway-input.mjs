@@ -19,14 +19,6 @@ export function validVpnPassword(value) {
 
 export const filterPresets = ["standard", "strong", "strict"];
 
-export const pairExitPorts = Object.freeze({ awg: 443, openvpn: 1194, ikev2: 500, xray: 443 });
-export const mixedPairExits = Object.freeze(Object.keys(pairExitPorts).filter((method) => method !== "awg"));
-
-/** @param {unknown} method @returns {method is Exclude<keyof typeof pairExitPorts, "awg">} */
-export function isMixedPairExit(method) {
-  return typeof method === "string" && mixedPairExits.includes(method);
-}
-
 // Method IDs and client formats match the Android single-server recipes.
 export const singleProtocolCatalog = {
   awg: { name: "AmneziaWG 3.1", transport: "udp", extension: "conf" },
@@ -59,6 +51,27 @@ export const singleProtocolCatalog = {
     extension: "rookvpn",
   },
 };
+
+export const pairExitPorts = Object.freeze({
+  awg: 443, openvpn: 1194, ikev2: 500, xray: 443, xhttp: 443,
+  hysteria2: 443, outline: 443, shadowsocks: 443, trusttunnel: 443, naive: 443,
+});
+export const pairEntryPorts = Object.freeze({ ...pairExitPorts, awg: 51820 });
+export const hostedPairExits = Object.freeze(["openvpn", "ikev2", "xray"]);
+export const mixedPairExits = Object.freeze(Object.keys(pairExitPorts).filter((method) => method !== "awg"));
+export const mixedPairEntries = mixedPairExits;
+
+/** @param {unknown} method @returns {method is Exclude<keyof typeof pairExitPorts, "awg">} */
+export function isMixedPairExit(method) {
+  return typeof method === "string" && mixedPairExits.includes(method);
+}
+
+export const isMixedPairEntry = isMixedPairExit;
+
+/** @param {keyof typeof pairEntryPorts} [method] */
+export function pairProfileExtension(method = "awg") {
+  return method === "ikev2" ? "sswan" : singleProtocolCatalog[method]?.extension;
+}
 
 export function readServerRecord(value) {
   if (

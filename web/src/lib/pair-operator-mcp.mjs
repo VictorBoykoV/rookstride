@@ -21,13 +21,14 @@ import {
 } from "./pair-deployment.mjs";
 import { decryptPairRecovery, encryptPairRecovery } from "./pair-recovery.mjs";
 import { recoveryPassword } from "./workbench-pair.mjs";
-import { mixedPairExits, ubuntuVersions } from "./gateway-input.mjs";
+import { mixedPairEntries, mixedPairExits, pairProfileExtension, ubuntuVersions, validVpnPassword } from "./gateway-input.mjs";
 import { pairRebuildConfirmation } from "./pair-rebuild.mjs";
 
 const idSchema = z.string().uuid();
 const loginSchema = z.string().regex(/^[A-Za-z0-9][A-Za-z0-9_-]{0,47}$/);
 const digestSchema = z.string().regex(/^[a-f0-9]{64}$/);
 const mixedExitSchema = z.enum(mixedPairExits).optional();
+const mixedEntrySchema = z.enum(mixedPairEntries).optional();
 const pin = {
   address: z.ipv4(),
   sshPort: z.number().int().min(1).max(65535),
@@ -64,6 +65,7 @@ export const operatorPairReview = z
   .strictObject({
     version: z.literal(1),
     pairId: z.string().regex(/^[a-f0-9]{32}$/),
+    entryProtocol: mixedEntrySchema,
     exitProtocol: mixedExitSchema,
     bundle: digestSchema,
     login: loginSchema,
@@ -250,6 +252,7 @@ export function createPairOperatorMcp(
       state: restored ? "restored" : rebuildJob?.state === "running" ? "running" : started ? "waiting" : "reviewed",
       entryUbuntu: record.members.entry.ubuntu,
       exitUbuntu: record.members.exit.ubuntu,
+      ...(review.entryProtocol && { entryProtocol: review.entryProtocol }),
       ...(review.exitProtocol && { exitProtocol: review.exitProtocol }),
       ...(rebuildJob?.progress && { progress: rebuildJob.progress }),
     };
@@ -403,6 +406,10 @@ export function createPairOperatorMcp(
     applied.set(id, { kind, result: () => result });
 
     const options = { ...targets, review: plan.review };
+    const needsPassword = plan.review.entryProtocol === "ikev2" &&
+      (kind === "pair-install" || kind === "pair-account" && plan.account.operation === "grant");
+    if (needsPassword && !validVpnPassword(approval.vpnPassword))
+      return failed("Approve with the new VPN password in a separate terminal.");
     if (operatorPairRebuildKinds.includes(kind)) {
       result = await applyRebuild(plan, approval);
       return result;
@@ -413,7 +420,7 @@ export function createPairOperatorMcp(
         ...options,
         ...(plan.login && { login }),
       });
-      const filename = `rookstride-${login}.conf`;
+      const filename = `rookstride-${login}.${pairProfileExtension(plan.review.entryProtocol)}`;
       if (profile.filename !== filename) return result;
       const contents = profile.configuration.trimEnd() + "\n";
       result = response({
@@ -424,7 +431,8 @@ export function createPairOperatorMcp(
     }
 
     if (kind === "pair-account") {
-      result = response(await runtime.changePairAccount({ ...options, ...plan.account }));
+      result = response(await runtime.changePairAccount({ ...options, ...plan.account,
+        ...(needsPassword && { password: approval.vpnPassword }) }));
       return result;
     }
 
@@ -447,6 +455,7 @@ export function createPairOperatorMcp(
     inspected = undefined;
     const removing = kind === "pair-remove";
     const job = { state: "running", stage: removing ? "remove" : "preflight" };
+    if (plan.review.entryProtocol) job.entryProtocol = plan.review.entryProtocol;
     if (plan.review.exitProtocol) job.exitProtocol = plan.review.exitProtocol;
     deployment = job;
     applied.set(id, { kind, result: () => response({ ...job }) });
@@ -461,6 +470,7 @@ export function createPairOperatorMcp(
         }
         const report = await runtime.deployPair({
           ...options,
+          ...(needsPassword && { password: approval.vpnPassword }),
           onProgress({ stage }) {
             if (pairStages.includes(stage)) job.stage = stage;
           },
@@ -498,7 +508,7 @@ export function createPairOperatorMcp(
         return failed("The existing pair does not match both configured roles.");
       inspected = undefined;
       deployed = review;
-      deployment = { state: "installed", stage: "health", ...(review.exitProtocol && { exitProtocol: review.exitProtocol }) };
+      deployment = { state: "installed", stage: "health", ...(review.entryProtocol && { entryProtocol: review.entryProtocol }), ...(review.exitProtocol && { exitProtocol: review.exitProtocol }) };
       return response({ ...deployment });
     },
   );
@@ -514,10 +524,10 @@ export function createPairOperatorMcp(
   );
   register(
     "inspect_pair",
-    "Inspect both configured SSH identities and review an AmneziaWG entry with the selected exit method.",
-    z.strictObject({ login: loginSchema, exitProtocol: mixedExitSchema }),
+    "Inspect both configured SSH identities and review the selected entry and exit methods.",
+    z.strictObject({ login: loginSchema, entryProtocol: mixedEntrySchema, exitProtocol: mixedExitSchema }),
     readOnly,
-    async ({ login, exitProtocol }) => {
+    async ({ login, entryProtocol, exitProtocol }) => {
       if (deployment?.state === "running" || deployed || deployment?.uncertain)
         return failed(
           "Check the existing Double VPN deployment before starting another.",
@@ -526,12 +536,12 @@ export function createPairOperatorMcp(
         return failed("Approve or cancel the outstanding review first.");
       inspected = undefined;
       const review = configuredReview(
-        await runtime.reviewPair({ ...targets, login, ...(exitProtocol && { exitProtocol }) }),
+        await runtime.reviewPair({ ...targets, login, ...(entryProtocol && { entryProtocol }), ...(exitProtocol && { exitProtocol }) }),
       );
       if (
         !review ||
         review.login !== login ||
-        review.exitProtocol !== exitProtocol
+        review.entryProtocol !== entryProtocol || review.exitProtocol !== exitProtocol
       )
         return failed(
           "The review does not match the configured pair and owner.",
@@ -543,7 +553,8 @@ export function createPairOperatorMcp(
         state: "ready",
         entry: { ubuntu: entry.ubuntu },
         exit: { ubuntu: exit.ubuntu },
-        method: "awg",
+        method: entryProtocol ?? "awg",
+        ...(entryProtocol && { entryProtocol }),
         ...(review.exitProtocol && { exitProtocol: review.exitProtocol }),
       });
     },
@@ -613,7 +624,7 @@ export function createPairOperatorMcp(
   }
   register(
     "review_pair_export",
-    "Prepare a private export of an installed Double VPN AmneziaWG profile for terminal approval.",
+    "Prepare a private export of an installed Double VPN client profile for terminal approval.",
     z.strictObject({ login: loginSchema.optional() }),
     change,
     ({ login }) => stage("pair-export", login ? { login } : {}),

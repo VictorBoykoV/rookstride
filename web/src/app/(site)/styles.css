@@ -856,11 +856,37 @@ pre:focus-visible,
 .download-card p {
   font-size: 0.9375rem;
   line-height: 1.8;
+}
+.start-choice p {
   flex: 1;
 }
-.start-choice .button,
-.download-card .button {
+.start-choice .button {
   margin-top: 18px;
+}
+.download-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  margin-top: 18px;
+}
+.download-links {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 20px;
+}
+@media (min-width: 641px) {
+  @supports (grid-template-rows: subgrid) {
+    .download-grid {
+      row-gap: 0;
+    }
+    .download-card {
+      display: grid;
+      grid-template-rows: subgrid;
+      grid-row: span 3;
+      justify-items: start;
+    }
+  }
 }
 .start-choice.planned {
   background: var(--canvas);
@@ -2023,7 +2049,7 @@ pre:focus-visible,
     font-size: 1.5rem;
   }
   .start-choice > p,
-  .download-card > p {
+  .download-card p {
     font-size: 0.875rem;
   }
   .start-server-help {

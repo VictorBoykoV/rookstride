@@ -1,4 +1,9 @@
-# Rookstride website
+# Historical static website and story generator
+
+This directory retains the earlier static Rookstride site. The live
+[Rookstride website](https://rookstride.com) and browser app use the separate
+[web application](../web/README.md). Release references below belong to
+the static edition.
 
 A local, portable, static website for the Rookstride Android project. Includes
 setup and architecture guides, verified release links, open-source information,

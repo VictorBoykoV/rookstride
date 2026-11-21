@@ -1,4 +1,8 @@
-# Architecture
+# Android and gateway architecture
+
+The diagram shows the single-server IKEv2 route and its optional accounting
+service. See [web app architecture](WEB-ARCHITECTURE.md) for the browser,
+hosted worker, CMS and MCP.
 
 ```mermaid
 flowchart LR
@@ -17,10 +21,12 @@ flowchart LR
 
 ## Phone
 
-Native Java administration screens use strongSwan for IKEv2. The private
-0.3.0-alpha2 candidate also embeds AmneziaWG 3.1, VLESS/TCP/REALITY and OpenVPN
-clients in separate private service processes; see [engine architecture](EMBEDDED-ENGINES.md).
-The diagram above describes the existing IKEv2/AdGuard route. API 26 is the minimum. No hosted control plane, analytics or remote crash-upload service is added. The guide and installer bundle are local assets; installation still needs network access and the VPS downloads packages.
+The native Java app uses embedded clients for ten methods, including
+strongSwan for IKEv2, AmneziaWG, OpenVPN and VLESS. The
+[engine architecture](EMBEDDED-ENGINES.md) describes the separate service
+processes and runtime boundaries. Android 8 / API 26 is the minimum. The phone
+uses SSH directly for administration. The guide and installer bundle are
+local app assets, and the VPS downloads the packages it needs during setup.
 
 Optional saved credentials are AES-256-GCM encrypted using an Android Keystore key. Without the remember option they remain in app memory and must be entered after a process restart. The SSH fingerprint, labels and server snapshots are also stored in the encrypted vault. VPN profile passwords are excluded from strongSwan's profile database. Shared profiles contain a pinned certificate and login, without a password or administrator secret.
 
@@ -28,7 +34,7 @@ Optional saved credentials are AES-256-GCM encrypted using an Android Keystore k
 
 Fresh Ubuntu 24.04 installation and enrollment are distinct explicit actions. SFTP uploads a private bundle; fixed commands invoke the installer with a bounded JSON request on standard input. Installation runs as a detached systemd job with root-only configuration, status and logs. Temporary VPN password/configuration files are deleted when the job finishes. Disconnecting the phone does not cancel the job; rebooting the VPS can interrupt it. Partial installations are not blindly rerun.
 
-The helper runs on demand over SSH. VICI is a local Unix socket, and AdGuard's dashboard/API is private to the VPN. There is no public management service. Changes to users are locked, written atomically and followed by a secrets reload. Failed reloads restore the prior credentials. Revocation also attempts to close all sessions for a shared login and reports any failure.
+The helper runs on demand over SSH. VICI is a local Unix socket, and AdGuard's dashboard and API are private to the VPN. Changes to users are locked, written atomically and followed by a secrets reload. Failed reloads restore the prior credentials. Revocation also attempts to close all sessions for a shared login and reports any failure.
 
 ## Accounting cost and scope
 

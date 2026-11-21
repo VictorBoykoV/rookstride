@@ -198,15 +198,17 @@ export const site = {
     apkTitle: "Get the Android app",
     apkBody:
       "The 0.4.0-alpha6 prerelease supports ten connection methods and experimental Double VPN setup.",
-    apkDownload: "Download Android APK",
-    releases: "Read release notes and checksums",
+    apkDownload: "Download ARM64 APK",
+    apkGitHub: "Download ARM64 from GitHub",
+    apkUniversal: "Universal APK on GitHub",
+    releases: "Release notes and checksums",
     sourceTitle: "Explore the source",
     sourceBody:
       "Read the public code, review the setup scripts or contribute a change on GitHub.",
     source: "View source code",
     installTitle: "Installing an APK for the first time?",
     choose:
-      "Open the release notes. Under Assets, choose the file ending in .apk. A universal APK works across the processor types listed for that release.",
+      "Choose ARM64 for most Android phones. Use the universal APK for supported 32-bit ARM or x86_64 devices.",
     apkOpen:
       "Open the downloaded file on your phone. If Android asks, allow the app you downloaded it with to install this APK.",
     finish:

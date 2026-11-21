@@ -29,7 +29,10 @@ import { maxPairRecoveryBytes } from "../src/lib/pair-recovery.mjs";
 import { createPairRebuild, pairRebuildConfirmation } from "../src/lib/pair-rebuild.mjs";
 import { recoveryPassword } from "../src/lib/workbench-pair.mjs";
 import {
+  pairEntryPorts,
+  pairExitPorts,
   readUbuntuRecovery,
+  singleProtocolCatalog,
   ubuntuEraseConfirmation,
   validVpnPassword,
 } from "../src/lib/gateway-input.mjs";
@@ -92,20 +95,19 @@ async function approve(path) {
   };
   let expected;
   if (pair.success) {
-    const { entry, exit, login, bundle, exitProtocol } = plan.review;
-    const exitMethod = {
-      awg: "AmneziaWG UDP 443",
-      openvpn: "OpenVPN TCP 1194",
-      ikev2: "IKEv2 UDP 500 and 4500",
-      xray: "VLESS TCP/REALITY 443",
-    }[exitProtocol ?? "awg"];
+    const { entry, exit, login, bundle, entryProtocol = "awg", exitProtocol = "awg" } = plan.review;
+    function describeMethod(protocol, ports) {
+      if (protocol === "ikev2") return "IKEv2 UDP 500 and 4500";
+      const method = singleProtocolCatalog[protocol];
+      return `${method.name} ${method.transport.toUpperCase()} ${ports[protocol]}`;
+    }
     console.log(
       `Entry ${entry.address}:${entry.sshPort} – ${entry.keyType} ${entry.fingerprint} – Ubuntu ${entry.ubuntu}`,
     );
     console.log(
       `Exit ${exit.address}:${exit.sshPort} – ${exit.keyType} ${exit.fingerprint} – Ubuntu ${exit.ubuntu}`,
     );
-    console.log(`AmneziaWG UDP 51820 entry and ${exitMethod} exit. Recipe ${bundle}.`);
+    console.log(`${describeMethod(entryProtocol, pairEntryPorts)} entry and ${describeMethod(exitProtocol, pairExitPorts)} exit. Recipe ${bundle}.`);
     const description = {
       "pair-install": [`Install the reviewed Double VPN for ${login}.`, "INSTALL DOUBLE VPN"],
       "pair-export": [`Save ${plan.login ?? login}'s private Double VPN profile on this computer.`, "EXPORT DOUBLE VPN PROFILE"],
@@ -166,7 +168,9 @@ async function approve(path) {
     if (confirmation !== expected || Date.now() >= plan.expiresAt)
       throw new Error("Review not approved");
     const approval = { digest: digest(contents) };
-    if (plan.needsPassword) {
+    const pairNeedsPassword = pair.success && plan.review.entryProtocol === "ikev2" &&
+      (plan.kind === "pair-install" || plan.kind === "pair-account" && plan.account.operation === "grant");
+    if (plan.needsPassword || pairNeedsPassword) {
       approval.vpnPassword = await hidden("VPN password (hidden): ");
       if (!validVpnPassword(approval.vpnPassword))
         throw new Error("Invalid VPN password");

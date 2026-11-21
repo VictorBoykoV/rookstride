@@ -6,7 +6,7 @@ import {
 } from "node:crypto";
 import { isIPv4 } from "node:net";
 import { promisify } from "node:util";
-import { isMixedPairExit, pairExitPorts } from "./gateway-input.mjs";
+import { isMixedPairEntry, isMixedPairExit, pairEntryPorts, pairExitPorts } from "./gateway-input.mjs";
 
 export const maxPairRecoveryBytes = 2 * 1024 * 1024;
 
@@ -27,8 +27,11 @@ function validateArchive(archive, review) {
   const deployment = review?.pairId;
   const entry = review?.entry?.address;
   const exit = review?.exit?.address;
+  const entryProtocol = review?.entryProtocol ?? "awg";
   const exitProtocol = review?.exitProtocol ?? "awg";
+  const mixed = entryProtocol !== "awg" || exitProtocol !== "awg";
   if (
+    (review?.entryProtocol !== undefined && !isMixedPairEntry(review.entryProtocol)) ||
     (review?.exitProtocol !== undefined && !isMixedPairExit(review.exitProtocol)) ||
     typeof deployment !== "string" ||
     !/^[a-f0-9]{32}$/.test(deployment) ||
@@ -48,9 +51,9 @@ function validateArchive(archive, review) {
     pair: deployment,
     server: entry,
     exit_host: exit,
-    vpn_port: 51820,
+    vpn_port: pairEntryPorts[entryProtocol],
     tunnel_port: pairExitPorts[exitProtocol],
-    entry_protocol: "awg",
+    entry_protocol: entryProtocol,
     exit_protocol: exitProtocol,
     engine: "native-v2",
     client_pool: "10.66.0.0/24",
@@ -63,7 +66,7 @@ function validateArchive(archive, review) {
     const node = archive.nodes[role];
     const initial = node?.initial_user;
     const isEntry = role === "entry";
-    const protocol = isEntry ? "awg" : exitProtocol;
+    const protocol = isEntry ? entryProtocol : exitProtocol;
     const server = isEntry ? entry : exit;
     const port = isEntry ? topology.vpn_port : topology.tunnel_port;
     if (
@@ -73,11 +76,11 @@ function validateArchive(archive, review) {
       node.role !== role ||
       !record(node.state) ||
       node.state.protocol !== protocol ||
-      ((exitProtocol !== "awg" || Object.hasOwn(node.state, "server")) && node.state.server !== server) ||
-      ((exitProtocol !== "awg" || Object.hasOwn(node.state, "port")) && node.state.port !== port) ||
+      ((mixed || Object.hasOwn(node.state, "server")) && node.state.server !== server) ||
+      ((mixed || Object.hasOwn(node.state, "port")) && node.state.port !== port) ||
       (node.state.access_mode !== undefined && node.state.access_mode !== "profile") ||
       ![1, 2].includes(node.schema) ||
-      (exitProtocol !== "awg" && node.schema !== 2) ||
+      (mixed && node.schema !== 2) ||
       (node.schema === 2 && node.adapter !== protocol + "-identity-v1") ||
       !record(initial) ||
       typeof initial.login !== "string" ||

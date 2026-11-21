@@ -27,7 +27,7 @@ async function handle(request: Request) {
     request,
     (server.personalGateway ??= createGatewayService(undefined, undefined, {
       pairPreflight: true,
-      pairFactory: (options) => createWorkbenchPair({ ...options, allowMixedExits: true }),
+      pairFactory: (options) => createWorkbenchPair({ ...options, allowMixedExits: true, allowAllPairMethods: true }),
       ubuntuReinstall: true,
       scopedAdministration: true,
     })),

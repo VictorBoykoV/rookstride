@@ -16,6 +16,7 @@ import { setTimeout as sleep } from "node:timers/promises";
 import { loadPairRecipe } from "../../scripts/pair-ssh.mjs";
 import { publicDestination, startWorker } from "./gateway-service.mjs";
 import {
+  isMixedPairEntry,
   isMixedPairExit,
   readServerRecord,
   readUbuntuRecovery,
@@ -215,6 +216,7 @@ function checkedOperation(record, eligible) {
     !operationId.test(operation ?? "") ||
     review?.version !== 1 ||
     !operationId.test(review.pairId ?? "") ||
+    (review.entryProtocol !== undefined && !isMixedPairEntry(review.entryProtocol)) ||
     (review.exitProtocol !== undefined && !isMixedPairExit(review.exitProtocol)) ||
     !digestPattern.test(review.bundle ?? "") ||
     !loginPattern.test(review.login ?? "") ||
@@ -257,6 +259,7 @@ function matchesRestoredReview(record, review) {
     review?.version === 1 &&
     review.pairId === record.review.pairId &&
     review.bundle === record.review.bundle &&
+    review.entryProtocol === record.review.entryProtocol &&
     review.exitProtocol === record.review.exitProtocol &&
     review.login === record.review.login &&
     review.entry?.machine !== review.exit?.machine &&
@@ -273,7 +276,7 @@ function matchesRestoredReview(record, review) {
 }
 
 function matchesOriginalReview(original, expected) {
-  return ["version", "pairId", "bundle", "login", "exitProtocol"].every((field) => original[field] === expected[field]) &&
+  return ["version", "pairId", "bundle", "login", "entryProtocol", "exitProtocol"].every((field) => original[field] === expected[field]) &&
     order.every((role) =>
       same(serverFrom(original[role]), serverFrom(expected[role])) &&
       original[role]?.machine === expected[role]?.machine &&
@@ -361,6 +364,8 @@ export function createPairRebuild({
   }
 
   async function rehearseCurrent(targets, review, archive) {
+    if (pairRuntime.pairRequiresRuntime(review))
+      await runtime.reviewPairRestoreRuntime({ ...targets, review });
     const receipt = await runtime.rehearsePairRecovery({
       ...targets,
       review,

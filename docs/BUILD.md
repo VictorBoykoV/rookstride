@@ -1,5 +1,10 @@
 # Build Rookstride
 
+Use the [v0.4.0-alpha6 tag and corresponding source](https://github.com/VictorBoykoV/rookstride/releases/tag/v0.4.0-alpha6)
+to reproduce the published Android prerelease. The default branch also carries
+web app and documentation updates. See [web app setup](../web/README.md) for
+the separate Node.js build.
+
 ## Requirements
 
 Use macOS or Linux with Python 3.9+, JDK 17, Perl, Make, Git, Android SDK command-line tools, and several GB of free storage. The tested host configuration is recorded in TESTING.md. The repository holds the administration overlay; the bootstrap downloads checksum-pinned upstream source archives.
@@ -48,7 +53,7 @@ release with `-ProokstrideAbis=arm64-v8a` for a smaller ARM64 APK (or use
 `armeabi-v7a` / `x86_64`). Rename that output explicitly by architecture and audit
 it with `verify-apk.py --abi arm64-v8a`. The default includes all three ABIs.
 
-`release.json` is the version-name/version-code source for both APK preparation and source packaging. Increment the code for updates. Alpha2 retains alpha1's signing certificate.
+`release.json` is the version-name/version-code source for both APK preparation and source packaging. Increment the code for updates.
 
 With JDK 17 available, audit the actual release:
 

@@ -1,9 +1,10 @@
-# Rookstride local website and browser app
+# Rookstride website and browser app
 
-Version 0.1.0 combines the public-facing pages, Payload editor and a personal
-browser client. Start it on your own computer. The guest list and VPN service
-live on the rented server. Supported deployment in this browser edition is one
-IKEv2 gateway with AdGuard Home on a fresh Ubuntu 22.04, 24.04 or 26.04 LTS VPS.
+This source contains the [public website](https://rookstride.com), private
+Payload editor, browser demo, personal VPN workspace and the hosted pilot
+adapter. The VPN service and its user list live on your Ubuntu servers. See
+[web app architecture](../docs/WEB-ARCHITECTURE.md) for the service boundaries
+and currently admitted workflows.
 
 ## Prerequisites
 
@@ -18,18 +19,16 @@ IKEv2 gateway with AdGuard Home on a fresh Ubuntu 22.04, 24.04 or 26.04 LTS VPS.
   management job at a time. Build on the same OS and architecture as the
   destination when moving a bundle with native dependencies. Both sizes still
   need capacity testing on the chosen host.
-- **Real VPN installation.** The hosting machine runs the web app and makes an
-  outbound SSH connection. Supply a separate, disposable Ubuntu target using
-  the [target and fingerprint requirements](#manage-a-server-from-this-computer).
-  Keep the adjacent gateway recipes and locked dependencies with the worker.
-  Future Double VPN deployment tests require two distinct gateway targets,
-  one for entry and one for exit. The current real browser installer supports
-  the single-server IKEv2 workflow.
+- **Real VPN installation.** The operator workstation or hosted worker makes
+  the outbound SSH connection. Use separate disposable Ubuntu targets with
+  [verified SSH fingerprints](#manage-a-server-from-this-computer). Keep the
+  adjacent recipes and locked dependencies with the worker. Double VPN
+  uses two distinct servers for entry and exit.
 
 ## Start locally
 
-Start at the Rookstride application root (`projects/rookstride` in the private
-checkout) on the machine that will host the local preview.
+Start at the Rookstride repository root on the computer that will run the
+local preview.
 
 ```sh
 cd web
@@ -46,6 +45,7 @@ uses Node on PATH. It binds **127.0.0.1:3100**, never a public/LAN interface.
 - Website: http://127.0.0.1:3100/
 - Browser app and practice workspace: http://127.0.0.1:3100/manage
 - Personal server setup and guest access: http://127.0.0.1:3100/manage/server
+- Personal Double VPN: http://127.0.0.1:3100/manage/pair
 - Content editor: http://127.0.0.1:3100/admin
 
 Create the first local editor account in the admin screen. This is operator access,
@@ -80,13 +80,13 @@ Run the app as a regular local user. The worker needs the source checkout,
 locked dependencies and the adjacent reviewed `gateway` and `server` recipes.
 The standalone Next bundle by itself does not contain a portable installer.
 Open the server setup page and use a dedicated Ubuntu 22.04, 24.04 or 26.04 LTS x86_64 or arm64
-server, its public IPv4 address, root SSH password and the **Ed25519 SSH host
+server, its public IPv4 address, root SSH password and the **SSH host
 fingerprint obtained independently from the provider console**. Start a second
 setup for a different address with **Set up another server in a new tab**. Each
 tab has its own session, with up to two active sessions per local app. Inspection
-makes no changes. Review the plan, choose a VPN username and password, then
-explicitly approve installation.
-Allow UDP 500/4500 in the provider firewall.
+makes no changes. Choose the protocol, review the plan and explicitly approve
+installation. Choose a VPN password for IKEv2. Allow the selected method’s
+ports in the provider firewall, such as UDP 500 and 4500 for IKEv2.
 
 Hysteria 2, Outline, Shadowsocks, TrustTunnel and NaïveProxy use the Linux
 runtime packaged in the corresponding Android build. Stage the two
@@ -99,31 +99,34 @@ worker verifies the archive during review and sends it only after the
 operator applies the matching plan. The target verifies it again before
 installing the runtime and starting the recipe.
 
-After verification, download a password-free strongSwan Android profile. Import
-it on the device and supply the separate VPN password. The same page can reopen
+After verification, download the native configuration for the chosen method.
+For strongSwan, import the IKEv2 profile and supply the separate VPN password.
+The same page can reopen
 a gateway created here, grant an invited person access, download their profile,
 or revoke their login. Guest edits use a reviewed roster revision. Existing
 or partly configured servers require inspection. There is no automatic reinstall.
 DNS filtering is installed by this recipe. Installed gateways expose DNS
 controls and the usage data available for their selected method.
 
-The workstation's **Double VPN** workspace uses AmneziaWG on two distinct
-Ubuntu servers. Verify each SSH fingerprint through its provider console or an
-independent record, then inspect both servers. Review and confirm the named
-entry, exit and profile before installation. The workstation verifies egress
-and DNS on the exit before opening the entry. Download the owner's AmneziaWG
-`.conf` from the same browser session, then connect using a compatible client.
+The workstation's **Double VPN** workspace offers the ten Android methods
+for each role on two distinct Ubuntu servers. AmneziaWG is the default for
+both roles. Verify each SSH fingerprint through its provider console or an
+independent record, then inspect both servers. Review the entry, exit and
+profile before installation. The workstation verifies egress and DNS on the
+exit before opening the entry. Download the owner profile from the browser and
+connect using a client for the entry method. IKEv2 profiles use `.sswan` and
+require the VPN password chosen during setup.
 
 Use **Open existing Double VPN** with both pinned records to reopen an owned
-AmneziaWG pair. Refresh health and users to review the entry roster. You can
+pair. Refresh health and users to review the entry roster. You can
 add or revoke a guest, download their profile, or review removal of the two
 owned VPN roles. **Encrypted recovery archive** downloads the portable
 Android-compatible owner backup. Keep its passphrase separately. **Check
 recovery archive** rehearses the file against both matching roles. Select or
 drop the `.rookrec` file, or paste the encrypted code shown after an export.
 
-The local operator can rebuild both supported Ubuntu disks and restore that
-same AmneziaWG pair with `scripts/pair-rebuild.mjs`. Run it as an unprivileged
+The local operator can review a rebuild of both supported Ubuntu disks and
+restore the same pair with `scripts/pair-rebuild.mjs`. Run it as an unprivileged
 user with Node 24.22.1 or newer. Use an empty owner-only journal directory and
 absolute paths to an owner-only JSON target file and the current encrypted
 archive. The target file has `entry` and `exit` objects with `address`,
@@ -186,9 +189,9 @@ and `.next/` are ignored. Never commit or share runtime data, real SSH credentia
 generated profiles or signing material. A local database is not an external backup.
 
 No telemetry registration or external email service is configured. Browser images
-and fonts are local/system resources. API writes require the local origin and
-host; no public deployment, TLS/proxy trust or production isolation is qualified
-by this development adapter. Keep it on loopback.
+and fonts are local/system resources. The personal API requires a loopback host
+and checks the origin for writes. Hosted use has a separate reader and worker.
+Follow the [deployment guide](deploy/README.md) for the supported roles.
 
 ## Checks and build
 
@@ -205,24 +208,22 @@ The HTTP check exercises a disposable first-editor/draft/publish round trip only
 when no editor exists, then removes that test account/article. It preserves any
 existing editor and reports that part not run. The HTTP smoke suite never opens
 SSH. The module checks use a disposable loopback SSH peer and local Python
-fixtures. Initialize the
-local database with `dev` before the production-build/start check; production
-migration/restore workflows are not implemented yet. The build is limited to one
-Next page worker. Capacity testing on a 4 GB host is a separate check.
+fixtures. Initialize the local database with `dev` before the local
+production-build/start check. The [deployment guide](deploy/README.md) covers
+packaging, migration and restore for hosted state. The build uses one Next
+page worker. Capacity testing is separate.
 
 The site uses the existing project mark and Rook helper poses. Both route
 diagrams are drawn in the page so their labels adapt to screen size. The old Python
 website remains separate; its historical Android export now needs an explicit
 `--export-legacy-android` flag and is not used by this app.
 
-## Second visual iteration and agents
+## Assistant setup
 
-Iteration0.0.2 replaces the first paper/serif design with the shared graphite/red,
-self-hosted Geist system in DESIGN.md. `/agents` offers client-specific stdio
-setup and a prepared task for Codex, Claude Code, Cursor and Gemini CLI. The
-website shows local absolute paths at runtime; these are not a public package.
-Do not give customers access to the private development repository. Public
-runner distribution remains a separate reviewed export/release gate.
+The [Agents page](https://rookstride.com/agents) offers setup for Codex,
+Claude Code, Cursor and Gemini CLI. The public HTTPS endpoint provides the
+same example tools as the local preview. Real operations run through the
+local operator connector described below.
 
 With this checkout's dependencies installed, a local MCP client can start:
 
@@ -328,11 +329,14 @@ Use `review_pair_rehearsal` and `apply_pair_rehearsal` to check a file, choosing
 it in the approval terminal. The connector returns the readiness result
 without exposing private archive contents to the assistant.
 
-The local browser and MCP connector support an AmneziaWG entry with an
-AmneziaWG, OpenVPN certificate, IKEv2 or VLESS TCP/REALITY exit. The client
-profile is always AmneziaWG. Rebuild and recovery have per-route test scope.
-An isolated hosted worker with one pair enrollment can offer these choices with
-`ROOKSTRIDE_PILOT_PAIR_EXIT_CHOICES=1`. Disk replacement is separately enabled.
+Use `entryProtocol` and `exitProtocol` in `inspect_pair` to choose the local
+methods. Omit either field for AmneziaWG. For IKEv2 at the entry, the approval
+terminal collects the VPN password when installing or granting a guest. For
+methods that require the Linux route runtime, set `ROOKSTRIDE_ROUTE_ASSETS`
+as described above. Live installation, rebuild and recovery have per-route
+test scope. An isolated hosted worker can offer an AmneziaWG entry with
+AmneziaWG, OpenVPN certificate, IKEv2 or VLESS TCP/REALITY on the exit using
+`ROOKSTRIDE_PILOT_PAIR_EXIT_CHOICES=1`. Disk replacement is enabled separately.
 For a reviewed Ubuntu rebuild and identity restore, set
 `ROOKSTRIDE_MCP_PAIR_REBUILD=1` and set
 `ROOKSTRIDE_MCP_PAIR_REBUILD_STATE_DIR` to an absolute path to a dedicated,

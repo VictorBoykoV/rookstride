@@ -1,7 +1,7 @@
 import { randomBytes } from "node:crypto";
 import * as runtime from "./pair-deployment.mjs";
 import { pairRebuildConfirmation } from "./pair-rebuild.mjs";
-import { isMixedPairExit, ubuntuVersions } from "./gateway-input.mjs";
+import { hostedPairExits, isMixedPairEntry, isMixedPairExit, ubuntuVersions, validVpnPassword } from "./gateway-input.mjs";
 import {
   decryptPairRecovery,
   encryptPairRecovery,
@@ -59,6 +59,7 @@ function pairDisplay(review) {
     entry: { address: review.entry.address, os: "Ubuntu " + review.entry.ubuntu },
     exit: { address: review.exit.address, os: "Ubuntu " + review.exit.ubuntu },
     login: review.login,
+    ...(review.entryProtocol && { entryProtocol: review.entryProtocol }),
     ...(review.exitProtocol && { exitProtocol: review.exitProtocol }),
   };
 }
@@ -68,8 +69,8 @@ function rebuildDisplay(record) {
     const { ubuntu, boot, diskBytes, fingerprint } = record.members[role];
     return [role, { ubuntu, boot, diskBytes, fingerprint }];
   }));
-  const exitProtocol = record.review.exitProtocol;
-  return { ...members, ...(exitProtocol && { exitProtocol }) };
+  const { entryProtocol, exitProtocol } = record.review;
+  return { ...members, ...(entryProtocol && { entryProtocol }), ...(exitProtocol && { exitProtocol }) };
 }
 
 export function createWorkbenchPair({
@@ -90,6 +91,7 @@ export function createWorkbenchPair({
   rehearse = runtime.rehearsePairRecovery,
   rebuild,
   allowMixedExits = Boolean(rebuild),
+  allowAllPairMethods = false,
   idleMs = 10 * 60_000,
   now = Date.now,
 }) {
@@ -147,12 +149,16 @@ export function createWorkbenchPair({
 
   async function inspect(input, token) {
     const adopting = input.action === "pairAdopt";
-    const exitProtocol = !adopting && allowMixedExits && isMixedPairExit(input.exitProtocol)
+    const entryProtocol = !adopting && allowAllPairMethods && isMixedPairEntry(input.entryProtocol)
+      ? input.entryProtocol
+      : undefined;
+    const exitProtocol = !adopting && allowMixedExits && isMixedPairExit(input.exitProtocol) &&
+      (allowAllPairMethods || hostedPairExits.includes(input.exitProtocol))
       ? input.exitProtocol
       : undefined;
     if (
       !exact(input, adopting ? ["action", "entry", "exit"] :
-        ["action", "entry", "exit", "login", ...(exitProtocol ? ["exitProtocol"] : [])]) ||
+        ["action", "entry", "exit", "login", ...(entryProtocol ? ["entryProtocol"] : []), ...(exitProtocol ? ["exitProtocol"] : [])]) ||
       !validPairNodes(input, validateNode)
     ) deny(400, "invalidServerDetails");
     if (!adopting && (typeof input.login !== "string" || !loginPattern.test(input.login)))
@@ -172,9 +178,10 @@ export function createWorkbenchPair({
     record = current;
     try {
       const plan = adopting ? await adopt(current.nodes) : await review({
-        ...current.nodes, login: input.login, ...(exitProtocol && { exitProtocol }),
+        ...current.nodes, login: input.login, ...(entryProtocol && { entryProtocol }), ...(exitProtocol && { exitProtocol }),
       });
-      if (!adopting && plan.exitProtocol !== exitProtocol)
+      if ((!adopting && (plan.entryProtocol !== entryProtocol || plan.exitProtocol !== exitProtocol)) ||
+          (!allowAllPairMethods && (plan.entryProtocol || plan.exitProtocol && !hostedPairExits.includes(plan.exitProtocol))))
         throw new Error("review-mismatch");
       current.review = plan;
       current.state = adopting ? "installed" : "reviewed";
@@ -193,11 +200,12 @@ export function createWorkbenchPair({
     }
   }
 
-  async function install(current) {
+  async function install(current, password) {
     try {
       const receipt = await deploy({
         ...current.nodes,
         review: current.review,
+        ...(password && { password }),
         onProgress: ({ stage }) => {
           if (runtime.pairStages.includes(stage)) current.stage = stage;
         },
@@ -371,12 +379,17 @@ export function createWorkbenchPair({
     if (!actions.has(action)) deny(400, "unknownAction");
     if (action === "pairReview" || action === "pairAdopt") return inspect(input, token);
     const fields = action === "pairProfile" && Object.hasOwn(input, "login") ? ["login"] : payloads[action] ?? [];
-    if (!exact(input, ["action", ...fields]))
+    const suppliedPassword = ["pairApply", "pairAccount"].includes(action) && Object.hasOwn(input, "vpnPassword");
+    if (!exact(input, ["action", ...fields, ...(suppliedPassword ? ["vpnPassword"] : [])]))
       deny(400, "invalidRequest");
     if (!active() || record.state === "inspecting" || record.token !== token)
       deny(401, "sessionEnded");
 
     const current = record;
+    const needsPassword = current.review?.entryProtocol === "ikev2" &&
+      (action === "pairApply" || action === "pairAccount" && input.operation === "grant");
+    if (suppliedPassword !== needsPassword || (needsPassword && !validVpnPassword(input.vpnPassword)))
+      deny(400, "invalidInstallDetails");
     if (action === "pairStatus") {
       if (["reviewed", "installed", "removed"].includes(current.state)) refresh(current);
       return result(current);
@@ -388,7 +401,7 @@ export function createWorkbenchPair({
       clearTimeout(current.timer);
       current.state = "installing";
       current.stage = "preflight";
-      void install(current);
+      void install(current, input.vpnPassword);
       return result(current);
     }
 
@@ -433,7 +446,8 @@ export function createWorkbenchPair({
               typeof input.revision !== "string" || !revisionPattern.test(input.revision) || input.confirmed !== true)
             deny(400, "invalidMaintenanceDetails");
           delete current.removal;
-          return await account({ ...options, operation: input.operation, login: input.login, revision: input.revision });
+          return await account({ ...options, operation: input.operation, login: input.login, revision: input.revision,
+            ...(needsPassword && { password: input.vpnPassword }) });
         case "pairProfile":
           if (fields.length && (typeof input.login !== "string" || !loginPattern.test(input.login)))
             deny(400, "invalidMaintenanceDetails");

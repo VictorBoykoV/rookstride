@@ -80,21 +80,19 @@ const archive = {
   ),
 };
 
-async function fixture(t, mixed = false) {
+async function fixture(t, entryProtocol) {
   const directory = await mkdtemp(
     join(tmpdir(), "rookstride-pair-rebuild-test-"),
   );
   t.after(() => rm(directory, { recursive: true, force: true }));
-  const original = mixed ? { ...review, exitProtocol: "openvpn" } : review;
+  const original = entryProtocol ? { ...review, entryProtocol, exitProtocol: "openvpn" } : review;
   const approvedArchive = structuredClone(archive);
-  if (mixed) {
+  if (entryProtocol) {
     for (const [role, node] of Object.entries(approvedArchive.nodes)) {
-      Object.assign(node.plan, { tunnel_port: 1194, exit_protocol: "openvpn" });
-      Object.assign(node.state, { server: original[role].address, port: role === "entry" ? 51820 : 1194 });
-      if (role === "exit") {
-        node.state.protocol = "openvpn";
-        node.adapter = "openvpn-identity-v1";
-      }
+      const protocol = role === "entry" ? entryProtocol : "openvpn";
+      Object.assign(node.plan, { vpn_port: 443, entry_protocol: entryProtocol, tunnel_port: 1194, exit_protocol: "openvpn" });
+      Object.assign(node.state, { protocol, server: original[role].address, port: role === "entry" ? 443 : 1194 });
+      node.adapter = protocol + "-identity-v1";
     }
   }
   const encrypted = await encryptPairRecovery(approvedArchive, passphrase, original);
@@ -121,6 +119,11 @@ async function fixture(t, mixed = false) {
     async rehearsePairRecovery() {
       calls.push("rehearse");
       return { verified: true, readiness_schema: 2 };
+    },
+    async reviewPairRestoreRuntime({ review }) {
+      assert.deepEqual(review, original);
+      calls.push("runtime-check");
+      if (restore.runtimeMissing) throw new Error("runtime-unavailable");
     },
     async capturePairRecovery() {
       return live;
@@ -157,7 +160,7 @@ async function fixture(t, mixed = false) {
           },
         },
       };
-      if (restore.wrongKind) delete result.review.exitProtocol;
+      if (restore.wrongKind) delete result.review[restore.wrongKind];
       return result;
     },
   };
@@ -371,16 +374,30 @@ test("archive and target credential input refuses a publicly readable file", asy
 });
 
 test("a mixed rebuild preserves both reviewed methods in the operation and restored receipt", async (t) => {
-  const f = await fixture(t, true);
+  const f = await fixture(t, "xhttp");
   const review = await f.stage();
+  assert.equal(review.review.entryProtocol, "xhttp");
   assert.equal(review.review.exitProtocol, "openvpn");
   assert.equal(f.coordinator().journalStatus().record.review.exitProtocol, "openvpn");
-  f.restore.wrongKind = true;
+  f.restore.wrongKind = "entryProtocol";
   await assert.rejects(f.run(), { code: "restore-identity-unverified" });
   assert.equal(f.coordinator().journalStatus().restored, null);
   f.restore.wrongKind = false;
   const receipt = await f.run({ resumeRestore: true });
+  assert.equal(receipt.review.entryProtocol, "xhttp");
   assert.equal(receipt.review.exitProtocol, "openvpn");
   assert.equal(f.coordinator().journalStatus().restored.review.exitProtocol, "openvpn");
   assert.deepEqual(f.calls.filter((call) => call.startsWith("erase:")), ["erase:exit", "erase:entry"]);
+});
+
+test("a worker route requires restore assets both in review and before first erase", async (t) => {
+  const f = await fixture(t, "trusttunnel");
+  f.restore.runtimeMissing = true;
+  await assert.rejects(f.stage(), /runtime-unavailable/);
+  assert.ok(!f.calls.some((call) => call.startsWith("review:")));
+  f.restore.runtimeMissing = false;
+  await f.stage();
+  f.restore.runtimeMissing = true;
+  await assert.rejects(f.run(), /runtime-unavailable/);
+  assert.ok(!f.calls.some((call) => call.startsWith("erase:")));
 });

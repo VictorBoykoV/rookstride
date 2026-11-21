@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Bounded SSH adapter for reviewed native pairs with an AmneziaWG entry."""
+"""Bounded SSH adapter for reviewed native pairs."""
 import base64
 from contextlib import ExitStack, contextmanager
 import fcntl
@@ -10,6 +10,7 @@ from ipaddress import IPv4Address
 import json
 import os
 from pathlib import Path
+import platform
 import re
 import secrets
 import subprocess
@@ -33,8 +34,12 @@ MAX_RECOVERY_REQUEST = 2 * 1024 * 1024
 MAX_RECOVERY_RESPONSE = 1572864 + 4096
 MAX_ARCHIVE = 4 * 1024 * 1024
 MAX_SOURCE = 8 * 1024 * 1024
-AWG_LOGIN = re.compile(r'[A-Za-z0-9][A-Za-z0-9_-]{0,47}')
-EXIT_PORTS = {'awg': 443, 'openvpn': 1194, 'ikev2': 500, 'xray': 443}
+PAIR_LOGIN = re.compile(r'[A-Za-z0-9][A-Za-z0-9_-]{0,47}')
+ENTRY_PORTS = {
+    'awg': 51820, 'ikev2': 500, 'openvpn': 1194, 'xray': 443, 'xhttp': 443,
+    'hysteria2': 443, 'outline': 443, 'shadowsocks': 443, 'trusttunnel': 443, 'naive': 443,
+}
+EXIT_PORTS = {**ENTRY_PORTS, 'awg': 443}
 TOPOLOGY_FIELDS = ('pair', 'role', 'server', 'exit_host', 'engine', 'entry_protocol',
                    'exit_protocol', 'vpn_port', 'tunnel_port')
 ROUTE_FIELDS = {
@@ -76,14 +81,15 @@ def owned():
 def supported_plan(request):
     if not isinstance(request, dict):
         raise PairRejected('ownership-mismatch')
-    exit_protocol = request.get('exit_protocol')
+    entry_protocol, exit_protocol = request.get('entry_protocol'), request.get('exit_protocol')
     identity, entry, exit_address = request.get('pair'), request.get('server'), request.get('exit_host')
-    if (not isinstance(exit_protocol, str) or exit_protocol not in EXIT_PORTS
+    if (not isinstance(entry_protocol, str) or entry_protocol not in ENTRY_PORTS
+            or not isinstance(exit_protocol, str) or exit_protocol not in EXIT_PORTS
             or not isinstance(identity, str) or not HEX32.fullmatch(identity)
             or not isinstance(entry, str) or not isinstance(exit_address, str) or entry == exit_address
-            or request.get('entry_protocol') != 'awg' or request.get('engine') != 'native-v2'
+            or request.get('engine') != 'native-v2'
             or request.get('role') not in ('entry', 'exit')
-            or type(request.get('vpn_port')) is not int or request['vpn_port'] != 51820
+            or type(request.get('vpn_port')) is not int or request['vpn_port'] != ENTRY_PORTS[entry_protocol]
             or type(request.get('tunnel_port')) is not int or request['tunnel_port'] != EXIT_PORTS[exit_protocol]
             or ('route_table' in request and type(request['route_table']) is not int)
             or 'access_mode' in request or any(key in request and request[key] != value
@@ -175,13 +181,17 @@ def probe():
         plan = manifest['plan']
         if manifest.get('version') != 2 or plan != supported_plan(plan):
             raise PairRejected('ownership-mismatch')
+        if plan['entry_protocol'] != 'awg':
+            owner['entryProtocol'] = plan['entry_protocol']
         if plan['exit_protocol'] != 'awg':
             owner['exitProtocol'] = plan['exit_protocol']
+    architecture = platform.machine()
     return {
         'machine': hashlib.sha256(machine.encode()).hexdigest(),
         'os': release.get('ID', '').strip('"\''),
         'version': release.get('VERSION_ID', '').strip('"\''),
         'owner': owner,
+        **({'runtimeArchitecture': architecture} if architecture in ('x86_64', 'aarch64') else {}),
         'standaloneDnsPresent': any(os.path.lexists(path) for path in STANDALONE_DNS_PATHS),
     }
 
@@ -315,15 +325,35 @@ def account_view(plan, state):
     import pair
     initial = json.loads(read(protected(pair.OWN / 'initial-user.json'), 4096))
     owner = state['initialLogin']
-    if owner != initial.get('login') or not AWG_LOGIN.fullmatch(owner):
+    if owner != initial.get('login') or not PAIR_LOGIN.fullmatch(owner):
         raise PairRejected('ownership-mismatch')
-    if len(state['users']) > 252 or any(not AWG_LOGIN.fullmatch(user['login']) for user in state['users']):
+    if len(state['users']) > 252 or any(not PAIR_LOGIN.fullmatch(user['login']) for user in state['users']):
         raise PairRejected('inactive-pair')
     users = sorted(user['login'] for user in state['users'] if user.get('enabled', True))
     if owner not in users or len(set(users)) != len(users):
         raise PairRejected('inactive-pair')
     revision = lifecycle.digest({'pair': plan['pair'], 'instance': state['instance'], 'users': state['users']})
     return {'owner': owner, 'users': users, 'revision': revision}
+
+
+def account_action(protocol, action, login, request, single_api):
+    if (protocol == 'ikev2' and action == 'grant') != ('password' in request):
+        raise ValueError('account password')
+    if protocol != 'ikev2':
+        return single_api.action({
+            'action': {'profile': 'profile', 'grant': 'add-user', 'revoke': 'remove-user'}[action],
+            'protocol': protocol, 'login': login,
+        })
+
+    from rookstride import admin
+    if action == 'profile':
+        profile = admin.profile({'login': login})
+        return {'format': 'ikev2', 'name': 'rookstride-' + login + '.sswan',
+                'content': json.dumps(profile, separators=(',', ':'))}
+    args = {'action': 'add-user' if action == 'grant' else 'remove-user', 'login': login}
+    if action == 'grant':
+        args['password'] = request['password']
+    return admin.dispatch(args)
 
 
 @contextmanager
@@ -377,23 +407,23 @@ def manage(mode, request, expected):
         if mode == 'management' and action in ('grant', 'revoke', 'profile') and entry:
             view = account_view(plan, state)
             login = request['login']
-            if not AWG_LOGIN.fullmatch(login):
+            if not isinstance(login, str) or not PAIR_LOGIN.fullmatch(login):
                 raise ValueError('account login')
+            protocol = node_protocol(plan)
             if action == 'profile':
                 if login not in view['users']:
                     raise PairRejected('account-unavailable')
-                return single_api.action({'action': 'profile', 'protocol': 'awg', 'login': login})
+                return account_action(protocol, action, login, request, single_api)
             if request.get('revision') != view['revision']:
                 raise PairRejected('roster-changed')
             if login == view['owner'] or (action == 'grant') == (login in view['users']):
                 raise PairRejected('account-unavailable')
-            result = single_api.action({
-                'action': 'add-user' if action == 'grant' else 'remove-user',
-                'protocol': 'awg', 'login': login,
-            })
+            if action == 'grant' and len(state['users']) >= 252:
+                raise PairRejected('account-unavailable')
+            result = account_action(protocol, action, login, request, single_api)
             if not (result.get('login') == login if action == 'grant' else result.get('removed') is True):
                 raise ValueError('account change')
-            return account_view(plan, native_pair.runtime.load('awg'))
+            return account_view(plan, node_state(plan))
 
         if mode == 'reset' and action in ('plan', 'check', 'apply'):
             import native_pair_reset

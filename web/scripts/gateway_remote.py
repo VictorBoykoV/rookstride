@@ -36,7 +36,18 @@ MAX_PAIR_RECIPE_BYTES = 8 * 1024 * 1024
 MAX_PAIR_SNAPSHOT_BYTES = 1572864 + 4096
 PAIR_RECIPE_DIGEST = "445261dd249dade8e65665df9fff4abf3facfa2a41f038ae427244a1b6c62691"
 PAIR_UBUNTU_FIELDS = {"pair", "role", "operation"}
-PAIR_EXIT_PORTS = {"awg": 443, "openvpn": 1194, "ikev2": 500, "xray": 443}
+PAIR_ENTRY_PORTS = {
+    "awg": 51820, "ikev2": 500, "openvpn": 1194, "xray": 443, "xhttp": 443,
+    "hysteria2": 443, "outline": 443, "shadowsocks": 443, "trusttunnel": 443, "naive": 443,
+}
+PAIR_EXIT_PORTS = {**PAIR_ENTRY_PORTS, "awg": 443}
+PAIR_TOPOLOGY_FIELDS = {"pair", "role", "server", "exit_host", "engine",
+                        "entry_protocol", "exit_protocol", "vpn_port", "tunnel_port"}
+PAIR_ROUTE_FIELDS = {"client_pool": "10.66.0.0/24", "test_ip": "10.249.255.254",
+                     "entry_address": "10.253.0.2/30", "exit_address": "10.253.0.1/30", "route_table": 51831}
+PAIR_ROUTE_WORKERS = {"hysteria2", "outline", "shadowsocks", "trusttunnel", "naive"}
+PAIR_ROUTE_PINS_SHA256 = "c71cc218031ec9a0cb290a9cf4724ab0183028df421634d966c76031e7d1e626"
+PAIR_ROUTE_WORKER_ROOT = Path("/opt/rookstride-routes")
 CA = Path("/etc/ipsec.d/cacerts/single-vps-ca.pem")
 EXPORTED_CA = Path("/root/single-vps-vpn/ca.pem")
 CONFIG = Path("/etc/ipsec.conf")
@@ -1053,40 +1064,84 @@ def is_hex_id(value, length):
     return isinstance(value, str) and len(value) == length and re.fullmatch(r"[0-9a-f]+", value) is not None
 
 
-def require_pair_for_reinstall(req):
-    role = req["role"]
-    if (role not in ("entry", "exit") or not is_hex_id(req["pair"], 32)
-            or not is_hex_id(req["operation"], 32)):
-        raise GuardError("Invalid Double VPN Ubuntu review.")
+def paired_topology(value, address, *, owned):
+    expected_fields = PAIR_TOPOLOGY_FIELDS | (PAIR_ROUTE_FIELDS.keys() if owned else set())
+    if not isinstance(value, dict) or set(value) != expected_fields:
+        raise Conflict("The Double VPN topology does not match this reviewed server and role.")
+    entry, exit_address = value["server"], value["exit_host"]
+    entry_protocol, exit_protocol = value["entry_protocol"], value["exit_protocol"]
+    role = value["role"]
+    if (role not in ("entry", "exit") or not is_hex_id(value["pair"], 32)
+            or value["engine"] != "native-v2" or not valid_address(entry) or not valid_address(exit_address)
+            or entry == exit_address or address != (entry if role == "entry" else exit_address)
+            or not isinstance(entry_protocol, str) or entry_protocol not in PAIR_ENTRY_PORTS
+            or not isinstance(exit_protocol, str) or exit_protocol not in PAIR_EXIT_PORTS
+            or type(value["vpn_port"]) is not int or value["vpn_port"] != PAIR_ENTRY_PORTS[entry_protocol]
+            or type(value["tunnel_port"]) is not int or value["tunnel_port"] != PAIR_EXIT_PORTS[exit_protocol]
+            or owned and (type(value["route_table"]) is not int
+                          or any(value[key] != default for key, default in PAIR_ROUTE_FIELDS.items()))):
+        raise Conflict("The Double VPN topology does not match this reviewed server and role.")
+    return {**value, **PAIR_ROUTE_FIELDS}
+
+
+def read_pair_manifest():
     with owned_file(PAIR_MANIFEST, 65536, private=True) as handle:
         raw = handle.read(65537)
     if len(raw) > 65536:
         raise GuardError("The owned Double VPN manifest exceeds its size limit.")
     manifest = json.loads(raw)
     if (not isinstance(manifest, dict) or manifest.get("version") != 2
-            or manifest.get("bundle") != PAIR_RECIPE_DIGEST
-            or manifest.get("resetting") or manifest.get("configured") is not True):
+            or manifest.get("bundle") != PAIR_RECIPE_DIGEST or manifest.get("resetting")):
         raise Conflict("The owned Double VPN configuration could not be verified.")
-    plan = manifest.get("plan")
-    if not isinstance(plan, dict):
+    return raw, manifest
+
+
+def require_pair_for_reinstall(req):
+    role = req["role"]
+    if (role not in ("entry", "exit") or not is_hex_id(req["pair"], 32)
+            or not is_hex_id(req["operation"], 32)):
+        raise GuardError("Invalid Double VPN Ubuntu review.")
+    raw, manifest = read_pair_manifest()
+    if manifest.get("configured") is not True:
         raise Conflict("The owned Double VPN configuration could not be verified.")
-    entry, exit_address = plan.get("server"), plan.get("exit_host")
-    exit_protocol = plan.get("exit_protocol")
-    if not isinstance(exit_protocol, str) or exit_protocol not in PAIR_EXIT_PORTS:
-        raise Conflict("The owned Double VPN has an unsupported exit protocol.")
-    expected = {
-        "pair": req["pair"], "role": role, "server": entry, "exit_host": exit_address,
-        "engine": "native-v2", "entry_protocol": "awg", "exit_protocol": exit_protocol,
-        "vpn_port": 51820, "tunnel_port": PAIR_EXIT_PORTS[exit_protocol], "client_pool": "10.66.0.0/24",
-        "test_ip": "10.249.255.254", "entry_address": "10.253.0.2/30",
-        "exit_address": "10.253.0.1/30", "route_table": 51831,
-    }
-    node_address = entry if role == "entry" else exit_address
-    if (not valid_address(entry) or not valid_address(exit_address) or entry == exit_address
-            or any(type(plan.get(name)) is not int for name in ("vpn_port", "tunnel_port", "route_table"))
-            or node_address != req["address"] or plan != expected):
+    plan = paired_topology(manifest.get("plan"), req["address"], owned=True)
+    if plan["pair"] != req["pair"] or plan["role"] != role:
         raise Conflict("The owned Double VPN does not match this reviewed server and role.")
-    return hashlib.sha256(raw).hexdigest(), expected
+    return hashlib.sha256(raw).hexdigest(), plan
+
+
+def stage_pair_runtime(req, stream):
+    plan = paired_topology(req["topology"], req["address"], owned=False)
+    role = plan["role"]
+    check_only = req["action"] == "pairRuntimeCheck"
+    if (plan["exit_protocol"] not in PAIR_ROUTE_WORKERS
+            and (role != "entry" or plan["entry_protocol"] not in PAIR_ROUTE_WORKERS)):
+        raise GuardError("This Double VPN node does not require the Linux runtime.")
+    machine, encoded = platform.machine(), req["routesPins"]
+    if (machine not in ("x86_64", "aarch64") or req["runtimeArchitecture"] != machine
+            or (stream is None) != check_only or not isinstance(encoded, str) or len(encoded) > 16384):
+        raise GuardError("The VPN runtime does not match the target architecture.")
+    pins = base64.b64decode(encoded, validate=True)
+    if not hmac.compare_digest(hashlib.sha256(pins).hexdigest(), PAIR_ROUTE_PINS_SHA256):
+        raise GuardError("The VPN runtime pins do not match the reviewed recipe.")
+    asset = json.loads(pins)["assets"][machine]
+    with exclusive_pair_reinstall():
+        if os.path.lexists(PAIR_MANIFEST):
+            _, manifest = read_pair_manifest()
+            if paired_topology(manifest.get("plan"), req["address"], owned=True) != plan:
+                raise Conflict("The existing Double VPN does not match this reviewed server and role.")
+            if manifest.get("configured") and not runtime_ready(PAIR_ROUTE_WORKER_ROOT, asset):
+                raise Conflict("The configured Double VPN runtime could not be verified.")
+        elif any(os.path.lexists(path) for path in (
+            PAIR_MANIFEST.parent, PAIR_RELEASE, CONFIG, *[SINGLE_STATE / method for method in PAIR_ENTRY_PORTS]
+        )):
+            raise Conflict("The server has an existing VPN setup. Inspect it before staging a Double VPN.")
+        if check_only:
+            return {"ready": runtime_ready(PAIR_ROUTE_WORKER_ROOT, asset)}
+        install_route_runtime(PAIR_ROUTE_WORKER_ROOT, asset, stream)
+        if not runtime_ready(PAIR_ROUTE_WORKER_ROOT, asset):
+            raise GuardError("The installed VPN runtime could not be verified.")
+    return {"ready": True}
 
 
 def private_reinstall_plan():
@@ -1329,6 +1384,8 @@ def dispatch(req, stream=None):
                 "pairUbuntuReview": (paired | {"ubuntu", "snapshot"},),
                 "pairUbuntuPlan": (paired | {"job", "fingerprint", "ubuntu"},),
                 "pairUbuntuApply": (paired | erase,),
+                "pairRuntime": (base | {"topology", "runtimeArchitecture", "routesPins"},),
+                "pairRuntimeCheck": (base | {"topology", "runtimeArchitecture", "routesPins"},),
                 "ubuntuStatus": (base | {"job"},),
                 "ubuntuVerify": (base | {"job", "ubuntu"},),
                 "removeApply": (accounts | {"token", "confirmation"},),
@@ -1380,6 +1437,8 @@ def dispatch(req, stream=None):
         return {**inspect(req.get("address")), "os": f"Ubuntu {version}"}
     if action == "inspectPairNode":
         return {**inspect_pair_node(), "os": f"Ubuntu {version}"}
+    if action in ("pairRuntime", "pairRuntimeCheck"):
+        return stage_pair_runtime(req, stream)
     if action == "install":
         return {**install(req), "os": f"Ubuntu {version}"}
     if action == "health":
@@ -1412,7 +1471,8 @@ def main():
         request = json.loads(raw)
         if size > MAX_REQUEST and (not isinstance(request, dict) or request.get("action") not in ("ubuntuApply", "pairUbuntuApply")):
             raise GuardError("Request exceeds the size limit.")
-        has_archive = isinstance(request, dict) and "runtimeArchitecture" in request
+        has_archive = (isinstance(request, dict) and "runtimeArchitecture" in request
+                       and request.get("action") != "pairRuntimeCheck")
         if not has_archive and stream.read(1):
             raise GuardError("The request contains unexpected additional data.")
         ssh_connection = os.environ.get("SSH_CONNECTION", "")

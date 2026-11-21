@@ -9,7 +9,7 @@ import {
 } from "react";
 import { useMessages } from "@/i18n/client";
 import { formatMessage } from "@/i18n/format";
-import { isMixedPairExit, pairExitPorts } from "@/lib/gateway-input.mjs";
+import { hostedPairExits, isMixedPairEntry, isMixedPairExit, pairExitPorts, pairProfileExtension, validVpnPassword } from "@/lib/gateway-input.mjs";
 import { gatewayMessage } from "@/lib/gateway-messages";
 import { PairManagement, pairLogin, savePairFile } from "./pair-management";
 import {
@@ -32,6 +32,7 @@ type PairReview = Record<
   { address: string; os: string }
 > & {
   login: string;
+  entryProtocol?: Exclude<keyof typeof pairExitPorts, "awg">;
   exitProtocol?: Exclude<keyof typeof pairExitPorts, "awg">;
 };
 type Progress = {
@@ -227,6 +228,8 @@ export function PairInspection({
     const form = event.currentTarget;
     const data = new FormData(form);
     const login = String(data.get("login") ?? "").trim();
+    const selectedEntry = data.get("entryProtocol");
+    const entryProtocol = !invite && applying && isMixedPairEntry(selectedEntry) ? selectedEntry : undefined;
     const selectedExit = data.get("exitProtocol");
     const exitProtocol = canChooseExit && applying && isMixedPairExit(selectedExit)
       ? selectedExit
@@ -285,6 +288,7 @@ export function PairInspection({
             ...nodes,
             ...(reconnectingPair && { operation: reconnecting }),
             ...(applying && { login }),
+            ...(entryProtocol && { entryProtocol }),
             ...(exitProtocol && { exitProtocol }),
           },
           undefined,
@@ -300,7 +304,9 @@ export function PairInspection({
             result?.operation !== reconnecting ||
             typeof result?.session !== "string" ||
             !/^[A-Za-z0-9_-]{43}$/.test(result.session) ||
+            (result.entryProtocol !== undefined && !isMixedPairEntry(result.entryProtocol)) ||
             (result.exitProtocol !== undefined && !isMixedPairExit(result.exitProtocol)) ||
+            result.pair?.entryProtocol !== result.entryProtocol ||
             result.pair?.exitProtocol !== result.exitProtocol
           ) {
             setNotice(fallback);
@@ -320,8 +326,9 @@ export function PairInspection({
             typeof result.pair?.login !== "string" ||
             !pairLogin.test(result.pair.login) ||
             (applying && result.pair.login !== login) ||
+            (result.pair.entryProtocol !== undefined && !isMixedPairEntry(result.pair.entryProtocol)) ||
             (result.pair.exitProtocol !== undefined && !isMixedPairExit(result.pair.exitProtocol)) ||
-            (applying && result.pair.exitProtocol !== exitProtocol) ||
+            (applying && (result.pair.entryProtocol !== entryProtocol || result.pair.exitProtocol !== exitProtocol)) ||
             !roles.every(
               (role) =>
                 result.pair?.[role]?.address === nodes[role].address &&
@@ -352,13 +359,16 @@ export function PairInspection({
 
   function install(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    if (
-      progress.state !== "reviewed" ||
-      new FormData(event.currentTarget).get("confirmed") !== "on"
-    )
+    const data = new FormData(event.currentTarget);
+    if (progress.state !== "reviewed" || data.get("confirmed") !== "on") return;
+    const vpnPassword = data.get("vpnPassword");
+    if (review?.entryProtocol === "ikev2" && !validVpnPassword(vpnPassword)) {
+      setNotice(text.invalidVpnPassword);
       return;
+    }
     event.currentTarget.reset();
-    changePair("apply", { action: "pairApply", confirmed: true });
+    changePair("apply", { action: "pairApply", confirmed: true,
+      ...(review?.entryProtocol === "ikev2" && { vpnPassword }) });
   }
 
   function changePair(
@@ -426,7 +436,7 @@ export function PairInspection({
         if (
           await savePairFile(
             response,
-            `rookstride-${login ?? review.login}.conf`,
+            `rookstride-${login ?? review.login}.${pairProfileExtension(review.entryProtocol)}`,
             signal,
           )
         )
@@ -510,6 +520,16 @@ export function PairInspection({
               <ServerConnectionFields prefix={role + "-"} allowEcdsa />
             </fieldset>
           ))}
+          {!invite && !reconnecting && (
+            <label>
+              {text.entryProtocol}
+              <select name="entryProtocol" defaultValue="awg" disabled={!ready || busy !== null}>
+                {Object.entries(text.protocols).map(([method, label]) => (
+                  <option key={method} value={method}>{label}</option>
+                ))}
+              </select>
+            </label>
+          )}
           {canChooseExit && !reconnecting && (
             <label>
               {text.exitProtocol}
@@ -518,7 +538,7 @@ export function PairInspection({
                 defaultValue="awg"
                 disabled={!ready || busy !== null}
               >
-                {Object.entries(text.protocols).map(([method, label]) => (
+                {Object.entries(text.protocols).filter(([method]) => !invite || method === "awg" || hostedPairExits.includes(method)).map(([method, label]) => (
                   <option key={method} value={method}>{label}</option>
                 ))}
               </select>
@@ -620,7 +640,7 @@ export function PairInspection({
                 <bdi>{review[role].address}</bdi> · {review[role].os} ·{" "}
                 {
                   text.protocols[
-                    role === "exit" ? (review.exitProtocol ?? "awg") : "awg"
+                    role === "exit" ? (review.exitProtocol ?? "awg") : (review.entryProtocol ?? "awg")
                   ]
                 }
               </li>
@@ -632,10 +652,16 @@ export function PairInspection({
           {progress.state === "reviewed" && busy !== "apply" && (
             <form onSubmit={install}>
               <p>
-                {review.exitProtocol
-                  ? formatMessage(text.mixedInstallPlan, { protocol: text.protocols[review.exitProtocol] })
+                {review.entryProtocol || review.exitProtocol
+                  ? formatMessage(text.mixedInstallPlan, { entry: text.protocols[review.entryProtocol ?? "awg"], exit: text.protocols[review.exitProtocol ?? "awg"] })
                   : text.installPlan}
               </p>
+              {review.entryProtocol === "ikev2" && (
+                <label>
+                  {text.vpnPassword}
+                  <input type="password" name="vpnPassword" autoComplete="new-password" required maxLength={127} />
+                </label>
+              )}
               <label className={styles.check}>
                 <input
                   type="checkbox"
@@ -669,7 +695,9 @@ export function PairInspection({
                 Object.hasOwn(text.stages, stage)
                   ? stage === "exit-bootstrap" && review.exitProtocol
                     ? formatMessage(text.mixedExitBootstrap, { protocol: text.protocols[review.exitProtocol] })
-                    : text.stages[stage]
+                    : stage === "entry-bootstrap" && review.entryProtocol
+                      ? formatMessage(text.mixedEntryBootstrap, { protocol: text.protocols[review.entryProtocol] })
+                      : text.stages[stage]
                   : text.progress[progress.state]}
               </p>
             )
@@ -697,7 +725,7 @@ export function PairInspection({
                   onClick={() => download()}
                   disabled={busy !== null}
                 >
-                  {text.download}
+                  {review.entryProtocol ? text.downloadProfile : text.download}
                 </button>
               )}
               {closeButton}
@@ -708,6 +736,7 @@ export function PairInspection({
       {review && progress.state === "installed" && !rebuildActive && (
         <PairManagement
           owner={review.login}
+          passwordForGuest={review.entryProtocol === "ikev2"}
           busy={busy !== null}
           post={managementRequest}
           run={(work, fallback) => void perform("manage", work, fallback)}
@@ -728,6 +757,7 @@ export function PairInspection({
           <PairRebuild
             key={rebuildView}
             installed={Boolean(review && progress.state === "installed")}
+            installedEntryProtocol={review?.entryProtocol}
             installedExitProtocol={review?.exitProtocol}
             hasSession={Boolean(session)}
             busy={busy !== null || Boolean(reconnecting)}

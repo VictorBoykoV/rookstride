@@ -25,7 +25,7 @@ export function GET() {
     `- [How Rookstride works](${link("/self-hosted-vpn")}): Diagrams and a comparison of routing, cost, DNS, performance and setup availability.`,
     `- [Get started](${link("/start")}): Browser pilot, Android and assistant options.`,
     `- [Device connection guide](${link("/connect")}): VPN client downloads, profile imports and IKEv2 settings for Android, iPhone, macOS and Windows.`,
-    `- [Android downloads](${link("/downloads")}): Links to released APKs and release notes.`,
+    `- [Android downloads](${link("/downloads")}): ARM64 APK from Rookstride or GitHub, plus a universal APK and release notes.`,
     `- [Assistant setup](${link("/agents")}): Configure the read-only public MCP connector and learn about the local operator connector for ten single-server methods.`,
     `- [Android prerelease and source](${publicProjectLinks.androidRelease})`,
     `- [Single VPN Ubuntu gateway](${publicProjectLinks.singleGateway})`,

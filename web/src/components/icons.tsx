@@ -29,6 +29,7 @@ export function Icon({
         <path d="M7 17 17 7M7 7h10v10" />
       </>
     ),
+    download: <path d="M12 3v12m-4-4 4 4 4-4M5 16v4h14v-4" />,
     server: (
       <>
         <rect x="4" y="3" width="16" height="7" rx="1" />

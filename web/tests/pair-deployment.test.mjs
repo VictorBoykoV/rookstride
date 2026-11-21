@@ -1,9 +1,11 @@
 import assert from "node:assert/strict";
 import { spawnSync } from "node:child_process";
+import { X509Certificate } from "node:crypto";
 import { EventEmitter } from "node:events";
+import { rootCertificates } from "node:tls";
 import { fileURLToPath } from "node:url";
 import test from "node:test";
-import { executePairRequest, loadPairRecipe } from "../scripts/pair-ssh.mjs";
+import { executePairRequest, executePairRuntime, loadPairRecipe } from "../scripts/pair-ssh.mjs";
 import { createPairRuntime, pairArchiveDigest, pairRestoreStages, pairStages } from "../src/lib/pair-deployment.mjs";
 
 const entry = { address: "192.0.2.21", sshPort: 22, fingerprint: "SHA256:" + "A".repeat(43), password: "fixture-ssh-entry" };
@@ -28,7 +30,46 @@ const config = [
   "",
 ].join("\n");
 
-function fixture(testRequest, { machines = { entry: "1".repeat(64), exit: "2".repeat(64) } } = {}) {
+function nativeProfile(protocol, login) {
+  if (protocol === "awg") return { format: protocol, content: config };
+  if (protocol === "ikev2") return { format: protocol, content: JSON.stringify({
+    uuid: "d2e06308-2bcc-41fb-b769-265788e6dec3", name: "Fixture VPN", type: "ikev2-eap",
+    remote: { addr: entry.address, id: entry.address, certreq: false, cert: new X509Certificate(rootCertificates[0]).raw.toString("base64") },
+    local: { eap_id: login }, mtu: 1280,
+    "split-tunneling": { "block-ipv4": true, "block-ipv6": true },
+  }) };
+  if (protocol === "openvpn") return { format: protocol, content: [
+    "client", "dev tun", "tun-mtu 1280", "proto tcp-client", `remote ${entry.address} 1194`,
+    "nobind", "persist-key", "persist-tun", "remote-cert-tls server", "verify-x509-name server name",
+    "tls-version-min 1.2", "data-ciphers AES-256-GCM:CHACHA20-POLY1305:AES-128-GCM",
+    "redirect-gateway def1 ipv6", "block-ipv6", "verb 3",
+    ...["ca", "cert", "key", "tls-crypt"].flatMap((tag) => [`<${tag}>`, "inert-fixture-data", `</${tag}>`]), "",
+  ].join("\n") };
+  if (protocol === "xray" || protocol === "xhttp") {
+    const query = new URLSearchParams({
+      encryption: "none", security: "reality", type: protocol === "xray" ? "tcp" : "xhttp",
+      flow: protocol === "xray" ? "xtls-rprx-vision" : "", fp: "chrome", sni: "example.com",
+      pbk: "A".repeat(43), sid: "a".repeat(16),
+      ...(protocol === "xhttp" && { mode: "auto", path: "/" + "a".repeat(48) }),
+    });
+    return { format: protocol, content: `vless://d2e06308-2bcc-41fb-b769-265788e6dec3@${entry.address}:443?${query}#${login}` };
+  }
+  return { format: protocol, content: JSON.stringify({
+    schema: 1, protocol, server: entry.address, port: 443, login,
+    password: "fixture-only-account", certificate: rootCertificates[0],
+    server_name: protocol === "trusttunnel" ? `vpn-${"c".repeat(32)}.internal` : entry.address,
+    ...(protocol === "hysteria2" && { obfs: "o".repeat(30) }),
+    ...(["outline", "shadowsocks"].includes(protocol) && { method: "chacha20-ietf-poly1305", path: "/" + "d".repeat(48) }),
+  }) };
+}
+
+function fixture(testRequest, {
+  machines = { entry: "1".repeat(64), exit: "2".repeat(64) },
+  architectures = { entry: "x86_64", exit: "aarch64" },
+  loadRuntime = async (architecture) => Buffer.from(architecture),
+  transferReady = true,
+  cachedRuntime = [],
+} = {}) {
   const owners = { entry: null, exit: null };
   const calls = [];
   const closed = [];
@@ -51,13 +92,23 @@ function fixture(testRequest, { machines = { entry: "1".repeat(64), exit: "2".re
       return { role, destroy: () => closed.push(role) };
     },
     eligibleTarget: (address) => address === entry.address || address === exit.address,
-    loadRecipe: async () => ({ digest, archive: Buffer.from("fixture archive") }),
+    loadRecipe: async () => ({ digest, archive: Buffer.from("fixture archive"), routePins: Buffer.from("fixture pins") }),
+    loadRuntime,
+    async transferRuntime({ role }, { topology: req, architecture, archive, routePins }) {
+      assert.equal(routePins.toString(), "fixture pins");
+      if (archive === undefined) {
+        calls.push({ mode: "runtime-check", role, req, architecture });
+        return { ready: cachedRuntime.includes(role) };
+      }
+      calls.push({ mode: "runtime", role, req, architecture, archive: archive.toString() });
+      return { ready: transferReady };
+    },
     async request(client, { mode = "recipe", request: req, bundle, archive }) {
       const { role } = client;
       calls.push({ role, mode, req, bundle, archive: Boolean(archive) });
       const override = testRequest?.(role, mode, req);
       if (override !== undefined) return override;
-      if (mode === "probe") return { owner: owners[role], os: "ubuntu", version: "24.04", machine: machines[role], standaloneDnsPresent: false };
+      if (mode === "probe") return { owner: owners[role], os: "ubuntu", version: "24.04", machine: machines[role], standaloneDnsPresent: false, runtimeArchitecture: architectures[role] };
       if (mode === "resolver") return { local: false };
       if (mode === "restore") {
         const binding = [req.operation, req.archiveDigest, req.revision, req.pair].join("/");
@@ -91,7 +142,7 @@ function fixture(testRequest, { machines = { entry: "1".repeat(64), exit: "2".re
           pairId: req.pair, role, bridge, topologyRevision: 1, healthy: true,
           ...(role === "entry" ? roster() : { dnsHealthy: true }),
         };
-        if (req.action === "profile") return { format: "awg", content: config };
+        if (req.action === "profile") return nativeProfile(req.entry_protocol, req.login);
         if (req.action === "grant") users.add(req.login);
         if (req.action === "revoke") users.delete(req.login);
         rosterRevision++;
@@ -131,6 +182,7 @@ function fixture(testRequest, { machines = { entry: "1".repeat(64), exit: "2".re
       if (req.command === "start") {
         if (req.action === "bootstrap") owners[role] = {
           pairId: req.pair, role, bundle: digest,
+          ...(req.entry_protocol !== "awg" && { entryProtocol: req.entry_protocol }),
           ...(req.exit_protocol !== "awg" && { exitProtocol: req.exit_protocol }),
         };
         const job = jobs[role][req.action] ?? (++counter).toString(16).padStart(32, "0");
@@ -139,7 +191,7 @@ function fixture(testRequest, { machines = { entry: "1".repeat(64), exit: "2".re
       }
       if (req.command === "status") return { job: req.job, state: "complete" };
       if (req.command === "health") return { services: { protocol: true, adguard: role === "exit" } };
-      if (req.command === "material") return transport;
+      if (req.command === "material") return { ...transport, protocol: req.exit_protocol };
       if (req.command === "overview") return { configured: true, activated: role === "entry", exit_ip: exit.address };
       throw new Error("unhandled fixture command");
     },
@@ -189,6 +241,121 @@ test(`mixed review, ownership, archive and restore bind the ${exitProtocol} exit
   await assert.rejects(fresh.restore(altered), { code: "invalid-recovery" });
 });
 }
+
+const methodFixtures = [
+  ["awg", 51820, 443, "conf"], ["openvpn", 1194, 1194, "ovpn"], ["ikev2", 500, 500, "sswan"],
+  ["xray", 443, 443, "txt"], ["xhttp", 443, 443, "txt"], ["hysteria2", 443, 443, "rookvpn"],
+  ["outline", 443, 443, "rookvpn"], ["shadowsocks", 443, 443, "rookvpn"],
+  ["trusttunnel", 443, 443, "rookvpn"], ["naive", 443, 443, "rookvpn"],
+];
+
+test("reviews all 100 ordered protocol selections with their Android default ports", async () => {
+  for (const [entryProtocol, vpnPort] of methodFixtures) {
+    for (const [exitProtocol, , tunnelPort] of methodFixtures) {
+      const f = fixture();
+      const receipt = await f.review({ entryProtocol, exitProtocol });
+      assert.equal(receipt.entryProtocol, entryProtocol === "awg" ? undefined : entryProtocol);
+      assert.equal(receipt.exitProtocol, exitProtocol === "awg" ? undefined : exitProtocol);
+      const preflights = f.calls.filter(({ req }) => req?.command === "preflight");
+      assert.equal(preflights.length, 2);
+      for (const { req } of preflights) {
+        assert.equal(req.entry_protocol, entryProtocol);
+        assert.equal(req.exit_protocol, exitProtocol);
+        assert.equal(req.vpn_port, vpnPort);
+        assert.equal(req.tunnel_port, tunnelPort);
+      }
+      assert.ok(!f.calls.some(({ mode }) => mode === "runtime"));
+    }
+  }
+});
+
+test("each entry method has a matching owned profile and preserves its identity adapter through restore", async () => {
+  for (const [index, [entryProtocol, , , extension]] of methodFixtures.entries()) {
+    const [exitProtocol] = methodFixtures[(index + 1) % methodFixtures.length];
+    const f = fixture();
+    const review = await f.review({ entryProtocol, exitProtocol });
+    const credentials = entryProtocol === "ikev2" ? { password: "fixture owner VPN password" } : {};
+    await f.deploy(review, credentials);
+    assert.deepEqual(await f.adopt(), review);
+    assert.deepEqual(await f.profile(review), {
+      configuration: nativeProfile(entryProtocol, account).content,
+      filename: `rookstride-${account}.${extension}`,
+    });
+    const archive = await f.manage("capturePairRecovery", review);
+    assert.equal(archive.nodes.entry.adapter, entryProtocol + "-identity-v1");
+    assert.equal(archive.nodes.exit.adapter, exitProtocol + "-identity-v1");
+    assert.equal((await f.manage("rehearsePairRecovery", review, { archive })).verified, true);
+    assert.deepEqual((await fixture().restore(archive)).review, review);
+    if (entryProtocol !== "awg") {
+      delete f.owners.exit.entryProtocol;
+      await assert.rejects(f.adopt(), { code: "ownership-mismatch" });
+    }
+  }
+});
+
+test("IKEv2 entry requires a chosen owner and guest password while profiles exclude it", async () => {
+  const f = fixture();
+  const receipt = await f.review({ entryProtocol: "ikev2" });
+  const ownerPassword = "fixture owner VPN password";
+  const guestPassword = "fixture guest VPN password";
+  assert.ok(!Object.hasOwn(receipt, "password"));
+  await assert.rejects(f.deploy(receipt), { code: "invalid-password", uncertain: false });
+  await assert.rejects(f.deploy(receipt, { password: "invalid\npassword" }), { code: "invalid-password" });
+  assert.ok(!f.calls.some(({ req }) => req?.command === "start"));
+  await f.deploy(receipt, { password: ownerPassword });
+  const bootstrap = f.calls.find(({ role, req }) => role === "entry" && req?.action === "bootstrap");
+  assert.equal(bootstrap.req.password, ownerPassword);
+  const grant = { operation: "grant", login: "guest", revision: initialRevision };
+  await assert.rejects(f.manage("changePairAccount", receipt, grant), { code: "invalid-password" });
+  await f.manage("changePairAccount", receipt, { ...grant, password: guestPassword });
+  const { configuration } = await f.profile(receipt, "guest");
+  assert.deepEqual(JSON.parse(configuration).local, { eap_id: "guest" });
+  assert.ok(!configuration.includes(guestPassword));
+  assert.equal(f.calls.find(({ mode, req }) => mode === "management" && req.action === "grant").req.password, guestPassword);
+});
+
+test("checks architecture assets before a worker route and binds the transfer to each required pinned role", async () => {
+  const missing = fixture(undefined, { loadRuntime: async () => null });
+  await assert.rejects(missing.review({ entryProtocol: "trusttunnel" }), { code: "runtime-unavailable", uncertain: false });
+  const unsupported = fixture(undefined, { architectures: { entry: "x86_64", exit: "i386" } });
+  await assert.rejects(unsupported.review({ exitProtocol: "naive" }), { code: "runtime-unavailable", uncertain: false });
+  assert.ok(unsupported.calls.every(({ mode, req }) => mode !== "runtime" && req?.command !== "start"));
+  const rejected = fixture(undefined, { transferReady: false });
+  const attempted = await rejected.review({ entryProtocol: "trusttunnel" });
+  await assert.rejects(rejected.deploy(attempted), { code: "runtime-transfer-unconfirmed", uncertain: false });
+  assert.ok(rejected.calls.every(({ req }) => req?.command !== "start"));
+  for (const [selection, expected] of [
+    [{ entryProtocol: "trusttunnel" }, [["entry", "x86_64"]]],
+    [{ exitProtocol: "hysteria2" }, [["entry", "x86_64"], ["exit", "aarch64"]]],
+    [{ entryProtocol: "xhttp", exitProtocol: "ikev2" }, []],
+  ]) {
+    const f = fixture();
+    const receipt = await f.review(selection);
+    await f.deploy(receipt);
+    const transfers = f.calls.filter(({ mode }) => mode === "runtime");
+    assert.deepEqual(transfers.map(({ role, architecture }) => [role, architecture]), expected);
+    for (const transfer of transfers) {
+      assert.equal(transfer.req.pair, receipt.pairId);
+      assert.equal(transfer.req.role, transfer.role);
+      assert.equal(transfer.req.entry_protocol, selection.entryProtocol ?? "awg");
+      assert.equal(transfer.req.exit_protocol, selection.exitProtocol ?? "awg");
+      assert.equal(transfer.archive, transfer.architecture);
+      assert.ok(f.calls.indexOf(transfer) < f.calls.findIndex(({ req }) => req?.command === "start"));
+    }
+  }
+  const cached = fixture(undefined, { cachedRuntime: ["entry"] });
+  const review = await cached.review({ exitProtocol: "shadowsocks" });
+  await cached.deploy(review);
+  assert.deepEqual(cached.calls.filter(({ mode }) => mode === "runtime-check").map(({ role }) => role), ["entry", "exit"]);
+  assert.deepEqual(cached.calls.filter(({ mode }) => mode === "runtime").map(({ role }) => role), ["exit"]);
+});
+
+test("refuses an exit transport that does not match the reviewed protocol and address", async () => {
+  const f = fixture((role, mode, req) => req?.command === "material" ? transport : undefined);
+  const review = await f.review({ exitProtocol: "xray" });
+  await assert.rejects(f.deploy(review), { code: "exit-route-unavailable", uncertain: true });
+  assert.ok(!f.calls.some(({ mode }) => mode === "resolver"));
+});
 
 test("the upload manifest is byte-identical to the reviewed Android source digest", async () => {
   const { digest: actual, archive } = await loadPairRecipe();
@@ -332,6 +499,25 @@ test("rejects executable directives and unowned or redirected configuration down
   await assert.rejects(redirected.profile(otherReview), { code: "invalid-profile" });
 });
 
+test("rejects altered endpoints, identities and extra client directives for non-AWG entry profiles", async () => {
+  const variants = {
+    ikev2: (content) => content.replace('"eap_id":"pilot-owner"', '"eap_id":"wrong-owner"'),
+    openvpn: (content) => content.replace("<ca>", "up /tmp/fixture-script\n<ca>"),
+    xhttp: (content) => content.replace("#pilot-owner", "&security=reality#pilot-owner"),
+    naive: (content) => content.replace('"port":443', '"port":444'),
+  };
+  for (const [method, mutate] of Object.entries(variants)) {
+    const f = fixture((role, mode, req) => {
+      if (mode !== "management" || req.action !== "profile") return;
+      const profile = nativeProfile(method, req.login);
+      return { ...profile, content: mutate(profile.content) };
+    });
+    const review = await f.review({ entryProtocol: method });
+    await f.deploy(review, method === "ikev2" ? { password: "fixture VPN password" } : {});
+    await assert.rejects(f.profile(review), { code: "invalid-profile" });
+  }
+});
+
 test("reopens only matching pinned owned nodes with the original login and stays read-only during outage", async () => {
   const run = fixture((role, mode, req) => role === "exit" && mode === "management" && req.action === "node"
     ? { pairId: req.pair, role, bridge, topologyRevision: 1, healthy: false, dnsHealthy: false }
@@ -462,6 +648,36 @@ test("larger SSH limits apply only to recovery export and rehearsal", async () =
     mode: "recovery", request: { action: "rehearse-pair", archive: { body: "x".repeat(2 * 1024 * 1024) } },
   }));
   assert.equal(oversized.calls.length, 0);
+});
+
+test("worker transfer uses the same fixed SSH input with the exact reviewed topology and raw archive", async () => {
+  const client = new EventEmitter();
+  const payload = [];
+  client.exec = (command, options, callback) => {
+    assert.match(command, /^\/usr\/bin\/python3 -I -B -c /);
+    const channel = new EventEmitter();
+    channel.stderr = { resume() {} };
+    channel.write = (part) => payload.push(part);
+    channel.end = () => {
+      channel.emit("data", Buffer.from('{"ready":true}'));
+      channel.emit("close", 0);
+    };
+    callback(null, channel);
+  };
+  const topology = {
+    pair: "b".repeat(32), role: "exit", engine: "native-v2", entry_protocol: "xray", exit_protocol: "trusttunnel",
+    server: entry.address, exit_host: exit.address, vpn_port: 443, tunnel_port: 443,
+  };
+  const archive = Buffer.from([0, 255, 13, 10, 4]);
+  const routePins = Buffer.from("fixture route pins");
+  assert.deepEqual(await executePairRuntime(client, { topology, architecture: "aarch64", routePins, archive }), { ready: true });
+  assert.equal(payload.length, 2);
+  const [, header] = payload[0].split("\n");
+  assert.deepEqual(JSON.parse(header), {
+    action: "pairRuntime", address: exit.address, topology,
+    runtimeArchitecture: "aarch64", routesPins: routePins.toString("base64"),
+  });
+  assert.deepEqual(payload[1], archive);
 });
 
 test("the remote account handler binds the update to the current roster under the native locks", () => {

@@ -22,6 +22,7 @@ type PairView = {
 
 type Props = {
   owner: string;
+  passwordForGuest?: boolean;
   busy: boolean;
   post: (
     body: { action: string; [key: string]: unknown },
@@ -138,6 +139,7 @@ export function isCanonicalArchiveCode(code: string) {
 
 export function PairManagement({
   owner,
+  passwordForGuest = false,
   busy,
   post,
   run,
@@ -170,7 +172,7 @@ export function PairManagement({
     }, text.unavailable);
   }
 
-  function account(operation: "grant" | "revoke", login: string) {
+  function account(operation: "grant" | "revoke", login: string, vpnPassword?: string) {
     if (busy || !view || login === owner || !pairLogin.test(login)) return;
     const revision = view.revision;
     setView(null);
@@ -178,7 +180,8 @@ export function PairManagement({
     setRemoval("");
     run(async (signal) => {
       const response = await post(
-        { action: "pairAccount", operation, login, revision, confirmed: true },
+        { action: "pairAccount", operation, login, revision, confirmed: true,
+          ...(vpnPassword && { vpnPassword }) },
         signal,
       );
       const result = await readView(response, owner);
@@ -191,12 +194,19 @@ export function PairManagement({
   function grant(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const form = event.currentTarget;
-    const login = String(new FormData(form).get("login") ?? "").trim();
+    const data = new FormData(form);
+    const login = String(data.get("login") ?? "").trim();
     if (!pairLogin.test(login)) {
       notify(copy.pair.invalidLogin);
       return;
     }
-    account("grant", login);
+    const password = data.get("vpnPassword");
+    if (passwordForGuest && (typeof password !== "string" || !password.length)) {
+      notify(copy.pair.invalidVpnPassword);
+      return;
+    }
+    if (passwordForGuest) form.reset();
+    account("grant", login, passwordForGuest && typeof password === "string" ? password : undefined);
   }
 
   function reviewRemoval() {
@@ -426,6 +436,12 @@ export function PairManagement({
                 disabled={busy}
               />
             </label>
+            {passwordForGuest && (
+              <label>
+                {copy.pair.vpnPassword}
+                <input type="password" name="vpnPassword" autoComplete="new-password" required maxLength={127} disabled={busy} />
+              </label>
+            )}
             <button className="button secondary" type="submit" disabled={busy}>
               {text.grant}
             </button>

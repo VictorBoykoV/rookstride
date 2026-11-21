@@ -276,3 +276,29 @@ test(`binds a mixed archive to the reviewed ${exitProtocol} identity and both po
   await assert.rejects(encryptPairRecovery(archive, password, { ...mixed, login: "different-owner" }), /does not match/);
 });
 }
+
+test("an Android recovery file binds the non-default entry as well as the exit", async () => {
+  const mixed = { ...review, entryProtocol: "ikev2", exitProtocol: "naive", login: "first.user" };
+  const archive = archiveFixture();
+  for (const [role, node] of Object.entries(archive.nodes)) {
+    const protocol = mixed[role + "Protocol"];
+    Object.assign(node.plan, { entry_protocol: "ikev2", vpn_port: 500, exit_protocol: "naive" });
+    Object.assign(node.state, { protocol, server: mixed[role].address, port: role === "entry" ? 500 : 443 });
+    node.adapter = protocol + "-identity-v1";
+  }
+  const encrypted = await encryptPairRecovery(archive, password, mixed);
+  assert.deepEqual(await decryptPairRecovery(encrypted, password, mixed), archive);
+  await assert.rejects(decryptPairRecovery(encrypted, password, { ...mixed, entryProtocol: undefined }), /does not match/);
+  await assert.rejects(decryptPairRecovery(encrypted, password, { ...mixed, entryProtocol: "openvpn" }), /does not match/);
+  for (const mutate of [
+    (node) => { node.plan.vpn_port = 51820; },
+    (node) => { node.plan.entry_protocol = "awg"; },
+    (node) => { node.state.port = 4500; },
+    (node) => { node.state.protocol = "awg"; },
+    (node) => { node.adapter = "awg-identity-v1"; },
+  ]) {
+    const changed = structuredClone(archive);
+    mutate(changed.nodes.entry);
+    await assert.rejects(encryptPairRecovery(changed, password, mixed), /does not match/);
+  }
+});

@@ -18,32 +18,43 @@ export default function Downloads() {
       <div className="download-grid">
         <section className="download-card">
           <Icon name="phone" />
-          <h2>{copy.apkTitle}</h2>
-          <p>{copy.apkBody}</p>
-          <a
-            className="button primary"
-            href={publicProjectLinks.androidApk}
-            target="_blank"
-            rel="noreferrer"
-          >
-            {copy.apkDownload} <Icon name="external" />
-          </a>
-          <a className="text-link" href={publicProjectLinks.androidRelease}>
-            {copy.releases}
-          </a>
+          <div>
+            <h2>{copy.apkTitle}</h2>
+            <p>{copy.apkBody}</p>
+          </div>
+          <div className="download-actions">
+            <a className="button primary" href={publicProjectLinks.androidApk} download>
+              {copy.apkDownload} <Icon name="download" />
+            </a>
+            <div className="download-links">
+              <a className="text-link" href={publicProjectLinks.androidApkGitHub}>
+                {copy.apkGitHub}
+              </a>
+              <a className="text-link" href={publicProjectLinks.androidApkUniversal}>
+                {copy.apkUniversal}
+              </a>
+            </div>
+          </div>
         </section>
         <section className="download-card">
           <Icon name="agent" />
-          <h2>{copy.sourceTitle}</h2>
-          <p>{copy.sourceBody}</p>
-          <a
-            className="button secondary"
-            href={publicProjectLinks.androidRepository}
-            target="_blank"
-            rel="noreferrer"
-          >
-            {copy.source} <Icon name="external" />
-          </a>
+          <div>
+            <h2>{copy.sourceTitle}</h2>
+            <p>{copy.sourceBody}</p>
+          </div>
+          <div className="download-actions">
+            <a
+              className="button secondary"
+              href={publicProjectLinks.androidRepository}
+              target="_blank"
+              rel="noreferrer"
+            >
+              {copy.source} <Icon name="external" />
+            </a>
+            <a className="text-link" href={publicProjectLinks.androidRelease}>
+              {copy.releases}
+            </a>
+          </div>
         </section>
       </div>
       <section className="download-help">
