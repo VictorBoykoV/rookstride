@@ -1,69 +1,58 @@
 # Web app architecture
 
-Rookstride uses Next.js for the website and browser app, Payload CMS for
-editing, and separate Node.js processes for VPN administration. The VPN
-servers carry a connected device’s traffic. The website serves the setup
-interface, guides and Android downloads.
+Rookstride has a public website, a browser VPN workspace and a local operator
+connector. The workspace is open to everyone. You verify your browser and sign
+in to Ubuntu servers you control. Your VPN client connects to those servers to
+carry its traffic. [Public VPN workspace](https://web.rookstride.com/) · [How Rookstride works](https://rookstride.com/how-it-works)
 
 ```mermaid
 flowchart LR
-  visitor["Website visitor"] -->|"HTTPS"| reader["Public Next.js reader"]
-  assistant["Public MCP client"] -->|"HTTPS · /mcp"| reader
-  editor["Site editor"] -->|"Private connection"| cms["Payload CMS · private SQLite"]
-  operator["Invited browser"] -->|"HTTPS · VPN workspace"| worker["Hosted VPN worker"]
-  local["Local browser or operator MCP"] -->|"Loopback browser or local stdio"| localWorker["Local management service"]
-  worker -->|"Pinned SSH"| entry["Your Ubuntu VPS · single gateway or entry"]
-  localWorker -->|"Pinned SSH"| entry
-  device["Android or compatible VPN client"] -->|"VPN connection"| entry
-  entry -->|"Single VPN"| internet["Internet"]
-  entry -->|"Double VPN"| exit["Your exit VPS"]
-  exit --> internet
+  Visitor["Website visitor"] -->|HTTPS| Reader["Next.js public reader"]
+  Viewer["Verified browser"] -->|HTTPS| Worker["Node.js SSH worker"]
+  Editor["Site editor"] -->|CMS sign-in| CMS["Payload CMS"]
+  PublicMCP["Public MCP client"] -->|HTTPS| Reader
+  Local["Local browser or operator MCP"] --> LocalWorker["Local management runtime"]
+  Worker -->|Pinned SSH| Entry["Your Ubuntu gateway or entry VPS"]
+  LocalWorker -->|Pinned SSH| Entry
+  Device["Compatible VPN client"] -->|VPN connection| Entry
+  Entry -->|Single VPN| Internet["Internet"]
+  Entry -->|Double VPN| Exit["Your exit VPS"]
+  Exit --> Internet
 ```
 
 ## What runs where
 
-| Component | Responsibility |
-|---|---|
-| [Public reader](https://rookstride.com) | Serves published pages, the demo, APK downloads and the public MCP examples. [The reader policy](../web/src/lib/web-runtime.mjs) allows the public routes and assets. |
-| Private CMS | Stores editor accounts, drafts and uploads in a separate SQLite database and media directory. The reader has its own publication state. [Publishing and deployment](../web/deploy/README.md) |
-| [Hosted VPN workspace](https://vpn.rookstride.com/vpn) | Uses an invitation bound to approved servers and SSH fingerprints. A separate [hosted worker](../web/scripts/hosted-pilot.mjs) handles the VPN API and reserves the enrolled targets for the session. |
-| [Local browser app](../web/README.md#start-locally) | Runs on loopback. Its [gateway endpoint](../web/src/app/api/gateway/route.ts) runs the account and installation workflow using the reviewed recipes in this checkout. |
-| [Local operator MCP](../web/README.md#operate-one-real-vps-with-a-local-assistant) | Runs on the operator’s computer over stdio. It reads a private target file and requires separate terminal approval for installation, account changes, sensitive downloads and recovery. |
-| Ubuntu gateways | Hold the VPN service, accounts and filtering configuration. The browser exports a profile for a compatible VPN client. |
+| Component | What it does |
+| --- | --- |
+| [Public website](https://rookstride.com/) | A Next.js and React reader serves guides, Journal, Comics, APK downloads, the browser demo and public MCP examples. |
+| Private editorial CMS | Payload stores editor accounts, drafts and media. The database and uploads belong to the CMS. The public reader serves approved content using its own data directory. [Website and CMS deployment](../web/deploy/README.md) |
+| [Browser workspace](https://web.rookstride.com/) | A Next.js interface offers Single VPN, Double VPN and reopening an existing VPN. ALTCHA verifies the browser. The workspace displays queue and job progress and lets the operator download compatible profiles. |
+| Hosted SSH worker | A separate Node.js process uses `ssh2`, bounded sessions and target reservations. It validates the requested operation, checks the SSH host key, and runs reviewed gateway recipes on the chosen VPS. [Worker source](../web/scripts/hosted-pilot.mjs) |
+| [Local browser](../web/README.md#start-locally) | The loopback workspace uses the workstation’s SSH connection for operations supported by the local runtime. |
+| [Local operator MCP](../web/README.md#operate-one-real-vps-with-a-local-assistant) | Runs over stdio on the operator’s computer. Uses a private target file and a separate terminal approval for installation, management changes, sensitive downloads and recovery. |
+| [Public MCP](https://rookstride.com/mcp) | Serves read-only examples over Streamable HTTP. [Assistant setup](https://rookstride.com/agents) |
+| Ubuntu gateways | Run the VPN service, own its user list and apply DNS filtering where supported. The browser exports a profile for a compatible device client. |
 
-The public [MCP endpoint](https://rookstride.com/mcp) offers example inspection
-and capability tools. The [browser demo](https://rookstride.com/manage) uses
-example server data and simulates setup, account changes and downloads.
+## How setup reaches your server
 
-## Setup and trust
+1. Open the workspace, choose a setup, and enter your VPS address and sign-in.
+   The browser reviews the discovered SSH host key or uses a fingerprint you
+   provide. The SSH connection checks the approved key before authentication.
+2. Review the chosen protocol and operation. The worker binds the operation
+   to the browser session and reserves the target while doing the work.
+3. The reviewed recipe runs on the VPS. Double VPN verifies exit routing and
+   DNS before forwarding traffic from the entry. Download the profile and
+   connect using a compatible VPN client.
 
-1. Inspect the server with an independently verified SSH fingerprint. The
-   SSH connection checks that pin before sending authentication.
-2. Review the exact target, method and operation. The worker binds approval
-   to the active session and reserves the target against another installation.
-   It sends typed requests and the reviewed recipe over SSH.
-3. Check the installed gateway and export a compatible client profile. Double
-   VPN verifies routing and DNS at the exit before activating forwarding from
-   the entry. A separate client can then verify HTTPS, exit address and DNS.
+The browser and local operator connector offer ten standalone methods. Double
+VPN checks the selected entry and exit methods against the two inspected
+servers. Protocol support, profile format, repair and recovery vary by method
+and host. [Connection methods](CONNECTION-METHODS.md) · [Maintenance and recovery](MAINTENANCE-AND-RECOVERY.md)
 
-SSH passwords and exported profiles stay within the authorized operation.
-The CMS stores editorial data. The operator keeps server records, recovery
-archives and private configuration files separately. See
-[security](../SECURITY.md) and [maintenance and recovery](MAINTENANCE-AND-RECOVERY.md).
+Cloudflare proxies the public site and browser workspace over HTTPS. The
+workspace and its credential-bearing requests use cache bypass. The app,
+SSH worker and user VPS enforce browser admission, SSH authentication and
+gateway permissions. On supported gateways, AdGuard Home filters DNS on
+the single server or the Double VPN exit. [Security](../SECURITY.md)
 
-## Current availability
-
-The workstation browser and local MCP offer ten standalone methods and ten
-choices for each Double VPN role. The local live trial used both interfaces
-and an independent Linux client across fifteen routes – nine additional entry
-methods with an AmneziaWG exit and six additional exits with an AmneziaWG
-entry. Route-specific outage and rebuild qualification is separate.
-
-The hosted pilot currently admits one preapproved pair. It offers AmneziaWG
-at the entry and AmneziaWG, OpenVPN certificate mode, IKEv2 or VLESS
-TCP/REALITY at the exit. The paired rebuild control is disabled in that
-deployment. The source supports separate enrollment and recovery
-configurations for isolated trials.
-
-[Run the web app locally](../web/README.md) ·
-[Android and gateway architecture](ARCHITECTURE.md) · [Release tests](TESTING.md)
+[Run the web app locally](../web/README.md#start-locally) · [Android and gateway architecture](ARCHITECTURE.md) · [Release tests](TESTING.md)

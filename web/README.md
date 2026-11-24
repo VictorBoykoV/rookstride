@@ -1,10 +1,9 @@
 # Rookstride website and browser app
 
-This source contains the [public website](https://rookstride.com), private
-Payload editor, browser demo, personal VPN workspace and the hosted pilot
-adapter. The VPN service and its user list live on your Ubuntu servers. See
-[web app architecture](../docs/WEB-ARCHITECTURE.md) for the service boundaries
-and currently admitted workflows.
+This source contains the public website, private Payload editor, browser demo,
+local VPN workspace and hosted VPN worker. The public workspace uses browser
+verification and your VPS sign-in. The VPN service and its user list live on
+your Ubuntu servers. [Public website](https://rookstride.com) · [Public VPN workspace](https://web.rookstride.com/) · [Web app architecture](../docs/WEB-ARCHITECTURE.md)
 
 ## Prerequisites
 
@@ -308,7 +307,7 @@ compatible existing Ubuntu host. The provider still supplies a blank server
 or a rebuild when the SSH replacement adapter cannot run.
 
 The connector shares the workstation browser's single-server replacement
-adapter. The hosted browser pilot offers Ubuntu eligibility checks.
+adapter. The public browser workspace can check Ubuntu eligibility.
 Delegated administration has its own workflow. The assistant endpoint at
 rookstride.com serves read-only examples.
 
@@ -334,9 +333,8 @@ methods. Omit either field for AmneziaWG. For IKEv2 at the entry, the approval
 terminal collects the VPN password when installing or granting a guest. For
 methods that require the Linux route runtime, set `ROOKSTRIDE_ROUTE_ASSETS`
 as described above. Live installation, rebuild and recovery have per-route
-test scope. An isolated hosted worker can offer an AmneziaWG entry with
-AmneziaWG, OpenVPN certificate, IKEv2 or VLESS TCP/REALITY on the exit using
-`ROOKSTRIDE_PILOT_PAIR_EXIT_CHOICES=1`. Disk replacement is enabled separately.
+test scope. The public browser workspace offers the method selectors after
+checking both servers. The selected route must pass its own preflight.
 For a reviewed Ubuntu rebuild and identity restore, set
 `ROOKSTRIDE_MCP_PAIR_REBUILD=1` and set
 `ROOKSTRIDE_MCP_PAIR_REBUILD_STATE_DIR` to an absolute path to a dedicated,

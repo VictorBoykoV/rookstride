@@ -5,7 +5,7 @@
 <h1 align="center">Rookstride</h1>
 
 <p align="center">
-  Deploy your VPN. Share access. Keep moving.<br>
+  Run a VPN you control.<br>
   An open-source VPN manager for Ubuntu servers you rent.
 </p>
 
@@ -33,8 +33,8 @@
 Rookstride sets up and manages a VPN on your own Ubuntu VPS. The Android app
 includes ten connection methods, account management and experimental Double VPN.
 See the [device guide](https://rookstride.com/connect) for supported clients and
-profile formats. The [website](https://rookstride.com) also offers a browser demo,
-an invitation-only VPN workspace and [assistant setup](https://rookstride.com/agents).
+profile formats. The website offers a browser demo, a public VPN workspace and
+assistant setup. [Rookstride website](https://rookstride.com) · [VPN workspace](https://web.rookstride.com/) · [Assistant setup](https://rookstride.com/agents)
 
 **Android 0.4.0-alpha6** requires Android 8 or later. ARM64 is the recommended
 download for most Android phones.
@@ -139,7 +139,7 @@ Existing installations of the bundled [single VPS gateway](https://github.com/Vi
 ## How it works
 
 Single VPN routes traffic through one VPS. Double VPN passes traffic from the
-entry VPS to a separate exit VPS. See [How Rookstride works](https://rookstride.com/self-hosted-vpn)
+entry VPS to a separate exit VPS. See [How Rookstride works](https://rookstride.com/how-it-works)
 and the [Android architecture](docs/ARCHITECTURE.md). The diagram shows a
 single-server IKEv2 example.
 
@@ -212,7 +212,7 @@ route and use dedicated test servers. [Pair contract and test scope](docs/PAIR-M
 | Entry point | Available workflow |
 |---|---|
 | [Browser demo](https://rookstride.com/manage) | Try setup and management with example servers and sample profiles. |
-| [Hosted VPN workspace](https://vpn.rookstride.com/vpn) | Invitation-only administration of approved, pinned servers. |
+| [Public VPN workspace](https://web.rookstride.com/) | Verify your browser, then sign in to Ubuntu servers you control to set up or manage Single VPN or Double VPN. |
 | [Local browser app](web/README.md#start-locally) | Manage your own single server or Double VPN from a loopback workspace. |
 | [Agent setup](https://rookstride.com/agents) | Use read-only examples over public MCP or run the local operator connector for real, approved actions. |
 
