@@ -1,7 +1,9 @@
 # Embedded Android connection engines
 
-Private 0.3.0-alpha18 candidate. Installation, import and connection are separate
-operations within the same app. No companion VPN application is required.
+Installation, import and connection are separate operations within the Android
+app. The engine notes on this page began with the private 0.3.0-alpha18
+candidate. See the release and test guides for the current signed APK and its
+verified scope. [Connection methods](CONNECTION-METHODS.md) · [Release tests](TESTING.md)
 
 | Protocol | Phone implementation | Initial connected state |
 | --- | --- | --- |

@@ -1,8 +1,9 @@
 # Single-server protocol adapters
 
-Private 0.3.0-alpha19 development candidate. Protocol adapters share lifecycle and
-module contracts, with separate native engines and the existing IKEv2 recipe.
-Read the exact candidate's test report before publishing support claims.
+These protocol adapter notes began with the private 0.3.0-alpha19 candidate.
+The adapters share lifecycle and module contracts, with separate native engines
+and the IKEv2 recipe. The release guides identify the signed Android edition
+and the scope verified for it. [Connection methods](CONNECTION-METHODS.md) · [Release tests](TESTING.md)
 
 | Choice | Server runtime | Phone client in this edition |
 | --- | --- | --- |
