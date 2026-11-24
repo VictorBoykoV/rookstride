@@ -25,7 +25,7 @@ The live Double VPN traffic trial above ran separately.
 Physical-device and OEM behavior, network handoff and sustained-load
 qualification remain separate. Available methods and tested pairs are listed
 in the [pair guide](PAIR-MODE.md). See the
-[web architecture](WEB-ARCHITECTURE.md#current-availability) for browser and
+[web architecture](WEB-ARCHITECTURE.md#what-runs-where) for browser and
 MCP scope.
 
 ## Historical 0.1.0-alpha2 single-server tests

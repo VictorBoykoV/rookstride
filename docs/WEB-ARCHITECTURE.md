@@ -5,6 +5,10 @@ connector. The workspace is open to everyone. You verify your browser and sign
 in to Ubuntu servers you control. Your VPN client connects to those servers to
 carry its traffic. [Public VPN workspace](https://web.rookstride.com/) · [How Rookstride works](https://rookstride.com/how-it-works)
 
+The hosted workspace has its own deployment and release evidence. This
+repository provides the released Android source and the public source for
+running the website, browser tools and local operator connector. [Android release tests](TESTING.md) · [Run the web app locally](../web/README.md#start-locally)
+
 ```mermaid
 flowchart LR
   Visitor["Website visitor"] -->|HTTPS| Reader["Next.js public reader"]

@@ -1,8 +1,10 @@
 # Rookstride: one app, several routes
 
-Research and source review: **13 October 2026**. This is an implementation proposal, not a claim that the published APK supports these routes.
+**Historical research and source review · 13 October 2026.** The tables below
+describe the alpha2 baseline and the proposals made at that time. For shipped
+methods and release evidence, use the current guides. [Connection methods](CONNECTION-METHODS.md) · [Double VPN](PAIR-MODE.md) · [Release tests](TESTING.md)
 
-> **Implementation update:** the `0.2.0-alpha1` source now includes the first IKEv2 → AmneziaWG pair. See [pair operations](PAIR-MODE.md) and [pair test scope](PAIR-TESTING.md). This document retains the original design review; other engines remain proposals and the alpha2 binary is unchanged.
+> The first IKEv2 → AmneziaWG pair followed in `0.2.0-alpha1`. Its test record applies to that signed build. [Alpha1 pair evidence](PAIR-TESTING.md)
 
 ## Decision
 
@@ -10,7 +12,8 @@ Research and source review: **13 October 2026**. This is an implementation propo
 
 Start with **IKEv2 on the entry + AmneziaWG 3.1 between entry and exit**. This reuses the existing embedded strongSwan client. Then add individual protocol adapters, with deployment, export, integrated connection and test status tracked separately. Offer tested recipes rather than every possible combination.
 
-The current **0.1.0-alpha2 APK supports one VPS, IKEv2/strongSwan, AdGuard Home and Unbound**. Neither a two-host installer nor another client engine has been added to that binary. The original two-hop deployment did not receive a successful physical-phone end-to-end verification; the previous single-server tests do not certify a pair.
+The **0.1.0-alpha2 APK** supported one VPS with IKEv2/strongSwan, AdGuard Home
+and Unbound. The original two-hop deployment had a separate test scope.
 
 ## What the names mean
 
@@ -78,7 +81,9 @@ On failure, **quiesce client forwarding** and retain the reject/blackhole protec
 
 ## Audit of the existing Two-Hop VPN Gateway
 
-Reviewed local revision **876039c60f92768c34516b89fa8a2420d88244ae** of [the existing repository](https://github.com/VictorBoykoV/beget-vpn-gateway). These are source findings; no new pair was deployed during this review.
+This review examined revision **876039c60f92768c34516b89fa8a2420d88244ae** of
+the legacy repository. The findings below are from that source review. The
+maintained standalone template is available separately. [Two-Hop VPN Gateway](https://github.com/VictorBoykoV/two-hop-vpn-gateway)
 
 | Finding | Exact source | Required before phone integration |
 |---|---|---|
@@ -146,6 +151,6 @@ Existing repository checks and Android JVM tests can be rerun locally. The reade
 - [Xray core and license](https://github.com/XTLS/Xray-core)
 - [Xray transport compatibility](https://xtls.github.io/en/config/transport.html)
 - [Xray UDP/outbound behavior](https://xtls.github.io/en/config/outbound.html)
-- [Existing Two-Hop VPN Gateway](https://github.com/VictorBoykoV/beget-vpn-gateway)
+- [Maintained Two-Hop VPN Gateway](https://github.com/VictorBoykoV/two-hop-vpn-gateway)
 
 Upstream pages and mutable branches were checked on the research date. Before implementation, freeze exact revisions and rerun the compatibility review.
